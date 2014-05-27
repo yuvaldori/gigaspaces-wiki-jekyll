@@ -283,3 +283,4 @@ will propagate to the underlying external data source.
 
 1. When replicated to a gateway and a conflict occurs, change operation only supports the built in `abort` resolution as `override` in change case may result with an inconsistent state of the object.
 2. The change operation is converted to a regular update when delegated to a data source.
+3. Enum values should be explicitly cast to primitive types in version 9.7.X.
