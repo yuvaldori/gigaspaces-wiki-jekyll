@@ -137,9 +137,9 @@ The `LRMI` configuration options set as system properties. They are listed below
 | `java.rmi.server.hostname` | Binds the GigaSpaces Server on a specified network interface. See details  [below](#server)). If `java.rmi.server.hostname` is `null` the system sets the localhost IP address. | `hostname` | Client & Server | | No|
 | `com.gs.transport_protocol.lrmi.idle_connection_timeout` | Watchdog idle connection timeout. | `900` sec| Client| Seconds |Yes|
 | `com.gs.transport_protocol.lrmi.request_timeout` | Watchdog request timeout. | `30` sec| Client | Seconds |Yes|
-| `com.gs.transport_protocol.lrmi.inspect_timeout`| Watchdog dummy packet connection timeout used when the watchdog suspects a request connection is blocked (com.gs.transport_protocol.lrmi.request_timeout elapsed). | `1000` millisec| Client | millisec|Yes|
+| `com.gs.transport_protocol.lrmi.inspect_timeout`| Watchdog dummy packet connection timeout used when the watchdog suspects a request connection is blocked (com.gs.transport_protocol.lrmi.request_timeout elapsed). | `10` sec| Client | sec|Yes|
 | `com.gs.transport_protocol.lrmi.threadpool.idle_timeout` | LRMI thread pool idle timeout. Usually should be tuned for server side| `300000` milisec| Server | millisec| No|
-| `com.gs.transport_protocol.lrmi.connect_timeout` | LRMI timeout to establish a socket connection | 5000| Server | millisec| No|
+| `com.gs.transport_protocol.lrmi.connect_timeout` | LRMI timeout to establish a socket connection | 30| Server | sec| No|
 | `com.gs.transport_protocol.lrmi.maxBufferSize` | The NIO internal cache (a DirectByteBuffer) might cause an `OutOfMemoryError` due-to direct memory exhaustion. To avoid such a scenario, the LRMI layer breaks the outgoing buffer into a several chunks. By doing so, the NIO internal cache is kept small, and may not cause any error. The size of these chunks can be determined by this property| `65536` (64k)| Client & Server | Bytes | Yes |
 | `com.gs.transport_protocol.lrmi.selector.threads` | LRMI selector threads. This should be configured with multi core machines. Usualy should be tuned for server side| `4` | Client & Server | Threads| No|
 | `com.gs.transport_protocol.lrmi.classloading` | Enables LRMI dynamic class loading.| `true` | Server | boolean value| No|
