@@ -179,6 +179,23 @@ This bean controls the actual web context that corresponds to the web applicatio
 In the plain mode, the context path can be the same for all different instances of the web application, even if they are running on the same GSC (JVM).
 {%endnote%}
 
+## Jetty and Maven Plugin
+
+If you are using Maven for create, compile, package, run unit tests, execute and deploy Processing Unit which is a web application pleased note that inside your WAR file you wouldn't have any Jetty jars. In your project pom.xml you should exclude jetty-all inside com.gigaspaces dependency. 
+For example:
+
+<dependency>
+	<groupId>com.gigaspaces</groupId>
+	<artifactId>gs-openspaces</artifactId>
+	<version>9.7.0-10496-RELEASE</version>
+	<exclusions>
+		<exclusion>
+			<groupId>org.eclipse.jetty.aggregate</groupId>
+			<artifactId>jetty-all</artifactId>
+		</exclusion>
+	<exclusions>
+</dependency>
+
 ## Examples
 
 Lets take some deployment scenarios examples and see how the plain mode works. If we have a web application packaged as WAR, by the name petclinic. We have started four GSCs, two on each machine. We then deploy 4 instances of the petclinic application.
