@@ -42,6 +42,22 @@ For example, if you are using GigaSpaces XAP {{site.latest_xap_version}} you sho
 <gsVersion>{{site.latest_maven_version}}</gsVersion>
 {% endhighlight %}
 
+- And for versions less than 10, you should also modify the 'pom.xml' to have:
+
+{% highlight java %}
+<dependency>
+	<groupId>com.gigaspaces</groupId>
+	<artifactId>gs-openspaces</artifactId>
+	<version>${gsVersion}</version>
+	<exclusions>
+		<exclusion>
+			<groupId>org.eclipse.jetty.aggregate</groupId>
+			<artifactId>jetty-all</artifactId>
+		</exclusion>
+	</exclusions>
+</dependency>
+{% endhighlight %}
+
 - Run the following Maven command:
 
 {% highlight java %}
