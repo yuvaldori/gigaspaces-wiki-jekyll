@@ -9,11 +9,7 @@ weight: 400
 {% summary%}{% endsummary %}
 
 
-{%comment%}
-{% summary %}About failure detection, reducing failure detection time, and relevant parameters.{% endsummary %}
 
-# Overview
-{%endcomment%}
 
 Failure detection is the time it takes for the space and the client to detect that failure has occurred. Failure detection consists of two main phases:
 
@@ -29,7 +25,7 @@ One of two main failure scenarios might occur:
 - Process failure or machine crash
 - Network cable disconnection
 
-It takes GigaSpaces a few seconds to recover from process failure or a machine crash. In case of network cable disconnection, the client first has to detect that it has been disconnected from the machine running the space. Therefore, recovery time in this case is longer. For details on how network failure is detected and handled, see the [Communication Protocol]({%currentadmurl%}/tuning-communication-protocol.html#watchdog) section.
+It takes XAP a few seconds to recover from process failure or a machine crash. In case of network cable disconnection, the client first has to detect that it has been disconnected from the machine running the space. Therefore, recovery time in this case is longer. For details on how network failure is detected and handled, see the [Communication Protocol]({%currentadmurl%}/tuning-communication-protocol.html#watchdog) section.
 
 # Reducing Failure Detection Time
 
@@ -79,14 +75,14 @@ For additional tuning options please contact the [GigaSpaces Support Team](http:
 
 The following parameters in the cluster schema [active election](#Active Election and Avoiding Split-Brain Scenarios) block regard failure detection and recovery:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Parameter|Parameter Description|Default Value| Unit |
 |:--------|:--------------------|:------------|:-----|
-| -`yield-time` |This parameter allows you to configure the time it takes to yield to other participants between every election phase. | `1000` | millisec |
-| -`fault-detector.invocation-delay` |This parameter limits the amount of time the backup space waits between each ping to the primary space. | `1000`| millisec |
-| -`fault-detector.retry-count` |Related to the `fault-detector.invocation-delay` parameter, defines the number of times the backup checks if the primary space has failed | `3`|   |
-| -`fault-detector.retry-timeout` |Related to the `retry-count` parameter, defines the time between retries the backup checks if the primary space has failed | `100`| millisec |
-| -`connection-retries` | Defines the number of times the space instance will try to establish connection with the lookup service. The wait time in between retries is defined by the `yield-time` parameter | `60` | |
+| yield-time |This parameter allows you to configure the time it takes to yield to other participants between every election phase. | `1000` | millisec |
+| fault-detector.invocation-delay |This parameter limits the amount of time the backup space waits between each ping to the primary space. | `1000`| millisec |
+| fault-detector.retry-count |Related to the `fault-detector.invocation-delay` parameter, defines the number of times the backup checks if the primary space has failed | `3`|   |
+| fault-detector.retry-timeout |Related to the `retry-count` parameter, defines the time between retries the backup checks if the primary space has failed | `100`| millisec |
+| connection-retries | Defines the number of times the space instance will try to establish connection with the lookup service. The wait time in between retries is defined by the `yield-time` parameter | `60` | |
 
 
 {%warning%}
@@ -129,11 +125,11 @@ org.openspaces.pu.container.servicegrid.PUFaultDetectionHandler.level = INFO
 
 The `LeaseRenewalManager` in the `advanced-space.config` file is also related to failure detection and recovery:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Parameter|Parameter Description|Default Value|
 |:--------|:--------------------|:------------|
-| `maxLeaseDuration` | The time the system waits between every lease renewal, for example: if the parameter value is `8000`, the system renews the space lease every 8000 `[milliseconds]`.{% wbr %}{% infosign %} As this value is reduced, renewal requests are performed more frequently while the service is up, and lease expiration occurs sooner when the service goes down. | `8000` |
-| `roundTripTime` | This parameter instructs the renewal process to begin a certain amount of time (by default, 100 `[milliseconds]`) before the actual renewal time, thus making sure that the renewal process is successful.{% wbr %}{% exclamation %} Significantly low values might result in failure to renew a lease. Durations of managed leases should exceed the `roundTripTime`. | `4000` |
+| maxLeaseDuration | The time the system waits between every lease renewal, for example: if the parameter value is `8000`, the system renews the space lease every 8000 `[milliseconds]`.{% wbr %}{% infosign %} As this value is reduced, renewal requests are performed more frequently while the service is up, and lease expiration occurs sooner when the service goes down. | `8000` |
+| roundTripTime | This parameter instructs the renewal process to begin a certain amount of time (by default, 100 `[milliseconds]`) before the actual renewal time, thus making sure that the renewal process is successful.{% wbr %}{% exclamation %} Significantly low values might result in failure to renew a lease. Durations of managed leases should exceed the `roundTripTime`. | `4000` |
 
 {% endtoczone %}
 
