@@ -133,7 +133,7 @@ Query Aggregation, Custom Change
 This option demonstrates `XAP API` calls such as writing, reading and querying data from the deployed `myDataGrid`.
 The program will run by itself, you just need to `press enter` to advance to the next example.
 
-The Tutorial using a simple POJO to interact with the Space. Here is a sample code:
+The tutorial uses simple POJOs to interact with the Space. Here is an example:
 
 {%highlight java%}
 package demo;
@@ -229,7 +229,7 @@ This option will introduce you to some unique XAP features:
 ## Interactive Shell
 
 This option opens an interactive Groovy shell with `XAP` classes preloaded, that allows you to exercise the `XAP API`.
-When you launch this option you should see the following sceen:
+When you launch this option you should see the following screen:
 
 ![yy](/attachment_files/qsg/groovyshell.png)
 
@@ -360,7 +360,7 @@ You can start XAP's console and inspect the Data Grid components that have been 
 {% endtabcontent %}
 {% endinittab %}
 
-After you execute the above command, open a your web browser, point to `http://your_host:8099`. The login screen will be displayed. The following screenshots demonstrate some of the UI features: (no username and password needed)
+After you execute the above command, open your web browser, point to `http://your_host:8099`. The login screen will be displayed. The following screenshots demonstrate some of the UI features: (no username and password needed)
 
 
 {%section%}

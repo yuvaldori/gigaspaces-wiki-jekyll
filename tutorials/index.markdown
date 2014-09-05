@@ -34,12 +34,12 @@ Here you will find online tutorials that demonstrate XAP features, capabilities 
 {%endcolumn%}
 
 {%column width=90% %}
-This is a tutorial that will setup an XAP Cluster on a real server on demand. The tutorial include an interactive shell that will allow you to execute the various XAP APIs for writing and reading data as well as open a groovy shell to write your own code and experience the full XAP API.
+This is a tutorial that will setup a XAP Cluster on a real server on demand. The tutorial includes an interactive shell that will allow you to execute the various XAP APIs for writing and reading data as well as open a groovy shell to write your own code and experience the full XAP API.
 
 
 
 
-The tutorial also allows you explore the <a href="http://www.gigaspaces.com/xap-deployment-management-and-automation-solution" target="_blank">XAP orchestration and deployment automation</a> as well as the [XAP Data Management Console]({%latestadmurl%}/web-management-console.html).
+The tutorial also allows you to explore the <a href="http://www.gigaspaces.com/xap-deployment-management-and-automation-solution" target="_blank">XAP orchestration and deployment automation</a> as well as the [XAP Data Management Console]({%latestadmurl%}/web-management-console.html).
 
 The tutorial is available for [download]({%latestjavaurl%}/interactive-api-guide.html).
 

@@ -9,7 +9,7 @@ weight: 100
 
 
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |  Problem  | Troubleshooting Information & Possible causes | Logging information needed by GigaSpaces support |
 |:---------|:----------------------------------------------|:-------------------------------------------------|
 |  Deployment failure | * Validate if the GSC's with appropriate SLA definitions are started.{% wbr %}    - Validate if GSC's are registered to the same lookup locators with same lookup group.{% wbr %}    - Validate if all the dependencies (classes and jars) for the processing units are included in the deployed jar/war. | * Server side logs (all GSC's, GSM's, LUS's logs and console logs for each)|
