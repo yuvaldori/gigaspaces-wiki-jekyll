@@ -204,7 +204,7 @@ public class Data {
 
 - When mapping a Collection Data types or any other variable size field make sure the relevant database table column has a sufficient size that can accommodate the largest collection/variable size field you may have within your space object.
 
-- ~~When fetching collections, you must use the `@Fetch(FetchMode.SELECT)` annotation for the collection field. This is a result of [hibernate bug HHH-1751](http://opensource.atlassian.com/projects/hibernate/browse/HHH-1751). The default `@Fetch(FetchMode.JOIN)` mode will not fetch all members. This will handle also duplicate entry creation when initial-load is being called.~~ Irrelevant since XAP upgraded to Hibernate 4.1.9.
+- When fetching collections, you must use the `@Fetch(FetchMode.SELECT)` annotation for the collection field. This is a result of [hibernate bug HHH-1751](http://opensource.atlassian.com/projects/hibernate/browse/HHH-1751). The default `@Fetch(FetchMode.JOIN)` mode will not fetch all members. This will handle also duplicate entry creation when initial-load is being called. Irrelevant since XAP upgraded to Hibernate 4.1.9.
 
 {% endtip %}
 
@@ -212,7 +212,7 @@ public class Data {
 
 The Hibernate Space Persistency implementation includes the following properties:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Property|Description|Default|
 |:-------|:----------|:------|
 |fetchSize|Sets the fetch size that will be used when working with scrollable results. |100|
