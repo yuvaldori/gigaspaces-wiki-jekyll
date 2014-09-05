@@ -67,7 +67,7 @@ This is sometimes considered a subset of Operational intelligence and is also id
 - [Aggregators api]({%latestjavaurl%}/aggregators.html)
 - Counters api {%latestjavanet the-space-counters.html %}
 - [Map reduce api]({%latestjavaurl%}/task-execution-over-the-space.html)
-- Doc API {%latestjavanet document-api.html %}
+- Document-Schemaless API {%latestjavanet document-api.html %}
 - Query API {%latestjavanet querying-the-space.html %}
 - Processing API {%latestjavanet event-processing.html%}
 - [Big Data Integration]({%latestjavaurl%}/big-data.html)
