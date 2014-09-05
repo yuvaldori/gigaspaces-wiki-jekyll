@@ -47,7 +47,3 @@ Configuring Apache load balancer.
 
 <hr/>
 
-#### Additional Resources
-
-Global Http Session Sharing [{%externalurl%}](http://www.slideboom.com/presentations/631622/Global-Http-Session-Sharing-V2)
-
