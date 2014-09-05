@@ -130,10 +130,10 @@ Query Aggregation, Custom Change
 
 ## XAP Demo
 
-This option demonstrates `XAP API` calls such as writing, reading and querying data to/from the deployed `myDataGrid`.
+This option demonstrates `XAP API` calls such as writing, reading and querying data from the deployed `myDataGrid`.
 The program will run by itself, you just need to `press enter` to advance to the next example.
 
-The Tutorial uses a simple POJO to interact with the Space. Here is the example code:
+The Tutorial using a simple POJO to interact with the Space. Here is a sample code:
 
 {%highlight java%}
 package demo;
@@ -254,7 +254,7 @@ println "Found " + pus.getInstances().length + " space instances";
 
 #### Connecting to the Space
 
-When a client connects to a Space, a proxy is created that holds a connection which implements the Space API. All client interaction is performed through this proxy.
+When a client connects to a Space, a proxy is created. All client interaction is performed through this proxy.
 
 {% highlight java %}
 gigaSpace = admin.getProcessingUnits().getProcessingUnit(gridname).getSpace().getGigaSpace();
@@ -360,7 +360,7 @@ You can start XAP's console and inspect the Data Grid components that have been 
 {% endtabcontent %}
 {% endinittab %}
 
-After you execute the above command, open a browser and goto to `http://your_host:8099` and the login screen for the admin application will open up. The following screen shots will demonstrate some of the UI features: (no username and password needed)
+After you execute the above command, open a your web browser, point to `http://your_host:8099`. The login screen will be displayed. The following screenshots demonstrate some of the UI features: (no username and password needed)
 
 
 {%section%}
@@ -412,8 +412,8 @@ After you execute the above command, open a browser and goto to `http://your_hos
 
 Read more about the XAP runtime environment, how to model your data in a clustered environment, and how to leverage the power capabilities of the Space.
 
-- [Elastic Processing Unit](./elastic-processing-unit.html)
 - [Modeling and Accessing Your Data](/sbp/modeling-your-data.html)
 - [Deploying and Interacting with the Space](./administrators-guide.html)
 - [The XAP Runtime Environment]({%currentadmurl%}/the-runtime-environment.html)
+- [Elastic Processing Unit](./elastic-processing-unit.html)
 {%endcomment%}
