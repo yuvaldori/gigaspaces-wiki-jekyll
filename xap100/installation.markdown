@@ -24,13 +24,13 @@ For a list of supported platforms please consult [the release notes](/release_no
 
 
 - [XAP License](./license-key.html){%wbr%}
-Getting a license key and defining it in the space schema.
+Getting the license key and defining it in the XAP license file.
 
-- [Java Installation](./installation-java.html){%wbr%}
-Requirements and how to install GigaSpaces with Windows, Linux or Unix.
+- [XAP Java Installation](./installation-java.html){%wbr%}
+Requirements and how to install XAP for Java users with Windows, Linux or Unix.
 
-- [C++ Installation](./installing-cpp-api-package.html){%wbr%}
-Requirements and how to install XAP c++ on Windows and Linux.
+- [XAP C++ Installation](./installing-cpp-api-package.html){%wbr%}
+Requirements and how to install XAP C++ API on Windows and Linux.
 
 - [Maven Plugin](./maven-plugin.html){%wbr%}
 Installing the XAP Maven plugin, creating and running a Processing Unit project.
@@ -42,7 +42,7 @@ Setting up your IDE to work with XAP.
 Explains how to run your processing unit inside your IDE or in unit tests.
 
 - [XAP as Windows Service](./running-gigaspaces-as-a-windows-service.html){%wbr%}
-Installing XAP as a Windows service.
+Configuring XAP as a Windows service.
 
 
 
