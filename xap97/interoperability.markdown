@@ -14,7 +14,7 @@ XAP introduces interoperability -- the possibility for organizations whose proje
 - **Performance**: communication between platforms is performed through the space directly, without the need for adapters or XML translation.
 - **SOA**: all applications communicate using the space, allowing each of them to exist as a loosely-coupled service.
 
-![interop.png](/attachment_files/interop.png)
+![interop.png](/attachment_files/interop.jpg)
 
 To work with GigaSpaces interoperability, classes from the different platforms should meet the following criteria:
 
