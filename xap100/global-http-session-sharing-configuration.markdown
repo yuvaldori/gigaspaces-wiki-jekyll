@@ -276,20 +276,28 @@ The example can be deployed into any web server (Tomcat, JBoss, Websphere, Weblo
 4. Start your browser and access the web application via the following URL: http://localhost:8080/demo-app
 
 {% note %}
-The URL above assumes the Web Server configured to use port 8080.
+The URL above assumes the Web Server is configured to use port 8080.
 {% endnote %}
 
-{%panel%}
 
-![httpSessionSharing4.jpg](/attachment_files/httpSessionSharing4.jpg)
-
-1. Set some attributes with their name and value and click the **Update Session** button.
-2. View the session updated within the space via the GS-UI or Web-UI. 
-3. Restart your web application and refresh the page. The session will be reloaded from the data grid.
-
+{%panel title=Set some attributes with their name and value and click the **Update Session** button.%}
+![httpSessionSharing4.jpg](/attachment_files/http-session-sharing-single-1.png)
 {%endpanel%}
 
 
+{%panel title=View the session updated within the space via the GS-UI or Web-UI.%}
+![httpSessionSharing4.jpg](/attachment_files/http-session-sharing-single-2.png)
+{%endpanel%}
+
+{%panel title=Identify the Session ID%}
+![httpSessionSharing4.jpg](/attachment_files/http-session-sharing-single-3.png)
+{%endpanel%}
+
+{%tip%}
+Restart your web application and refresh the page. The session will be reloaded from the data grid.
+{%endtip%}
+
+{%comment%}
 ### Multi-Web Servers Deployment
 
 You may share the HTTP session between different web servers. To test this on your local environment you can install multiple web servers, deploy the web application and have your browser access the same application via the same browser. See the below example:
@@ -305,14 +313,17 @@ You may share the HTTP session between different web servers. To test this on yo
 {%endsection%}
 
 
-
+{%tip%}
 Hit the Refresh button when switching between the tabs. The session data will be refreshed with the relevant app server reading it from the Space.
+{%endtip%}
 
 {%endpanel%}
 
 {% note %}
 When deploying the web application WAR file please make sure the web app context will be identical.
 {% endnote %}
+
+{%endcomment%}
 
 
 # Considerations
