@@ -272,13 +272,24 @@ The example can be deployed into any web server (Tomcat, JBoss, Websphere, Weblo
 The URL above assumes the Web Server configured to use port 8080.
 {% endnote %}
 
-![httpSessionSharing4.jpg](/attachment_files/httpSessionSharing4.jpg)
+{%panel title=Set some attributes with their name and value and click the **Update Session** button.%}
+![httpSessionSharing4.jpg](/attachment_files/http-session-sharing-single-1.png)
+{%endpanel%}
 
-1. Set some values for the Session Name and Attribute and click the **Update Session** button.
-1. View the session within the space via the GS-UI. Click the Data-Types icon , click the `org.openspaces.sessions.shiro.SpaceSession` class and Click the query button. The Query view will be displayed. You can double click any of the sessions and drill into the attributes map within the session to view the session attributes:
 
-{% indent %}![httpSessionSharing5.jpg](/attachment_files/httpSessionSharing5.jpg){% endindent %}
+{%panel title=View the session updated within the space via the GS-UI or Web-UI.%}
+![httpSessionSharing4.jpg](/attachment_files/http-session-sharing-single-2.png)
+{%endpanel%}
 
+{%panel title=Identify the Session ID%}
+![httpSessionSharing4.jpg](/attachment_files/http-session-sharing-single-3.png)
+{%endpanel%}
+
+{%tip%}
+Restart your web application and refresh the page. The session will be reloaded from the data grid.
+{%endtip%}
+
+{%comment%}
 ### Multi-Web Servers Deployment
 
 ##### Multiple Tabs
@@ -291,6 +302,8 @@ You may share the HTTP session between different web servers. To test this on yo
 Hit the Refresh button when switching between the tabs. The session data will be refreshed with the relevant app server reading it from the space.
 
 {% note %}When deploying the web application WAR file please make sure the web app context will be identical.{% endnote %}
+
+{%endcomment%}
 
 ### Load-Balancer
 
