@@ -198,13 +198,20 @@ $(document).ready(function () {
                     sectionPath = sectionPath.replace("adm","")
                     sectionPath = sectionPath.replace("sec","")
                     var version = sectionPath.slice(0, -1) +"."+sectionPath.slice(-1);
+
+                    if (endsWith(url,"xap100.html"))
+                      return {desc: "XAP " + version, version:"10.0", docSection:"XAP"};
+
+                    if (endsWith(url,"xap97.html"))
+                        return {desc: "XAP " + version, version:"9.7", docSection:"XAP"};
+
                     if (isDotNet)
                         return {desc: "XAP.NET " + version, version:version, docSection:"XAP", lang:"dotnet"};
                     if (isAdmin)
                         return {desc: "XAP " + version + " Admin", version:version, docSection:"XAP"};;
                     if (isSecurity)
                         return {desc: "XAP " + version + " Security", version:version, docSection:"XAP"};;
-                    return {desc: "XAP " + version, version:version, docSection:"XAP", lang:"java"};
+                    return {desc: "XAP " + version, version:version, docSection:"XAP",lang:"java"};
                 }
                 else if (sectionPath == "sbp")
                     return {desc: "Solutions &amp; Patterns", docSection:"SBP"};
