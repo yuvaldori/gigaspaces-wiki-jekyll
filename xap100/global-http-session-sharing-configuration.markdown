@@ -228,7 +228,7 @@ The `shiro.ini` file should to be placed within the `WEB-INF` folder. See below 
 The web application should include the following libraries within its `\WEB-INF\lib` folder:
  
 * gs-session-manager-xxx.jar - located within the `XAP ROOT\lib\optional\httpsession` folder.
-* gs-runtime.jar  - located within the `XAP ROOT\lib\\required` folder.
+* gs-runtime.jar  - located within the `XAP ROOT\lib\required` folder.
 
 {% note %}
 The `gs-runtime.jar` should be replaced with the relevant XAP `gs-runtime.jar` matching your XAP data grid release.
@@ -270,7 +270,7 @@ connector.password = pass
 
 The example can be deployed into any web server (Tomcat, JBoss, Websphere, Weblogic, Jetty, GlassFish)
 
-1. Download the demo web application [{%download%}](/download_files/global-http-session-sharing-10.0.war).
+1. Download the demo web application [{%download%}](/download_files/demo-app.war).
 2. Deploy a space named **sessionSpace**. You many have a single instance Space or deploy a clustered Space using the command line or GS-UI/Web-UI.
 3. Deploy the `demo-app.war` into Tomcat (or any other app server).
 4. Start your browser and access the web application via the following URL: http://localhost:8080/demo-app
