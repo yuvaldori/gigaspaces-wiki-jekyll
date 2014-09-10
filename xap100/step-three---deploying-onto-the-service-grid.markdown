@@ -6,8 +6,7 @@ weight: 400
 parent: your-first-xtp-application.html
 ---
 
-{% compositionsetup %}
-{% compositionsetup %}
+
 
 {% comment %}
 --------------------------------------------------------------------------

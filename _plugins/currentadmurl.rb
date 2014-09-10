@@ -15,10 +15,10 @@ module Jekyll
           versionDir = versionDir.sub("sec","")
           "/#{versionDir}adm"
         else 
-          context.registers[:site].config["latest_java_url"]
+          context.registers[:site].config["latest_adm_url"]
         end
       else
-        context.registers[:site].config["latest_java_url"]
+        context.registers[:site].config["latest_adm_url"]
       end
     end 
 

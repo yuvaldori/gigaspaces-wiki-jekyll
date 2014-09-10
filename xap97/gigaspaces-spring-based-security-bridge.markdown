@@ -6,7 +6,7 @@ parent: spring-security-bridge.html
 weight: 200
 ---
 
-{% compositionsetup %}
+
 
 {% summary %}Introducing GigaSpaces Spring-based security bridge{% endsummary %}
 

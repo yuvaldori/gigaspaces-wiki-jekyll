@@ -7,7 +7,7 @@ weight: 500
 ---
 
 {%comment%}
-{% compositionsetup %}{% summary %}Physical resources{% endsummary %}
+{% summary %}Physical resources{% endsummary %}
 
 # The Hosts view
 {%endcomment%}

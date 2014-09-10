@@ -34,8 +34,8 @@ Using the Map API requires two layers:
 - The GigaMap Interface which provides enriched JCache (JSR-107)API including declarative transactions, coherent runtime exception hierarchy, and more.
 In general, you would use the Map component to create the proxy layer, and then wrap it with a GigaMap instance and do all the operations against this instance.
 --------
-{% compositionsetup %}
-{% summary page|60 %}Using GigaSpaces as a distributed cache. Interacting with the space using the Hashtable API.{% endsummary %}
+
+{% summary %}Using GigaSpaces as a distributed cache. Interacting with the space using the Hashtable API.{% endsummary %}
 {% endcomment %}
 
 

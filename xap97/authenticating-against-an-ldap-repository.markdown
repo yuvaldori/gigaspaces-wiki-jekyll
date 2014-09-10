@@ -6,7 +6,7 @@ parent: spring-security-bridge.html
 weight: 400
 ---
 
-{% compositionsetup %}
+
 {% summary %}Using LDAP (Lightweight Directory Access Protocol) with Spring Security{% endsummary %}
 
 # Introduction

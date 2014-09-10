@@ -6,8 +6,8 @@ weight: 100
 parent: your-first-web-application.html
 ---
 
-{% compositionsetup %}
-{% compositionsetup %}
+
+
 
 {% comment %}
  Information Artifact Type: Tutorial

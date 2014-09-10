@@ -7,7 +7,7 @@ parent: cook-books.html
 ---
 
 {% trainingbox %}
-{% compositionsetup %}{% compositionsetup %}
+
 
 {% comment %}
 =============================================================

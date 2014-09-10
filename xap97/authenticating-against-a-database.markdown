@@ -6,7 +6,7 @@ parent: spring-security-bridge.html
 weight: 300
 ---
 
-{% compositionsetup %}
+
 {% summary %}Storing user details in a relational database using DaoAuthenticationProvider{% endsummary %}
 
 # Introduction
