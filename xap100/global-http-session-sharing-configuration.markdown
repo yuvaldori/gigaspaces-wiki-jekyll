@@ -266,9 +266,7 @@ connector.password = pass
 
 # Example
 
-### Single-Site Deployment
-
-The example can be deployed into any web server (Tomcat, JBoss, Websphere, Weblogic, Jetty, GlassFish)
+The example can be deployed into any web server (Tomcat, JBoss, Websphere, Weblogic, Jetty, GlassFish). It demostrates Single Application Session Sharing configuration.
 
 1. Download the demo web application [{%download%}](/download_files/demo-app.war).
 2. Deploy a space named **sessionSpace**. You many have a single instance Space or deploy a clustered Space using the command line or GS-UI/Web-UI.
