@@ -178,6 +178,7 @@ Content of override file for Webster port definitions:
 
 {% endtoczone %}
 
+
 # Blocking Reliable Take
 
 The blocking Take operation (`timeout >0`) with a remote client opens a network connection between the client and the space and also a **reverse** network connection between the space and the client before the object is removed from the space to ensure that the client that initiated the blocking take operation is still active. This ensures that the removed object will be actually consumed by the remote client.
@@ -197,4 +198,6 @@ Here is how you can configure the space to disable the Blocking Reliable Take ac
     </os-core:properties>
 </os-core:space>
 {% endhighlight %}
+
+
 
