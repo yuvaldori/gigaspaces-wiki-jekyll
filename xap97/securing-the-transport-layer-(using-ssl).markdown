@@ -10,6 +10,8 @@ weight: 300
 
 XAP provides a generic network filter that also provides SSL support, through an SSL communication filter.
 
+![lrmi-filters](/attachment_files/lrmi-filters.jpg)
+
 {% refer %}[How to Set XAP Over a Firewall]({%currentadmurl%}/network-over-firewall.html){% endrefer %}
 
 
@@ -20,7 +22,7 @@ XAP provides two types of communication filter:
 - Block-based filter - for encryption network filters. These filters do support a handshake phase.
 
 {% info %}
-For now, GigaSpaces supports only one communication filter, and this filter is applied to all the connections in the JVM.
+For now, XAP supports only one communication filter, and this filter is applied to all the connections in the JVM.
 {%endinfo%}
 
 # Usage

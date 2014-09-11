@@ -12,7 +12,7 @@ When accessing the space, you should have the `java.security.policy` property se
 You may use a default security file bundled with the distribution. It is located at:
 `<XAP Root>\policy\policy.all`:
 
-{% highlight java %}
+{% highlight console %}
 grant {
     permission java.security.AllPermission "", "";
 };
@@ -25,11 +25,11 @@ GigaSpaces includes default security permissions, based on the above settings. T
 For more details on Java security, refer to: [Sun;Default Policy Implementation and Policy File Syntax](http://docs.oracle.com/javase/7/docs/technotes/guides/security/PolicyFiles.html).
 {%endinfo%}
 
-# Security permissions required for GigaSpaces
+# Security permissions required for XAP
 
 If you want to create your own security policy file, you need to add, at least, the following security grants.
 
-{% highlight java %}
+{% highlight console %}
 grant {
   permission java.util.PropertyPermission "*", "read, write";
   permission java.lang.RuntimePermission "getProtectionDomain";

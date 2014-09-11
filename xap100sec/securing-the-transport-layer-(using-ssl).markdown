@@ -10,7 +10,9 @@ weight: 300
 
 XAP provides a generic network filter that also provides SSL support, through an SSL communication filter.
 
-{% refer %}[How to Set XAP Over a Firewall]({%currentadmurl%}/network-over-firewall.html){% endrefer %}
+![lrmi-filters](/attachment_files/lrmi-filters.jpg)
+
+{% referto %}[How to Set XAP Over a Firewall]({%currentadmurl%}/network-over-firewall.html)
 
 
 
@@ -20,14 +22,14 @@ XAP provides two types of communication filter:
 - Block-based filter - for encryption network filters. These filters do support a handshake phase.
 
 {% info %}
-For now, GigaSpaces supports only one communication filter, and this filter is applied to all the connections in the JVM.
+For now, XAP supports only one communication filter, and this filter is applied to all the connections in the JVM.
 {%endinfo%}
 
 # Usage
 
 The way to load and enable the communication filter, is by setting the system property `com.gs.lrmi.filter.factory`. The value should be the `communication filter factory` class name.
 
-For example, to use an SSL communication filter, run GigaSpaces with:
+For example, to use an SSL communication filter, run XAP with:
 
 {% highlight console %}
 -Dcom.gs.lrmi.filter.factory=com.gigaspaces.lrmi.nio.filters.SSLFilterFactory
