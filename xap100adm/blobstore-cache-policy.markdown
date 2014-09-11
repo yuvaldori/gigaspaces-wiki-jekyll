@@ -1,6 +1,6 @@
 ---
 layout: post100
-title:  SSD Overview
+title:  MemoryXtend Overview
 categories: XAP100ADM
 parent: blobstore-overview.html
 weight: 100
