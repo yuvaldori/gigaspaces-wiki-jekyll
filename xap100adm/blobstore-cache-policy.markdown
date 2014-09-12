@@ -128,7 +128,7 @@ Step 3.
 Install ZetaScale libraries:
 
 {% highlight bash %}
-$ sudo XAP_HOME=<XAP HOME> sh -c "yum -y install /blobstore-10.0.1-11800_RELEASE_1.noarch.rpm"
+$ sudo XAP_HOME=<XAP HOME> sh -c "yum -y install blobstore-10.0.1-11800_RELEASE_1.noarch.rpm"
 {% endhighlight %}
 
 If the RPM installation fails , please run  the following `yum` install commands using `root` user:
