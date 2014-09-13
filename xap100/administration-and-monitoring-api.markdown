@@ -17,14 +17,18 @@ Before diving into the Admin API, here are some code examples showing how the Ad
 {% tabcontent GSA %}
 
 {% highlight java %}
-
-Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
-// wait till things get discovered (you can also use specific waitFor)
-for (GridServiceAgent gsa : admin.getGridServiceAgents()) {
-    System.out.println("GSA [" + gsa.getUid() + "] running on Machine [" + gsa.getMachine().getHostAddress());
-    for (AgentProcessDetails processDetails : gsa.getProcessesDetails()) {
-        System.out.println("   -> Process [" + Arrays.toString(processDetails.getCommand()) + "]");
-    }
+public void gsa() {
+	Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
+	// wait till things get discovered (you can also use specific waitFor)
+	for (GridServiceAgent gsa : admin.getGridServiceAgents()) {
+		System.out.println("GSA [" + gsa.getUid()
+				+ "] running on Machine ["
+				+ gsa.getMachine().getHostAddress());
+		for (AgentProcessDetails processDetails : gsa.getProcessesDetails()) {
+			System.out.println("   -> Process ["
+					+ Arrays.toString(processDetails.getCommand()) + "]");
+		}
+	}
 }
 {% endhighlight %}
 
@@ -33,26 +37,34 @@ for (GridServiceAgent gsa : admin.getGridServiceAgents()) {
 
 {% highlight java %}
 
-Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
-// wait till things get discovered (you can also use specific waitFor)
-for (GridServiceManager gsm : admin.getGridServiceManagers()) {
-    System.out.println("GSM [" + gsm.getUid() + "] running on Machine " + gsm.getMachine().getHostAddress());
+public void gsm() {
+	Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
+	// wait till things get discovered (you can also use specific waitFor)
+	for (GridServiceManager gsm : admin.getGridServiceManagers()) {
+		System.out.println("GSM [" + gsm.getUid() + "] running on Machine "
+				+ gsm.getMachine().getHostAddress());
+	}
 }
+
 {% endhighlight %}
 
 {% endtabcontent %}
 {% tabcontent GSC %}
 
 {% highlight java %}
-
-Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
-// wait till things get discovered (you can also use specific waitFor)
-for (GridServiceContainer gsc : admin.getGridServiceContainers()) {
-    System.out.println("GSC [" + gsc.getUid() + "] running on Machine " + gsc.getMachine().getHostAddress());
-    for (ProcessingUnitInstance puInstance : gsc.getProcessingUnitInstances()) {
-        System.out.println("   -> PU [" + puInstance.getName() + "][" +
-        puInstance.getInstanceId() + "][" + puInstance.getBackupId() + "]");
-    }
+public void gsc() {
+	Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
+	// wait till things get discovered (you can also use specific waitFor)
+	for (GridServiceContainer gsc : admin.getGridServiceContainers()) {
+		System.out.println("GSC [" + gsc.getUid() + "] running on Machine "
+				+ gsc.getMachine().getHostAddress());
+		for (ProcessingUnitInstance puInstance : gsc
+				.getProcessingUnitInstances()) {
+			System.out.println("   -> PU [" + puInstance.getName() + "]["
+					+ puInstance.getInstanceId() + "]["
+					+ puInstance.getBackupId() + "]");
+		}
+	}
 }
 {% endhighlight %}
 
@@ -60,28 +72,45 @@ for (GridServiceContainer gsc : admin.getGridServiceContainers()) {
 {% tabcontent Processing Unit %}
 
 {% highlight java %}
-Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
-// wait till things get discovered (you can also use specific waitFor)
-for (ProcessingUnit processingUnit : admin.getProcessingUnits()) {
-    System.out.println("Processing Unit: " + processingUnit.getName() + " status: " + processingUnit.getStatus());
-    if (processingUnit.isManaged()) {
-        System.out.println("   -> Managing GSM: " + processingUnit.getManagingGridServiceManager().getUid());
-    } else {
-        System.out.println("   -> Managing GSM: NA");
-    }
-    for (GridServiceManager backupGSM : processingUnit.getBackupGridServiceManagers()) {
-        System.out.println("   -> Backup GSM: " + backupGSM.getUid());
-    }
-    for (ProcessingUnitInstance processingUnitInstance : processingUnit) {
-        System.out.println("   [" + processingUnitInstance.getClusterInfo() + "] on GSC [" +
-         processingUnitInstance.getGridServiceContainer().getUid() + "]");
-        if (processingUnitInstance.isEmbeddedSpaces()) {
-            System.out.println("      -> Embedded Space [" + processingUnitInstance.getSpaceInstance().getUid() + "]");
-        }
-        for (ServiceDetails details : processingUnitInstance) {
-            System.out.println("      -> Service " + details);
-        }
-    }
+
+public void pu() {
+	Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
+	// wait till things get discovered (you can also use specific waitFor)
+	for (ProcessingUnit processingUnit : admin.getProcessingUnits()) {
+		System.out.println("Processing Unit: " + processingUnit.getName()
+					+ " status: " + processingUnit.getStatus());
+		if (processingUnit.isManaged()) {
+				System.out.println("   -> Managing GSM: "
+						+ processingUnit.getManagingGridServiceManager()
+								.getUid());
+		} else {
+				System.out.println("   -> Managing GSM: NA");
+		}
+
+		for (GridServiceManager backupGSM : processingUnit
+					.getBackupGridServiceManagers()) {
+				System.out.println("   -> Backup GSM: " + backupGSM.getUid());
+		}
+
+		for (ProcessingUnitInstance processingUnitInstance : processingUnit) {
+				System.out.println("   ["
+						+ processingUnitInstance.getClusterInfo()
+						+ "] on GSC ["
+						+ processingUnitInstance.getGridServiceContainer()
+								.getUid() + "]");
+				if (processingUnitInstance.isEmbeddedSpaces()) {
+					System.out.println("      -> Embedded Space ["
+							+ processingUnitInstance.getSpaceInstance()
+									.getUid() + "]");
+				}
+
+				Map<String, ServiceDetails> services = processingUnitInstance.getServiceDetailsByServiceId();
+
+				for (ServiceDetails details : services.values()) {
+					System.out.println("      -> Service " + details);
+				}
+		}
+	}
 }
 {% endhighlight %}
 
@@ -90,25 +119,37 @@ for (ProcessingUnit processingUnit : admin.getProcessingUnits()) {
 
 {% highlight java %}
 
-for (Space space : admin.getSpaces()) {
-    System.out.println("Space [" + space.getUid() + "] numberOfInstances [" +
-     space.getNumberOfInstances() + "] numberOfbackups [" +
-     space.getNumberOfBackups() + "]");
-    System.out.println("  Stats: Write [" + space.getStatistics().getWriteCount() + "/" +
-    space.getStatistics().getWritePerSecond() + "]");
-    for (SpaceInstance spaceInstance : space) {
-        System.out.println("   -> INSTANCE [" + spaceInstance.getUid() + "] instanceId [" + spaceInstance.getInstanceId() +
-        "] backupId [" + spaceInstance.getBackupId() + "] Mode [" + spaceInstance.getMode() + "]");
-        System.out.println("         -> Host: " + spaceInstance.getMachine().getHostAddress());
-        System.out.println("         -> Stats: Write [" + spaceInstance.getStatistics().getWriteCount() + "/" +
-        spaceInstance.getStatistics().getWritePerSecond() + "]");
-    }
-    for (SpacePartition spacePartition : space.getPartitions()) {
-        System.out.println("   -> Partition [" + spacePartition.getPartitiondId() + "]");
-        for (SpaceInstance spaceInstance : spacePartition) {
-            System.out.println("      -> INSTANCE [" + spaceInstance.getUid() + "]");
-        }
-    }
+public void space() {
+	Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
+
+	for (Space space : admin.getSpaces()) {
+		System.out.println("Space [" + space.getUid()
+					+ "] numberOfInstances [" + space.getNumberOfInstances()
+					+ "] numberOfbackups [" + space.getNumberOfBackups() + "]");
+		System.out.println("  Stats: Write ["
+					+ space.getStatistics().getWriteCount() + "/"
+					+ space.getStatistics().getWritePerSecond() + "]");
+		for (SpaceInstance spaceInstance : space) {
+				System.out.println("   -> INSTANCE [" + spaceInstance.getUid()
+						+ "] instanceId [" + spaceInstance.getInstanceId()
+						+ "] backupId [" + spaceInstance.getBackupId()
+						+ "] Mode [" + spaceInstance.getMode() + "]");
+				System.out.println("         -> Host: "
+						+ spaceInstance.getMachine().getHostAddress());
+				System.out.println("         -> Stats: Write ["
+						+ spaceInstance.getStatistics().getWriteCount() + "/"
+						+ spaceInstance.getStatistics().getWritePerSecond()
+						+ "]");
+			}
+		for (SpacePartition spacePartition : space.getPartitions()) {
+				System.out.println("   -> Partition ["
+						+ spacePartition.getPartitionId() + "]");
+				for (SpaceInstance spaceInstance : spacePartition) {
+					System.out.println("      -> INSTANCE ["
+							+ spaceInstance.getUid() + "]");
+				}
+		}
+	}
 }
 {% endhighlight %}
 
@@ -116,26 +157,39 @@ for (Space space : admin.getSpaces()) {
 {% tabcontent Virtual Machine %}
 
 {% highlight java %}
+public void virtualMachine() {
+	Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
+		// wait till things get discovered (you can also use specific waitFor)
+	System.out.println("VM TOTAL STATS: Heap Committed ["
+				+ admin.getVirtualMachines().getStatistics()
+						.getMemoryHeapCommittedInGB() + "GB]");
+	System.out.println("VM TOTAL STATS: GC PERC ["
+				+ admin.getVirtualMachines().getStatistics()
+						.getGcCollectionPerc()
+				+ "], Heap Used ["
+				+ admin.getVirtualMachines().getStatistics()
+						.getMemoryHeapUsedPerc() + "%]");
 
-Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
-// wait till things get discovered (you can also use specific waitFor)
-System.out.println("VM TOTAL STATS: Heap Committed [" +
-	admin.getVirtualMachines().getStatistics().getMemoryHeapCommittedInGB() +"GB]");
-	System.out.println("VM TOTAL STATS: GC PERC [" +
-	admin.getVirtualMachines().getStatistics().getGcCollectionPerc() + "], Heap Used [" +
- 	admin.getVirtualMachines().getStatistics().getMemoryHeapPerc() + "%]");
-for (VirtualMachine virtualMachine : admin.getVirtualMachines()) {
-    System.out.println("VM [" + virtualMachine.getUid() + "] " +
-			"Host [" + virtualMachine.getMachine().getHostAddress() + "] " +
-            "GC Perc [" + virtualMachine.getStatistics().getGcCollectionPerc() + "], " +
-            "Heap Usage [" + virtualMachine.getStatistics().getMemoryHeapPerc() + "%]");
+	for (VirtualMachine virtualMachine : admin.getVirtualMachines()) {
+			System.out.println("VM [" + virtualMachine.getUid() + "] "
+					+ "Host [" + virtualMachine.getMachine().getHostAddress()
+					+ "] " + "GC Perc ["
+					+ virtualMachine.getStatistics().getGcCollectionPerc()
+					+ "], " + "Heap Usage ["
+					+ virtualMachine.getStatistics().getMemoryHeapUsedPerc()
+					+ "%]");
 
-    for (ProcessingUnitInstance processingUnitInstance : virtualMachine.getProcessingUnitInstances()) {
-        System.out.println("   -> PU [" + processingUnitInstance.getUid() + "]");
-    }
-    for (SpaceInstance spaceInstance : virtualMachine.getSpaceInstances()) {
-        System.out.println("   -> Space [" + spaceInstance.getUid() + "]");
-    }
+			for (ProcessingUnitInstance processingUnitInstance : virtualMachine
+					.getProcessingUnitInstances()) {
+				System.out.println("   -> PU ["
+						+ processingUnitInstance.getUid() + "]");
+			}
+			for (SpaceInstance spaceInstance : virtualMachine
+					.getSpaceInstances()) {
+				System.out.println("   -> Space [" + spaceInstance.getUid()
+						+ "]");
+			}
+	}
 }
 {% endhighlight %}
 
@@ -143,20 +197,33 @@ for (VirtualMachine virtualMachine : admin.getVirtualMachines()) {
 {% tabcontent Machine %}
 
 {% highlight java %}
+public void machine() {
+	Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
+		// wait till things get discovered (you can also use specific waitFor)
+	for (Machine machine : admin.getMachines()) {
+			System.out.println("Machine ["
+					+ machine.getUid()
+					+ "], "
+					+ "TotalPhysicalMem ["
+					+ machine.getOperatingSystem().getDetails()
+							.getTotalPhysicalMemorySizeInGB()
+					+ "GB], "
+					+ "FreePhysicalMem ["
+					+ machine.getOperatingSystem().getStatistics()
+							.getFreePhysicalMemorySizeInGB() + "GB]]");
 
-Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
-// wait till things get discovered (you can also use specific waitFor)
-for (Machine machine : admin.getMachines()) {
-    System.out.println("Machine [" + machine.getUid() + "], " +
-            "TotalPhysicalMem [" + machine.getOperatingSystem().getDetails().getTotalPhysicalMemorySizeInGB() + "GB], " +
-            "FreePhysicalMem [" + machine.getOperatingSystem().getStatistics().getFreePhysicalMemorySizeInGB() + "GB]]");
-    for (SpaceInstance spaceInstance : machine.getSpaceInstances()) {
-        System.out.println("   -> Space [" + spaceInstance.getUid() + "]");
-    }
-    for (ProcessingUnitInstance processingUnitInstance : machine.getProcessingUnitInstances()) {
-        System.out.println("   -> PU [" + processingUnitInstance.getUid() + "]");
-    }
+			for (SpaceInstance spaceInstance : machine.getSpaceInstances()) {
+				System.out.println("   -> Space [" + spaceInstance.getUid()
+						+ "]");
+			}
+			for (ProcessingUnitInstance processingUnitInstance : machine
+					.getProcessingUnitInstances()) {
+				System.out.println("   -> PU ["
+						+ processingUnitInstance.getUid() + "]");
+			}
+	}
 }
+
 {% endhighlight %}
 
 {% endtabcontent %}
@@ -584,3 +651,48 @@ For more information please refer to the API documentation: **[MirrorStatistics]
 You may monitor the remote communication activity via the Administration and Monitoring API. You may receive information in real-time about every aspect of the communication and transport activity. See the [Monitoring LRMI via the Administration API]({%currentadmurl%}/tuning-communication-protocol.html#Monitoring LRMI via the Administration API) for details.
 
 
+# Service Monitors
+
+The admin API also allows you to monitor XAP services. The information is available through [ProcessingUnitInstanceStatistics](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/admin/pu/ProcessingUnitInstanceStatistics.html).
+
+{: .table .table-bordered .table-condensed}
+| Service | Description |
+|:--------|:------------|
+|[WebRequestsServiceMonitors](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/pu/container/jee/stats/WebRequestsServiceMonitors.html) |Statistics monitor information for JEE servlet requests.|
+|[RemotingServiceMonitors](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/remoting/RemotingServiceDetails.html) | Generic remoting service details.|
+|[EventContainerServiceMonitors](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/events/EventContainerServiceMonitors.html) | A generic event container service monitors.|
+|[PollingEventContainerServiceMonitors](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/events/polling/PollingEventContainerServiceMonitors.html) |Polling container service monitors.|
+|[NotifyEventContainerServiceMonitors](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/events/notify/NotifyEventContainerServiceMonitors.html) |Notify container service monitors.|
+|[AsyncPollingEventContainerServiceMonitors](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/events/asyncpolling/AsyncPollingEventContainerServiceMonitors.html)  |Async Polling container service monitors.|
+
+
+Here is an example how you can obtain this information:
+
+{%highlight java%}
+public void serviceMonitors() {
+    Admin admin = new AdminFactory().createAdmin();
+
+	for (ProcessingUnit processingUnit : admin.getProcessingUnits()) {
+
+		for (ProcessingUnitInstance processingUnitInstance : processingUnit.getInstances()) {
+
+			ProcessingUnitInstanceStatistics processingUnitInstanceStatistics = processingUnitInstance.getStatistics();
+
+			if (processingUnitInstanceStatistics != null) {
+
+				WebRequestsServiceMonitors webRequestsServiceMonitors = processingUnitInstanceStatistics.getWebRequests();
+
+				RemotingServiceMonitors remoting = processingUnitInstanceStatistics.getRemoting();
+
+				Map<String, EventContainerServiceMonitors> eventContainers = processingUnitInstanceStatistics.getEventContainers();
+
+				Map<String, PollingEventContainerServiceMonitors> pollingEventContainers = processingUnitInstanceStatistics.getPollingEventContainers();
+
+				Map<String, NotifyEventContainerServiceMonitors> notifyEventContainers = processingUnitInstanceStatistics.getNotifyEventContainers();
+
+				Map<String, AsyncPollingEventContainerServiceMonitors> asyncPollingEventContainers = processingUnitInstanceStatistics.getAsyncPollingEventContainers();
+			}
+		}
+	}
+}
+{%endhighlight%}

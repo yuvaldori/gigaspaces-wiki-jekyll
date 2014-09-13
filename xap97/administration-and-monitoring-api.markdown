@@ -93,8 +93,10 @@ for (ProcessingUnit processingUnit : admin.getProcessingUnits()) {
         if (processingUnitInstance.isEmbeddedSpaces()) {
             System.out.println("      -> Embedded Space [" + processingUnitInstance.getSpaceInstance().getUid() + "]");
         }
-        for (ServiceDetails details : processingUnitInstance) {
-            System.out.println("      -> Service " + details);
+        Map<String, ServiceDetails> services = processingUnitInstance.getServiceDetailsByServiceId();
+
+        for (ServiceDetails details : services.values()) {
+        	System.out.println("      -> Service " + details);
         }
     }
 }
@@ -599,3 +601,48 @@ For more information please refer to the API documentation: **[MirrorStatistics]
 You may monitor the remote communication activity via the Administration and Monitoring API. You may receive information in real-time about every aspect of the communication and transport activity. See the [Monitoring LRMI via the Administration API]({%currentadmurl%}/tuning-communication-protocol.html#Monitoring LRMI via the Administration API) for details.
 
 
+# Service Monitors
+
+The admin API also allows you to monitor XAP services. The information is available through [ProcessingUnitInstanceStatistics](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/admin/pu/ProcessingUnitInstanceStatistics.html).
+
+{: .table .table-bordered .table-condensed}
+| Service | Description |
+|:--------|:------------|
+|[WebRequestsServiceMonitors](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/pu/container/jee/stats/WebRequestsServiceMonitors.html) |Statistics monitor information for JEE servlet requests.|
+|[RemotingServiceMonitors](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/remoting/RemotingServiceDetails.html) | Generic remoting service details.|
+|[EventContainerServiceMonitors](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/events/EventContainerServiceMonitors.html) | A generic event container service monitors.|
+|[PollingEventContainerServiceMonitors](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/events/polling/PollingEventContainerServiceMonitors.html) |Polling container service monitors.|
+|[NotifyEventContainerServiceMonitors](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/events/notify/NotifyEventContainerServiceMonitors.html) |Notify container service monitors.|
+|[AsyncPollingEventContainerServiceMonitors](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/events/asyncpolling/AsyncPollingEventContainerServiceMonitors.html)  |Async Polling container service monitors.|
+
+
+Here is an example how you can obtain this information:
+
+{%highlight java%}
+public void serviceMonitors() {
+    Admin admin = new AdminFactory().createAdmin();
+
+	for (ProcessingUnit processingUnit : admin.getProcessingUnits()) {
+
+		for (ProcessingUnitInstance processingUnitInstance : processingUnit.getInstances()) {
+
+			ProcessingUnitInstanceStatistics processingUnitInstanceStatistics = processingUnitInstance.getStatistics();
+
+			if (processingUnitInstanceStatistics != null) {
+
+				WebRequestsServiceMonitors webRequestsServiceMonitors = processingUnitInstanceStatistics.getWebRequests();
+
+				RemotingServiceMonitors remoting = processingUnitInstanceStatistics.getRemoting();
+
+				Map<String, EventContainerServiceMonitors> eventContainers = processingUnitInstanceStatistics.getEventContainers();
+
+				Map<String, PollingEventContainerServiceMonitors> pollingEventContainers = processingUnitInstanceStatistics.getPollingEventContainers();
+
+				Map<String, NotifyEventContainerServiceMonitors> notifyEventContainers = processingUnitInstanceStatistics.getNotifyEventContainers();
+
+				Map<String, AsyncPollingEventContainerServiceMonitors> asyncPollingEventContainers = processingUnitInstanceStatistics.getAsyncPollingEventContainers();
+			}
+		}
+	}
+}
+{%endhighlight%}
