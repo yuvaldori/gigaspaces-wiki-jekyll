@@ -267,6 +267,7 @@ The Admin Domain Model has representation to all GigaSpaces level main actors. T
 - [ProcessingUnit](#ProcessingUnitLink)
 - [ProcessingUnitInstance](#ProcessingUnitInstanceLink)
 - [ProcessingUnits](#ProcessingUnitsLink)
+- [ServiceMonitors](#servicemonitors)
 
 {%endcolumn%}
 {%column width=45% %}
@@ -370,7 +371,7 @@ The Admin Domain Model has representation to all GigaSpaces level main actors. T
 |Name            | [ProcessingUnitInstance](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/org/openspaces/admin/pu/ProcessingUnitInstance.html)|
 |Description     | An actual instance of a Processing Unit running within a Grid Service Container.|
 |Main Operations | Destroy itself (if SLA is breached, will be instantiated again).{% wbr %}- Decrease itself (and destroying itself in the process). Will not attempt to create it again.{% wbr %}- Relocate itself to a different Grid Service Container.{% wbr %}- List all its inner services (such as event containers).{% wbr %}- Get the embedded Space Instance running within it (if there is one).{% wbr %}- Get the JEE container details if it is a web processing unit.|
-|Runtime Events  | |
+|Runtime Events  | [Service Monitors](#servicemonitors)|
 
 
 {%anchor ProcessingUnitsLink%}
@@ -475,6 +476,9 @@ The Admin Domain Model has representation to all GigaSpaces level main actors. T
 |Description     | Holds all the currently discovered Transports|
 |Main Operations |  Get all the current Transports.{% wbr %}- Get the aggregated Transports details.{% wbr %}- Get the aggregated Transports statistics.|
 |Runtime Events  |Register for aggregated Transports statistics change events (if monitoring).{% wbr %}- Register for Transport level statistics change events (across all Transports, if monitoring).|
+
+
+
 
 # Accessing the Domain Model
 
@@ -650,6 +654,8 @@ For more information please refer to the API documentation: **[MirrorStatistics]
 
 You may monitor the remote communication activity via the Administration and Monitoring API. You may receive information in real-time about every aspect of the communication and transport activity. See the [Monitoring LRMI via the Administration API]({%currentadmurl%}/tuning-communication-protocol.html#Monitoring LRMI via the Administration API) for details.
 
+
+{%anchor servicemonitors%}
 
 # Service Monitors
 
