@@ -1,11 +1,10 @@
 ---
 layout: post100
-title:  Processing Unit
+title:  The Processing Unit
 categories: XAP100NET
 parent: none
 weight: 400
 ---
-
 
 {%wbr%}
 
@@ -14,7 +13,7 @@ weight: 400
 ![cassandra.png](/attachment_files/subject/pu.png)
 {%endcolumn%}
 {%column width=90% %}
-The processing unit is the unit of packaging and deployment in the GigaSpaces XAP platform. This section details the anatomy and details of the processing unit. It describes the various processing unit types, explains its directory structure, deployment descriptor, SLA attributes and how you can debug, run and deploy it on to the GigaSpaces XAP runtime environment.
+The Processing Unit is the unit of packaging and deployment in the GigaSpaces XAP platform. This section describes its directory structure, deployment descriptor and SLA definition and configuration.
 {%endcolumn%}
 {%endsection%}
 
