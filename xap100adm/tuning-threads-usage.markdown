@@ -17,7 +17,7 @@ XAP using Thread resources in an extensive manner to scale the different activit
 - SPACE_NAME - Indicates the thread name includes the associated space name using this thread.
 
 {% tip %}
-Starting with XAP 8.0, all GigaSpaces threads running within the JVM, using the same prefix, **GS-** as part of their name.
+All GigaSpaces threads running within the JVM, using the **GS-** prefix as part of their name.
 {% endtip %}
 
 {: .table .table-bordered .table-condensed}
