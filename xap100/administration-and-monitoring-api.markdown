@@ -659,7 +659,7 @@ You may monitor the remote communication activity via the Administration and Mon
 
 # Service Monitors
 
-The admin API also allows you to monitor XAP services. The information is available through [ProcessingUnitInstanceStatistics](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/admin/pu/ProcessingUnitInstanceStatistics.html).
+The admin API also allows you to monitor XAP services. The information is available through the [ProcessingUnitInstanceStatistics](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/admin/pu/ProcessingUnitInstanceStatistics.html).
 
 {: .table .table-bordered .table-condensed}
 | Service | Description |
@@ -702,3 +702,33 @@ public void serviceMonitors() {
 	}
 }
 {%endhighlight%}
+
+
+You can also attach a [ProcessingUnitInstanceStatisticsChangedEventListener](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/admin/pu/events/ProcessingUnitInstanceStatisticsChangedEventListener.html) to process units that will fire by default every 5 second.
+
+{%highlight java%}
+public void serviceMonitorsEventListeners() {
+	Admin admin = new AdminFactory().createAdmin();
+
+	admin.getProcessingUnits()
+	    .getProcessingUnit("myProcessingUnit")
+		.getProcessingUnitInstanceStatisticsChanged()
+		.add(new ProcessingUnitInstanceStatisticsChangedEventListener() {
+
+		@Override
+		public void processingUnitInstanceStatisticsChanged(ProcessingUnitInstanceStatisticsChangedEvent event) {
+
+		    ProcessingUnitInstanceStatistics statistics = event.getStatistics();
+
+			Map<String, EventContainerServiceMonitors> eventContainers = statistics.getEventContainers();
+
+			WebRequestsServiceMonitors webRequests = statistics.getWebRequests();
+
+			// .....
+		}
+	});
+}
+{%endhighlight%}
+
+
+
