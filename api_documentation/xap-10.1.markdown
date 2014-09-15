@@ -46,7 +46,7 @@ parent: none
 
 #### C++
 {%panel%}
-[C+\+ API Documentation](http://www.gigaspaces.com/docs/cppdocs10.1) -- _GigaSpaces C+\+ classes_
+[C+\+ API Documentation](http://www.gigaspaces.com/docs/cppdocs10.1/annotated.html) -- _GigaSpaces C+\+ classes_
 {%endpanel%}
 
 #### MongoDB
