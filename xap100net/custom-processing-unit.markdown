@@ -1,16 +1,12 @@
 ---
 layout: post100
-title:  PU Container
+title:  Custom Processing Unit
 categories: XAP100NET
 parent: processing-units.html
-weight: 100
+weight: 500
 ---
 
-
-
 {% summary %}{% endsummary %}
-
-
 
 The .NET Processing Unit Container is based on the [OpenSpaces Processing Unit](./processing-units.html), and allows you to write a .NET component that can be managed by the service grid.
 
@@ -19,11 +15,6 @@ The Processing Unit Container is aware of the [cluster info](#ClusterInfo). This
 {%comment%}
 {% refer %}Learn how to use the .NET Processing Unit Container in the [SBA Example] section.{% endrefer %}
 {%endcomment%}
-
-{% tip %}
- Most users prefer to work with the [Basic Processing Unit Container](./basic-processing-unit-container.html), since it simplifies many common tasks associated with implementing a processing unit from scratch.
-However, if you are not familiar with processing unit and event container concepts, the basic processing unit container may be confusing. We recommend you read and experiment with the processing unit container explained below for a while, then continue to read and benefit from the basic processing unit container.
-{% endtip %}
 
 # AbstractProcessingUnitContainer class
 
@@ -47,30 +38,6 @@ public abstract class AbstractProcessingUnitContainer
 {% endhighlight %}
 
 The Processing Unit Container lifecycle consists only of these two methods: `Initialize` is called when the Processing Unit Container is constructed, and `Dispose` is called when it is removed. Before the initialization, the ClusterInfo and Properties are set with the deploy-time data.
-
-# ClusterInfo
-
-One of the core ideas of the Processing Unit is the determination of the deployment topology in deploy-time. Therefore, when building a Processing Unit, there is almost no need to be aware of the actual cluster topology the Processing Unit is deployed under.
-
-{% info %}
-There are two aspects that are important to remember when building a Processing Unit, for it to be cluster topology-independent:
-{%endinfo%}
-
-- Define a routing index on the domain model written to the space, so the partitioned topology can work.
-- When working directly against a cluster member, make sure you don't perform operations against the backup member.
-
-The `ClusterInfo` class holds the following information:
-
-{: .table .table-bordered}
-|Name|Description|
-| `Schema` | The cluster topology. |
-| `NumberOfInstances` |The number of primary instances this cluster holds. |
-| `NumberOfBackups` |The number of backups per primary instance.|
-| `InstanceId` | 1 to the `NumberOfInstances` value, denoting the primary instance ID of the current Processing Unit instance. |
-| `BackupId` | 1 to the `NumberOfBackups` value, denoting the backup ID of the `InstanceId` of the current Processing Unit instance. |
-| `RunningNumber` |A running number of the cluster instance. Takes into account different topologies and provides a unique identifier (starting from `0`) of the cluster member. |
-
-{% exclamation %} Defining a `null` value in one of these properties means that they are not set.
 
 # Creating Your Own Processing Unit Container
 
@@ -118,7 +85,7 @@ It is recommended to use the `pu.config` file located in `<GigaSpaces Root>\Exam
 In order to define the service layer agreement of your processing unit, an SLA file needs to be created.
 That file should be named `sla.xml`, and should be placed in the root directory of the processing unit.
 
-{% refer %}Read about SLA in [Service Grid Processing Unit Container](./basic-processing-unit-container.html).{% endrefer %}
+{% refer %}Read about SLA in [Service Grid Processing Unit Container](./dotnet-processing-unit.html).{% endrefer %}
 
 {%comment%}
 # Deployment

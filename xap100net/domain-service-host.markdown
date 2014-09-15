@@ -50,7 +50,7 @@ public class DataProcessor : IDataProcessor
 
 # Hosting the Service in the Grid
 
-The next step is hosting the service in the grid. Hosting the service is done on the server side within a processing unit that hosts the service, when using the [Basic Processing Unit Container](./basic-processing-unit-container.html), all types which has the \[SpaceRemotingService\] attribute, will automatically be created and hosted:
+The next step is hosting the service in the grid. Hosting the service is done on the server side using a processing unit, all types which has the \[SpaceRemotingService\] attribute, will automatically be created and hosted:
 
 {% highlight csharp %}
 [SpaceRemotingService]
@@ -60,7 +60,7 @@ public class DataProcessor : IDataProcessor
 }
 {% endhighlight %}
 
-Alternatively, or when using a custom [processing unit container](./processing-unit-container.html), a service can be directly hosted using the `DomainServiceHost.Host.Publish`
+Alternatively, or when using a custom processing unit container, a service can be directly hosted using the `DomainServiceHost.Host.Publish`
 
 {% highlight java %}
 public ServiceHostProcessingUnitContainer : AbstractProcessingUnitContainer

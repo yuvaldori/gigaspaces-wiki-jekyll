@@ -17,21 +17,18 @@ The Processing Unit is the unit of packaging and deployment in the GigaSpaces XA
 {%endcolumn%}
 {%endsection%}
 
-
-
 <hr/>
 
-- [Processing Unit Container](./processing-unit-container.html){%wbr%}
-Describing the .NET Processing Unit Container and how to create and deploy it.
+- [Processing Unit](./dotnet-processing-unit.html){%wbr%}
+Introduces the Processing Unit and explains how to create and deploy it.
 
-- [Basic Processing Unit Container](./basic-processing-unit-container.html){%wbr%}
-Describing the built-in BasicProcessingUnitContainer which is an extension of the AbstractProcessingUnitContainer class.
+- [Cluster Information](./obtaining-cluster-information.html){%wbr%}
+Obtaining information about the clustering topology, member id and other cluster related information can be useful in many cases. Cluster information can be provided to the processing unit instances at deployment time.
 
-- [Detailed Processing Unit Container](./detailed-basic-processing-unit-container.html){%wbr%}
-Describing the built-in BasicProcessingUnitContainer which is an extension of the AbstractProcessingUnitContainer class.
+- [Processing Unit and Space](./processing-unit-space.html){%wbr%}
+Describes how to define and use a space within a processing unit.
 
 - [Interoperability Processing Unit Container](./interop-processing-unit.html){%wbr%}
 Creating and deploying a multi language processing unit.
-
 
 <hr/>
