@@ -218,24 +218,16 @@ Now we have all the pieces that are necessary to create the deployment. After we
 
 First we start the XAP Agent (GSA) that will create our IMDG on this machine:
 
-{% inittab d1|top %}
-{% tabcontent Windows %}
-{%highlight console%}
-GS_HOME\bin\gs-agent.bat
-{%endhighlight%}
-{% endtabcontent %}
 
-{% tabcontent Linux %}
 {%highlight console%}
-GS_HOME/bin/gs-agent.sh
+GS_HOME\bin\gs-agent.exe
 {%endhighlight%}
-{% endtabcontent %}
 
-{% endinittab %}
+
 
 And now we deploy the PU onto the IMDG:
 {%highlight console%}
-GS_HOME\bin\gs.sh deploy  PaymentProcessor
+GS_HOME\bin\Gs-cli deploy  PaymentProcessor
 {%endhighlight%}
 
 
@@ -362,10 +354,10 @@ The deployment script for this scenario looks like this:
 {%highlight console%}
 
 With a statefull PU, embedded space
-./gs.sh deploy -cluster schema=partitioned total_members=4,0 -max-instances-per-machine 2 eventProcessor
+./Gs-cli  deploy -cluster schema=partitioned total_members=4,0 -max-instances-per-machine 2 eventProcessor
 
 With a stateless PU
-./gs.sh deploy -cluster total_members=4 -max-instances-per-machine 2 eventProcessor
+./Gs-cli  deploy -cluster total_members=4 -max-instances-per-machine 2 eventProcessor
 {%endhighlight%}
 
 {% note %}

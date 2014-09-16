@@ -27,21 +27,9 @@ In Part I you have learned about XAP's capabilities as a data store. In this par
 
 To start an XAP data grid, run the following command:
 
-{% inittab tab1|top %}
-{% tabcontent Windows %}
 {%highlight csharp%}
-GS_HOME\bin\gs-agent.bat  
+GS_HOME\bin\gs-agent.exe
 {%endhighlight%}
-{% endtabcontent %}
-
-{% tabcontent Unix %}
-{%highlight csharp%}
-GS_HOME/bin/gs-agent.sh
-{%endhighlight%}
-{% endtabcontent %}
-{% endinittab %}
-
-
 
 
 {%section%}
@@ -84,7 +72,7 @@ There are several ways you can deploy a new Data Grid; by command line, with C# 
 We want to deploy a data grid that has two primary partitions and one backup for each primary partition.
 Here is the gs command that you would execute to achieve this:
 {%highlight console%}
-GS_HOME\bin\gs.bat deploy-space  -cluster schema=partitioned-sync2backup total_members=2,1  xapTutorialSpace
+GS_HOME\bin\Gs-cli deploy-space  -cluster schema=partitioned-sync2backup total_members=2,1  xapTutorialSpace
 {%endhighlight%}
 This command will start a space called xapTutorialSpace with two primary partitions and a backup for failover for each primary. 
 
@@ -127,7 +115,7 @@ Here is how you would configure your IMDG:
 Lets assume we have 4 machines available. On all machines we will start a GSA. The default gs-agent script will give us a total number of 8 GSC's. We want to deploy 4 partitions each having a backup and there should only be one instance per machine. 
 
 {%highlight console%}
-GS_HOME\bin\gs.sh deploy-space  -cluster schema=partitioned-sync2backup total_members=4,1 
+GS_HOME\bin\Gs-cli deploy-space  -cluster schema=partitioned-sync2backup total_members=4,1
        -max-instances-per-machine 1 xapTutorialSpace
 {%endhighlight%}
 When the application write Payment objects into this space, XAP will use the routing information provided `[SpaceRouting]` by the Payment class to route the object to the right partition.
@@ -156,18 +144,9 @@ ISpaceProxy spaceProxy = GigaSpacesFactory.FindSpace(url);
  
 You can start XAP's console and inspect the Data Grid components that have been started. In the XAP distribution you will find the command file to launch the console.
 
-{% inittab os_simple_space|top %}
-{% tabcontent Windows%}
-{%highlight csharp%}
-GS_HOME\bin\gs_webui.bat
+{%highlight console%}
+GS_HOME\bin\Gs-webui.exe
 {%endhighlight%}
-{% endtabcontent %}
-{% tabcontent Unix%}
-{%highlight csharp%}
-GS_HOME/bin/gs_webui.sh
-{%endhighlight%}
-{% endtabcontent %}
-{% endinittab %}
 
 After you execute the above command, open a browser and goto to http://your_host:8099 and the login screen for the admin application will open up. The following screen shots will demonstrate some of the UI features: (no username and password needed)
 
