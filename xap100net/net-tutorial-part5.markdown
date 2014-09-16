@@ -41,85 +41,38 @@ The Business-logic Only PU implements your application code, and does not includ
 #### Mixed PU
 This type of PU's includes both business logic and a space. Typically, the business logic interacts with a local space instance (i.e. a data grid instance running within the same PU instance) to achieve lowest possible latency and best performance.
 
+# Creating a Processing Unit
 
-# The PU File structure
+A processing unit is essentially a .NET class library with a deployment descriptor called `pu.config`. Creating a processing unit is simple:
 
-Here is an example how the directory structure looks like using Visual Studio:
+1. In Visual Studio, Create a new `Class Library` project.
+2. Add a reference to `GigaSpaces.Core.dll` from the product's `bin` folder.
+3. Add an xml file called `pu.config` to the project.
+4. Right-click `pu.config`, select **Properties**, and modify the [Copy to Output Directory](http://msdn.microsoft.com/en-us/library/0c6xyb66%28v=vs.100%29.aspx) to **Copy Always** (or **Copy If Newer**).
+5. Copy the following configuration into `pu.config`:
 
-{%highlight console%}
-|ProcessingUnit
-|--common
-|----Properties
-|--------AssemblyInfo.cs
-|----Payment.cs
-|--processor
-|----Properties
-|--------AssemblyInfo.cs
-|----PaymentEventProcessor.cs
-|----pu.config
-|----sla.xml
-|----processor.sln
-|--ProcessingUnit.sln
-|
-{%endhighlight%}
-
-
-The file structure is composed of several key elements:
-
-- pu.config (mandatory): This is the PU's deployment descriptor. These bindings include XAP specific components (such as the space for example). The pu.config file typically contains definitions of XAP components (space, event containers, remote service exporters) and user defined beans.
-
-- sla.xml (not mandatory): This file contains SLA definitions for the PU (i.e. number of instances, number of backup and deployment requirements). If its is not present, the default SLA will be applied. SLA definitions can also be specified at the deploy time via command line arguments.
-
-- User class files: Your processing unit's classes (PaymentEventProcessor.cs)
-
-
-{%note title=Building the project with Visual Studio%}
-
-- Include in the References the GigaSpaceCore.dll
-- Change the project properties so the output directory points to `GS_HOME\NET v...\deploy\[pu-name\]`. The Admin UI and the command line interface will find the PU's to deploy under this file structure.
-- Configure the sla.xml and the pu.config file so that they are `[copy if newer]`
-
-{%endnote%}
-
-
-
-# The pu.config file
-This file is an XML configuration file.
-
-The definitions in the pu.config file are divided into 2 major categories:
-
-- XAP specific components, such as space, event containers or remote service exporters.
-- User defined beans, which define instances of user classes to be used by the PU. For example, user defined event handlers to which the event containers delegate events as those are received.
-
-
-Here is an example of a pu.config file:
-
-{%highlight xml%}
+{% highlight xml %}
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <configSections>
-    <section name="GigaSpaces.XAP" type="GigaSpaces.XAP.Configuration.GigaSpacesXAPConfiguration, GigaSpaces.Core"/>
+    <section name="ProcessingUnit" type="GigaSpaces.XAP.Configuration.ProcessingUnitConfigurationSection, GigaSpaces.Core"/>
   </configSections>
-  <GigaSpaces.XAP>
-		<ProcessingUnitContainer Type="GigaSpaces.XAP.ProcessingUnit.Containers.BasicContainer.BasicProcessingUnitContainer, GigaSpaces.Core">
-			<BasicContainer>
-				<SpaceProxies>
-					<add Name="ProcessingSpace" Url="/./eventSpace"/>
-				</SpaceProxies>
-			</BasicContainer>
-		</ProcessingUnitContainer>
-  </GigaSpaces.XAP>
+  <ProcessingUnit>
+    <!-- Processing unit configuration goes here -->
+  </ProcessingUnit>
 </configuration>
-{%endhighlight%}
+{% endhighlight %}
+
+{%info title=PU Configuration Snippets%}From here on processing unit configuration snippets will usually be shortened to focus on the `<ProcessingUnit>` tag. {%endinfo%}
 
 {%learn%}./processing-units.html{%endlearn%}
-
-
-
 
 # Service Level Agreement (SLA)
 
 The SLA definitions can be provided as part of the PU package or during the PU's deployment process. They define the number of PU instances that should be running and deploy-time requirements such as clustering topology for PU's which contain a space. The GSM reads the SLA definition, and deploys the PU onto the available GSCs according to it.
+
+To include the SLA in the processing unit, add an xml file called `sla.xml` and modify its **Copy To Output Directory** setting (same as `pu.config`).
+
 A sample SLA definition is shown below:
 
 {%highlight xml%}
@@ -139,19 +92,18 @@ A sample SLA definition is shown below:
 
 {%learn%}./processing-units.html{%endlearn%}
 
-
-
-
-
 # Deployment
-When deploying the PU to the XAP Service Grid, the PU is uploaded to the XAP Manager (GSM) and extracted to the deploy directory of the local XAP installation (located by default under <XAP Root>/deploy).
+When deploying the PU to the XAP Service Grid, the PU is uploaded to the XAP Manager (GSM) and extracted to the deploy directory of the local XAP installation (located by default under <XAP Root>\deploy).
 Once extracted, the GSM processes the deployment descriptor and based on that provisions PU instances to the running XAP containers.
 
-Each GSC to which a certain instance was provisioned, downloads the PU from the GSM, extracts it to its local working directory (located by default under <XAP Root>/work/deployed-processing-units) and starts the PU instance.
+Each GSC to which a certain instance was provisioned, downloads the PU from the GSM, extracts it to its local working directory (located by default under <XAP Root>\work\deployed-processing-units) and starts the PU instance.
 
+{%tip title=Building directly to the deploy folder%}
+A common practice is to change the PU project output directory to `GS_HOME\deploy\[pu-name\]`, since this is the default path used by the GUI and the command line interface will find the PU's to deploy under this file structure.
+{%endtip%}
 
 # Example
-Our Online Payment system is expected to handle a large amount of concurrent users performing transactions. The system also needs to be highly available. This is where XAP's PU comes into play. We will create a polling container that takes a payment event as input and processes it. Then, we will deploy this code as a PU onto the IMDG. Payment events are being written into a space and the polling container will pick up the events and process them. We will use the pu.config file to define the deployment and add an SLA configuration to it to provide failover and scalability.
+Our Online Payment system is expected to handle a large amount of concurrent users performing transactions. The system also needs to be highly available. This is where XAP's PU comes into play. We will create a polling container that takes a payment event as input and processes it. Then, we will deploy this code as a PU onto the IMDG. Payment events are being written into a space and the polling container will pick up the events and process them. We will use the `pu.config` file to define the deployment and add an SLA configuration to it to provide failover and scalability.
 
 ### Polling Container
 First we define a polling container that will handle the business logic upon receiving a payment event. In our example we define a polling container that will receive events when a new payment is created:
@@ -165,95 +117,65 @@ using GigaSpaces.XAP.Events;
 using xaptutorial.model;
 
 [PollingEventDriven]
-public class PaymentEventProcessor {
-
+public class PaymentEventProcessor 
+{
 	// Define the event we are interested in
 	[EventTemplate]
-	Payment unprocessedData() {
-		Payment template = new Payment();
-		template.Status=ETransactionStatus.NEW;
-		return template;
+	Payment unprocessedData()
+	{
+		return new Payment { Status=ETransactionStatus.NEW };
 	}
 
 	[DataEventHandler]
-	public Payment eventListener(Payment ev) {
+	public Payment eventListener(Payment ev)
+	{
 		Console.WriteLine("Payment received; processing .....");
-
-		// set the status on the event and write it back into the space
+    	// set the status on the event and write it back into the space
 		ev.Status=ETransactionStatus.PROCESSED;
 		return ev;
 	}
 }
 {%endhighlight%}
 
+### Processing Unit
 
-
-#### Create pu.config
-In this step will create the configuration file for the PU deployment
+Next, we'll configure `pu.config` to create an embedded space for the polling container:
 
 {%highlight xml%}
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <configSections>
-    <section name="GigaSpaces.XAP" type="GigaSpaces.XAP.Configuration.GigaSpacesXAPConfiguration, GigaSpaces.Core"/>
+    <section name="ProcessingUnit" type="GigaSpaces.XAP.Configuration.ProcessingUnitConfigurationSection, GigaSpaces.Core"/>
   </configSections>
-  <GigaSpaces.XAP>
-		<ProcessingUnitContainer Type="GigaSpaces.XAP.ProcessingUnit.Containers.BasicContainer.BasicProcessingUnitContainer, GigaSpaces.Core">
-			<BasicContainer>
-				<SpaceProxies>
-					<add Name="ProcessingSpace" Url="/./eventSpace"/>
-				</SpaceProxies>
-			</BasicContainer>
-		</ProcessingUnitContainer>
-  </GigaSpaces.XAP>
+  <ProcessingUnit>
+    <EmbeddedSpaces>
+      <add Name="eventSpace"/>
+    </EmbeddedSpaces>
+  </ProcessingUnit>
 </configuration>
 {%endhighlight%}
 
-
-
-#### Deployment
+### Deployment
 Now we have all the pieces that are necessary to create the deployment. After we built the project its time to deploy the PU onto the data grid. Again, you can do this in three ways; by script, c# code or via the admin UI. In our example will use the scripts to deploy the PU.
 
-First we start the XAP Agent (GSA) that will create our IMDG on this machine:
+First let's launch `gs-agent.exe` from the product's `bin` folder - this is the XAP Agent (GSA) that will host our IMDG on this machine.
 
-{% inittab d1|top %}
-{% tabcontent Windows %}
+Next we deploy the PU onto the IMDG:
 {%highlight console%}
-GS_HOME\bin\gs-agent.bat
+GS_HOME\bin\gs-cli deploy PaymentProcessor
 {%endhighlight%}
-{% endtabcontent %}
-
-{% tabcontent Linux %}
-{%highlight console%}
-GS_HOME/bin/gs-agent.sh
-{%endhighlight%}
-{% endtabcontent %}
-
-{% endinittab %}
-
-And now we deploy the PU onto the IMDG:
-{%highlight console%}
-GS_HOME\bin\gs.bat deploy PaymentProcessor
-{%endhighlight%}
-
 
 If you startup the Admin UI you will be able to see that through the deployment a space called eventSpace was created and a PU named with the name `processing`.
 
-
-
-#### Client interface
+### Client interface
 
 Now its time to create a client that creates events and writes them into the space.
-
 
 {%highlight csharp%}
 using System;
 using System.Threading;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using GigaSpaces.Core;
-
 using common;
 
 namespace UnitTest
@@ -261,52 +183,33 @@ namespace UnitTest
     [TestClass]
     public class UnitTest
     {
-        // See note below !
-        String spaceName = "eventSpace?groups={%version default-lookup-group%}";
-
         private ISpaceProxy proxy;
 
+	    [TestInitialize]
+		public void Initialize()
+		{
+			proxy = new SpaceProxyFactory("eventSpace").Create();
+		}
+
         [TestMethod]
-	    public void postPayment() {
-
-
-		// Create a payment
-		Payment payment = new Payment();
-		payment.CreatedDate=new DateTime();
-		payment.MerchantId=1L;
-		payment.PaymentAmount=120.70;
-		payment.Status=ETransactionStatus.NEW;
-
-		// write the payment into the space
-		proxy.Write(payment);
-
-        Thread.Sleep(10000);
-
-        SqlQuery<Payment> query = new SqlQuery<Payment>("MerchantId=1");
-        payment = proxy.Read<Payment>(query);
-
-        Assert.AreEqual(payment.Status, ETransactionStatus.PROCESSED);
+	    public void PostPayment()
+		{
+			// Create a payment and write it to the space:
+			proxy.Write(new Payment { CreatedDate=new DateTime(), MerchantId=1L, PaymentAmount=120.70, Status=ETransactionStatus.NEW });
+			// Wait for the payment to be processed by the event container
+			Thread.Sleep(10000);
+			// Read the payment from the space
+			payment = proxy.Read<Payment>(new SqlQuery<Payment>("MerchantId=1"));
+			// Test the payment
+			Assert.AreEqual(payment.Status, ETransactionStatus.PROCESSED);
+		}
 	}
-
-    [TestInitialize]
-    public void init()
-    {
-      proxy = new SpaceProxyFactory(spaceName).Create();
-
-    }
-  }
 }
-
 {%endhighlight%}
-
-{%note%}
-When deploying the example with the admin UI, you need to configure the client space URL with the `groups` property default argument.
-You will find the value for the property in `GS_HOME\NET v....\Config\Settings.xml`. For example:  \[<XapNet.Groups>XAP-9.7.0-ga-NET-2.0.50727-x64</XapNet.Groups>\]
-{%endnote%}
 
 When you run this code you should see that the PU deployed onto the IMDG is processing the event, changes the status of the payment to PROCESSED and writes the event back into the space. The client then will receive an event because it has registered a listener that listens for processed payment events.
 
-#### Deploy a PU with the WEB Admin UI
+## Deploy a PU with the WEB Admin UI
 There is complete example available of  a PU on GitHub. You can download, build and deploy this example. Here is an example how you deploy a PU with the WEB admin UI:
 
 {%section%}
@@ -341,14 +244,15 @@ Statistics
 
 {%try%}https://github.com/Gigaspaces/xapnet-tutorial{%endtry%}
 
-#### Failover and Scalability
+### Failover and Scalability
 One of our non functional requirements for our online payment system is that it is highly available and it can handle a large amount of concurrent transactions. This can be accomplish in a couple of ways. We can deploy the PU with multiple concurrent threads and or multiple PU instances on top of the grid.
 
-#### Multi threaded PU
-By default the PU is single threaded. With a simple annotation you can tell XAP how many threads the PU should run with.
+### Multi threaded Event Container
+By default the event container is single threaded. With a simple annotation you can tell XAP how many threads the event container should run with.
 {%highlight csharp%}
 [PollingEventDriven(Name = "DataProcessor", MinConcurrentConsumers = 1, MaxConcurrentConsumers = 4)]
-public class PaymentProcessor {
+public class PaymentProcessor
+{
     //......
 }
 {%endhighlight%}
@@ -358,12 +262,10 @@ Lets assume that we have two machines available for our deployment. We want to d
 
 The deployment script for this scenario looks like this:
 {%highlight console%}
-
-With a statefull PU, embedded space
-./gs.bat deploy -cluster schema=partitioned total_members=4,0 -max-instances-per-machine 2 eventProcessor
-
+With a stateful PU, embedded space
+gs-cli deploy -cluster schema=partitioned total_members=4,0 -max-instances-per-machine 2 eventProcessor
 With a stateless PU
-./gs.bat deploy -cluster total_members=4 -max-instances-per-machine 2 eventProcessor
+gs-cli deploy -cluster total_members=4 -max-instances-per-machine 2 eventProcessor
 {%endhighlight%}
 
 {% note %}

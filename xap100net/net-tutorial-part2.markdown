@@ -17,35 +17,14 @@ parent: net-home.html
  {%endsection%}
 
 
-In Part I you have learned about XAP's capabilities as a data store. In this part of the tutorial we will show you how you can deploy an In Memory Data Grid (IMDG) that provides scalability and failover. GigaSpaces XAP can be used as a scalable application platform on which you can host your C# application, similar to JEE and web containers. However, GigaSpaces XAP's IMDG can also be embedded within another C# application which is not hosted within the XAP platform. In this part of the tutorial we will show you how to start a data grid and how you can interact with it.
-
-
-
+In Part I you have learned about XAP's capabilities as a data store. In this part of the tutorial we will show you how you can deploy an In Memory Data Grid (IMDG) that provides scalability and failover. GigaSpaces XAP can be used as a scalable application platform on which you can host your C# application. However, GigaSpaces XAP's IMDG can also be embedded within another C# application which is not hosted within the XAP platform. In this part of the tutorial we will show you how to start a data grid and how you can interact with it.
 
 # Getting started
 
-To start an XAP data grid, run the following command:
-
-{% inittab tab1|top %}
-{% tabcontent Windows %}
-{%highlight csharp%}
-GS_HOME\bin\gs-agent.bat  
-{%endhighlight%}
-{% endtabcontent %}
-
-{% tabcontent Unix %}
-{%highlight csharp%}
-GS_HOME/bin/gs-agent.sh
-{%endhighlight%}
-{% endtabcontent %}
-{% endinittab %}
-
-
-
+To start an XAP data grid, launch `gs-agent.exe` from the product's `bin` folder. This will start all the infrastructure required to run the data grid. The following components are started: 
 
 {%section%}
 {%column width=60% %}
-This will start all the infrastructure required to run the data grid. The following components are started: 
 
 - Grid Service Manager (GSM)
 The Grid Service Manager is the component which manages the deployment and life cycle of the processing unit.
@@ -83,7 +62,7 @@ There are several ways you can deploy a new Data Grid; by command line, with C# 
 We want to deploy a data grid that has two primary partitions and one backup for each primary partition.
 Here is the gs command that you would execute to achieve this:
 {%highlight console%}
-GS_HOME\bin\gs.bat deploy-space  -cluster schema=partitioned-sync2backup total_members=2,1  xapTutorialSpace
+GS_HOME\bin\gs-cli deploy-space  -cluster schema=partitioned-sync2backup total_members=2,1  xapTutorialSpace
 {%endhighlight%}
 This command will start a space called xapTutorialSpace with two primary partitions and a backup for failover for each primary. 
 
@@ -126,7 +105,7 @@ Here is how you would configure your IMDG:
 Lets assume we have 4 machines available. On all machines we will start a GSA. The default gs-agent script will give us a total number of 8 GSC's. We want to deploy 4 partitions each having a backup and there should only be one instance per machine. 
 
 {%highlight console%}
-GS_HOME\bin\gs.bat deploy-space  -cluster schema=partitioned-sync2backup total_members=4,1 
+GS_HOME\bin\gs-cli deploy-space  -cluster schema=partitioned-sync2backup total_members=4,1 
        -max-instances-per-machine 1 xapTutorialSpace
 {%endhighlight%}
 When the application write Payment objects into this space, XAP will use the routing information provided `[SpaceRouting]` by the Payment class to route the object to the right partition.
@@ -136,38 +115,16 @@ When the application write Payment objects into this space, XAP will use the rou
 
 
 # Interacting with the data Grid
-Now we are ready to interact with the data grid. All the examples we explored in the first part of the tutorial can be used to interact with the IMDG.
+Now we are ready to interact with the data grid. All the examples we explored in the first part of the tutorial can be used to interact with the IMDG. Here is an example how you can connect to the grid from your application:
 
-If you have started the IMDG within your application, you would acquire the space like this:
 {%highlight csharp%}
-ISpaceProxy spaceProxy = pu.WaitForSpace().SpaceProxy;
-{%endhighlight%}
-
-Here is an example how you can connect to the grid from your application:
-{%highlight csharp%}
-// Create the Space
+// Connect to the Space
 ISpaceProxy spaceProxy = new SpaceProxyFactory("xapTutorialSpace").Create();
 {%endhighlight%}
 
-
 # WEB Admin UI  
  
-You can start XAP's console and inspect the Data Grid components that have been started. In the XAP distribution you will find the command file to launch the console.
-
-{% inittab os_simple_space|top %}
-{% tabcontent Windows%}
-{%highlight csharp%}
-GS_HOME\bin\gs-webui.bat
-{%endhighlight%}
-{% endtabcontent %}
-{% tabcontent Unix%}
-{%highlight csharp%}
-GS_HOME/bin/gs_webui.sh
-{%endhighlight%}
-{% endtabcontent %}
-{% endinittab %}
-
-After you execute the above command, open a browser and goto to http://your_host:8099 and the login screen for the admin application will open up. The following screen shots will demonstrate some of the UI features: (no username and password needed)
+You can start XAP's console and inspect the Data Grid components that have been started. Double-click `gs-webui.exe` from the product's `bin` folder, then open a web browser and navigate to http://localhost:8099 and the login screen for the admin application will open up. The following screen shots will demonstrate some of the UI features: (no username and password needed)
 
  
 {%section%}
