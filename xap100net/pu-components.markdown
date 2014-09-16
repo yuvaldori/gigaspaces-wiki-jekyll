@@ -1,97 +1,101 @@
 ---
 layout: post100
-title:  Spaces
+title:  Components
 categories: XAP100NET
 parent: processing-units.html
-weight: 300
+weight: 200
 ---
 
 {% summary %}  {% endsummary %}
 
 # Overview
 
-The processing unit can be configured to create an embedded space or connect to a remote space. For example, the following processing unit creates an embedded space called `MySpace` and connects to a remote space called `SomeOtherSpace`:
+Packaging user-defined code in a processing unit is done using components. A **Component** is essentially a class decorated with a `BasicProcessingUnitComponent` attribute:
+
+{% highlight java %}
+[BasicProcessingUnitComponent]
+public class MyComponent
+{
+    public MyComponent()
+    {
+        Console.WriteLine("Hello World");
+    }
+}
+{% endhighlight %}
+
+When a processing unit is deployed, it scans all the assemblies in its working directory for classes decorated with `BasicProcessingUnitComponent` and instantiates them. In addition, the component instance is managed and tracked by the processing unit. 
+
+# Life cycle
+
+The supported life cycle events for the component are:
+
+* *Initializing* - called during the container initialization process. To intercept this event, create a method decorated with `ContainerInitializing`. 
+  * Optional: The method can include an argument of type `BasicProcessingUnitContainer` to intercept the container, which provides additional services.
+* *Initialized* - called after the container initialization process completed. To intercept this event, create a method decorated with `ContainerInitialized`.
+  * Optional: The method can include an argument of type `BasicProcessingUnitContainer` to intercept the container, which provides additional services.
+* *Undeploy* - Called when the processing unit instance is undeployed. To intercept this event, implement the standard `IDisposable` interface, and the `Dispose()` method will be called upon undeployment.
+
+The component name can be used by other components to obtain a reference to it. For example, an additional component `Foo` uses the `ContainerInitialized` method to obtain a reference to `MyComponent`:
+
+# Multiple Components
+
+If more than one component is used, the component can be assigned with a name which can be used to obtain a reference to its runtime instance. For example:
+
+{% highlight java %}
+[BasicProcessingUnitComponent(Name="Foo")]
+public class Foo
+{
+    private Bar _bar;
+	
+    [ContainerInitialized]
+    public void Initialize(BasicProcessingUnitContainer container)
+    {
+        _bar = (Bar)container.GetProcessingUnitComponent("Bar");
+    }
+}
+
+[BasicProcessingUnitComponent(Name="Bar")]
+public class Bar
+{
+	// ...
+}
+
+{% endhighlight %}
+
+# Space Proxies
+
+If the processing unit contains an embedded space or space proxy definition, you can use the container to obtain a reference to those proxies. For example:
 
 {% highlight xml %}
 <ProcessingUnit>
   <EmbeddedSpaces>
     <add Name="MySpace"/>
   </EmbeddedSpaces>
-  <SpaceProxies>
-    <add Name="SomeOtherSpace"/>
-  </SpaceProxies>
 </ProcessingUnit>
 {% endhighlight %}
 
-Since this space is configured within a processing unit, it will automatically shut down when the processing unit is undeployed.
-
-A processing unit component can obtain a reference to the configured spaces using the container. For example:
-
 {% highlight java %}
-[BasicProcessingUnitComponent(Name="MyComponent")]
+[BasicProcessingUnitComponent]
 public class MyComponent
 {
     private ISpaceProxy _mySpace;
-    private ISpaceProxy _someOtherSpace;
 
     [ContainerInitialized]
     public void Initialize(BasicProcessingUnitContainer container)
     {
         _mySpace = container.GetSpaceProxy("MySpace");
-        _someOtherSpace = container.GetSpaceProxy("SomeOtherSpace");
     }
 }
 {% endhighlight %}
 
-# Space Properties
-
-When creating a space you can override space properties values using the `Properties` tag:
-
-{% highlight xml %}
-<ProcessingUnit>
-  <EmbeddedSpaces>
-    <add Name="MySpace">
-      <Properties>
-        <add Name="space-config.engine.cache_policy" Value="0"/>
-        <add Name="space-config.engine.cache_size" Value="100"/>
-      </Properties>
-    </add>
-  </EmbeddedSpaces>
-</ProcessingUnit>
-{% endhighlight %}
-
-# Cluster Mode
-
-When creating an embedded space, the default proxy is created in **direct** mode, meaning it targets only the collocated cluster member. To target the entire cluster, set the `Mode` tag to **Clustered**:
-
-{% highlight xml %}
-<ProcessingUnit>
-  <EmbeddedSpaces>
-    <add Name="MySpace" Mode="Clustered"/>
-  </EmbeddedSpaces>
-</ProcessingUnit>
-{% endhighlight %}
-
-# Cluster aware
-
-When a processing unit is deployed, the configured embedded spaces are created using the injected cluster information. To force an embedded space to ignore that cluster info, use the `ClusterInfoAware` tag:
-
-{% highlight xml %}
-<ProcessingUnit>
-  <EmbeddedSpaces>
-    <add Name="MySpace" ClusterInfoAware="false"/>
-  </EmbeddedSpaces>
-</ProcessingUnit>
-{% endhighlight %}
-
-# Life Cycle Events
+# Space Life Cycle Events
 
 In a topology with backup spaces, it is quite common to have a business logic co-located with an embedded space instance, that should be activated only when the embedded space instance mode is primary. The built-in event listener container work that way; they only start to operate when the co-located embedded space becomes primary. It is quite common to have different custom logic that should be notified upon space mode change events and act accordingly (for instance, start some monitoring process of the co-located space instance). The container will detect automatically methods marked with a space mode changed attribute (\[PostPrimary\], \[BeforePrimary\], \[PostBackup\] and \[BeforeBackup\]) and it will invoke these methods once the space instance mode is changed.
 
 Here's an example of monitoring logic that will start to monitor the embedded space when it becomes primary:
 
 {% highlight java %}
-[BasicProcessingUnitComponent(Name="MyComponent")]
+[BasicProcessingUnitComponent]
 public class MyComponent
 {
     [PostPrimary]

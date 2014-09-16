@@ -14,7 +14,7 @@ Follow these [instructions](./installation-guide.html#dotnet-installation) to do
 {%endpanel%}
 {%endcomment%}
 
-This example demonstrates a simple processing unit architecture project -- a complete SBA application that can easily scale. It demonstrates a usage of XAP's SBA related components, such as [Event Listener Container](./event-processing.html), [Space Based Remoting](./space-based-remoting.html) and the [Processing Unit](./dotnet-processing-unit.html).
+This example demonstrates a simple processing unit architecture project -- a complete SBA application that can easily scale. It demonstrates a usage of XAP's SBA related components, such as [Event Listener Container](./event-processing.html), [Space Based Remoting](./space-based-remoting.html) and the [Processing Unit](processing-units.html).
 
 You can find the example in the distribution:
 
@@ -33,7 +33,7 @@ You can find the example in the distribution:
 
 {%section%}
 {%column width=90% %}
-This example includes a module that is deployed to the grid, and a domain model that consists of `Data` objects. The [DataFeeder](#datafeeder) module runs within a [Processing Unit](./dotnet-processing-unit.html) and writes `Data` objects with raw data into the remote space. The space is actually embedded within the other Processing Unit Container, which runs the [DataProcessor](#dataprocessor) module.
+This example includes a module that is deployed to the grid, and a domain model that consists of `Data` objects. The [DataFeeder](#datafeeder) module runs within a [Processing Unit](./processing-units.html) and writes `Data` objects with raw data into the remote space. The space is actually embedded within the other Processing Unit Container, which runs the [DataProcessor](#dataprocessor) module.
 {%endcolumn%}
 {%column width=10% %}
 {%popup /attachment_files/dotnet/dataexample architecture.jpg%}
@@ -88,7 +88,7 @@ Basically, every `Data` object is written to the space by the `DataFeeder` with 
 ## DataProcessor
 
 The data processor module consists of one class named `DataProcessor` which contains the processing business logic.
-The `DataProcessor` class is created upon deployment of the data processor processing unit project which will be created and managed within a [Processing Unit](./dotnet-processing-unit.html).
+The `DataProcessor` class is created upon deployment of the data processor processing unit project which will be created and managed within a [Processing Unit](./processing-units.html).
 
 The actual work is done by a [Polling Container](./polling-container.html) and the `DataProcessor`. The polling container provider the abstraction for data event that triggers the business logic by taking the unprocessed `Data` objects from the space and executes the `DataProcessor.ProcessData` method on it. Then it writes the processed data back to the space.
 
@@ -173,7 +173,7 @@ This data processor comes with an sla.xml file which define the default topology
 
 {% refer %}See [Space Based Remoting](./space-based-remoting.html) for more info about remoting services over the grid.{% endrefer %}
 
-{% refer %}See [Processing Unit](./dotnet-processing-unit.html) for more info about processing units.{% endrefer %}
+{% refer %}See [Processing Unit](./processing-units.html) for more info about processing units.{% endrefer %}
 
 {% anchor datafeeder %}
 
