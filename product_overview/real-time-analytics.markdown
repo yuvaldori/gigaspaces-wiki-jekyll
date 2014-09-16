@@ -73,6 +73,7 @@ This is sometimes considered a subset of Operational intelligence and is also id
 - [Big Data Integration]({%latestjavaurl%}/big-data.html)
 - [Time Series](/sbp/time-series.html)
 - [Storm Integration](/sbp/storm-integration.html)
+- [Drools Rule Engine Integration](/sbp/xap-drools-integration.html)
 
 {%endpanel%}
 
