@@ -97,7 +97,7 @@ Executors fully support transactions similar to other XAP operations. Once an ex
 
 # Remoting Service
 Executor remoting supports transactional execution of services. On the client side, if there is an ongoing declarative transaction during the service invocation (a Space based transaction), the service will be executed under the same transaction. The transaction itself is passed to the server and any Space related operations (performed using XAP) will be executed under the same transaction.
-{%learn%}./space-based-remoting.html{%endlearn%}
+{%learn%}./space-based-remoting-overview.html{%endlearn%}
 
 
 

@@ -2,14 +2,14 @@
 layout: post
 title:  3rd-Party License Agreements 
 categories: RELEASE_NOTES
-parent: none
-weight: 300
+parent: xap100.html
+weight: 900
 ---
 
-{% summary %}This page list all the 3rd party libraries shipped with GigaSpaces XAP on a per version basis, and their respective license agreements.{% endsummary %}
+This page list all the 3rd party libraries shipped with GigaSpaces XAP on a per version basis, and their respective license agreements.
 
 
-# XAP 9.7 
+
 
 {% inittab %}
 

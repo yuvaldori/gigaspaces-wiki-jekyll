@@ -14,7 +14,7 @@ Follow these [instructions](./installation-guide.html#dotnet-installation) to do
 {%endpanel%}
 {%endcomment%}
 
-This example demonstrates a simple processing unit architecture project -- a complete SBA application that can easily scale. It demonstrates a usage of XAP's SBA related components, such as [Event Listener Container](./event-processing.html), [Space Based Remoting](./space-based-remoting.html) and the [Processing Unit](processing-units.html).
+This example demonstrates a simple processing unit architecture project -- a complete SBA application that can easily scale. It demonstrates a usage of XAP's SBA related components, such as [Event Listener Container](./event-processing.html), [Space Based Remoting](./space-based-remoting-overview.html) and the [Processing Unit](processing-units.html).
 
 You can find the example in the distribution:
 
@@ -85,7 +85,7 @@ The `DataProcessor` class is created upon deployment of the data processor proce
 
 The actual work is done by a [Polling Container](./polling-container.html) and the `DataProcessor`. The polling container provider the abstraction for data event that triggers the business logic by taking the unprocessed `Data` objects from the space and executes the `DataProcessor.ProcessData` method on it. Then it writes the processed data back to the space.
 
-The different attributes will be used to create and configure the polling container that will trigger the data event and invoke the `ProcessData` method which represents the business logic. The polling container is aware of the mode the space is in, and it will only work when the space is in Primary mode. Additionally the processor as being published as a [remote service](./space-based-remoting.html), therefore it needs to implement a service contract, in our case it implements the common interface `IProcessorStatisticsProvider`, which will later be remotely invoked by the feeder to display statistics of the processor.
+The different attributes will be used to create and configure the polling container that will trigger the data event and invoke the `ProcessData` method which represents the business logic. The polling container is aware of the mode the space is in, and it will only work when the space is in Primary mode. Additionally the processor as being published as a [remote service](./space-based-remoting-overview.html), therefore it needs to implement a service contract, in our case it implements the common interface `IProcessorStatisticsProvider`, which will later be remotely invoked by the feeder to display statistics of the processor.
 
 In this example the processor is colocated with the space that it needs to process data from, therefore achieving high performance because the processor and the space reside in the same process. This cluster topology is built by a simple matter of configuration of the basic processing unit container which is detailed below.
 
@@ -164,7 +164,7 @@ This data processor comes with an sla.xml file which define the default topology
 
 {% refer %}See [Event Processing](./event-processing.html) for more info about event listening abstraction.{% endrefer %}
 
-{% refer %}See [Space Based Remoting](./space-based-remoting.html) for more info about remoting services over the grid.{% endrefer %}
+{% refer %}See [Space Based Remoting](./space-based-remoting-overview.html) for more info about remoting services over the grid.{% endrefer %}
 
 {% refer %}See [Processing Unit](./processing-units.html) for more info about processing units.{% endrefer %}
 
