@@ -111,7 +111,7 @@ namespace xaptutorial.model
 
 ## NHibernate Mapping File
 
-In the next step we are creating the NHibernate mapping file:
+In the next step we are creating the NHibernate mapping file. In Visual Studio create a folder to host all `hbm` files (for example `NHibernateCfg`) and place the following `Merchant.hbm.xml` file in it:
 
 {% highlight xml %}
 <?xml version="1.0"?>
@@ -131,6 +131,7 @@ In the next step we are creating the NHibernate mapping file:
 
 NHibernate requires a session factory that creates new sessions over the database for each operation executed on it. You can create such a session factory, either with a configuration file or by code. This walkthrough demonstrates a simple configuration file for the session factory, over a MySQL database server into a database named `dotnetpersistency`. These parameters are configured in the `Connection` string property.
 
+Create a file called `nHibernate.cfg.xml` in the `NHibernateCfg` folder created earlier and copy the following configuration to it:
 
 {% highlight xml %}
 <?xml version="1.0" ?>
@@ -156,38 +157,34 @@ NHibernate requires a session factory that creates new sessions over the databas
 </hibernate-configuration>
 {% endhighlight %}
 
-
-
-
 ## Creating a Space with an ExternalDataSource
 
-Now we will start an embedded space with our mapping and configuration files:
+Now we will configure our processing unit to host an embedded space with our mapping and configuration files:
 
-{% highlight csharp %}
-//Create a new space configuration object that is used to start a space
-SpaceConfig spaceConfig = new SpaceConfig();
-
-//Start a new ExternalDataSource config object
-spaceConfig.ExternalDataSourceConfig = new ExternalDataSourceConfig();
-
-//Start a new instance of NHibernateExternalDataSource and attach it to the config
-spaceConfig.ExternalDataSourceConfig.Instance = new NHibernateExternalDataSource();
-
-//Create custom properties that are required to build NHibernate session factory
-spaceConfig.ExternalDataSourceConfig.CustomProperties = new Dictionary<string, string>();
-
-//Point to NHibernate session factory config file
-spaceConfig.ExternalDataSourceConfig.CustomProperties.Add(NHibernateExternalDataSource.NHibernateConfigProperty,"[NHibernate config file]");
-
-//Optional - points to a directory that contains the NHibernate mapping files (hbm)
-spaceConfig.ExternalDataSourceConfig.CustomProperties.Add(NHibernateExternalDataSource.NHibernateHbmDirectory,"[NHibernate hbm files location]");
-
-//Starts the space with the External Data Source
-ISpaceProxy persistentSpace = GigaSpacesFactory.FindSpace("/./tutorialSpace", spaceConfig);
+{% highlight xml %}
+<ProcessingUnit>
+  <EmbeddedSpaces>
+    <add Name="tutorialSpace">
+      <Properties>
+        <!-- Set space cache policy to All-In-Cache -->
+        <add Name="space-config.engine.cache_policy" Value="1"/>
+        <add Name="cluster-config.cache-loader.external-data-source" Value="true"/>
+        <add Name="cluster-config.cache-loader.central-data-source" Value="true"/>
+      </Properties>
+      <ExternalDataSource Type="GigaSpaces.Practices.ExternalDataSource.NHibernate.NHibernateExternalDataSource">
+        <Properties>
+          <add Name="nhibernate-config-file" Value="NHibernateCfg\nHibernate.cfg.xml"/>
+          <add Name="nhibernate-hbm-dir" Value="NHibernateCfg"/>
+        </Properties>
+      </ExternalDataSource>
+    </add>
+  </EmbeddedSpaces>
+</ProcessingUnit>
 {% endhighlight %}
 
-When you write new or update existing Merchant objects in the space, the objects are automatically saved in the data base. On startup of the above example, the entries from the MERCHANT table are loaded into the space.
+Note that the external data source properties include the `nHibernate.cfg.xml` and hbm files location. Since these files are needed at runtime, make sure you modify their **Copy to Output Directory** settings accordingly (same as `pu.config`).
 
+When you write new or update existing Merchant objects in the space, the objects are automatically saved in the data base. On startup of the above example, the entries from the MERCHANT table are loaded into the space.
 
 {% note %}
 Before using the `ExternalDataSource.NHibernate` practice, compile it by calling `<XAP Root>\dotnet\practices\ExternalDataSource\NHibernate\build.bat`. and include the resource in your project.
