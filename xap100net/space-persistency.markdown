@@ -1,129 +1,57 @@
 ---
 layout: post100
-title:  Space Persistency
+title:  Overview
 categories: XAP100NET
 parent: space-persistency-overview.html
-weight: 100
+weight: 50
 ---
 
+{% summary  %}  {% endsummary %}
+
+The Space Persistency is provided via a component called **External Data Source**. This component provides persistency capabilities for the space architecture to interact with a persistency layer:
+
+- Pre-Loading data from the persistency layer and lazy load data from the persistency (available when the space is running in LRU mode).
+- Delegating changes within the space to the persistency layer.
+
+GigaSpaces Space Persistency provides the `AbstractExternalDataSource` class which can be extended and then used to load data and store data into an existing data source. Data is [loaded from the data source](./space-persistency-initial-load.html) during space initialization, and from then onwards the application works with the space directly.
+
+{% indent %}
+![data-grid-initial-loadNew.jpg](/attachment_files/data-grid-initial-loadNew.jpg)
+{% endindent %}
 
 
-{% summary  %}{% endsummary %}
+Persistency can be configured to run in Synchronous or Asynchronous mode:
 
-{%comment%}
-{% summary  %}Using the GigaSpaces External Data Source interface to persist data stored in the space{% endsummary %}
+- Synchronous Mode - see [Direct Persistency](./direct-persistency.html)
 
-# Overview
-{%endcomment%}
+{% indent %}
+![data-grid-sync-persist.jpg](/attachment_files/data-grid-sync-persist.jpg)
+{% endindent %}
 
+- Asynchronous Mode - see  [Asynchronous Persistency with the Mirror](./asynchronous-persistency-with-the-mirror.html)
 
-The XAP persistence interface is the key middleware connection link for loading and storing data to and from persistent data sources.
-
-
-{% tip %}
-For a fully running example using the Mirror Service see `XAP Root\XAP.NET\NET vX\Examples\StockSba` folder.
-{% endtip %}
-
-
-
-## Creating a Space with ExternalDataSource
-
-You can either use GigaSpaces NHibernate implementation, or create a custom implementation:
-
-{% inittab pu implementation type|top %}
-
-{% tabcontent GigaSpaces NHibernate SQL Data Source Implementation %}
-The following code demonstrates how to start an embedded space with GigaSpaces NHibernate `SqlDataSource` implementation as its External Data Source.
-
-{% highlight csharp %}
-//Create a new space configuration object that is used to start a space
-SpaceConfig spaceConfig = new SpaceConfig();
-
-//Start a new ExternalDataSource config object
-spaceConfig.ExternalDataSourceConfig = new ExternalDataSourceConfig();
-
-//Start a new instance of NHibernateExternalDataSource and attach it to the config
-spaceConfig.ExternalDataSourceConfig.Instance = new NHibernateExternalDataSource();
-
-//Create custom properties that are required to build NHibernate session factory
-spaceConfig.ExternalDataSourceConfig.CustomProperties = new Dictionary<string, string>();
-
-//Point to NHibernate session factory config file
-spaceConfig.ExternalDataSourceConfig.CustomProperties.Add(NHibernateExternalDataSource.NHibernateConfigProperty,
-"[NHibernate config file]");
-
-//Optional - points to a directory that contains the NHibernate mapping files (hbm)
-spaceConfig.ExternalDataSourceConfig.CustomProperties.Add(NHibernateExternalDataSource.NHibernateHbmDirectory,
- "[NHibernate hbm files location]");
-
-//Starts the space with the External Data Source
-ISpaceProxy persistentSpace = GigaSpacesFactory.FindSpace("/./mySpace", spaceConfig);
-{% endhighlight %}
-
-{% note %}
-Before using the `ExternalDataSource.NHibernate` practice, compile it by calling `<XAP Root>\dotnet\practices\ExternalDataSource\NHibernate\build.bat`.
-{%endnote%}
+{% indent %}
+![data-grid-async-persist.jpg](/attachment_files/data-grid-async-persist.jpg)
+{% endindent %}
 
 {% info %}
-You can create your own NHibernate session factory and pass it to the `NHibernateExternalDataSource` constructor. In this case, there's no need to use `SpaceConfig.ExternalDataSourceConfig.CustomProperties`.
+The difference between the Synchronous or Asynchronous persistency mode concerns how data is persisted back to the database. The Synchronous mode data is persisted immediately once the operation is conducted where the client application wait for the `ExternalDataSource` to confirm the write. With the Asynchronous mode (mirror Service), data is persisted in a **reliable** asynchronous manner using the mirror Service as a write behind activity. This mode provides maximum performance.
 {%endinfo%}
 
-{% refer %} For a demonstration of how to start a partitioned-sync2backup cluster with asynchronous NHibernate persistency, refer to the [NHibernate External Data Source](./hibernate-space-persistency.html) section.{% endrefer %}
-{% endtabcontent %}
+# Space Persistency API
 
-{% tabcontent Custom SQL Data Source Implementation %}
-A custom .NET `SqlDataSource` implementation can be used as well.
+The Space Persistency API contains an abstract class one should extend in order to customize the space persistency functionality. The ability to customize the space persistency functionality allows GigaSpaces to interact with any external application or data source.
 
-The following code demonstrates how to start an embedded space with a custom .NET `SqlDataSource` implementation as its External Data Source.
+{: .table .table-bordered .table-condensed}
+| Client Call | External Data Source Call| Cache Policy Mode|EDS Usage Mode|
+|:------------|:-----------------------------------------------|:-----------------|:-------------|
+|Write, Change, Take, WriteMultiple, TakeMultiple, Clear|ExecuteBulk |ALL_IN_CACHE, LRU|read-write|
+|Transaction Commit|ExecuteBulk|ALL_IN_CACHE, LRU|read-write|
+|Read, ReadMultiple ,ReadById, ReadByIds, Count|GetEnumerator|LRU|read-write,read-only|
+|TakeMultiple|GetEnumerator|ALL_IN_CACHE, LRU|read-write|
 
-{% highlight csharp %}
-//Create a new space configuration object that is used to start a space
-SpaceConfig spaceConfig = new SpaceConfig();
+For detailed API information see [External Data Source API](./external-data-source-api.html).
 
-//Start a new ExternalDataSource config object
-spaceConfig.ExternalDataSourceConfig = new ExternalDataSourceConfig();
+GigaSpaces comes with a built-in implementation of `AbstractExternalDataSource` called [NHibernate Space Persistency](./nhibernate-space-persistency.html). 
 
-//Start a new instance of the custom implementation and attach it to the config
-spaceConfig.ExternalDataSourceConfig.Instance = new **CustomImplementation**();
-
-//if custom properties should be passed to the Init method put them here, otherwise there's no need to create a dictionary of custom properties
-spaceConfig.ExternalDataSourceConfig.CustomProperties = new Dictionary<string, string>();
-
-//Add custom properties to the dictionary
-spaceConfig.ExternalDataSourceConfig.CustomProperties.Add("[Property name]", "[Property value]");
-
-//Starts the space with the External Data Source
-ISpaceProxy persistentSpace = SpaceProxyProviderFactory.Instance.FindSpace("/./mySpace", spaceConfig);
-{% endhighlight %}
-
-{% endtabcontent %}
-
-{% endinittab %}
-
-## Advanced Options
-
-The number of objects passed between the .Net `IDataEnumerator` (Part of the `ISqlDataSource` interface) to the server on each iteration can be changed, its default value is set to `1000`.
-
-This can be done by adding a custom property to the `ExternalDataSourceConfig` object.
-
-{% highlight csharp %}
-spaceConfig.ExternalDataSourceConfig.CustomProperties = new Dictionary<string, string>();
-//Add custom properties to the dictionary
-spaceConfig.ExternalDataSourceConfig.CustomProperties.Add("iterator-batch-size", "[batch size]");
-{% endhighlight %}
-
-## Server Side Logging
-
-{% refer %}To enable the .NET `ExternalDataSource` adapter logging, refer to the [GigaSpaces Logging]({% currentadmurl %}/logging-overview.html) section.{% endrefer %}
-
-
-
-# Creating Custom ExternalDataSource Implementation
-
-To create a custom implementation, implement the `GigaSpaces.Core.Persistency.ISqlDataSource` interface.
-
-
-
-{% note %}
-See an example for the NHibernate implementation under `<XAP Root>\dotnet\practices\ExternalDataSource\NHibernate`.
-{%endnote%}
+See [Space Persistency Initial Load](./space-persistency-initial-load.html) to allow the space to pre-load its data.
