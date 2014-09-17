@@ -59,7 +59,7 @@ The XAP Mirror Service provides reliable asynchronous persistency. This allows y
 {%endcolumn%}
 {%endsection%}
 
-{%learn%}./hibernate-space-persistency.html{%endlearn%}
+{%learn%}./asynchronous-persistency-with-the-mirror.html{%endlearn%}
 
  
 
