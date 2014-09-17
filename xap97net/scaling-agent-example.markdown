@@ -10,16 +10,8 @@ weight: 200
 
 {% summary %}  {% endsummary %}
 
-{% section %}
-{% column width=7% %}
-{% endcolumn %}
-{% column width=86% %}
-{% align center %}||![wiki_icon_folder.gif](/attachment_files/dotnet/wiki_icon_folder.gif)||Example Root|`<XAP Root>\Examples\ScalingAgent` |
-{% endalign %}
-{% endcolumn %}
-{% column width=7% %}
-{% endcolumn %}
-{% endsection %}
+
+{%folderopen%} Example Root `<XAP Root>\Examples\ScalingAgent`
 
 
 

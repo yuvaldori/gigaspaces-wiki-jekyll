@@ -159,7 +159,7 @@ ISpaceProxy persistentSpace = GigaSpacesFactory.FindSpace("/./mySpace?mirror=tru
 You can also construct your own NHibernate session factory in code, and pass it to the constructor of the `NHibernateExternalDataSource`. In this case, there is no need to use `SpaceConfig.ExternalDataSourceConfig.CustomProperties`.
 {%endnote%}
 
-To start the other members of the cluster, simply change the [ClusterInfo](./custom-processing-unit.html#ClusterInfo):
+To start the other members of the cluster, simply change the [ClusterInfo](./obtaining-cluster-information.html):
 
 - Backup space of the first partition member
 

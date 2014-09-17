@@ -32,8 +32,11 @@ parent: your-first-xtp-application.html
 -------------------------------------------------------------------------------
 {% endcomment %}
 
-![folder_icon.gif](/attachment_files/folder_icon.gif) Example Folder - <GigaSpaces Root>\examples\helloworld
-{% oksign %} Features Introduced - Scaling, Partitioning, Routing, Routing Index.
+{%folderopen%} Example Folder - <GigaSpaces Root>\examples\helloworld
+
+{% note %}
+Features Introduced - Scaling, Partitioning, Routing, Routing Index.
+{%endnote%}
 
 {% whr %}
 

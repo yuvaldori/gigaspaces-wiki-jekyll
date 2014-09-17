@@ -35,7 +35,7 @@ parent: cook-books.html
 Follow these [instructions](./installation-guide.html#java-installation) to download and install the latest version of XAP.
 {%endpanel%}
 
-|The sample application used in all steps is located in| ![folder.jpg](/attachment_files/folder.jpg)| <XAP root>\examples\helloworld |
+|The sample application used in all steps is located in {%folderopen%} <XAP root>\examples\helloworld
 
 {% comment %}
 =============================================================

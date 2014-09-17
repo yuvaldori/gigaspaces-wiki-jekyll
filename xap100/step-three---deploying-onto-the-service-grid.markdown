@@ -42,8 +42,12 @@ parent: your-first-xtp-application.html
 -------------------------------------------------------------------------------
 {% endcomment %}
 
-![folder_icon.gif](/attachment_files/folder_icon.gif) Example Folder - <GigaSpaces Root>\examples\helloworld
-{% oksign %} Features Introduced - Service Grid, Grid Service Manager (GSM), Grid Service Container (GSC), Failover, Self-Healing, Deployment.
+{%folderopen%} Example Folder - <GigaSpaces Root>\examples\helloworld
+
+{% tip %}
+Features Introduced - Service Grid, Grid Service Manager (GSM), Grid Service Container (GSC), Failover, Self-Healing, Deployment.
+{%endtip%}
+
 {% whr %}
 
 {% comment %}

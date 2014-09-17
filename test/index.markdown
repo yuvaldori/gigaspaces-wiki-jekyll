@@ -120,10 +120,6 @@ kfdskflkdlfkldklfd
 
 
 
-{%next ur=/xapqsg/java-tutorial-part2.html|text=Next step in the tutorial is  %}
-
-{%endnext%}
-
 {%try%}http://www.google.com{%endtry%}
 
 {%learn%}/xap97/qsg-part-9.html{%endlearn%}

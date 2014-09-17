@@ -22,8 +22,8 @@ The **Launch** menu allows you to perform operations in the Deployments tab:
 
 ![GMC_space_LaunchMenuOption_6.5.jpg](/attachment_files/GMC_space_LaunchMenuOption_6.5.jpg)
 
-{: .table .table-bordered}
-| **SBA Application - Processing Unit** |deploys a Processing Unit that includes spaces and other application services to the Service Grid. |
+{: .table .table-bordered .table-condensed}
+| <nobr>SBA Application - Processing Unit</nobr> |deploys a Processing Unit that includes spaces and other application services to the Service Grid. |
 | **Enterprise Data Grid** | deploys a Data Grid in a specific space topology.|
 | **Single Space** | deploys a single space in a local GSC. |
 | **Grid Service Manager** | launches a local Grid Service Manager in the GMC.|
@@ -38,17 +38,17 @@ The **Space** menu provides options relevant for a specific space.
 ![GMC_space_SpaceMenuOption_6.5.jpg](/attachment_files/GMC_space_SpaceMenuOption_6.5.jpg)
 
 
-The **Space** menu is enabled only when pressing a space node (![IMG371.gif](/attachment_files/IMG371.gif)) in the tree on the left.
+The **Space** menu is enabled only when pressing a space node  in the tree on the left.
 
 The **Space** menu allows you to:
 
-{: .table .table-bordered}
-|**Clean** a space | remove all entries from the space.
-| **Ping** a space | verifies that the space exists and is running correctly.
-| **Restart** a space.||
-| Destroy a space (**Destroy Space**).||
-| Start or stop a preexisting space |the **Stop** option is enabled when the selected space is in a started state, and the **Start** option is enabled when the selected space is in stopped state. |
-| **Display Persistent LRU Space Metrics** | see the following section.   |
+{: .table .table-bordered .table-condensed}
+|Clean a space | remove all entries from the space.
+|Ping a space | verifies that the space exists and is running correctly.
+|Restart** a space.||
+|<nobr>Destroy a space (Destroy Space).</nobr>||
+|Start or stop a preexisting space |the **Stop** option is enabled when the selected space is in a started state, and the **Start** option is enabled when the selected space is in stopped state. |
+|Display Persistent LRU Space Metrics | see the following section.   |
 
 ## Display Persistent LRU Space Metrics
 
@@ -67,15 +67,15 @@ The **View** menu provides the following options:
 ![GMC_space_ViewMenuOption_6.5.jpg](/attachment_files/GMC_space_ViewMenuOption_6.5.jpg)
 
 
-{: .table .table-bordered}
-|**Refresh Now** ||
-|**Update Speed**|choose the desired speed or provide a custom speed. |
-|**Shape Mode** |allows you to define the shape of the graphical representation for clusters -- oval or rectangle. |
-|**Zoom** |allows you to zoom in or zoom out of the cluster view. |
-|**Options** |the options below are related to the shapes representing the cluster members in the Cluster view. These options can be useful when wanting to reduce CPU usage.|
-|**Freeze all Members** |stops updating all cluster member shapes.|
-|**Backward Replication** |relevant for replicated cluster members, shows the direction of replication -- an arrow is drawn from the replicating space to the replicated space.|
-|**Show Objects Count** |stops showing the number of objects in each cluster member. If this options is used and one of the members is a persistent space in LRU mode, the [Display Persistent LRU Space Metrics](#Display Persistent LRU Space Metrics) will not take affect.|
+{: .table .table-bordered .table-condensed}
+|Refresh Now ||
+|Update Speed|choose the desired speed or provide a custom speed. |
+|Shape Mode |allows you to define the shape of the graphical representation for clusters -- oval or rectangle. |
+|Zoom |allows you to zoom in or zoom out of the cluster view. |
+|Options |the options below are related to the shapes representing the cluster members in the Cluster view. These options can be useful when wanting to reduce CPU usage.|
+|Freeze all Members |stops updating all cluster member shapes.|
+|<nobr>Backward Replication</nobr> |relevant for replicated cluster members, shows the direction of replication -- an arrow is drawn from the replicating space to the replicated space.|
+|Show Objects Count |stops showing the number of objects in each cluster member. If this options is used and one of the members is a persistent space in LRU mode, the [Display Persistent LRU Space Metrics](#Display Persistent LRU Space Metrics) will not take affect.|
 
 # Settings Menu
 
@@ -101,9 +101,9 @@ Selecting a Jini group defines which services (containers, spaces, GSCs, GSMs) a
 ![GMC_space_SettingsMenuOption_Discovery_LookupServiceDiscovTimes_Window_6.5.jpg](/attachment_files/GMC_space_SettingsMenuOption_Discovery_LookupServiceDiscovTimes_Window_6.5.jpg)
 
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Color Settings|opens the Preferences Panel, allowing you to choose change the default colors of the operations shown in the [Statistics View](./gigaspaces-browser-statistics-view.html).|
-|Reset Perspective|resets all main window tabs, returns docking windows to their initial size and location.|
+|<nobr>Reset Perspective</nobr>|resets all main window tabs, returns docking windows to their initial size and location.|
 |System Properties|see the [following section](#Configured System Properties Window).
 
  {% anchor cluster %}
@@ -112,7 +112,7 @@ Selecting a Jini group defines which services (containers, spaces, GSCs, GSMs) a
 
 ![GMC_space_SettingsMenuOption_ClusterConfig_6.5.jpg](/attachment_files/GMC_space_SettingsMenuOption_ClusterConfig_6.5.jpg)
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |New|Create a new cluster - opens the GigaSpaces Cluster Wizard. |
 |New From|Create a new cluster from an existing cluster.|
 |Open|opens your `<XAP Root>\config` directory, allowing you to select an existing cluster schema file.|
@@ -142,7 +142,7 @@ The **Help** menu provides the following options
 ![GMC_space_HelpMenuOption_6.5.jpg](/attachment_files/GMC_space_HelpMenuOption_6.5.jpg)
 
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |About|provides product version information.|
 |Online Help|opens the [GigaSpaces Online Help homepage]({%currentjavaurl%}).|
 
@@ -150,7 +150,7 @@ The **Help** menu provides the following options
 
 The button toolbar allows you to perform maintenance operations on containers and spaces.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | ![ping.gif](/attachment_files/ping.gif) | Pings the selected space |
 | ![clean_space.gif](/attachment_files/clean_space.gif) | Cleans the selected space |
 | ![destroy_space.gif](/attachment_files/destroy_space.gif) | Destroys the selected space |

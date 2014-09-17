@@ -90,9 +90,7 @@ The OpenSpaces queue outbound component is very simple to configure once the que
 
 # Mule Messaging Styles Support
 
-{%comment%}
-![new-in-804-star.png](/attachment_files/new-in-804-star.png)
-{%endcomment%}
+
 
 The queue supports the mule messaging styles - request-response and one-way.
 The messaging style can be configured on the endpoints in the following way:

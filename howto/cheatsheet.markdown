@@ -47,6 +47,13 @@ parent:  none
 | {%referto%} This is a referto icon          | {%raw%} {%referto%} This is a referto icon  {%endraw%} |
 | {%pdf%} This is a pdf icon                  | {%raw%} {%pdf%} This is a pdf icon  {%endraw%} |
 | {%zip%} This is a zip icon                  | {%raw%} {%zip%} This is a zip icon  {%endraw%} |
+| {%folderopen%} This is an open folder icon  | {%raw%}{%folderopen%} This is an open folder icon  {%endraw%} |
+
+
+{%next ur=./java-tutorial-part2.html|text=Next step in the tutorial is  %}
+
+{%endnext%}
+
 
 # Panels
 

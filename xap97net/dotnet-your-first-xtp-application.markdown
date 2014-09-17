@@ -18,16 +18,9 @@ This example demonstrates a simple processing unit architecture project -- a com
 
 You can find the example in the distribution:
 
-{% section %}
-{% column width=7% %}
-{% endcolumn %}
-{% column width=86% %}
-{% align center %}||![wiki_icon_folder.gif](/attachment_files/dotnet/wiki_icon_folder.gif)||Example Root|`<XAP Root>\Examples\ProcessingUnit` |
-{% endalign %}
-{% endcolumn %}
-{% column width=7% %}
-{% endcolumn %}
-{% endsection %}
+
+{%folderopen%} Example Root `<XAP Root>\Examples\ProcessingUnit`
+
 
 # Architecture
 

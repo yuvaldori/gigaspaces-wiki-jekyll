@@ -18,24 +18,17 @@ This example demonstrates a simple processing unit architecture project -- a com
 
 You can find the example in the distribution:
 
-{% section %}
-{% column width=7% %}
-{% endcolumn %}
-{% column width=86% %}
-{% align center %}||![wiki_icon_folder.gif](/attachment_files/dotnet/wiki_icon_folder.gif)||Example Root|`<XAP Root>\Examples\ProcessingUnit` |
-{% endalign %}
-{% endcolumn %}
-{% column width=7% %}
-{% endcolumn %}
-{% endsection %}
+
+{%folderopen%} Example Root `<XAP Root>\Examples\ProcessingUnit`
+
 
 # Architecture
 
 {%section%}
-{%column width=90% %}
+{%column width=80% %}
 This example includes a module that is deployed to the grid, and a domain model that consists of `Data` objects. The [DataFeeder](#datafeeder) module runs within a [Processing Unit](./processing-units.html) and writes `Data` objects with raw data into the remote space. The space is actually embedded within the other Processing Unit Container, which runs the [DataProcessor](#dataprocessor) module.
 {%endcolumn%}
-{%column width=10% %}
+{%column width=20% %}
 {%popup /attachment_files/dotnet/dataexample architecture.jpg%}
 {%endcolumn%}
 {%endsection%}
