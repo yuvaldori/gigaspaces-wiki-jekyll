@@ -17,13 +17,6 @@ The Processing Unit is the unit of packaging and deployment in the GigaSpaces XA
 {%endcolumn%}
 {%endsection%}
 
-Creating a processing unit is simple:
-
-1. In Visual Studio, Create a new `Class Library` project.
-2. Add an empty text file called `pu.config` to the project.
-3. Right-click `pu.config`, select **Properties**, and modify the **Copy to Output Directory** to **Copy Always**.
-4. [Configure](./pu-config.html) your processing unit.
-
 <hr/>
 
 - [Processing Unit Configuration](./pu-config.html){%wbr%}

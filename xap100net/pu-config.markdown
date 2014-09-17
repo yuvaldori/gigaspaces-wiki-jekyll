@@ -8,9 +8,15 @@ weight: 100
 
 {% summary %}  {% endsummary %}
 
-# pu.config
+# Getting Started
 
-The processing unit configuration file is an XML called `pu.config` of the following form:
+Creating a processing unit is simple:
+
+1. In Visual Studio, Create a new `Class Library` project.
+2. Add a reference to `GigaSpaces.Core.dll` from the product's `bin` folder.
+3. Add an xml file called `pu.config` to the project.
+4. Right-click `pu.config`, select **Properties**, and modify the [Copy to Output Directory](http://msdn.microsoft.com/en-us/library/0c6xyb66%28v=vs.100%29.aspx) to **Copy Always** (or **Copy If Newer**).
+5. Copy the following configuration into `pu.config`:
 
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8" ?>
@@ -23,6 +29,8 @@ The processing unit configuration file is an XML called `pu.config` of the follo
   </ProcessingUnit>
 </configuration>
 {% endhighlight %}
+
+{% note title=Upgrading from older versions %}The processing unit configuration scheme has been simplified in version 10.0, and the previous scheme is still supported for backwards compatibility but it depracated. If you're upgrading from older versions it is recommended to update your PU configuration accordingly.{% endnote %}
 
 # Embedded Spaces
 
