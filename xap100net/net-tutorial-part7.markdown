@@ -42,7 +42,7 @@ When running in direct persistency mode the IMDG interacts with the data source 
 {%endcolumn%}
 {%endsection%}
 
-{%learn%}./space-persistency-overview.html{%endlearn%}
+{%learn%}./direct-persistency.html{%endlearn%}
 
 
 
