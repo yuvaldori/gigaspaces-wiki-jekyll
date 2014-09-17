@@ -23,7 +23,7 @@ Supports any language, any platform, any API - Achieve interoperability, easy mi
 - Multi-platform Support: Any OS, physical or virtual
 - API Mashup: Easily leverage modern APIs alongside existing standard APIs - enables you to use the right tool for the job at hand.
 
-{% toczone location=top|maxLevel=2|minLevel=2|type=flat|separator=pipe %}
+
 
 {% anchor OpenSpaces%}
 
@@ -42,7 +42,7 @@ The OpenSpaces API is divided into four parts:
 
 ## Core API
 
-The core package of OpenSpaces provides APIs for direct access to a data grid, internally referred to as a "space." The main interface is the GigaSpace, which enables the basic interaction with the data grid. The core components include basic infrastructure support such as [Space]({%latestjavaurl%}/the-space-configuration.html) construction, simplified API using the [GigaSpace]({%latestjavaurl%}/the-gigaspace-interface.html) interface including [Transaction Management]({%latestjavaurl%}/transaction-management.html) and declarative transaction support. Core components also include support for [Map/Cache]({%latestjavaurl%}/map-api.html) construction and a simplified API using [GigaMap]({%latestjavaurl%}/map-api.html).
+The core package of OpenSpaces provides APIs for direct access to a data grid, internally referred to as a "Space." The main interface is the GigaSpace, which enables the basic interaction with the data grid. The core components include basic infrastructure support such as Space {%latestjavanet the-gigaspace-interface-overview.html%} construction, simplified API using the GigaSpace  interface including Transaction Management {%latestjavanet transaction-overview.html%} and declarative transaction support. Core components also include support for [Map/Cache]({%latestjavaurl%}/map-api.html) construction and a simplified API using [GigaMap]({%latestjavaurl%}/map-api.html).
 
 {% anchor Events%}
 
@@ -52,13 +52,13 @@ The events package is built on top of the core package, and provides simple obje
 
 Another alternative for events is the usage of JMS 1.1 on top of GigaSpaces, which is supported within the product and is recommended for client applications integrating with SBA applications.
 
-The events module includes components for simplified EDA/Service Bus development. These components allow [unified event-handling]({%latestjavaurl%}/data-event-listener.html) and provide two mechanisms for event-generation: a [Polling Container]({%latestjavaurl%}/polling-container.html) uses polling received operations against the space, and a [Notify Container]({%latestjavaurl%}/notify-container.html) which uses the space's built-in notification support.
+The events module includes components for simplified EDA/Service Bus development. These components allow [unified event-handling]({%latestjavaurl%}/data-event-listener.html) and provide two mechanisms for event-generation: a Polling Container {%latestjavanet polling-container-overview.html%} uses polling received operations against the space, and a Notify Container {%latestjavanet notify-container-overview.html %} which uses the space's built-in notification support.
 
 {% anchor Space-Based-Remoting%}
 
 ## Space Based Remoting
 
-The [Remoting]({%latestjavaurl%}/space-based-remoting.html) package provides capabilities for clients to access remote services. Remoting in GigaSpaces XAP is implemented on top of the data grid's clustering model, which provides location transparency, fail-over, and performance to remote service invocations. OpenSpaces implements [remoting]({%latestjavaurl%}/space-based-remoting.html), using the space as the transport layer, similar to [other Spring remoting components](http://static.springframework.org/spring/docs/3.0.x/reference/remoting.html).
+The Remoting {%latestjavanet space-based-remoting-overview.html %} package provides capabilities for clients to access remote services. Remoting in GigaSpaces XAP is implemented on top of the data grid's clustering model, which provides location transparency, fail-over, and performance to remote service invocations. XAP implements remoting , using the space as the transport layer, similar to [other Spring remoting components](http://static.springframework.org/spring/docs/3.0.x/reference/remoting.html).
 
 Remoting can be viewed as the alternative to Java EE Session Beans, or Java RMI, as it provides all of their capabilities as well as supporting synchronous and asynchronous invocations, and dynamic scripting languages - enabling you to use Groovy or Ruby in your space-based applications.
 
@@ -68,7 +68,7 @@ Remoting can be viewed as the alternative to Java EE Session Beans, or Java RMI,
 
 This package contains integrations with non-XAP components. For more information please refer to the Programmers Guide.
 
-{% endtoczone %}
+
 
 {% anchor Elastic-Application-Container%}
 
@@ -91,9 +91,9 @@ GigaSpaces XAP provides several default implementations as part of the product, 
 
 **Current implementations supported by GigaSpaces XAP**:
 
-{% toczone location=top|maxLevel=2|minLevel=2|type=flat|separator=pipe %}
 
-More information on the usage of the above integrations can be found in the [Programmer's Guide]({%latestjavaurl%}/programmers-guide.html).
+
+More information on the usage of the above integrations can be found in the Programmer's Guide {%latestjavanet programmers-guide.html%}.
 
 {% anchor Spring-Container%}
 
@@ -123,7 +123,7 @@ Much like the .NET container, the [CPP Processing Unit]({%latestjavaurl%}/cpp-pr
 
 Mule is a popular open source Enterprise Services Bus implementation in Java. The [Mule container integration]({%latestjavaurl%}/mule-esb.html) allows you to run a Mule application on top of the GigaSpaces XAP, and gain scalability, performance and high-availability, with almost no changes to the Mule application.
 
-{% endtoczone %}
+
 
 # Unified In-Memory Services
 
@@ -139,7 +139,7 @@ As an application platform, GigaSpaces XAP provides integrated, memory-based run
 
 The core middleware capabilities are:
 
-{% toczone location=top|maxLevel=2|minLevel=2|type=flat|separator=pipe %}
+
 
 ## In-Memory Data Grid
 
@@ -163,8 +163,8 @@ The messaging grid aspect of the space provides messaging capabilities such as:
 1. Event-Driven capabilities - the ability to build event-driven processing applications. This model enables fast (in-memory-based) asynchronous modular processing, resulting in a very efficient and scalable processing paradigm.
 1. Asynchronous production and consumption of information.
 1. One-to-one, Many-to-One, One-to-Many and Many-to-Many relationships.
-1. [FIFO]({%latestjavaurl%}/fifo-support.html) ordering.
-1. [Transaction Management]({%latestjavaurl%}/transaction-management.html).
+1. FIFO  ordering. {%latestjavanet fifo-overview.html%}
+1. Transaction Management {%latestjavanet transaction-overview.html%}.
 
 The core APIs used for messaging are the OpenSpaces [Notify]({%latestjavaurl%}/notify-container.html) and [Polling]({%latestjavaurl%}/polling-container.html) Containers. In addition, a [JMS 1.1 implementation]({%latestjavaurl%}/messaging-support.html) API is available to be used with existing JMS based applications. More information can be found in the [Messaging and Events]({%latestjavaurl%}/messaging-support.html) section.
 
@@ -188,7 +188,7 @@ The efficiency derives from the fact that the processing task is sent to all the
 
 The process is widely known as map/reduce, and is used extensively by companies like Google whenever a large data set needs to be processed in a short amount of time.
 
-{% endtoczone %}
+
 
 # Web Container
 
@@ -234,7 +234,7 @@ Production-grade control and visibility
 
 # Unified In-Memory Clustering
 
-{% toczone location=top|maxLevel=2|minLevel=2|type=flat|separator=pipe %}
+
 
 The role of clustering in GigaSpaces XAP is to provide scaling, load-balancing and high-availability. The main difference between GigaSpaces XAP and other clustering alternatives, is the use of a single clustering model for all middleware core capabilities. This means that the data and the services colocated with it are equally available. An example of how useful this is is that when a primary node fails, and another node acts as its backup, both application components (i.e. data and messaging) become active at the same time.
 
@@ -260,7 +260,7 @@ As GigaSpaces XAP has distributed shared memory capabilities, it is very simple 
 
 The GigaSpaces XAP solution does not require a compromise between stateless application complexity, performance and resiliency.
 
-{% endtoczone %}
+
 
 # Virtualized Deployment Infrastructure
 
@@ -279,7 +279,9 @@ To clarify, here is an example of an application SLA:
 
 In this type of example, the Deployment Infrastructure is responsible for making sure that 100 Processing Units instances are deployed. Once the SLA is breached (for example, if a machine that is hosting contains a Processing Unit instance fails), the deployment infrastructure is responsible for re-provisioning all the processing units previously deployed on this machine into other containers running on another available machine(s).
 
-{% infosign %} Note: The logical separation between multiple Deployment Infrastructures is defined by a Lookup Group. A lookup group is a logical name associated with each Deployment Infrastructure components. This is the prime way of separating between multiple Deployment Infrastructure environments running on the same network.
+{% info %}
+Note: The logical separation between multiple Deployment Infrastructures is defined by a Lookup Group. A lookup group is a logical name associated with each Deployment Infrastructure components. This is the prime way of separating between multiple Deployment Infrastructure environments running on the same network.
+{%endinfo%}
 
 ## Grid Service Agent (GSA)
 

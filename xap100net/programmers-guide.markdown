@@ -60,7 +60,7 @@ XAP support executing tasks in a collocated Space (processing unit that started 
 - [Event Processing](./event-processing.html){%wbr%}
 This section will guide you through event processing APIs and configuration on top of the space.
 
-- [Space Based Remoting](./space-based-remoting.html){%wbr%}
+- [Space Based Remoting](./space-based-remoting-overview.html){%wbr%}
 Remoting allows you to use remote invocations of PONO services, with the space as the transport layer.
 
 - [Admininstration](./admin-modules.html){%wbr%}

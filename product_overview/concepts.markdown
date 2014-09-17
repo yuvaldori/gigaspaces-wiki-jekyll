@@ -28,7 +28,7 @@ GigaSpaces XAP was built to be an implementation of the theory behind these conc
 
 # Overcoming Limitations of First-Generation Servers
 
-{% toczone location=top|maxLevel=2|minLevel=2|type=flat|separator=pipe %}
+
 
 GigaSpaces XAP and Space-Based Architecture overcome the major limitations found in first-generation application servers. These limitations can be divided into three main categories:
 
@@ -71,11 +71,10 @@ Prior generations of application servers were built for the web in the days when
 
 GigaSpaces XAP supports web-enabled request/response applications, in addition to all the modern computational styles described above, and the combination of all of the above.
 
-{% endtoczone %}
+
 
 # Space - Concepts and Capabilities
 
-{% toczone location=top|maxLevel=2|minLevel=2|type=flat|separator=pipe %}
 
 The space is the 'secret sauce' behind GigaSpaces XAP architecture, and it is important to understand its capabilities in order to better understand the entire Space-Based Architecture model.
 
@@ -119,11 +118,9 @@ Because the space stores entries in the form of objects, retrieval of informatio
 GigaSpaces XAP extends template matching by providing semantics to query ranges on information as well. For additional information, please refer to the [SQLQuery API]({%latestjavaurl%}/query-sql.html) in the Programmer's Guide.
 {% endtip %}
 
-{% endtoczone %}
+
 
 # Clustering and Topologies
-
-{% toczone location=top|maxLevel=2|minLevel=2|type=flat|separator=pipe %}
 
 The space as defined previously, is a logical concept - a memory space which can contain entries of information. The actual space implementation can vary. Multiple space instances connected via a defined relationship (clustering topology), form a **cluster**, and for external clients, a cluster can be seen as a single "large" space. GigaSpaces XAP provides multiple clustering topologies, and XAP users define the cluster topology during system design and deployment.
 
@@ -149,8 +146,9 @@ GigaSpaces XAP provides various levels of replication QoS. The highest quality i
 
 The asynchronous replication (async replication) strategy returns the call back to the client, and at the same time replicates the information into the other replica. Async replication may lose information in the case of a failure within the source space while the information has not yet been delivered to its replica. However, it does provide better performance for clients.
 
-{% infosign %} The replication QoS should be considered, based on the application requirements. The default replication policy is synchronous replication.
-
+{% info %}
+The replication QoS should be considered, based on the application requirements. The default replication policy is synchronous replication.
+{%endinfo%}
 
 {%anchor  1 %}
 
@@ -176,8 +174,9 @@ Since each partition contains only a subset of the data, losing a partition can 
 
 The common topology is of a partitioned cluster, where each partition member has one or more replicas. With this topology, there is no scalability bottleneck in the amount of data that can be stored in the cluster, and each partition is fault-tolerant as it has a backup replica.
 
-{% infosign %} This topology is also known in GigaSpaces XAP as Partitioned-Sync2Backup.
+{% info %}
+This topology is also known in GigaSpaces XAP as Partitioned-Sync2Backup.
+{%endinfo%}
 
-{% endtoczone %}
 
 
