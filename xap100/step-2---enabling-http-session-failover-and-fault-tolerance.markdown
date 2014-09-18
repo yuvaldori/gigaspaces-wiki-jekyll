@@ -162,7 +162,7 @@ When opening this page in a web browser, it looks as follows:
 
 # Building the Example
 
-![Play arrow green.bmp](/attachment_files/Play arrow green.bmp) **Steps to build the application:**
+**Steps to build the application:**
 The first thing you need to do if you haven't already done so, is [Download GigaSpaces and set up your development environment](./installation-guide.html).
 Next, you should open a shell / command prompt window in the example directory, and type the following:
 `build.(sh/bat) dist`
@@ -348,8 +348,6 @@ Now let's deliberately terminate one of the GSCs on which the application is dep
 
 # What's Next?
 
-![Jump arrow green.bmp](/attachment_files/Jump arrow green.bmp)
-{% color green %}Step Three{% endcolor %}
- - [Scaling the Data Access Layer](./step-3---scaling-the-data-access-layer.html) - Shows how to access the space from within your web application as a potential replacement for direct database access.
+Step Three - [Scaling the Data Access Layer](./step-3---scaling-the-data-access-layer.html) - Shows how to access the space from within your web application as a potential replacement for direct database access.
 
 Or return to the [GigaSpaces for Web Applications Tutorial](./your-first-web-application.html).

@@ -120,9 +120,7 @@ Start the Service Grid components, deploy and run the Hello World application on
 ---------------------------------------------------------------------------------
 {% endcomment %}
 
-![Jump arrow green.bmp](/attachment_files/Jump%20arrow%20green.bmp)
-{% color green %}Jump{% endcolor %}
- ahead and [deploy the sample application](#Deploy and Run), in case you want to see the final result of the tutorial before we begin.
+Jump  ahead and [deploy the sample application](#Deploy and Run), in case you want to see the final result of the tutorial before we begin.
 
 {% comment %}
 -----------------------------------------------------------------------------------------
@@ -269,7 +267,7 @@ In some tutorials this part can be called Build/Build and Package
 
 ## Starting the Service Grid Components and Deploying the Application
 
-![Play arrow green.bmp](/attachment_files/Play arrow green.bmp) **Steps to deploy the application:**
+**Steps to deploy the application:**
 
 **Install GigaSpaces**
 
@@ -407,8 +405,6 @@ A new Grid Service Container starts on your local machine, and its output is sho
 
 ## What's Next?
 
-![Jump arrow green.bmp](/attachment_files/Jump arrow green.bmp)
-{% color green %}Step Four{% endcolor %}
- - [Scaling the Hello World Application](./step-four---scaling-the-hello-world-application.html)
+Step Four - [Scaling the Hello World Application](./step-four---scaling-the-hello-world-application.html)
 
 Or return to the [Quick Start Guide](./index.html).

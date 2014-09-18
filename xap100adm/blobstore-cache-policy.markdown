@@ -566,6 +566,6 @@ abstract class BlobStoreStorageHandler
 - All classes that belong to types that are to be introduced to the space during the initial metadata load must exist on the classpath of the JVM the Space is running on.
 - The current MemoryXtend release support a single blobstore space instance per GSC. 
 
-{%info%}
+{%refer%}
 Answers to frequently asked questions about MemoryXtend for SSD can be found [here](/faq/blobstore-cache-policy-faq.html)
-{%endinfo%}
+{%endrefer%}

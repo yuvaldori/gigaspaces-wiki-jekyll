@@ -158,7 +158,7 @@ When opening this page in a web browser, it looks as follows:
 
 # Building the Example
 
-![Play arrow green.bmp](/attachment_files/Play arrow green.bmp) **Steps to build the application:**
+**Steps to build the application:**
 The first thing you need to do if you haven't already done so, is [Download GigaSpaces and set up your development environment](./installation-guide.html).
 Next, you should open a shell / command prompt window in the example directory, and type the following:
 `build.(sh/bat) dist`
@@ -439,8 +439,6 @@ GSC INFO [com.gigaspaces.grid.gsc] - Instantiated PlainWebAppExample [1] in 3.03
 
 # What's Next?
 
-![Jump arrow green.bmp](/attachment_files/Jump arrow green.bmp)
-{% color green %}Step Two{% endcolor %}
- - [Enabling HTTP Session Failover & Fault Tolerance](./step-2---enabling-http-session-failover-and-fault-tolerance.html) - Shows how to back your HTTP session with the Space to achieve highly available and fault-tolerant HTTP session for your web application.
+ Step Two - [Enabling HTTP Session Failover & Fault Tolerance](./step-2---enabling-http-session-failover-and-fault-tolerance.html) - Shows how to back your HTTP session with the Space to achieve highly available and fault-tolerant HTTP session for your web application.
 
 Or return to the [GigaSpaces for Web Applications Tutorial](./your-first-web-application.html).

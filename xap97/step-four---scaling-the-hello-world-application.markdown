@@ -167,9 +167,8 @@ First we scale it to 3 instances (Figure 3), and then into 4 instances, divided 
 ---------------------------------------------------------------------------------
 {% endcomment %}
 
-![Jump arrow green.bmp](/attachment_files/Jump arrow green.bmp)
-{% color green %}Jump{% endcolor %}
- ahead and [run the sample application](#Deploy and Run), in case you want to see the final result of the tutorial before we begin.
+
+Jump ahead and [run the sample application](#Deploy and Run), in case you want to see the final result of the tutorial before we begin.
 
 {% comment %}
 ----------------------------------------------------------------------------
@@ -257,7 +256,7 @@ Next, we show you how to start the service grid components, by starting a grid s
 
 ## Starting the Service Grid Components and Scaling the Application
 
-![Play arrow green.bmp](/attachment_files/Play arrow green.bmp) **Steps to deploy the application:**
+**Steps to deploy the application:**
 
 **Install GigaSpaces**
 

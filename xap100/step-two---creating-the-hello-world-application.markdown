@@ -105,7 +105,7 @@ Diagram 1. The application connects to the space, writes, reads and takes a Mess
 
 
 
-[![Jump arrow green.bmp](/attachment_files/Jump arrow green.bmp)](#Run All In IDE) [Jump](#Run All In IDE) ahead and [run the sample application](#Run All In IDE), in case you want to see the final outcome of this tutorial now
+[Run in IDE](#Run All In IDE) [Jump](#Run All In IDE) ahead and [run the sample application](#Run All In IDE), in case you want to see the final outcome of this tutorial now
 
 {% anchor Jwalkthrough %}
 
@@ -353,7 +353,7 @@ Next, we compile and run the sample application
 ---------------------------------------------------------------------------------
 {% endcomment %}
 
-![Play arrow green.bmp](/attachment_files/Play arrow green.bmp) **Steps to run the application inside Eclipse IDE:**
+**Steps to run the application inside Eclipse IDE:**
 
 If you haven't already done so,[download GigaSpaces and set up your development environment](./installation-guide.html)
 \- This is needed for running the tutorial sample application.
@@ -492,7 +492,6 @@ The url the feeder is using to connect to the space is written in the
 
 ## What's Next?
 
-![Jump arrow green.bmp](/attachment_files/Jump arrow green.bmp)
-{% color green %}Step three{% endcolor %} - [Deploying the Hello World Application onto the Service Grid](./step-three---deploying-onto-the-service-grid.html) - shows how to deploy our application onto the grid, to gain fail-over, recovery and self healing capabilities.
+Step three - [Deploying the Hello World Application onto the Service Grid](./step-three---deploying-onto-the-service-grid.html) - shows how to deploy our application onto the grid, to gain fail-over, recovery and self healing capabilities.
 
 Or return to the [Quick Start Guide](./index.html).

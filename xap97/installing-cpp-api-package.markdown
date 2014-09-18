@@ -119,9 +119,3 @@ Result files can be found in `<GigaSpaces Root>\cpp`:
 `benchmarkResult*.txt`  -- Benchmark tests results
 `testResult*.xml` -- Functional tests results
 
-{% panel title= | borderStyle=solid %}
-{% lampon %} **What's next?**
-
-- [Write your first C++ Application](./cpp-api-hello-world-example.html)
-- Return to the [C++ homepage](./xap-cpp.html)
-{% endpanel %}
