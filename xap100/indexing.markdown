@@ -134,3 +134,9 @@ The smallest set of space objects is the list of objects to perform the matching
 
 {% info%} Class fields that are not indexed are not used to construct the candidates list. {%endinfo%}
 
+
+
+<ul class="pager">
+  <li class="previous"><a href="./indexing-overview.html">&larr; Indexing Overview</a></li>
+  <li class="next"><a href="./indexing-nested-properties.html">Indexing Nested Properties &rarr;</a></li>
+</ul>

@@ -28,7 +28,7 @@ When the system encounters a unique constraint violation in one of the index-cha
 The operation which caused the violation is rolled back with the following effects:
 
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Operation | Action |
 |:--------------|:------------|
 |write|the entry is removed|
@@ -90,3 +90,8 @@ public class Person
 *	Supported only with `ALL_IN_CACHE` cache policy, not supported with LRU and other evict able cache policies
 *	Not supported for local-cache/local-view since its only per-partition enforcement
 *	Currently not supported for dynamic (on-the-fly) indices.
+
+<ul class="pager">
+  <li class="previous"><a href="./indexing-compound.html">&larr; Compound Indexing</a></li>
+  <li class="next"><a href="./indexing-overview.html">Indexing Overview&rarr;</a></li>
+</ul>
