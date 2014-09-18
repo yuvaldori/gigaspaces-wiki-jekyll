@@ -12,3 +12,6 @@ module Jekyll
 end
 
 Liquid::Template.register_tag('pdf', Jekyll::PdfTag)
+
+
+

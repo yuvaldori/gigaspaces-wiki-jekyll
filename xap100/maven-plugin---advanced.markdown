@@ -121,8 +121,11 @@ To instruct Maven to use this assembly descriptor to generate the processing uni
 
 ## Further Information
 
+{%refer%}
 For further information about the assembly plugin options, go to:
 
 - [Assembly plugin documentation](http://maven.apache.org/plugins/maven-assembly-plugin/)
 - [Assembly descriptor reference](http://maven.apache.org/plugins/maven-assembly-plugin/assembly.html)
 - [Assembly plugin 'single' mojo documentation](http://maven.apache.org/plugins/maven-assembly-plugin/single-mojo.html)
+
+{%endrefer%}

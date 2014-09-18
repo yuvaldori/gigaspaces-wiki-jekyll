@@ -50,8 +50,8 @@ The Space Persistency API contains an abstract class one should extend in order 
 |Read, ReadMultiple ,ReadById, ReadByIds, Count|GetEnumerator|LRU|read-write,read-only|
 |TakeMultiple|GetEnumerator|ALL_IN_CACHE, LRU|read-write|
 
-For detailed API information see [External Data Source API](./external-data-source-api.html).
+For detailed API information see [External Data Source API](./hibernate-space-persistency.html).
 
-GigaSpaces comes with a built-in implementation of `AbstractExternalDataSource` called [NHibernate Space Persistency](./nhibernate-space-persistency.html). 
+GigaSpaces comes with a built-in implementation of `AbstractExternalDataSource` called [NHibernate Space Persistency](./hibernate-space-persistency.html).
 
 See [Space Persistency Initial Load](./space-persistency-initial-load.html) to allow the space to pre-load its data.

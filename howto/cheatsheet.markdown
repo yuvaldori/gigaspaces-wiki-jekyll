@@ -44,7 +44,6 @@ parent:  none
 | {%lampon%} This is a Lamp On icon           | {%raw%} {%lampon%} This is a Lamp On icon {%endraw%} |
 | {%lampoff%} This is a Lamp Off icon         | {%raw%} {%lampoff%} This is a Lamp Off icon {%endraw%} |
 | {%download%} This is a download   icon      | {%raw%} {%download%} This is a download icon {%endraw%} |
-| {%referto%} This is a referto icon          | {%raw%} {%referto%} This is a referto icon  {%endraw%} |
 | {%pdf%} This is a pdf icon                  | {%raw%} {%pdf%} This is a pdf icon  {%endraw%} |
 | {%zip%} This is a zip icon                  | {%raw%} {%zip%} This is a zip icon  {%endraw%} |
 | {%folderopen%} This is an open folder icon  | {%raw%}{%folderopen%} This is an open folder icon  {%endraw%} |
@@ -316,10 +315,17 @@ class BookEntity
 {%panel  bgColor=#FFFFCE%}
 {%section width=10% %}
 {%column%}
-{%referto%}
+
 {%endcolumn%}
 {%column width=90% %}
 Learn more about this issue by visiting this page  !
 {%endcolumn%}
 {%endsection%}
 {%endpanel%}
+
+
+# Refer
+
+{%refer %}
+This should be used to refer to related subjects !
+{%endrefer%}

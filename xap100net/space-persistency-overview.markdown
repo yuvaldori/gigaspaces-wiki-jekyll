@@ -25,6 +25,8 @@ XAP provides advanced persistency capabilities for the space architecture.
 - [Overview](./space-persistency.html){%wbr%}
 XAP persistency overview.
 
+- [Direct persistency](./direct-persistency.html){%wbr%}
+Direct persistency mode support Read-Write Through.
 
 - [NHibernate External Data Source](./hibernate-space-persistency.html){%wbr%}
 A walkthrough of a common scenario for using the GigaSpaces NHibernate External Data Source.

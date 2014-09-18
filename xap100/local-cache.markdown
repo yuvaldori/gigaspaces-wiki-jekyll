@@ -14,9 +14,9 @@ A **Local Cache** is a Client Side Cache that maintains a subset of the master s
 ![local_cache.jpg](/attachment_files/local_cache.jpg)
 {% endindent %}
 
-{% info %}
+{% refer %}
 For additional client side caching options, refer to [Client Side Caching](./client-side-caching.html).
-{%endinfo%}
+{%endrefer%}
 
 # Usage
 

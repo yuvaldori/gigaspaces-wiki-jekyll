@@ -27,7 +27,7 @@ In many scenarios, you need to set up XAP in environments which have a firewall 
 - Same topology as above: All cluster components and clients communicate over **unicast only. Multicast traffic is prohibited**.
 - The firewall divides XAP cluster into zones. Some components (GSCs, GSM) are running in one firewall zone, while the rest of the components are running in another firewall zone/s. Only unicast traffic is allowed between firewall zones.
 
-{% referto %}To learn more about XAP port usage, refer to [How to Control the Used Ports](./network-ports.html).
+{% refer %}To learn more about XAP port usage, refer to [How to Control the Used Ports](./network-ports.html).{%endrefer%}
 
 # XAP Firewall Settings
 
@@ -161,7 +161,8 @@ LOOKUPLOCATORS=server111:7102; export LOOKUPLOCATORS
 
 ### LRMI Communication Protocol Port Range Setting Modifications
 
-{% referto %}For more details on the LRMI communication protocol, see the [Communication Protocol](./tuning-communication-protocol.html) section.
+{% refer %}For more details on the LRMI communication protocol, see the [Communication Protocol](./tuning-communication-protocol.html) section.{%endrefer%}
+
 The `com.gigaspaces.start.httpPort` Webster port number property can be defined by overriding as shown below, or using a system property:
 
 {% highlight console %}

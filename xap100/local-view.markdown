@@ -8,11 +8,7 @@ weight: 200
 
 {% summary page %}{% endsummary %}
 
-{%comment%}
- {% summary   %} A Local View allows the client application to cache specific data based on client's criteria at the client memory address and have it updated automatically by the space when that data changes.{% endsummary %}
 
-# Summary
-{%endcomment%}
 
 A **Local View** is a Client Side Cache that maintains a subset of the master space's data, allowing the client to read distributed data without performing any remote calls or data serialization.
 
@@ -24,9 +20,9 @@ During the local view initialization, data is loaded into the client's memory ba
 ![local_view.jpg](/attachment_files/local_view.jpg)
 {% endindent %}
 
-{% note %}
+{% refer %}
 For additional client side caching options, refer to [Client Side Caching](./client-side-caching.html).
-{%endnote%}
+{%endrefer%}
 
 #### Where the Local View Can be Used?
 

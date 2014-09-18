@@ -404,6 +404,7 @@ OR
 #### Projecting Partial Results
 
 You can specify that the `SQLQuery` should contain only partial results which means that the returned object should only be populated with the projected properties.
+
 {% refer %}For details on how to use the projection API please refer to [Getting Partial Results Using Projection API](./query-partial-results.html){% endrefer %}
 
 

@@ -12,7 +12,7 @@ XAP provides a generic network filter that also provides SSL support, through an
 
 ![lrmi-filters](/attachment_files/lrmi-filters.jpg)
 
-{% referto %}[How to Set XAP Over a Firewall]({%currentadmurl%}/network-over-firewall.html)
+{% refer %}[How to Set XAP Over a Firewall]({%currentadmurl%}/network-over-firewall.html) {%endrefer%}
 
 
 
