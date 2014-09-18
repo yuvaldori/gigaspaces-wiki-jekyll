@@ -71,8 +71,7 @@ You can specify up to 5 local View/Cache `GigaSpace` beans as part of the `gigaS
 See below example how you can monitor multiple local cache instances running within the same application:
 
 {% indent %}
-[<img src="/attachment_files/clientCacheJMXMonitor.jpg" width="120" height="80">](/attachment_files/clientCacheJMXMonitor.jpg)
-
+{%popup /attachment_files/clientCacheJMXMonitor.jpg%}
 {% endindent %}
 
 {% note %}

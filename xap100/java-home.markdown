@@ -30,7 +30,7 @@ Here is the simplified Class Model:
 {%wbr%}
 
 
-You can download all examples presented here from [GitHub](https://github.com/Gigaspaces/xap-tutorial). Feel free to clone, fork and contribute to the tutorial code.
+You can download all examples presented here from {%git https://github.com/Gigaspaces/xap-tutorial%}. Feel free to clone, fork and contribute to the tutorial code.
 
 {%vbar title=Download and Install XAP%}
 - Download and unzip the latest XAP release [{%download%}](http://www.gigaspaces.com/xap-download)
@@ -59,7 +59,7 @@ You can download all examples presented here from [GitHub](https://github.com/Gi
 {%endalign%}
 {%endcolumn%}
 
-{%column width=75% %}
+{%column width=70% %}
 {%align center%}**Interacting with the Space**{%endalign%}
 This part of the tutorial will introduce you to the space as a data store.
 
@@ -70,7 +70,7 @@ You will learn how to:
 - querying the space
 - indexing objects in space
 
-{%align right%}{%learn%}./java-tutorial-part1.html{%endlearn%}{%endalign%}
+{%align right%}{%learnit ./java-tutorial-part1.html %} {%endalign%}
 {%endcolumn%}
 {%endsection%}
 {%endpanel%}
@@ -92,7 +92,7 @@ Part II
 {%endalign%}
 {%endcolumn%}
 
-{%column width=75% %}
+{%column width=70% %}
 {%align center%}**Deploying a Space**{%endalign%}
 In this part of the tutorial we will show you how you can deploy an In Memory Data Grid (IMDG) that provides scalability and failover.
 
@@ -103,7 +103,7 @@ You will learn how to:
 - interact with the data grid
 - how to use the administration UI
 
- {%align right%}{%learn%}./java-tutorial-part2.html{%endlearn%}{%endalign%}
+ {%align right%}{%learnit  ./java-tutorial-part2.html%}{%endalign%}
 {%endcolumn%}
 {%endsection%}
 {%endpanel%}
@@ -130,7 +130,7 @@ You will learn how to use:
 - Remoting service
 
 
-{%align right%}{%learn%}./java-tutorial-part3.html{%endlearn%}{%endalign%}
+{%align right%}{%learnit ./java-tutorial-part3.html%}{%endalign%}
 
 {%endcolumn%}
 {%endsection%}
@@ -158,7 +158,7 @@ You will learn how to use:
 - Notify container
 - Polling container
 
-{%align right%}{%learn%}./java-tutorial-part4.html{%endlearn%}{%endalign%}
+{%align right%}{%learnit ./java-tutorial-part4.html%}{%endalign%}
 
 {%endcolumn%}
 {%endsection%}
@@ -190,7 +190,7 @@ You will learn how to:
 - how to scale and provide failover
 
 
-{%align right%}{%learn%}./java-tutorial-part5.html{%endlearn%}{%endalign%}
+{%align right%}{%learnit ./java-tutorial-part5.html%}{%endalign%}
 
 {%endcolumn%}
 {%endsection%}
@@ -220,7 +220,7 @@ You will learn about:
 - Concurrency
 - Locking
 
-{%align right%}{%learn%}./java-tutorial-part6.html{%endlearn%}{%endalign%}
+{%align right%}{%learnit ./java-tutorial-part6.html%}{%endalign%}
 
 {%endcolumn%}
 {%endsection%}
@@ -249,7 +249,7 @@ You will learn about:
 - Asynchronos persistence
 - Persistence Adapters
 
-{%align right%}{%learn%}./java-tutorial-part7.html{%endlearn%}{%endalign%}
+{%align right%}{%learnit ./java-tutorial-part7.html %}{%endalign%}
 
 {%endcolumn%}
 {%endsection%}
@@ -278,7 +278,7 @@ You will learn about:
  - how to share global HTTP Sessions
  - how to integrate with Apache load balancer
 
- {%align right%}{%learn%}./java-tutorial-part8.html{%endlearn%}{%endalign%}
+ {%align right%}{%learnit ./java-tutorial-part8.html %}{%endalign%}
 
  {%endcolumn%}
  {%endsection%}
@@ -306,7 +306,7 @@ You will learn about:
  - Archive container
  - Space persistency
 
- {%align right%}{%learn%}./java-tutorial-part9.html{%endlearn%}{%endalign%}
+ {%align right%}{%learnit ./java-tutorial-part9.html%}{%endalign%}
 
  {%endcolumn%}
  {%endsection%}
@@ -335,7 +335,7 @@ You will learn about:
  - create users
  - secure XAP components
 
- {%align right%}{%learn%}./java-tutorial-part10.html{%endlearn%}{%endalign%}
+ {%align right%}{%learnit ./java-tutorial-part10.html %}{%endalign%}
 
  {%endcolumn%}
  {%endsection%}
