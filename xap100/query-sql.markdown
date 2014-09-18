@@ -132,6 +132,25 @@ query.setParameters("A", 1, 2, 3);
 SQLQuery<MyClass> query = new SQLQuery<MyClass>(MyClass.class,"name = 'A' AND num IN (1,2,3)");
 {% endhighlight %}
 
+
+{% info %} Since **XAP 10.1** you can use the 'IN' condition with Java's `Collection` or primitive arrays. For example:
+{%endinfo%}
+
+{% highlight java %}
+
+Collection<Integer> collection = new HashSet<Integer>();
+collection.add(1);
+collection.add(2);
+collection.add(3);
+
+SQLQuery<MyClass> query = new SQLQuery<MyClass>(MyClass.class,"name = ? AND num IN (?)");
+query.setParameter(1,"A");
+query.setParameter(2,collection);
+
+// Is equivalent to:
+SQLQuery<MyClass> query = new SQLQuery<MyClass>(MyClass.class,"name = 'A' AND num IN (1,2,3)");
+{% endhighlight %}
+
 {% warning %}
 Parameter assignment to the `SQLQuery` instance is not thread safe. If the query is intended to be executed on multiple threads which may change the parameters, it is recommended to use different `SQLQuery` instances. This has an analogue in JDBC, because `PreparedStatement` is not threadsafe either.
 In previous options, parameters could be passed via a POJO template as well. This option is still available, but is deprecated and will be removed in future versions.
