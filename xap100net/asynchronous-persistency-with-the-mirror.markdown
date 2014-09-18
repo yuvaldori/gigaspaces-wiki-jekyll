@@ -29,7 +29,7 @@ Enabling the Mirror Service involves the following:
 - The Data-Grid Processing Unit Mirror Settings
 - The Mirror Service Processing Unit Settings
 
-The above share the **same** [Space Persistency](./space-persistency.html) settings but have different space settings. See the [NHibernate Space Persistency](./nhibernate-space-persistency.html) for details how to use the built-in `HibernateExternalDataSource`.
+The above share the **same** [Space Persistency](./space-persistency.html) settings but have different space settings. See the [NHibernate Space Persistency](./hibernate-space-persistency.html) for details how to use the built-in `HibernateExternalDataSource`.
 
 # The Data-Grid Processing Unit
 
@@ -89,12 +89,15 @@ The above example:
 - Configures the Space to only read data from the data source. This means that all destructive operations will be delegated into the database via the Mirror service.
 - Configures the Data-Grid to use a data source that is **central** to the cluster. This means that both primary and backup IMDG instances will interact with the same data source.
 
-{% refer %}See the [Space Persistency Properties](./space-persistency-advanced-topics.html#Properties) and the [NHibernate Space Persistency](./nhibernate-space-persistency.html) for full details about the EDS properties the you may configure.{% endrefer %}
+{% refer %}See the [Space Persistency Properties](./space-persistency-advanced-topics.html#Properties) and the [NHibernate Space Persistency](./hibernate-space-persistency.html) for full details about the EDS properties the you may configure.{% endrefer %}
+
 You **must use a Data-Grid cluster schema that includes a backup** (i.e. `partitioned-sync2backup`) when running a Mirror Service. Without having backup, the Primary IMDG Spaces **will not** replicate their activities to the Mirror Service. For testing purposes, in case you don't want to start backup spaces, you can use the `partitioned-sync2backup` cluster schema and have 0 as the number of backups - this will still allow the primary spaces to replicate their operations to the Mirror.
 
 If you wish to change the mirror service name please refer to [Async Persistency - Mirror - Advanced](./async-persistency---mirror---advanced.html).
 
-{% exclamation %} Enabling replication into the mirror without starting the Mirror will generate a backlog within the primary space (and backup). Please avoid running in this configuration.
+{% note %}
+Enabling replication into the mirror without starting the Mirror will generate a backlog within the primary space (and backup). Please avoid running in this configuration.
+{%endnote%}
 
 # The Mirror Processing Unit
 
@@ -125,7 +128,7 @@ The following configuration shows how to configure a processing unit, to act as 
 </ProcessingUnit>
 {% endhighlight %}
 
-- The above configuration constructs a Mirror Service using GigaSpaces built-in [NHibernate Space Persistency](./nhibernate-space-persistency.html). 
+- The above configuration constructs a Mirror Service using GigaSpaces built-in [NHibernate Space Persistency](./hibernate-space-persistency.html).
 - The name of the Mirror Space is important. The `mirror-service` is the default name for a mirror Space, which is then used by the IMDG to connect to its mirror.
 - The configuration above should exist within the mirror PU `pu.config` file.
 

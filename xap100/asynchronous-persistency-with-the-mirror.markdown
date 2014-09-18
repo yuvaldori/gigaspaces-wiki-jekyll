@@ -98,7 +98,9 @@ You **must use a Data-Grid cluster schema that includes a backup** (i.e. `partit
 
 If you wish to change the mirror service name please refer to [Async Persistency - Mirror - Advanced](./async-persistency---mirror---advanced.html).
 
-{% exclamation %} Enabling replication into the mirror without starting the Mirror will generate a backlog within the primary space (and backup). Please avoid running in this configuration.
+{% note %}
+Enabling replication into the mirror without starting the Mirror will generate a backlog within the primary space (and backup). Please avoid running in this configuration.
+{%endnote%}
 
 # The Mirror Processing Unit
 
@@ -221,7 +223,7 @@ You may view Mirror and its replication statistics via the [GigaSpaces Managemen
 ![mirror_ui_stats.jpg](/attachment_files/mirror_ui_stats.jpg)
 {% endindent %}
 
-{% tip %}
+{% refer %}
 See also the [Mirror Monitor JMX utility](/sbp/mirror-monitor.html) for graphical mirror service monitoring via JMX
-{% endtip %}
+{% endrefer %}
 
