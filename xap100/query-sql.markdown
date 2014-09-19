@@ -66,7 +66,7 @@ results = gigapace.readMultiple(new SQLQuery<MyClass>(MyClass.class, "num > 1 OR
 
 # Supported Space Operations
 
-{%panel title=The following operations fully support GigaSpaces `SQLQuery`:%}
+{%vbar title=The following operations fully support GigaSpaces `SQLQuery`:%}
 - `count`
 - `clear`
 - `read`, `readIfExists`, `readMultiple`
@@ -83,11 +83,11 @@ The following operations support`SQLQuery` only with Simple Queries:
 - `snapshot`
 - `EventSession`
 - `GSIterator`
-{%endpanel%}
+{%endvbar%}
 
 # Supported SQL Features
 
-{%panel title=SQLQuery supports the following: %}
+{%vbar title=SQLQuery supports the following: %}
 
 - `AND` / `OR` operators to combine two or more conditions.
 - All basic logical operations to create conditions: `=, <>, <, >, >=, <=, like, NOT like, is null, is NOT null, IN`.
@@ -100,7 +100,7 @@ The following operations support`SQLQuery` only with Simple Queries:
 - Sub queries.
 - "." used to indicate a double data type.
 - [Regular Index](./indexing.html) and a [Compound Index](./indexing.html#Compound Indexing) - Index a single property or multiple properties to improve query execution time.
-{%endpanel%}
+{%endvbar%}
 
 # Parameterized Queries
 
@@ -133,8 +133,8 @@ SQLQuery<MyClass> query = new SQLQuery<MyClass>(MyClass.class,"name = 'A' AND nu
 {% endhighlight %}
 
 
-{% info %} Since **XAP 10.1** you can use the 'IN' condition with Java's `Collection` or primitive arrays. For example:
-{%endinfo%}
+You can use the 'IN' condition with Java's `Collection` or primitive arrays. For example:
+
 
 {% highlight java %}
 
@@ -147,8 +147,6 @@ SQLQuery<MyClass> query = new SQLQuery<MyClass>(MyClass.class,"name = ? AND num 
 query.setParameter(1,"A");
 query.setParameter(2,collection);
 
-// Is equivalent to:
-SQLQuery<MyClass> query = new SQLQuery<MyClass>(MyClass.class,"name = 'A' AND num IN (1,2,3)");
 {% endhighlight %}
 
 {% warning %}
@@ -341,7 +339,7 @@ You can specify that the `SQLQuery` should contain only partial results which me
 
 #### Unsupported SQL Features
 
-{%panel title=SQLQuery **does not** support the following: %}
+{%vbar title=SQLQuery **does not** support the following: %}
 
 {%comment%}
 - Aggregate functions: COUNT, MAX, MIN, SUM, AVG are only supported in sub queries (These are fully supported with the [JDBC API](./jdbc-driver.html)).
@@ -357,7 +355,7 @@ You can specify that the `SQLQuery` should contain only partial results which me
 - `LEFT OUTER JOIN`
 - `RIGHT OUTER JOIN`
 - `INNER JOIN`
-{%endpanel%}
+{%endvbar%}
 
 {% anchor SimpleQueries %}
 
@@ -365,7 +363,7 @@ You can specify that the `SQLQuery` should contain only partial results which me
 
 Most space operations and features support any SQL query, but some support only **simple** queries and not **complex** ones.
 
-{%panel%}
+{%vbar%}
 A query is considered complex if it contains one or more of the following:
 - `GROUP BY`
 - `ORDER BY`
@@ -377,7 +375,7 @@ The following features support only simple SQL queries
 - Blocking operations
 - [Notifications](./session-based-messaging-api.html)
 - [GSIterator](./query-paging-support.html)
-{%endpanel%}
+{%endvbar%}
 
 #### Interface Classes
 
@@ -387,7 +385,7 @@ The following features support only simple SQL queries
 
 The following are reserved keywords in the GigaSpaces SQL syntax:
 
-{%panel title=Reserved words %}
+{%vbar title=Reserved words %}
 alter add all and asc avg between by create call drop desc bit tinyint
  	 end from group in is like rlike max min not null or distinct
  	 order select substr sum sysdate upper where count delete varchar2 char
@@ -395,7 +393,7 @@ alter add all and asc avg between by create call drop desc bit tinyint
  	 update union values commit rollback uid using as date datetime time
  	 float real double number decimal numeric boolean integer
  	 varchar bigint long clob blob lob true false int timestamp longvarchar
-{% endpanel %}
+{% endvbar %}
 
 If a reserved word needs to be used as a property name it needs to be escaped using ``.
 For example: if you need to query a property by the name of count, which is a reserved word, it can be done as following:
@@ -404,9 +402,9 @@ For example: if you need to query a property by the name of count, which is a re
 new SQLQuery<MyData>(MyData.class, "`count` = 5")
 {% endhighlight %}
 
-{%panel title=Reserved Separators and Operators:%}
+{%vbar title=Reserved Separators and Operators:%}
 := || ; . ROWTYPE ~ < <= >  >= => != <> \(+\) ( ) \* / + - ? \{ \}
-{% endpanel %}
+{% endvbar %}
 
 
 <ul class="pager">
