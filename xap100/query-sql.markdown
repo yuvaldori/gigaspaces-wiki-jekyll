@@ -172,7 +172,9 @@ Some examples:
 ... = new SQLQuery<Dealer>(Dealer.class, "cars[*] = 'Honda'");
 {% endhighlight %}
 
+{%refer%}
 For more information see [Query Nested Properties](./query-nested-properties.html).
+{%endrefer%}
 
 #### Enum Properties
 
