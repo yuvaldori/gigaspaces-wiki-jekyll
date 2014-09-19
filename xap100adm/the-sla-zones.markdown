@@ -181,9 +181,9 @@ When a processing unit does start an embedded space with a backup topology, the 
 
 In the above case, the primary and the backup will not run on the same zone. If the primary of partition 1 was started on zone1, then the backup of partition 1 will be started on zone2. This comes very handy when defining rack aware deployments.
 
-{% tip %}
+{% refer %}
 You may use the [Primary-Backup Zone Controller](/sbp/primary-backup-zone-controller.html) to deploy primary and backup instances on specific different zones.
-{% endtip %}
+{% endrefer %}
 
 
 # Instance Level Requirements

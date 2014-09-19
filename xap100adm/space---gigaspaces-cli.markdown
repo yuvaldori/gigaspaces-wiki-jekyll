@@ -34,7 +34,7 @@ Using `-c` (or `-cluster`) with a URL of a clustered space clears **all** cluste
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
 | `url` | The URL of the space you want to clear, or of the container -- clears the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}`rmi://localhost:10098/my_container`{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}`rmi://localhost:10098/my_container` |
@@ -81,7 +81,7 @@ Using `-c` (or `-cluster`) with a URL of a clustered space clears **all** cluste
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
 | `url` | The URL of the space you want to clear, or of the container -- clears the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}`rmi://localhost:10098/my_container`{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}`rmi://localhost:10098/my_container` |
@@ -113,7 +113,7 @@ This command prints a list of all cluster members (spaces belonging to the speci
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
 | `-url` | Specify one of the following:{% wbr %}* The space URL of any member belonging to the cluster{% wbr %}* A URL containing the cluster name{% wbr %}* A URL containing the Jini group and the cluster name
@@ -159,7 +159,7 @@ Using `-c` (or `-cluster`) with a URL of a clustered space displays configuratio
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
 | `url` | The URL of the space you want to view, or of the container -- shows the configuration details of spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container`{% wbr %}{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container` |
@@ -177,9 +177,9 @@ Using `-c` (or `-cluster`) with a URL of a clustered space displays configuratio
 
 Displays all live connections to the specified space.
 
-{% note %}
+{% refer %}
 It is also possible to retrieve space connections using the GigaSpaces UI **[Connections view]({%currentadmurl%}/gigaspaces-browser-connection-view.html)**.
-{%endnote%}
+{%endrefer%}
 
 The information that is shown:
 
@@ -198,7 +198,7 @@ Using `-c` (or `-cluster`) with a URL of a clustered space displays live connect
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
 | `url` | The URL of the space you want to view, or of the container -- displays live connections of the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container`{% wbr %}{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container` |
@@ -220,7 +220,7 @@ The `space copy` command is relevant only for spaces that are in a started mode.
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
 | `-move` | clears the source space after copy | `-move` |
@@ -263,7 +263,7 @@ Using `\-c` (or `\-cluster`) with a URL of a clustered space lists **all** clust
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
 | `url` | The URL of the space you want to see, or of the container -- lists the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}`    rmi://localhost:10098/my_container`{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}`    rmi://localhost:10098/my_container` |
@@ -315,7 +315,7 @@ Using `-c` (or `-cluster`) with a URL of a clustered space pings **all** cluster
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
 | `url` | The URL of the space you want to restart, or of the container -- pings the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container`{% wbr %}{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container` |
@@ -354,7 +354,7 @@ You can query spaces in a specific container (see the options below) -- specifyi
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|--------------|
 | `url` | The URL of the space you want to restart, or of the container -- restarts the spaces under that container -- **mandatory option**. | Container URL: `jini://localhost/my_container`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container`{% wbr %}{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container` |

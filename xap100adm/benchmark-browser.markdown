@@ -66,7 +66,9 @@ The Benchmark view **Options** area provides the following options:
 - **Object type** -- type of object written to the space, possible options: **Entry**, **POJO**, **JMS**, **Externalizable**, **Serializable**, **FIFO**, **POJO Externalizable**, **MetaDataEntry Externalizable**, **FIFO Externalizable**, **UID Externalizable**. The selected object type is explained in the **Description** area.
 - **Threads** -- the number of concurrent threads that run the test. This allows you to run multiple threads that call the selected operation at the same time.
 
-{% tip %} If you define that 1000 Entries be written to the space, and have 5 threads defined as part of the threads box, you will end up with 5000 Entries inside the space.
+{% vbar %}
+
+If you define that 1000 Entries be written to the space, and have 5 threads defined as part of the threads box, you will end up with 5000 Entries inside the space.
 
 - **Iterations** -- the number of iterations the benchmark calls for the selected operation.
 
@@ -77,7 +79,7 @@ You can allow a read cycle to be conducted several times using the **Repeat Read
 - **Batches** -- this option allows you to call GigaSpaces batch operations (`writeMultiple, takeMultiple, readMultiple`). The number specified in this box is the number of batches that are performed in order to complete the number of iterations specified. Specifying `0` as the batch size calls the regular APIs.
 
 The numbers in the **Iterations**, **Sampling rate**, and **Read/Take timeout** boxes are in thousands, and the number in the **Entry size** box is in bytes.
-{%endtip%}
+{%endvbar%}
 
 ## Lease
 

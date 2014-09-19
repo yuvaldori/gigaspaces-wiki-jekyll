@@ -19,9 +19,9 @@ The replication module used to synchronize the data and state between two space 
 1. Object/Notifications lease cancellation or renewal.
 1. Committed transactions.
 
-{% info %}
+{% refer %}
 All the operations that are replicated, are also recovered during the space recovery process. See [Space Instance Recovery](./space-instance-recovery.html)
-{%endinfo%}
+{%endrefer%}
 
 # Which Operations are Not Replicated?
 
@@ -141,9 +141,9 @@ For example the take operation only replicates the object ID to minimize the net
 
 Additional optimizations that can affect the replication performance is the update operation. Regular object updates replicate the whole object state - all the properties even those that were not changed. This can be optimized by using `WriteModifier.PARTIAL_UPDATE` modifier when performing the object update. When this modifier is used, the replication will replicate only the changed properties and not the whole object.
 
-{% info %}
+{% refer %}
 When mirror is used additional settings are required to support the partial update. See [Optimizing the Mirror Activity]({%currentjavaurl%}/asynchronous-persistency-with-the-mirror.html#Optimizing the Mirror Activity).
-{%endinfo%}
+{%endrefer%}
 
 # Replication Filters
 

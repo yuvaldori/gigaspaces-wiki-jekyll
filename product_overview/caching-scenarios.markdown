@@ -37,9 +37,9 @@ Persistence logic can either be the out-of-the-box [Hibernate external data sour
 
 The in-line cache ensures maximum performance when fetching data where the database is outside the critical path of the application transaction. (This makes more sense than it might seem: database contention is a primary source of application performance failure.)
 
-{% tip %}
+{% refer %}
 For best performance you should use the [ALL-IN-CACHE cache policy]({%latestadmurl%}/all-in-cache-cache-policy.html) with the [write-behind mirror]({%latestjavaurl%}/asynchronous-persistency-with-the-mirror.html). This will ensure maximum hit rate when accessing the cache. With this mode, you should make sure the cache can accommodate _all_ the data you will access.
-{% endtip %}
+{% endrefer %}
 
 The in-line cache mechanism is widely used with the following GigaSpaces APIs:
 

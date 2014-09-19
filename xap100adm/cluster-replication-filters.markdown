@@ -23,9 +23,9 @@ The replication filter can be used to monitor or alter the data passed through t
 - [IReplicationFilter](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/cluster/IReplicationFilter.html) -- a replication filter is an interface called when a replication event is triggered. Two types of replication filters can be defined -- an input replication and an output replication. If both of the classes specified (for input and output) are the same, only one filter object will be used for both input and output replication.
 - [ReplicationFilterException](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/cluster/ReplicationFilterException.html) -- the `ReplicationFilterException` is thrown when there are errors that occur in the replication filter.  Errors can happen in the source or target space. The error is wrapped as part of the `ReplicationFilterException` and thrown back to the client. The `ReplicationFilterException` includes methods that includes information about the origin of the error, replication mode (input/output), the implementation class and the underlying exception. The `ReplicationFilterException.getCause()` should be used to retrieve the original exception that occurred.
 
-{% tip %}
+{% refer %}
  you can **control the replication at the operation level, using configuration only**. For more details, refer to the [Replication Operations](./replication-operations.html) section.
-{% endtip %}
+{% endrefer %}
 
 # Guidelines for Cluster Replication Filters
 

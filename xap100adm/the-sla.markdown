@@ -106,10 +106,10 @@ There are numerous clustering topologies you can choose from:
 
 From the client application's perspective (the one that connects to the space from another process), the clustering topology is transparent in most cases.
 
-{% info %}
+{% refer %}
 Please refer to [this page](/product_overview/space-topologies.html) for more details about space clustering topologies and guidelines regarding when to use each of the topologies.
 The number-of-backups parameter should be used with the partitioned-sync2backup cluster schema. It is not supported with the sync-replicated or async-replicated cluster schema.
-{% endinfo %}
+{% endrefer %}
 
 # SLA Based Distribution and Provisioning
 

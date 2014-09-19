@@ -26,7 +26,9 @@ SBA does not deny the use of a database, but suggests a more natural role for it
 
 In a high performance transactional system, we would like the transaction to be bound to space resources only, and the update of the backing database be done after the transaction is complete, asynchronous to the transaction. The synchronization between the in-memory system of record and the database, should be reliable as well.
 
+{%refer%}
 GigaSpaces XAP provides a Mirror Service as a means to achieve [reliable asynchronous persistency]({%latestjavaurl%}/asynchronous-persistency-with-the-mirror.html).
+{%endrefer%}
 
 The typical cluster topology is of reliable partitioning (partitions with backups) connected to the mirror service, which persists to the database.
 
@@ -101,9 +103,9 @@ The following tables show the correspondence between the Hibernate basic API met
 
 The [Moving from Hibernate to Space](/sbp/moving-from-hibernate-to-space.html) best practice includes step by step instructions for moving from Hibernate based application to GigaSpaces Data-Grid as the data access layer. This use Hibernate as the space persistency layer using write-through approach when pushing updates into the database.
 
-{% tip %}
+{% refer %}
 The space can be used as a [Hibernate second level cache](/sbp/gigaspaces-for-hibernate-orm-users.html).
-{% endtip %}
+{% endrefer %}
 
 # Caching policies
 
@@ -141,17 +143,17 @@ Using a database to store the data allows you to:
 
 Database technology has proven itself to be able to store vast amount of data very efficiently with very good high-availability. You may use [RDBMS](http://en.wikipedia.org/wiki/RDBMS) SQL databases (mySQL, Oracle, Sybase, DB2) or [NoSQL](http://en.wikipedia.org/wiki/NoSQL) databases (MongoDB , MarkLogic, AllegroGraph) as the space persistency layer.
 
-{% tip %}
+{% refer %}
 When using NoSQL databases you may also leverage GigaSpaces [Document API]({%latestjavaurl%}/document-api.html) support to map complex data structure into a document data store model.
-{% endtip %}
+{% endrefer %}
 
 With the [LRU policy]({%latestadmurl%}/lru-cache-policy.html), the assumption is that some of the data (recently used) is stored in memory. The amount of data stored in memory is limited by the **cache size** parameter, the memory usage watermark threshold parameters and available free GSC JVM heap size. In this case, once the space is started is loads data up 50% (you may tune this value) of the defined cache max size (total of objects per partition).
 
 If data within the space is updated/added/removed, the space is calling the [`SpaceSynchronizationEndpoint`]({%latestjavaurl%}/space-synchronization-endpoint-api.html) implementation to update the underlying data source. When performing read operations for a single object (read/readById/readIfExists) and no matching object is found in-memory (cache miss), the [`SpaceDataSource`]({%latestjavaurl%}/space-data-source-api.html) implementation is called to search for a matching data to be loaded back into the space and from there sent to the client application (read-ahead). If a query is executed (readMultiple), and the max objects to read exceed beyond the amount of matching objects in memory, the `SpaceDataSource` is called to search for matching data elements to be loaded back into the space and from there sent to the client application. In this case, the client might have in return objects that were originally within the space, and objects that have been read from the data source and loaded into the space as a result of the query operation.
 
-{% tip %}
+{% refer %}
 The [IMDG with Large Backend Database Support](/sbp/imdg-with-large-backend-database-support.html) best practice suggest a simple approach you may use to leverage LRU Space with a large database allowing the application to **execute queries** against the space in an optimal manner.
-{% endtip %}
+{% endrefer %}
 
 In both cases (ALL_IN_CACHE and LRU cache policy), you can [customize the data load phase]({%latestjavaurl%}/space-persistency-initial-load.html) to speed up the space initialization phase.
 

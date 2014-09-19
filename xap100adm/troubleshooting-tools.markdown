@@ -79,9 +79,9 @@ Both tools are well tested and common in Windows environment.
 
 # Packet Sniffer/Network Analyzer Tool
 
-{% info %}
+{% refer %}
 See [Packet Sniffer/Network Analyzer Tool](./network-multicast.html#Packet) Sniffer/Network Analyzer Tool) section for more details.
-{%endinfo%}
+{%endrefer%}
 
 # Threads Dumper
 
@@ -92,9 +92,10 @@ Java has this great feature where if you hit Ctrl-break on the console, it dumps
 A very useful utility can be used for sending a Windows Ctrl+break signal to any process (or Java Process) and which will dump the threads.
 The nice thing is that only the target process is affected, and any process (even a windowed process) can be targeted.
 
-{% info %}
+{% refer %}
 Download the Send.Signal EXE file from the [project webpage](http://www.latenighthacking.com/projects/2003/sendSignal/)
-{%endinfo%}
+{%endrefer%}
+
 Usage:
 
 {%highlight console%}

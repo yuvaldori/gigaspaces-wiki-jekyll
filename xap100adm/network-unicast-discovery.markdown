@@ -14,9 +14,9 @@ There are many cases when you need to use a unicast-based services discovery. Fo
 
 In such cases, the Jini lookup discovery enables the user to discover services (spaces, GSC, GSM, processing units etc.) using unicast protocol.
 
-{% info %}
+{% refer %}
 Please refer to the [Lookup Service Configuration](./network-lookup-service-configuration.html) or the [Networking How Tos](./network.html) section for more details.
-{%endinfo%}
+{%endrefer%}
 
 # Configuring the lookup locators property
 

@@ -145,12 +145,15 @@ The container **Attributes** tab displays a list of container attributes. Attrib
 
 The container **Operations** tab allows you to perform different space container operations:
 
-- **shutdown** -- shuts down this container.
-- **restart** -- restarts this container.
-- **destroySpace** -- destroys a space in this container (type the space's name in the **spaceName** text box).
-- **createSpace (spaceName, schemaName, clusterConfigURL)** -- creates a space with a unique name in this container and writes the created space to the appropriate Storage Adapter. (Type the name of the space, the name of the schema, and the cluster configuration URL\*\*\* in the relevant text boxes).
-- **createSpace (spaceName, schemaName)** -- creates a space with a unique name in this container.
-- **getRuntimeConfigReport** -- displays a runtime configuration report. For more details, refer to the [Runtime Configuration Report]({%currentadmurl%}/gigaspaces-browser-managing-space-container.html#Runtime Configuration Report) section.
+{: .table .table-bordered .table-condensed}
+| Option | Description |
+|:----------|:----------|
+|shutdown |shuts down this container. |
+|restart | restarts this container. |
+|destroySpace | destroys a space in this container (type the space's name in the **spaceName** text box).|
+|createSpace (spaceName, schemaName, clusterConfigURL)| creates a space with a unique name in this container and writes the created space to the appropriate Storage Adapter. (Type the name of the space, the name of the schema, and the cluster configuration URL\\*\\*\\* in the relevant text boxes).|
+|createSpace (spaceName, schemaName) | creates a space with a unique name in this container. |
+|getRuntimeConfigReport |displays a runtime configuration report. For more details, refer to the [Runtime Configuration Report]({%currentadmurl%}/gigaspaces-browser-managing-space-container.html#Runtime Configuration Report) section.|
 
 {% indent %}
 ![space_JMX_11_IMG995.gif](/attachment_files/space_JMX_11_IMG995.gif)
@@ -172,7 +175,9 @@ The Space MBean exposes space attributes and operations. You can get the basic s
 
 The space **Attributes** tab displays a list of space attributes/elements by XPath, in the selected space. Attribute values appearing in blue can be controlled, while values in black can not be changed. Red values are unavailable.
 
-{% refer %}For details on specific configuration file elements, refer to the Configuration Files Element List\*** section.{% endrefer %}
+{% refer %}
+For details on specific configuration file elements, refer to the Configuration Files Element List\*** section.
+{% endrefer %}
 
 {% indent %}
 ![space_JMX_13_IMG993.gif](/attachment_files/space_JMX_13_IMG993.gif)
@@ -184,25 +189,35 @@ The space **Attributes** tab displays a list of space attributes/elements by XPa
 
 The space **Operations** tab allows you to perform different space operations:
 
-- **getSpace** -- returns the space proxy that this manageable bean governs.
-- **getStatistics** -- returns a `StatisticsContext` according to the operation code you type in the **operationCode** text box -- each operation has a constant representing it.
+{: .table .table-bordered .table-condensed}
+| Operation | Description |
+|:----------|:----------|
+|getSpace |returns the space proxy that this manageable bean governs.  |
+|getStatistics|returns a `StatisticsContext` according to the operation code you type in the **operationCode** text box -- each operation has a constant representing it.|
+|clean| cleans the selected space.     |
+|count|when entering a specific class name in the **className** textbox, displays the number of Entries in this class.|
+|clear|when entering a specific class name in the **className** textbox, removes the Entries that match this template from the space.|
+|stop|attempts to stop the selected space.  |
+|start| attempts to start the selected space.|
+|ping|checks whether the space is alive and accessible. |
+|restart|restarts the space.  |
+|getClusterPolicy| displays a cluster policy instance. |
+|getRuntimeInfo| returns a RuntimeInfo instance.    |
+|getURL| displays the `spaceURL` instance which was used to initialize the space.|
 
-{% refer %}For a list of operation codes, see [Javadoc](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/filters/FilterOperationCodes.html) and the [statistics filter operation codes list](http://www.gigaspaces.com/docs/JavaDoc/constant-values.html#com.j_spaces.core.filters.FilterOperationCodes.AFTER_ALL_NOTIFY_TRIGGER).{% endrefer %}
 
-{% refer %}For more details, see [com.j_spaces.core.admin.StatisticsAdmin](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/admin/StatisticsAdmin.html) or [com.j_spaces.core.filters.StatisticsContext](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/filters/StatisticsContext.html).{% endrefer %}
+{% refer %}
 
-- **clean** -- cleans the selected space.
-- **count** -- when entering a specific class name in the **className** textbox, displays the number of Entries in this class.
-- **clear** -- when entering a specific class name in the **className** textbox, removes the Entries that match this template from the space.
-- **stop** -- attempts to stop the selected space.
-- **start** -- attempts to start the selected space.
-- **ping** -- checks whether the space is alive and accessible.
-- **restart** -- restarts the space.
-- **getClusterPolicy** -- displays a cluster policy instance.
-- **getRuntimeInfo** -- returns a RuntimeInfo instance.
-{% refer %}For more details, see [Javadoc](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/admin/SpaceRuntimeInfo.html).{% endrefer %}
+For more details, see
 
-- **getURL** -- displays the `spaceURL` instance which was used to initialize the space.
+[Javadoc](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/admin/SpaceRuntimeInfo.html).
+
+[Javadoc](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/filters/FilterOperationCodes.html) and the [statistics filter operation codes list](http://www.gigaspaces.com/docs/JavaDoc/constant-values.html#com.j_spaces.core.filters.FilterOperationCodes.AFTER_ALL_NOTIFY_TRIGGER).
+
+[com.j_spaces.core.admin.StatisticsAdmin](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/admin/StatisticsAdmin.html) or [com.j_spaces.core.filters.StatisticsContext](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/filters/StatisticsContext.html).
+{% endrefer %}
+
+
 
 {% indent %}
 ![space_JMX_14_IMG997.gif](/attachment_files/space_JMX_14_IMG997.gif)

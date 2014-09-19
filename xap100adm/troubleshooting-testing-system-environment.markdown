@@ -8,17 +8,12 @@ weight: 200
 
 {% summary%}{% endsummary %}
 
-{%comment%}
-{% summary %}Verifying a local installation and a remote installation.{% endsummary %}
-
-# Overview
-{%endcomment%}
 
 To perform a simple system testing you should use the `gsInstance.bat` script on windows or `gsInstance.sh` script on linux.
 
-{% tip %}
+{% refer %}
 To setup a production environment see the [Moving into Production Checklist](/sbp/moving-into-production-checklist.html).
-{% endtip %}
+{% endrefer %}
 
 # Verifying Local Installation
 

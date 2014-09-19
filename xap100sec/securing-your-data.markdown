@@ -131,9 +131,8 @@ For security reasons, you may not want to expose the security credentials in you
 
 # Processing Unit
 
-{% refer %}[Configuring Processing Unit Elements]({%currentjavaurl%}/configuring-processing-unit-elements.html), [Configuring the Space]({%currentjavaurl%}/the-space-configuration.html){% endrefer %}
 
-A processing unit by itself is not secured. It inherits its security from the managing GSM and GSC. These protect the processing unit from being restarted, relocated, destroyed, and undeployed.
+A processing unit {%currentjavanet ./the-processing-unit-overview.html%} by itself is not secured. It inherits its security from the managing GSM and GSC. These protect the processing unit from being restarted, relocated, destroyed, and undeployed.
 
 A processing unit (for example a feeder application) may access a secured Space using a remote Space proxy.
 
@@ -185,9 +184,9 @@ Using the CLI deploy command supply username and password using the -user and -p
 
 # Local Cache
 
-{% refer %}[Local Cache]({%currentjavaurl%}/client-side-caching.html){% endrefer %}
 
-The local cache is a read-only service on top of a remote Space. Thus, the local cache "creator" needs to have **Read** privileges.
+
+The Local cache {%currentjavanet local-cache.html%} is a read-only service on top of a remote Space. Thus, the local cache "creator" needs to have **Read** privileges.
 Security is enforced by the remote Space, and the proxy should be acquired by supplying the username and password.
 
 {% inittab localcacheview|tablocation=top %}
@@ -222,9 +221,9 @@ GigaSpace localCache = new GigaSpaceConfigurer(configurer.localCache()).gigaSpac
 
 # Local View
 
-{% refer %}[Local View]({%currentjavaurl%}/client-side-caching.html){% endrefer %}
 
-Similar to a Local Cache, the Local View is a read-only service on top of a remote Space. Here, the cache is limited to Views. Thus, the local view "creator" needs to have **Read** privileges for the specific views. For example, needs to have **Read** privileges for both `Trade` and `Stock` classes, otherwise access will be denied.
+
+Similar to a Local Cache, the Local View {%currentjavanet local-view.html%} is a read-only service on top of a remote Space. Here, the cache is limited to Views. Thus, the local view "creator" needs to have **Read** privileges for the specific views. For example, needs to have **Read** privileges for both `Trade` and `Stock` classes, otherwise access will be denied.
 
 {% inittab localcacheview|tablocation=top %}
 {% tabcontent  Local View Configurer %}
@@ -264,9 +263,9 @@ GigaSpace localView = new GigaSpaceConfigurer(configurer.localView()).gigaSpace(
 
 # Space Filters
 
-{% refer %}[Space Filters]({%currentjavaurl%}/the-space-filters.html){% endrefer %}
 
-Filters are interceptors inside the GigaSpaces Space which allow implementation of user-defined logic based on Space events. Some filters need to perform operations on the embedded Space. If secured, the filter needs to have sufficient privileges for its operations.
+
+Space Filters {%currentjavanet the-space-filters.html%} are interceptors inside the XAP Space which allow implementation of user-defined logic based on Space events. Some filters need to perform operations on the embedded Space. If secured, the filter needs to have sufficient privileges for its operations.
 
 The username and password supplied when creating a Space, will be used to _implicitly_ create a **`secured`** Space. The security privileges of the specified user will be propagated to the Filter. If the user has **Read** privileges, then the filter will be able to perform a `space.read(..)` on its embedded Space.
 
@@ -454,9 +453,9 @@ public class CustomAccessControlFilter {
 
 # Task Execution over the Space
 
-{% refer %}[Executors]({%currentjavaurl%}/task-execution-over-the-space.html){% endrefer %}
 
-Tasks can be executed in a collocated asynchronous manner within the Space (processing unit with an embedded Space). To execute a task, you must have **Execute** privileges. Execution can be restricted to certain tasks by applying the 'Class-Filter'. There is no need to define specific privileges for operations being performed by the task on the Space.
+
+Tasks {%currentjavanet task-execution-over-the-space.html%} can be executed in a collocated asynchronous manner within the Space (processing unit with an embedded Space). To execute a task, you must have **Execute** privileges. Execution can be restricted to certain tasks by applying the 'Class-Filter'. There is no need to define specific privileges for operations being performed by the task on the Space.
 
 Here is a simple implementation of a task that performs a 'count' operation on the space.
 
@@ -483,21 +482,20 @@ Space operations performed from +within+ the task are guarded by a _temporary_ t
 
 # Executors Based Remoting
 
-{% refer %}[Executors Based Remoting]({%currentjavaurl%}/executor-based-remoting.html){% endrefer %}
+Executor Remoting {%currentjavanet executor-based-remoting.html %}allows you to use remote invocations of POJO services, with the Space as the transport layer using OpenSpaces Executors. To invoke a service method, you must have **Execute** privileges for class `org.openspaces.remoting.ExecutorRemotingTask`.
 
-Executor Remoting allows you to use remote invocations of POJO services, with the Space as the transport layer using OpenSpaces Executors. To invoke a service method, you must have **Execute** privileges for class `org.openspaces.remoting.ExecutorRemotingTask`.
+
 
 # Event Driven Remoting
 
-{% refer %}[Event Driven Remoting]({%currentjavaurl%}/event-driven-remoting.html){% endrefer %}
 
-Event Driven Remoting allows you to use remote invocations of POJO services, with the space as the transport layer using a polling container on the space side to process the invocations. Under the wires, event driven remoting uses the Space write and take capabilities. Thus, you must have **Write* and *Take** privileges (at both ends) for class `org.openspaces.remoting.EventDrivenSpaceRemotingEntry`.
+[Event Driven Remoting]({%currentjavaurl%}/event-driven-remoting.html) allows you to use remote invocations of POJO services, with the space as the transport layer using a polling container on the space side to process the invocations. Under the wires, event driven remoting uses the Space write and take capabilities. Thus, you must have **Write* and *Take** privileges (at both ends) for class `org.openspaces.remoting.EventDrivenSpaceRemotingEntry`.
+
+
 
 # JDBC Driver
 
-{% refer %}[JDBC Driver]({%currentjavaurl%}/jdbc-driver.html){% endrefer %}
-
-GigaSpaces allows applications to connect using a JDBC driver. A GigaSpaces JDBC driver accepts SQL statements, translates them to Space operations, and returns standard result sets. To acquire a connection to a remote secured space, provide the credentials (username and password) as parameters to the connection.
+GigaSpaces allows applications to connect using a [JDBC driver]({%currentjavaurl%}/jdbc-driver.html). A GigaSpaces JDBC driver accepts SQL statements, translates them to Space operations, and returns standard result sets. To acquire a connection to a remote secured space, provide the credentials (username and password) as parameters to the connection.
 
 {% highlight java %}
 Class.forName("com.j_spaces.jdbc.driver.GDriver").newInstance();
@@ -507,6 +505,8 @@ Statement st = conn.createStatement();
 ...
 {% endhighlight %}
 
-{% note %}
+
+
+{% refer %}
 An alternative way of querying the Space using SQL syntax is the [SQLQuery]({%currentjavaurl%}/query-sql.html) class, with a privileged GigaSpace proxy.
-{%endnote%}
+{%endrefer%}

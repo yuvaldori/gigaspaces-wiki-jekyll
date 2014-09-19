@@ -65,13 +65,13 @@ Step 3. Make sure all the machines running XAP can ping each other and their hos
 
 Before you begin working with GigaSpaces, it is recommended to review the [Performance Tuning and Considerations]({%currentadmurl%}/tuning.html) sections and apply the required changes. For example, you may need to update the [**max file descriptors limit**]({%currentadmurl%}/tuning-infrastructure.html#Max Processes and File Descriptors Limit) before you begin.
 
-{% info %}
+{% refer %}
  The recommendation is to review at least the following sections:
 
 - [Tuning Infrastructure]({%currentadmurl%}/tuning-infrastructure.html)
 - [Tuning GigaSpaces Performance - Basics]({%currentadmurl%}/tuning-gigaspaces-performance.html)
 - [Tuning Java Virtual Machines]({%currentadmurl%}/tuning-java-virtual-machines.html)
 - [Benchmarking the platform](/sbp/moving-into-production-checklist.html)
-{% endinfo %}
+{% endrefer %}
 
 

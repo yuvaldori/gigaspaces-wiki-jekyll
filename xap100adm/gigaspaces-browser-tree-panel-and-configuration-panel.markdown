@@ -160,6 +160,7 @@ When a space node is selected, its configuration data is displayed in the **Serv
 {%endcolumn%}
 {%column width=95% %}
 A cluster is a collection of spaces from one or more space containers. The cluster node in the **Grid Tree** represents a cluster of spaces.
+
 {% refer %}For more details, refer to the [Cluster View](./cluster-view---gigaspaces-browser.html) section.{% endrefer %}
 {%endcolumn%}
 {%endsection%}
@@ -169,4 +170,3 @@ A cluster is a collection of spaces from one or more space containers. The clust
 
 The **Service View** panel takes up most of the Space Browser screen; it is located on the right of the **Grid Tree** panel. This panel shows configuration details for the node selected in the tree on the left, allowing you to edit some of them.
 
-{%children%}

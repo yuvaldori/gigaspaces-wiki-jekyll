@@ -64,9 +64,9 @@ gs-agent gsa.global.lus 0
 For instructions on how to configure service grid components refer to [Service Grid Configuration](./service-grid-configuration.html)
 {%endcomment%}
 
-{%tip%}
+{%refer%}
 You can use the [GigaSpaces Universal Deployer](/sbp/universal-deployer.html) to deploy complex multi processing unit applications.
-{%endtip%}
+{%endrefer%}
 
 # Customizing GSA Components
 

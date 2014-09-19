@@ -62,7 +62,8 @@ This is sometimes considered a subset of Operational intelligence and is also id
 
 
 
-{%panel title=Related Topics %}
+{%refer%}
+Related Topics
 
 - [Aggregators api]({%latestjavaurl%}/aggregators.html)
 - Counters api {%latestjavanet the-space-counters.html %}
@@ -75,7 +76,7 @@ This is sometimes considered a subset of Operational intelligence and is also id
 - [Storm Integration](/sbp/storm-integration.html)
 - [Drools Rule Engine Integration](/sbp/xap-drools-integration.html)
 
-{%endpanel%}
+{%endrefer%}
 
 {%comment%}
 - should include in some point HBase and Hadoop integration

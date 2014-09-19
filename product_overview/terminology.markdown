@@ -181,9 +181,9 @@ A [partitioned Data Grid](#Partitioned Data Grid), with one or more [backup](#Pr
 {% endcolumn %}
 {% endsection %}
 
-{% tip %}
+{% refer %}
 For details about scaling a running space cluster **in runtime** see the [Elastic Processing Unit]({%latestjavaurl%}/elastic-processing-unit.html) section.
-{% endtip %}
+{% endrefer %}
 
 
 # Runtime Components

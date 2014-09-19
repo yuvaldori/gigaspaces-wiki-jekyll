@@ -134,13 +134,10 @@ When using persistent space and a large number of users/threads access the space
 
 The Benchmark View provides a user interface for benchmarking the space.
 
-{% tip %}
+{% refer %}
 For more details, refer to:
 
 - [Benchmark View](./benchmark-browser.html)
 - [Benchmark Example](./benchmark-utility-cli.html)
-{% endtip %}
+{% endrefer %}
 
-
-
-{%children%}

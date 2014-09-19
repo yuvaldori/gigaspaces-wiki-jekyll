@@ -159,8 +159,8 @@ To deploy a secured data-grid, select the **`Secured Space`** checkbox. Supplyin
 
 ### Supplying custom properties
 
-{% refer %}[Security Configurations](./security-configurations.html){% endrefer %}
-Security configuration properties can be supplied, during deployment of a Space, as custom properties; Either from a file or added through the dialog.
+
+[Security configuration properties](./security-configurations.html) can be supplied, during deployment of a Space, as custom properties; Either from a file or added through the dialog.
 The custom properties can hold both space configurations and security configurations.
 
 ![custom-properties.png](/attachment_files/custom-properties.png)
@@ -175,7 +175,7 @@ _For example, the `data-processor` has a polling container - when deployed, the 
 
 ### Supplying bean level properties
 
-{% refer %}[Security Configurations](./security-configurations.html){% endrefer %}
-Security configuration properties can be supplied, during deployment of a ProcessingUnit, as context bean level properties; Either from a file or added through the dialog.
+
+[Security configuration](./security-configurations.html) properties can be supplied, during deployment of a ProcessingUnit, as context bean level properties; Either from a file or added through the dialog.
 
 ![bean-level-properties.png](/attachment_files/bean-level-properties.png)

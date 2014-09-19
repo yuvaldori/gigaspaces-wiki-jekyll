@@ -62,9 +62,9 @@ The following services use the LUS:
 
 * Space Instances (actual instances of a Space that form a topology)
 
-{% info %}
+{% refer %}
 For advanced information on the lookup service architecture, refer to [The Lookup Service](./the-lookup-service.html).
-{%endinfo%}
+{%endrefer%}
 
 {% anchor gsa %}
 

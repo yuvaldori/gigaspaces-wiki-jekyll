@@ -34,7 +34,7 @@ This space we just created can also be accessed remotely from another JVM by con
 GigaSpace gigaSpace = new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*/xapTutorialSpace")).gigaSpace();
 {%endhighlight%}
 
-You can configure the Space URL  with several options. {%learnit ./the-space-configuration.html%}
+You can configure the Space URL  with several options. {%learn%} ./the-space-configuration.html{%endlearn%}
 
 
 When a client connects to a space, a proxy is created that holds a connection which implements the space API. All client interaction is performed through this proxy.
@@ -46,7 +46,7 @@ With XAP you can also create a Local Cache and a Local View.
 - Local View  : This client side cache maintains a specific subset of the data. The subset is predefined by the user. The cache is populated when the client application is started.
 In both cases, updates are performed (objects are added/updated/removed) on the master space, the master space then propagates the changes to all relevant local views and caches.
 
-These two scenarios are only applicable for remote clients. {%learnit ./client-side-caching.html%}
+These two scenarios are only applicable for remote clients. {%learn%} ./client-side-caching.html{%endlearn%}
 
 
 
@@ -95,7 +95,7 @@ The space generates a unique identifier (UID) for every object in one of the fol
 
 #### Compound SpaceId
 You might need to construct a space id that will be comprised from a user defined class rather than using a Numeric or String type field. In such a case your user defined class used as the SpaceId data type must implement the toString , hashCode and equals methods. The compound ID class must implement a toString method that return a unique String for each ID.
-{%learnit ./space-object-id-operations.html%}
+{%learn%} ./space-object-id-operations.html{%endlearn%}
 
 
 #### Defining Routing
@@ -105,7 +105,7 @@ Partitioning is used when the total number of objects is too big to be stored in
 
 {%info%}
 The routing attribute can be explicitly set using the @SpaceRouting annotation for POJO entries or via the SpaceTypeDescriptorBuilder for document entries. If the routing attribute is not explicitly set, the space id attribute is used for routing. If the space id attribute is not defined, the first indexed attribute (alphabetically) is used for routing, otherwise the first attribute (alphabetically) is used for routing.
-{%learnit  ./routing-in-partitioned-spaces.html%}
+{%learn%} ./routing-in-partitioned-spaces.html{%endlearn%}
 {%endinfo%}
 
 
@@ -154,7 +154,7 @@ Only properties with special roles like ID and Routing are part of the schema de
 
 {%info%}
 It is possible to write a POJO to the space and read it back as a document, and vice versa. This scenario is useful when you want to read or modify POJO objects without loading the concrete java classes.
-{%learnit ./document-pojo-interoperability.html%}
+{%learn%}./document-pojo-interoperability.html{%endlearn%}
 {%endinfo%}
 
 
@@ -215,7 +215,7 @@ public void writeOnlyWithLease() {
 {%endhighlight%}
 
 In this example, we are writing an object to the space with zero delay, 10 seconds to live and write only if the object does not already exist in the space. If the object already exists, an exception will be thrown.
-{%learnit ./the-space-operations.html%}
+{%learn%}./the-space-operations.html{%endlearn%}
 
 
 #### Updating an object in space
@@ -240,7 +240,7 @@ public void ChangeSet() {
 {%endhighlight%}
 
 There are several other change operations available; 'increment', 'decrement', 'addToCollection', 'removeFromCollection' etc.
-{%learnit ./change-api.html%}
+{%learn%} ./change-api.html{%endlearn%}
 
 # Querying the Space
 
@@ -315,7 +315,7 @@ public User[] sqlFindUsersByNameAndIds() {
 }
 {%endhighlight%}
 
-{%learnit ./query-sql.html%}
+{%learn%} ./query-sql.html{%endlearn%}
 
 #### Parameterized Queries
 You can separate the values for the SQL criteria expression by placing a '?' symbol instead of the actual value in the expression. When executing the query, the conditions that includes '?' are replaced with the corresponding parameter values supplied via the setParameter  method.
@@ -359,7 +359,7 @@ public User[] findUsersByGroup() {
 {%endhighlight%}
 
 There are several additional query options available. For example you can query Nested Maps by key,query with Regular Expression, Enum attributes and others.
-{%learnit ./query-nested-properties.html%}
+{%learn%} ./query-nested-properties.html{%endlearn%}
 
 
 #### Query returning partial results
@@ -377,7 +377,7 @@ public User[] findUsersByNameAndProjection() {
 }
 {%endhighlight%}
 
-{%learnit ./query-partial-results.html%}
+{%learn%} ./query-partial-results.html{%endlearn%}
 
 
 #### Document Queries
@@ -403,7 +403,7 @@ public SpaceDocument[] readProductsBySQL() {
 }
 {%endhighlight  %}
 
-{%learnit ./document-api.html %}
+{%learn%} ./document-api.html {%endlearn%}
 
 
 
@@ -462,7 +462,7 @@ public void clearAllObjectInSpace() {
 {%endhighlight%}
 
 
-{%learnit ./the-space-operations.html %}
+{%learn%} ./the-space-operations.html{%endlearn%}
 
 
 #### Aggregation
@@ -491,7 +491,7 @@ Person youngestPersonInSpace = minEntry(space, personSQLQuery, "age");
 {% endhighlight %}
 
 XAP also supports, `Compound`, `Embedded Fields` and `Group` Aggregation.
-{%learnit ./aggregators.html%}
+{%learn%} ./aggregators.html{%endlearn%}
 
 
 # Indexing
@@ -564,7 +564,7 @@ SQLQuery<User> query = new SQLQuery<User>(User.class,"name = 'John Doe' AND cred
 {%endhighlight%}
 
 There are several additional indexing options available. For example you can index nested attributes, Nested Maps, Collections, nested attributes within a Collection, free text search and others.
-{%learnit ./indexing-overview.html%}
+{%learn%}./indexing-overview.html{%endlearn%}
 
 
 # Best Practice
@@ -599,7 +599,7 @@ use change api instead of update , especially if collections are used.
 
 # Other Data Access API's
 XAP provides a JDBC Driver, JPA API, MAP and Memcached API's.
-{%learnit ./other-data-access-apis.html%}
+{%learn%} ./other-data-access-apis.html{%endlearn%}
 
 
 

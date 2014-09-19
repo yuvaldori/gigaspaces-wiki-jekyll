@@ -70,7 +70,7 @@ You will learn how to:
 - querying the space
 - indexing objects in space
 
-{%align right%}{%learnit ./java-tutorial-part1.html %} {%endalign%}
+{%align right%}{%learn%} ./java-tutorial-part1.html {%endlearn%} {%endalign%}
 {%endcolumn%}
 {%endsection%}
 {%endpanel%}
@@ -103,7 +103,7 @@ You will learn how to:
 - interact with the data grid
 - how to use the administration UI
 
- {%align right%}{%learnit  ./java-tutorial-part2.html%}{%endalign%}
+ {%align right%}{%learn%} ./java-tutorial-part2.html{%endlearn%}{%endalign%}
 {%endcolumn%}
 {%endsection%}
 {%endpanel%}
@@ -130,7 +130,7 @@ You will learn how to use:
 - Remoting service
 
 
-{%align right%}{%learnit ./java-tutorial-part3.html%}{%endalign%}
+{%align right%}{%learn%} ./java-tutorial-part3.html{%endlearn%}{%endalign%}
 
 {%endcolumn%}
 {%endsection%}
@@ -158,7 +158,7 @@ You will learn how to use:
 - Notify container
 - Polling container
 
-{%align right%}{%learnit ./java-tutorial-part4.html%}{%endalign%}
+{%align right%}{%learn%} ./java-tutorial-part4.html{%endlearn%}{%endalign%}
 
 {%endcolumn%}
 {%endsection%}
@@ -190,7 +190,7 @@ You will learn how to:
 - how to scale and provide failover
 
 
-{%align right%}{%learnit ./java-tutorial-part5.html%}{%endalign%}
+{%align right%}{%learn%} ./java-tutorial-part5.html{%endlearn%}{%endalign%}
 
 {%endcolumn%}
 {%endsection%}
@@ -220,7 +220,7 @@ You will learn about:
 - Concurrency
 - Locking
 
-{%align right%}{%learnit ./java-tutorial-part6.html%}{%endalign%}
+{%align right%}{%learn%} ./java-tutorial-part6.html{%endlearn%}{%endalign%}
 
 {%endcolumn%}
 {%endsection%}
@@ -249,7 +249,7 @@ You will learn about:
 - Asynchronos persistence
 - Persistence Adapters
 
-{%align right%}{%learnit ./java-tutorial-part7.html %}{%endalign%}
+{%align right%}{%learn%} ./java-tutorial-part7.html{%endlearn%}{%endalign%}
 
 {%endcolumn%}
 {%endsection%}
@@ -278,7 +278,7 @@ You will learn about:
  - how to share global HTTP Sessions
  - how to integrate with Apache load balancer
 
- {%align right%}{%learnit ./java-tutorial-part8.html %}{%endalign%}
+ {%align right%}{%learn%} ./java-tutorial-part8.html{%endlearn%}{%endalign%}
 
  {%endcolumn%}
  {%endsection%}
@@ -306,7 +306,7 @@ You will learn about:
  - Archive container
  - Space persistency
 
- {%align right%}{%learnit ./java-tutorial-part9.html%}{%endalign%}
+ {%align right%}{%learn%} ./java-tutorial-part9.html{%endlearn%}{%endalign%}
 
  {%endcolumn%}
  {%endsection%}
@@ -335,7 +335,7 @@ You will learn about:
  - create users
  - secure XAP components
 
- {%align right%}{%learnit ./java-tutorial-part10.html %}{%endalign%}
+ {%align right%}{%learn%}./java-tutorial-part10.html{%endlearn%}{%endalign%}
 
  {%endcolumn%}
  {%endsection%}

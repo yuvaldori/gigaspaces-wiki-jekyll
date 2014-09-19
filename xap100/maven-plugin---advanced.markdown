@@ -81,7 +81,9 @@ Maven defines the following scopes:
 During processing unit packaging only dependencies declared with the scopes **compile* and *runtime** are added to the PU distributable.
 {%endinfo%}
 
+{%refer%}
 For more information go to [Introduction to the Dependency Mechanism](http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)
+{%endrefer%}
 
 ## Configuring Maven to use the Assembly Descriptor
 

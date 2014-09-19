@@ -22,9 +22,9 @@ A clustered proxy for a partitioned data grid holds logical references to all sp
 
 ![load_balancing_basic.gif](/attachment_files/load_balancing_basic.gif)
 
-{% tip %}
+{% refer %}
 For details about scaling a running space cluster **in runtime** see the [Elastic Processing Unit]({%currentjavaurl%}/elastic-processing-unit.html) section.
-{% endtip %}
+{% endrefer %}
 
 # Partitioning Types
 
@@ -35,8 +35,8 @@ The following table describes the built-in load balancing types.
 {: .table .table-bordered .table-condensed}
 |Policy|Description|
 |:-----|:----------|
-|hash-based|As above, except a new hash is computed for each user operation, and so each operation may be routed to a different space. This ensures, with high probability, that operations are evenly distributed. This is the **default mode** and the recommended mode.|
-|local-space |This policy routes the operation to the local embedded space (without specifying the exact space name). It is used in P2P clusters.|
+|<nobr>hash-based </nobr>|As above, except a new hash is computed for each user operation, and so each operation may be routed to a different space. This ensures, with high probability, that operations are evenly distributed. This is the **default mode** and the recommended mode.|
+|local-space|This policy routes the operation to the local embedded space (without specifying the exact space name). It is used in P2P clusters.|
 |round-robin |The clustered proxy distributes the operations to the group members in a round-robin fashion. For example, if there are three spaces, one operation is performed on the first space, the next on the second space, the next on the third space, the next on the first space, and so on.|
 
 # Hash-Based Load-Balancing

@@ -8,9 +8,9 @@ weight: 300
 
 {% summary %} {% endsummary %}
 
-The Admin API provides a way to administer and monitor all on XAP services and components using a simple API. The API, amongst others, provides the ability to operate on the currently running GigaSpaces Agents, XAP Managers, XAP Containers, Lookup Services, Processing Units and Spaces.
+The[Administration and Monitoring API]({%currentjavaurl%}/administration-and-monitoring-api.html) provides a way to administer and monitor all on XAP services and components using a simple API. The API, amongst others, provides the ability to operate on the currently running GigaSpaces Agents, XAP Managers, XAP Containers, Lookup Services, Processing Units and Spaces.
 
-{% refer %}[Administration and Monitoring API]({%currentjavaurl%}/administration-and-monitoring-api.html){% endrefer %}
+
 
 # Constructing the Admin instance
 

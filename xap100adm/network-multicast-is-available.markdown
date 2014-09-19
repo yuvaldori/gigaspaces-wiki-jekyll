@@ -22,9 +22,7 @@ It determines whether a multicast socket can be created and a request announceme
 
 {% tip %}
 It is still possible that multicast does not work outside the tested host.
-{% endtip %}
 
-{% tip %}
 Make sure your network and machines running GigaSpaces are configured to have multicast enabled.
 See the [How to Configure Multicast](./network-multicast.html) section for details on how to enable multicast.
 {% endtip %}
@@ -37,13 +35,13 @@ This multicast utility serves to check multicast communication between sender an
 For multi-homed network card machine use `multicastTest -sender -ba [network card IP]`.
 {% endtip %}
 
-{% tip %}
+{% refer %}
 To configure Jini in a multi network environment see the [Multi Network Card Configuration Section](./network-multi-nic.html).
-{% endtip %}
+{% endrefer %}
 
 # Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
 | `sender` / `receiver` | Specifies whether you are the sender or the receiver -- `-sender` is used by the source machine, and `-receiver` is used by each target machine. | |

@@ -19,7 +19,7 @@ Since the `java.rmi.server.hostname` system property is set by default to the `N
 
 To apply this configuration easily, the `NIC_ADDR` variable can be passed at the **script level** of each node startup, before the call to `setenv`, thus overriding the default value set for this property in the `setenv` script.
 
-{% note icon=false %}
+{% note %}
 
 {% indent %}
 The following procedure explains the general configuration process required to test and configure the Multi-NIC settings in XAP.
@@ -29,7 +29,7 @@ The following procedure explains the general configuration process required to t
 {% endnote %}
 
 {% warning %}
-Make sure your network and machines running GigaSpaces are configured to have multicast enabled. See the [Multicast Configuration](./network-multicast.html) section for details on how to enable multicast.
+Make sure your network and machines running XAP are configured to have multicast enabled. See the [Multicast Configuration](./network-multicast.html) section for details on how to enable multicast.
 {%endwarning%}
 
 # Configuring XAP for Multiple NICs

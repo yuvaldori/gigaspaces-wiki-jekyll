@@ -22,15 +22,15 @@ Actually it affects also a standalone PU instance (with a space).
 
 # Grid Service Agent
 
-{% refer %}[Grid Service Agent](/product_overview/service-grid.html#gsa){% endrefer %}
 
-The Grid Service Agent (GSA) acts as a process manager that can spawn and manage Service Grid processes (GSM, GSC, etc.). When GSA is secured, a spawned GSM/GSC will also be secured. To _start_, _kill_, _restart_ a process you need **Manage Grid** privileges.
+
+The [Grid Service Agent (GSA)](/product_overview/service-grid.html#gsa) acts as a process manager that can spawn and manage Service Grid processes (GSM, GSC, etc.). When GSA is secured, a spawned GSM/GSC will also be secured. To _start_, _kill_, _restart_ a process you need **Manage Grid** privileges.
 
 # Grid Service Manager
 
-{% refer %}[Grid Service Manager](/product_overview/service-grid.html#gsm){% endrefer %}
 
-The Grid Service Manager (GSM) is responsible for managing Processing Units and Grid Service Containers. The GSM accepts deployment and un-deployment requests of Processing Units, and provisions them to GSCs. To _deploy_, _un-deploy_ you need **Provision PU** privileges.
+
+The [Grid Service Manager (GSM)](/product_overview/service-grid.html#gsm) is responsible for managing Processing Units and Grid Service Containers. The GSM accepts deployment and un-deployment requests of Processing Units, and provisions them to GSCs. To _deploy_, _un-deploy_ you need **Provision PU** privileges.
 
 A secured GSM can **only** connect to another secured GSM. This means that a Processing Unit managed by a secured GSM can be recoverable upon failover only by another secured GSM.
 
@@ -41,9 +41,8 @@ When an [Elastic Processing Unit]({%currentjavaurl%}/elastic-processing-unit.htm
 
 # Grid Service Container
 
-{% refer %}[Grid Service Container](/product_overview/service-grid.html#gsc){% endrefer %}
 
-A Grid Service Container (GSC) is a container which hosts deployed Processing Unit Instances, and reports its status to the GSM. In general, operations on the GSC are routed to the managing GSM of the processing unit. To _scale up/down_, _relocate_, _restart PU instance_, _destroy PU instance_ you need **Manage PU** privileges.
+A [Grid Service Container (GSC)](/product_overview/service-grid.html#gsc) is a container which hosts deployed Processing Unit Instances, and reports its status to the GSM. In general, operations on the GSC are routed to the managing GSM of the processing unit. To _scale up/down_, _relocate_, _restart PU instance_, _destroy PU instance_ you need **Manage PU** privileges.
 
 A secured GSC can **only** connect to a secured GSM. This means that a Processing Unit managed by a secured GSM can only be provisioned to a secured GSC.
 

@@ -15,7 +15,7 @@ Spring's Security `DaoAuthenticationProvider` is a simple authentication provide
 
 Configuring the provider is quite simple:
 
-{% highlight java %}
+{% highlight xml %}
 <bean id="daoAuthenticationProvider"
       class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
     <property name="userDetailsService" ref="daoUserDetailsService" />
@@ -48,7 +48,7 @@ This Spring Security configuration file can be found under `<GigaSpaces root>/co
 
 Spring Security also includes `JdbcDaoImpl`, a `UserDetailsService` that can obtain authentication information from a JDBC data source. It can be declared in the Spring configuration file as follows:
 
-{% highlight java %}
+{% highlight xml %}
 <bean id="daoUserDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
     <property name="dataSource" ref="jdbcDataSource" />
 </bean>
@@ -64,7 +64,7 @@ There are some basic assumptions on how user information is stored in the databa
 
 Here is a snippet:
 
-{% highlight java %}
+{% highlight sql %}
 create table users(
     username varchar_ignorecase(50) not null primary key,
     password varchar_ignorecase(50) not null,
@@ -125,13 +125,13 @@ To use `JdbcDaoImpl`, you might need to configure it to find the user informatio
 
 When `JdbcDaoImpl` looks up user information, it will query with the following SQL:
 
-{% highlight java %}
+{% highlight sql %}
 SELECT username,password,enabled FROM users WHERE username = ?
 {% endhighlight %}
 
 You may have noticed that we omitted the 'enabled' column in our example Users table. For this to work, we need to change the `usersByUsernameQuery` to return 'true' for the 'enabled' column value. Likewise, you would set the query to suite your needs.
 
-{% highlight java %}
+{% highlight xml %}
 <bean id="daoUserDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
     <property name="dataSource" ref="jdbcDataSource" />
     <property name="usersByUsernameQuery">
@@ -151,7 +151,7 @@ Spring Security's `PasswordEncoder` interface is used to support the use of pass
 
 By default, the `DaoAuthenticationProvider` uses the `PlaintextPasswordEncoder`, which means that the password is left unencoded. Here is how to wire `DaoAuthenticationProvider` to use **MD5** encoding:
 
-{% highlight java %}
+{% highlight xml %}
 <bean id="daoAuthenticationProvider"
     class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
     <property name="userDetailsService" ref="daoUserDetailsService" />

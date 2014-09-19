@@ -8,12 +8,7 @@ weight: 300
 
 {% summary%}{% endsummary %}
 
-{%comment%}
-{% summary%}The status of clustered spaces can be viewed using different logging levels.{% endsummary %}
 
-# Overview
-
-{%endcomment%}
 
 The status of clustered spaces can be viewed using different logging levels. This status is managed by two threads - a `Monitor` and a `Detector`.
 
@@ -25,11 +20,13 @@ See the [Proxy Connectivity]({%currentadmurl%}/tuning-proxy-connectivity.html) f
 
 The `com.gigaspaces.client.cluster.liveness` logger is set by default (in `gs_logging.properties`) to `INFO`:
 
-    com.gigaspaces.client.cluster.liveness.level = INFO
+{%highlight console%}
+com.gigaspaces.client.cluster.liveness.level = INFO
+{%endhighlight%}
 
 The different logging levels are detailed below:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Level | Description |
 |:------|:------------|
 | `CONFIG` | Displays default configurations and available configuration options for both `Monitor` and `Detector` threads. |
@@ -60,7 +57,7 @@ URL: [jini://*/fooSpace_container1_1/foSpace?groups=foo-group&ignoreValidation=t
 
 # Configuration
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | System Property | Description | Default Value |
 |:----------------|:------------|:--------------|
 | `-Dcom.gs.cluster.livenessMonitorFrequency` | Defines the frequency in which liveness of 'live' members in a cluster is monitored. (Checks if available members become unavailable). | 10000 ms |

@@ -2,7 +2,7 @@
 layout: post100
 title:  Configuration
 categories: XAP100NET
-parent: processing-units.html
+parent: the-processing-unit-overview.html
 weight: 100
 ---
 

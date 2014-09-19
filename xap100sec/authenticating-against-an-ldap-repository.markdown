@@ -21,10 +21,10 @@ The LDAP Data Interchange Format (LDIF) is a standard data interchange format fo
 
 Consider for example our "Box-Office Employee"s: Edward, Arthur, and Thomas. They have been granted privileges to list all movies and their available seats, and to reserve a seat. More specifically, granted `READ` privileges for class `eg.cinema.Movie` and for `class eg.cinema.Seat`, and `WRITE` privileges to update a `eg.cinema.Seat` as reserved.
 
-{% section %}
-{% column %}
 
-{% highlight java %}
+
+
+{% highlight console %}
 ...
 dn: cn=Box-Office Employee,ou=groups,dc=example,dc=com
 objectclass: top
@@ -52,18 +52,18 @@ userPassword: koala
 ...
 {% endhighlight %}
 
-&nbsp;&nbsp;&nbsp;&nbsp; [sample.ldif](/download_files/sample.ldif)
-{% endcolumn %}
-{% column %}
+ [sample.ldif](/download_files/sample.ldif)
+
+
 ![SpringSecurity-LDAP.png](/attachment_files/SpringSecurity-LDAP.png)
-{% endcolumn %}
-{% endsection %}
+
+
 
 # Configure Spring to use an LDAP Server
 
 Spring Security supports authentication against LDAP through `LdapAuthenticationProvider`, an authentication provider that knows how to check user credentials against and LDAP repository.
 
-{% highlight java %}
+{% highlight xml %}
 <bean id="ldapAuthenticationProvider"
       class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
 
@@ -83,7 +83,7 @@ An LDAP Spring Security configuration file can be found under <GigaSpaces root>/
 
 Spring Security comes with an `LdapAuthenticator` implementation called `BindAuthenticator`. `Bindauthenticator` uses an LDAP bind operator to bind as a user to the LDAP server. This approach relies on the LDAP server to authenticate the user's credentials.
 
-{% highlight java %}
+{% highlight xml %}
 <bean id="authenticator"
       class="org.springframework.security.ldap.authentication.BindAuthenticator">
     <constructor-arg ref="contextSource" />
@@ -108,7 +108,7 @@ The `userDnPatterns` property is used to tell the authenticator how to find a us
 
 Spring Security also supports authentication by password comparison with `PasswordComparisonAuthenticator`. `PasswordComparisonAuthenticator` compares the supplied password with a password attribute (`userpassword`, by default) in the user record. The password is encoded using the password encoder, by default `LdapShaPasswordEncoder`.
 
-{% highlight java %}
+{% highlight xml %}
 <bean id="authenticator"
       class="org.springframework.security.ldap.authentication.PasswordComparisonAuthenticator">
     <constructor-arg ref="contextSource" />
@@ -122,7 +122,7 @@ Spring Security also supports authentication by password comparison with `Passwo
 
 Unlike `BindAuthenticator`, `PasswordComparisonAuthenticator` doesn't bind to LDAP using the user's DN. It is fine if your LDAP provider allows anonymous binding. Otherwise, you will need to provide a `userDN` and `password`.
 
-{% highlight java %}
+{% highlight xml %}
 <bean id="contextSource"
     class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
     <constructor-arg value="ldap://localhost:10389/dc=example,dc=com" />
@@ -136,7 +136,7 @@ Unlike `BindAuthenticator`, `PasswordComparisonAuthenticator` doesn't bind to LD
 
 Once the user identity is confirmed, `LdapAuthenticationProvider` must retrieve a list of the user's granted authorities. Spring Security comes with `DefaultLdapAuthoritiesPopulator`. Here's how a populator is configured:
 
-{% highlight java %}
+{% highlight xml %}
 <bean id="populator"
       class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
     <constructor-arg ref="contextSource" />
@@ -157,9 +157,9 @@ Once the user identity is confirmed, `LdapAuthenticationProvider` must retrieve 
 
 The `groupRoleAttribute` property specifies the name of the attribute that will contain role information which effectively translate into a user's granted authorities. It defaults to `cn`, but for our example, we've set it to `ou`.
 
-{% panel bgColor=#FFFFCE %}
+{% info%}
 {% exclamation %} Notice that the `convertToUpperCase` and `rolePrefix` are different than the defaults. The granted authorities should be returned as-is, without any conversion. For example, the authority `SpacePrivilege READ ClassFilter eg.cinema.Movie` **should not** be converted to upper case, nor should it be prefixed with a role prefix "ROLE_".
-{% endpanel %}
+{% endinfo %}
 
 Configured this way, the `DefaultLdapAuthoritiesPopulator` will retrieve all groups (roles) that the user is a member of - that is, all groups that have a `member` attribute with the user's DN.
 

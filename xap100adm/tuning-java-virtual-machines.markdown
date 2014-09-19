@@ -38,7 +38,9 @@ These general concepts include:
 ## Optimize Startup Performance and Runtime Performance
 
 In some environments, it is more important to optimize the startup performance of GigaSpaces rather than the runtime performance. In other environments, it is more important to optimize the runtime performance. By default, IBM JVMs are optimized for runtime performance while HotSpot based JVMs are optimized for startup performance.
+
 The behavior of the Java JIT compiler has the greatest influence over whether startup or runtime performance are optimized. The initial optimization level used by the compiler influences the length of time it takes to compile a class method and the length of time it takes to start the server. For faster startups, you can reduce the initial optimization level that the compiler uses. This means that the runtime performance of your applications may be degraded because the class methods are now compiled at a lower optimization level.
+
 It is hard to provide a specific runtime performance impact statement because the compilers might recompile class methods during runtime execution based upon the compiler's determination that recompiling might provide better performance. Ultimately, the size of the application will have a major influence on the amount of runtime degradation. Smaller applications have a higher probability of having their methods recompiled. Larger applications are less likely to have their methods recompiled.
 
 ## Set Heap Size
@@ -53,15 +55,18 @@ The size you should specify for the heap depends on your heap usage over time. I
 ## Garbage Collection
 
 The recommendations in this section are for non-manager VMs only. Garbage collection, while necessary, introduces latency into your system by consuming resources that would otherwise be available to your application. If you are experiencing unacceptably high latencies in application processing, you might be able to improve performance by modifying your VM's garbage collection behavior. Garbage collection tuning options depend on the Java virtual machine you are using.
+
 Suggestions given here apply to the Sun HotSpot VM. If you use a different JVM, check with your vendor to see if these or comparable options are available.
+
 Modifications to garbage collection sometimes produce unexpected results. Always test your system before and after making changes to verify that the system's performance has improved. The two options suggested here are likely to expedite garbage collecting activities by introducing parallelism and by focusing on the data that is most likely to be ready for cleanup. The first parameter causes the garbage collector to run concurrent to your application processes. The second parameter causes it to run multiple, parallel threads for the "young generation" garbage collection (that is, garbage collection performed on the most recent objects in memory -- where the greatest benefits are expected):
     -XX:+UseConcMarkSweepGC -XX:+UseParNewGC
+
 For application VMs, if you are not using shared memory and you are using remote method invocation (RMI) Java APIs, you might also be able to reduce latency by disabling explicit calls to the garbage collector. The RMI internals automatically invoke garbage collection every sixty seconds to ensure that objects introduced by RMI activities are cleaned up. Your VM may be able to handle these additional garbage collection needs. If so, your application may run faster with explicit garbage collection disabled. You can try adding the following command-line parameter to your application invocation and test to see if your garbage collector is able to keep up with demand:
     -XX:+DisableExplicitGC
 
-{% tip %}
+{% refer %}
 For more details, see [Moving into Production Checklist JVM Tuning](/sbp/moving-into-production-checklist.html).
-{% endtip %}
+{% endrefer %}
 
 ## Remote GC
 
@@ -86,11 +91,13 @@ If the application using large amount of [Soft references](http://docs.oracle.co
 
 The `UseBiasedLocking` JVM option impacts GigaSpaces performance when running synchronized replication (and also one-way mode) when used with **Solaris 10**. Please avoid using this option with clients accessing the space and space servers JVM.
 
-{% tip %}
+{% refer %}
 For more details, see the [Java Tuning White Paper](http://java.sun.com/performance/reference/whitepapers/tuning.html).
-{% endtip %}
+{% endrefer %}
 
-`-XX:+UseBiasedLocking` enables a technique for improving the performance of un contended synchronization. An object is "biased" toward the thread which first acquires its monitor via a monitorenter byte code or synchronized method invocation; subsequent monitor-related operations performed by that thread are relatively much faster on multiprocessor machines. Some applications with significant amounts of un contended synchronization may attain significant speedups with this flag enabled; some applications with certain patterns of locking may see slowdowns, though attempts have been made to minimize the negative impact.
+`-XX:+UseBiasedLocking` enables a technique for improving the performance of un contended synchronization. An object is "biased" toward the thread which first acquires its monitor via a monitorenter byte code or synchronized method invocation; subsequent monitor-related operations performed by that thread are relatively much faster on multiprocessor machines.
+
+Some applications with significant amounts of un contended synchronization may attain significant speedups with this flag enabled; some applications with certain patterns of locking may see slowdowns, though attempts have been made to minimize the negative impact.
 
 # Tuning 64-bit JVM
 

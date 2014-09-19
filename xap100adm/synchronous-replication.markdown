@@ -73,8 +73,8 @@ This throttling can be configured with the following parameters:
 {: .table .table-bordered .table-condensed}
 | Property | Description | Default Value |
 |:---------|:------------|:--------------|
-| throttle-when-inactive | Boolean value. Set to `true` if you want to throttle replicated operations when the channel is in-active (disconnection) | `true` in primary backup `false` in full sync replicated |.
-| <nobr>max-throttle-tp-when-inactive</nobr> | Integer value. If the above is true, this will specify the maximum operations per second the throttle will maintain when the channel is in-active (disconnection), if the last measured throughput when the channel was active was higher than that, the measured throughput will be used instead. | 50,000 operations/second |.
+| throttle-when-inactive | Boolean value. Set to `true` if you want to throttle replicated operations when the channel is in-active (disconnection) | `true` in primary backup `false` in full sync replicated |
+| <nobr>max-throttle-tp-when-inactive</nobr> | Integer value. If the above is true, this will specify the maximum operations per second the throttle will maintain when the channel is in-active (disconnection), if the last measured throughput when the channel was active was higher than that, the measured throughput will be used instead. | 50,000 operations/second |
 
 {%warning%}
 Prefix the property with 'cluster-config.groups.group.repl-policy.sync-replication.

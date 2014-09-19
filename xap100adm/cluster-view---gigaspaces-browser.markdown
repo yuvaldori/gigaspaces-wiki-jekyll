@@ -62,4 +62,3 @@ The views under the **Operations** node have the same functionality as the views
 - **Statistics view** -- displays statistics for operations performed in the cluster. For more details, refer to the [Statistics View](./gigaspaces-browser-statistics-view.html) section.
 - **Connections view** -- displays connections to the cluster (includes additional columns: **Cluster Member Name**, **Server IP Address**, **Server Port**). For more details, refer to the [Connections View](./gigaspaces-browser-connection-view.html) section.
 
-{%children%}

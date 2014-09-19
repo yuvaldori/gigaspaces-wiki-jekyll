@@ -25,7 +25,11 @@ One of two main failure scenarios might occur:
 - Process failure or machine crash
 - Network cable disconnection
 
-It takes XAP a few seconds to recover from process failure or a machine crash. In case of network cable disconnection, the client first has to detect that it has been disconnected from the machine running the space. Therefore, recovery time in this case is longer. For details on how network failure is detected and handled, see the [Communication Protocol]({%currentadmurl%}/tuning-communication-protocol.html#watchdog) section.
+It takes XAP a few seconds to recover from process failure or a machine crash. In case of network cable disconnection, the client first has to detect that it has been disconnected from the machine running the space. Therefore, recovery time in this case is longer.
+
+{%refer%}
+For details on how network failure is detected and handled, see the [Communication Protocol]({%currentadmurl%}/tuning-communication-protocol.html#watchdog) section.
+{%endrefer%}
 
 # Reducing Failure Detection Time
 
@@ -61,13 +65,13 @@ Change the default settings **only if you have a special need** to reduce the fa
 - the `yield-time` minimum value should be 200 ms.
 - Reducing the `invocation-delay` and `retry-timeout` values, and increasing the `retry-count` values might increase the chatting overhead between the spaces and the lookup service.
 
-{% note %}
+{% refer %}
 For additional tuning options please contact the [GigaSpaces Support Team](http://www.gigaspaces.com/supportcenter).
-{% endnote %}
+{% endrefer %}
 
 # Failure Detection Parameters
 
-{% toczone minLevel=2|maxLevel=2|type=flat|separator=pipe|location=top %}
+
 
 ## Space Side Parameters
 
@@ -131,7 +135,7 @@ The `LeaseRenewalManager` in the `advanced-space.config` file is also related to
 | maxLeaseDuration | The time the system waits between every lease renewal, for example: if the parameter value is `8000`, the system renews the space lease every 8000 `[milliseconds]`.{% wbr %}{% infosign %} As this value is reduced, renewal requests are performed more frequently while the service is up, and lease expiration occurs sooner when the service goes down. | `8000` |
 | roundTripTime | This parameter instructs the renewal process to begin a certain amount of time (by default, 100 `[milliseconds]`) before the actual renewal time, thus making sure that the renewal process is successful.{% wbr %}{% exclamation %} Significantly low values might result in failure to renew a lease. Durations of managed leases should exceed the `roundTripTime`. | `4000` |
 
-{% endtoczone %}
+
 
 ## Lookup Service Unicast discovery parameters
 
@@ -139,4 +143,6 @@ When a Jini Lookup Service fails and is brought back online, a client (such as a
 
 The downside is that it may delay the discovery of services if these are not brought up quickly. A discovery can be delayed us much as 15 minutes. If you have two GSMs and one fails, but it will be brought back up only in the next hour, then it's discovery will take ~15 minutes after it has loaded.
 
+{%refer%}
 These settings can be configured - see [How to Configure Unicast Discovery](./network-unicast-discovery.html).
+{%endrefer%}

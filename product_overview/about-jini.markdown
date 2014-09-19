@@ -45,9 +45,9 @@ The Jini technology includes the following services:
 - Remote Events
 - Transaction Processing Service
 
-{% tip %}
+{% refer %}
 For a detailed explanation of these services, see the [Key Jini Services](#1) section below.
-{% endtip %}
+{% endrefer %}
 
 ## A Java-Based Technology
 
@@ -62,9 +62,9 @@ As the following block diagram shows, the Jini technology is made possible by th
 
 The diagram above shows that the Jini services are layered on the Java language, which can itself be used on all major operating systems throughout a network. GigaSpaces provides also C++ and .Net applications to access deployed services. The polymorphic typing and portable code allows Java\-based Jini to span the network and serve various disparate network elements. The JavaSpaces service could be considered a "super" Jini service.
 
-{% tip %}
+{% refer %}
 For more details, refer to the [JavaSpaces](#2) section below.
-{% endtip %}
+{% endrefer %}
 
 
 

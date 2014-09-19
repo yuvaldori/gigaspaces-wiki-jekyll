@@ -52,12 +52,12 @@ Edit /etc/system with root access and reboot the server. After reboot, please, r
 `ulimit -n`
 It should report 8192.
 
-{% tip %}
+{% refer %}
 See also:
 
 - [http://www.faqs.org/docs/securing/x4733.html](http://www.faqs.org/docs/securing/x4733.html)
 - [http://www.ss64.com/bash/ulimit.html](http://www.ss64.com/bash/ulimit.html)
-{% endtip %}
+{% endrefer %}
 
 To change the default value, modify the `/etc/security/limits.conf` file.
 
@@ -78,9 +78,9 @@ in the key "Windows" find "SharedSection=1024,3072,512", where 512KB is the size
 {% infosign %} See also - [File Descriptors - changing the value for Unix and Windows](http://www-01.ibm.com/support/docview.wss?rs=769&context=SSXLSW&dc=DB520&dc=DB560&uid=swg21138122&loc=en_US&cs=UTF-8&lang=en&rss=ct769tivoli)
 {%endcomment%}
 
-{% info %}
+{% refer %}
 [One of reports in Sun bug database](http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4189011) describes the fixed bug (fix done in JVM 1.5 RC1) which mention file handles limit 2035 per jvm - the case has the test java code attached. It could be used to check the influence of the registry reconfiguration.
-{%endinfo%}
+{%endrefer%}
 
 # TCP tuning
 
@@ -167,7 +167,8 @@ All the TCP/IP parameters are registry values that are located under the subkeys
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
 {% endhighlight %}
 
-{% info title=See also: %}
+{% refer %}
+See also:
 - [http://support.microsoft.com/kb/314053](http://support.microsoft.com/kb/314053)
-{% endinfo %}
+{% endrefer %}
 

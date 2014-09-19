@@ -135,9 +135,9 @@ See the [Controlling the Replication Redo Log](./controlling-the-replication-red
 | `redo-log-durable-notification-capacity` | Specifies the total capacity of replication packets the redo log can hold for a durable notification replication target | 150000 |
 | `durable-notification-max-disconnection-time` | Specifies the maximum amount of time (in milliseconds) the space will wait for the durable notification replication target before it is considered disconnected, after which the target will be dropped. | 300000 |
 
-{%info%}
+{%refer%}
 Prefix the property with `cluster-config.groups.group.repl-policy.`
-{%endinfo%}
+{%endrefer%}
 
 # Local View Parameters
 

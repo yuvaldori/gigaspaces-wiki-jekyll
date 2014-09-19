@@ -27,7 +27,7 @@ Deploys an [application]({%currentjavaurl%}/deploying-onto-the-service-grid.html
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Option|Description|Value Format|
 |:-----|:----------|:-----------|
 | `-timeout` | Allows you to specify a timeout value (in milliseconds) when looking up the GSM to deploy to.{% wbr %}Defaults to `5000` milliseconds (5 seconds).| `-timeout [timeoutValue]`|
@@ -96,7 +96,7 @@ Undeploys an [application]({%currentjavaurl%}/deploying-onto-the-service-grid.ht
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Option|Description|Value Format|
 |:-----|:----------|:-----------|
 | `-timeout` | Allows you to specify a timeout value (in milliseconds) when looking up the GSM to deploy to.{% wbr %}Defaults to `5000` milliseconds (5 seconds).| `-timeout [timeoutValue]`|
@@ -148,7 +148,7 @@ Property files and other resources should be jared and placed within any of the 
 
 #### Deploy Command Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Option|Description|Value Format|
 |:-----|:----------|:-----------|
 | Processing Unit Location/Name -- **mandatory** | The location of the processing unit directory or jar file on your file system (see [this page]({%currentjavaurl%}/deploying-onto-the-service-grid.html)).{% wbr %}If you are using a few options in the `deploy` command, pass this option as the **last parameter**.{% wbr %}For example: `gs> deploy hello-world.jar`{% wbr %}(`hello-world.jar` is the processing jar file). | |
@@ -215,7 +215,7 @@ Undeploys an [application]({%currentjavaurl%}/deploying-onto-the-service-grid.ht
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Option|Description|Value Format|
 |:-----|:----------|:-----------|
 | `-timeout` | Allows you to specify a timeout value (in milliseconds) when looking up the GSM to deploy to.
@@ -249,7 +249,7 @@ Deploys a [memcached-enabled space]({%currentjavaurl%}/memcached-api.html), whic
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Option|Description|Value Format|
 |:-----|:----------|:-----------|
 | space_url | The url of the space, can be embedded, eg: `/./myMemcachedSpace`, or remote eg: `jini://*/*/myMemcachedSpace` | |
@@ -295,7 +295,7 @@ A Space only Processing Unit can be easily deployed onto the Service Grid.
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Option|Description|Value Format|
 |:-----|:----------|:-----------|
 | Space Name -- **mandatory** | The name of the space to be deployed.| |
@@ -345,7 +345,7 @@ The `task` command submits a task in the form of an Ant configuration file..
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description |
 |:-------|:------------|
 | `ant-file` | The name of the Ant configuration file, an XML file representing the task. The file must reside in the current directory. |

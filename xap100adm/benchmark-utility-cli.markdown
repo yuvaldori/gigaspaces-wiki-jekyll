@@ -43,7 +43,7 @@ Usage: -objecttype ext
 
 Other possible values are:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Option | Description|
 |:------|:-----|
 |entry | Object implements net.jini.core.entry.Entry interface.|
@@ -67,7 +67,7 @@ Other possible values are:
 ### Operations:
 
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Option | Description|
 |:------|:-----|
 |write |perform first operation as write/put |
@@ -81,7 +81,7 @@ Other possible values are:
 
 ### Options:
 
-{: .table .table-bordered }
+{: .table .table-bordered .table-condensed}
 |Option | Description|
 |:------|:-----|
 |-i <number of iterations> |number of iterations; default is 1000 |
@@ -109,7 +109,7 @@ Other possible values are:
 
 ### Transactions:
 
-{: .table .table-bordered }
+{: .table .table-bordered .table-condensed}
 |Option | Description|
 |:------|:-----|
 |tx 2000 |Perform operation under local transaction, commit every 2000 operations.|
@@ -118,7 +118,7 @@ Other possible values are:
 
 ### Topologies:
 
-{: .table .table-bordered }
+{: .table .table-bordered .table-condensed}
 |Option | Description|
 |:------|:-----|
 |-cache |Turn on local cache mode; default is false |
@@ -130,7 +130,7 @@ Other possible values are:
 
 ### Statistics:
 
-{: .table .table-bordered }
+{: .table .table-bordered .table-condensed}
 |Option | Description|
 |:------|:-----|
 |-showrate <iteration cycle> |global throughput will be displayed every iteration cycle; default is 1000|
@@ -141,7 +141,7 @@ Other possible values are:
 #### Examples:
 
 
-{: .table .table-bordered }
+{: .table .table-bordered .table-condensed}
 |Option | Example|
 |:------|:-----|
 |-url | -url rmi://localhost/container/space {%wbr%}protocol://[host]:<port>/[container name]/[space name] |

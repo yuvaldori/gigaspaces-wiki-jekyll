@@ -37,7 +37,7 @@ For example, to use an SSL communication filter, run XAP with:
 
 # Default SSLFilterFactory
 
-{% refer %}[GigaSpaces Java API Documentation](/api_documentation/index.html){% endrefer %}
+
 
 Since some types of communication filters are not symmetric regarding the client and server, the class [`SSLFilterFactory`](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/com/gigaspaces/lrmi/nio/filters/SSLFilterFactory.html) has 2 methods: one to create the communication filter for the client side, and the other for the server side.
 
@@ -58,14 +58,14 @@ The keystore file is loaded from somewhere in the classpath.
 
 The provided SSLFilter uses keystore type JKS, with key management method SunX509.
 
-{% info %}
+{% refer %}
 Please refer to the JavaDocs for more details about the reference classes:
 
 - [com.gigaspaces.lrmi.nio.filters.IOSSLFilter](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/com/gigaspaces/lrmi/nio/filters/IOSSLFilter.html)
 
 - [com.gigaspaces.lrmi.nio.filters.IOStreamCompressionFilter](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/com/gigaspaces/lrmi/nio/filters/IOStreamCompressionFilter.html)
 
-{%endinfo%}
+{%endrefer%}
 
 Code snippet of the space server.
 

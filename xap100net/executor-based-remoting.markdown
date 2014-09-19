@@ -51,7 +51,7 @@ public class DataProcessor : IDataProcessor
 
 # Hosting the Service in the Grid
 
-The next step is hosting the service in the grid. Hosting the service is done on the server side within a [Processing Unit ](./processing-units.html) - all types which have the \[SpaceRemotingService\] attribute will automatically be created and hosted:
+The next step is hosting the service in the grid. Hosting the service is done on the server side within a [Processing Unit ](./the-processing-unit-overview.html) - all types which have the \[SpaceRemotingService\] attribute will automatically be created and hosted:
 
 {% highlight csharp %}
 [SpaceRemotingService]

@@ -50,19 +50,18 @@ In case a limited redo log is used the following property defines the maximum si
 {% refer %}For more info refer to [Controlling the Replication Redo Log](./controlling-the-replication-redo-log.html){% endrefer %}
 
 Completion phase is finished according to the consistency requirements of the replication type.
+
 {% refer %}For more info refer to [Synchronous Replication Behavior During Recovery](./synchronous-replication.html#Behavior During Recovery) and [Asynchronous Replication Behavior During Recovery](./asynchronous-replication.html#Behavior During Recovery){% endrefer %}
 
 Once the recovery process is complete, a full report including the total amount of recovered space objects and notify registrations, and their class types, is logged.
 During the recovery process, the source space is available, and the target space is unavailable to clients.
 
 {% info %}
-
 - Replication input filter events are called during recovery (on the target).
 - Space filter events are not called during recovery.
 - The space instance locates a space to recover from using the Jini Lookup Service - each replication group has a unique name.
  The source space looks for a matching space with the same replication group to recover from.
 - Partial recovery - the restarted space recovers only classes with the `@SpaceClass (replicate=true)` decoration (turned on only when partial replication is enabled).
-
 {% endinfo %}
 
 # Primary-Backup Topology

@@ -66,9 +66,11 @@ com.gigaspaces.security.audit.AuditHandler.filename-pattern = {homedir}/logs/gig
 
 A sample output snapshot with audit level set to `FINE`.
 
-    2009-09-13 17:43:04,609  INFO  - Authentication successful; for user [gs] from host [lab/127.1.1.1]; session-id [-639278424]
-    2009-09-13 17:43:09,453  FINE  - Access granted; user [gs] at host [lab/127.1.1.1] has [Write] privileges for class [com.eg.Pojo]; session-id [-639278424]
-    2009-09-13 17:44:24,937  WARNING  - Access denied; user [gs] at host [lab/127.1.1.1] lacks [Take] privileges for class [com.eg.Pojo]; session-id [-639278424]
+{%highlight console%}
+2009-09-13 17:43:04,609  INFO  - Authentication successful; for user [gs] from host [lab/127.1.1.1]; session-id [-639278424]
+2009-09-13 17:43:09,453  FINE  - Access granted; user [gs] at host [lab/127.1.1.1] has [Write] privileges for class [com.eg.Pojo]; session-id [-639278424]
+2009-09-13 17:44:24,937  WARNING  - Access denied; user [gs] at host [lab/127.1.1.1] lacks [Take] privileges for class [com.eg.Pojo]; session-id [-639278424]
+{%endhighlight%}
 
 # Custom Auditing
 

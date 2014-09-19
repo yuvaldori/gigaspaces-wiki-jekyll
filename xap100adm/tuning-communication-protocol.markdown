@@ -164,9 +164,9 @@ The `LRMI` configuration options set as system properties. They are listed below
 |com.gs.transport_protocol.lrmi.system-priority.threadpool.max-threads | This parameter specifies the maximum size of a thread pool used to control admin API calls | 128 | Server | Threads|No|
 
 
-{% tip %}
+{% refer %}
 If you are using the **notification slow consumer** mechanism see the [Slow Consumer](./slow-consumer.html#Configuration -- Server Side) for additional LRMI parameters to configure.
-{%endtip%}
+{%endrefer%}
 
 {% anchor portrange %}
 

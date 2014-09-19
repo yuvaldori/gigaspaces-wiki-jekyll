@@ -27,7 +27,7 @@ The `help` command displays the syntax of a specified CLI command, or a list of 
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description |
 |:-------|:------------|
 | `command-name` | The name of any one of the GigaSpaces CLI commands. Default: List all commands, without their arguments. |
@@ -47,7 +47,7 @@ The `cd` command moves to a different working directory, like the Unix `cd` comm
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description |
 |:-------|:------------|
 |None||
@@ -63,7 +63,7 @@ The `cd` command moves to a different working directory, like the Unix `cd` comm
 
 The following gsa CLI commands are available:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Command | Description |
 |:--------|:------------|
 | shutdown | shutdown gsa |
@@ -73,7 +73,7 @@ The following gsa CLI commands are available:
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
 | `help` / `h` | Prints help -- the command's usage and options. | |
@@ -125,7 +125,7 @@ For more details on monitoring and management using JMX, refer to the [JMX Manag
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description |
 |:-------|:------------|
 | `jmx-connection-string` | The JMX connection string to be used for starting the Java Management Console. If not provided, a selection list of all GSCs is displayed. You can select the appropriate instance from the list. |
@@ -159,7 +159,7 @@ The `list` command lists information about active Service Grid services.
 
 The following values are allowed for **`type`**. Only one type can be specified.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Type | Description |
 |:-----|:------------|
 | `gsm` | Grid Service Monitor |
@@ -173,7 +173,7 @@ Each option adds to (or subtracts from) the default information listed. You can 
 
 **The following options are available for types `gsm`, `gsc`, and default:**
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description |
 |:-------|:------------|
 | `cpu` | Lists the CPU utilization of each machine. |
@@ -270,6 +270,7 @@ For defaults and configuration options, refer to [Jini Lookup Service configurat
 #### Description
 
 {% refer %}[Command Line Interface (CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html){% endrefer %}
+
 This CLI command allows you to login to secured services: GSM, GSC and spaces.
 Each time you invoke this command, you are required afterwards to type in the user name and password (if not supplied in the command). The user name and password are used in order to attempt to authenticate secured services before invoking any operation for them ( e.g. pudeploy, undeploy, space clear, space connections ... ).
 
@@ -297,7 +298,7 @@ The `ls` command lists the contents of the current working directory, like the U
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description |
 |:-------|:------------|
 | `-l` | List the contents in more detail. |
@@ -348,7 +349,7 @@ The `set` command sets the Service Grid system environment variables.
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
 | `groups` | The Jini lookup groups value. The group filters the specific group of services that should be managed by the current shell context. | * List of comma-delimited names: `group1,group2,...`{% wbr %}    - `all_groups` assigns the current context to all available GridService elements in the network. |
@@ -359,10 +360,10 @@ The `set` command sets the Service Grid system environment variables.
 | `wait-on-deploy` | Timeout \[in ms\] for finding deployable servers. | |
 | `deploy-timeout` | Timeout \[in ms\] for blocking for deployment status. |
 
-{% tip %}
+{% refer %}
 Make sure your network and machines running GigaSpaces are configured to have multicast enabled.
 See the [How to Configure Multicast]({%currentadmurl%}/network-multicast.html) section for details on how to enable multicast.
-{% endtip %}
+{% endrefer %}
 
 {% togglecloak id=4 %}**Example**{% endtogglecloak %}
 {% gcloak 4 %}
@@ -404,7 +405,7 @@ This example sets new locations for the properties `com.gigaspaces.lib` and `com
 
 The `stats` command provides statistics from the Grid Service Container (GSC) and Grid Service Monitor (GSM) of the local machine. The following statistics are reported:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Statistic | Decription |
 |:----------|:-----------|
 | User name | Current user name in local operating system. |
@@ -451,7 +452,7 @@ The  `version ` command displays the product's version information.
 
 #### Options
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Option | Description |
 |  `-verbose ` | Displays additional environment information (OS, JVM, network, system properties, etc). |
 
