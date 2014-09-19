@@ -2,7 +2,7 @@
 layout: post100
 title:  Executor Based Remoting
 categories: XAP100NET
-parent: space-based-remoting.html
+parent: space-based-remoting-overview.html
 weight: 200
 ---
 
