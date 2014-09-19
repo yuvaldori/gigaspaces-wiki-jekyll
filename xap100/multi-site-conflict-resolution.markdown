@@ -230,7 +230,7 @@ public class MyConflictResolver extends com.gigaspaces.cluster.replication.gatew
       DataConflictOperation operation = conflict.getOperations()[0];
       if (operation.hasConflict() && operation.getConflictCause() instanceof EntryAlreadyInSpaceConflict) {
         if (operation.supportsOverride()) {
-          Person person = (Person) operation.getOperationEntry();
+          Person person = (Person) operation..getDataAsObject();
           // The entry in the local space will be updated with the changes
           // made to the operation's entry
           person.setText("Conflict!");
