@@ -216,9 +216,9 @@ foreach (IMachine machine in admin.Machines)
 
 {% endinittab %}
 
-{% tip %}
+{% refer %}
 See a fully running example of a [Scaling Agent](./scaling-agent-example.html) which comes with the product.
-{% endtip %}
+{% endrefer %}
 
 # Admin Construction
 

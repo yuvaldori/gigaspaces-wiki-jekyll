@@ -32,3 +32,7 @@ A custom change operation lets the user implement his own change operation.
 A SpaceSynchronizationEndpoint implementation can make use of the Change API and support change operation.
 
 <hr/>
+
+#### Additional Resources
+
+{%youtube k2zGdUi_ntU | Change Api%}

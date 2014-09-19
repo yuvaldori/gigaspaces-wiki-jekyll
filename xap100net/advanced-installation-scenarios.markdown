@@ -33,9 +33,9 @@ Yes. From the command line, type the following:
 C:\>msiexec /i {%version msi-filename %} /quiet
 {%endhighlight%}
 
-{% info %}
+{% refer %}
 For more information about installing `msi` packages from command line, see [http://msdn.microsoft.com/en-us/library/aa372024(VS.85).aspx](http://msdn.microsoft.com/en-us/library/aa372024(VS.85).aspx).
-{%endinfo%}
+{%endrefer%}
 
 # Manual configuration without setup
 

@@ -8,14 +8,10 @@ parent: the-gigaspace-interface-overview.html
 
 {% summary  %}  {% endsummary %}
 
-{%section%}
-{%column width=60% %}
+
 With many systems such as pricing systems, risk management, trading and other analytic and business intelligence applications you may need to perform an aggregation activity across data stored within the data grid when generating reports or when running some business process. Such activity can leverage data stored in memory and will be much faster than performing it with a database.
-{%endcolumn%}
-{%column width=40% %}
-![aggreg.jpg](/attachment_files/built-in-aggregators.jpg)
-{%endcolumn%}
-{%endsection%}
+
+
 
 XAP provides common functionality to perform aggregations across the space. There is no need to retrieve the entire data set from the space to the client side , iterate the result set and perform the aggregation. This would be an expensive activity as it might return large amount of data into the client application. 
 
@@ -25,7 +21,15 @@ Built-in Aggregators allow you to perform the entire aggregation activity at the
 
 ## How Aggregators Works?
 
+{%section%}
+{%column width=70% %}
 Aggregators are executed by iterating the internal data grid structure that maintains the space objects. There is no materialization of the original user data grid object when performing this iteration (scan). This allows relatively fast scan. There is no need to index the aggregated fields (paths) - only the fields (paths) used to execute the query used to generate the result set scanned to calculate the aggregation. Future XAP releases may use indexes to perform the aggregation. 
+
+{%endcolumn%}
+{%column width=30% %}
+{%youtube H22qPux8Fh8 | Aggregations %}
+{%endcolumn%}
+{%endsection%}
 
 
 # Supported Aggregators

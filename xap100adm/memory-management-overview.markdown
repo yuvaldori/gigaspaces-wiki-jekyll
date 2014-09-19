@@ -40,5 +40,5 @@ XAP 10 introduces a new Storage interface allowing Blob/Block/external type stor
 
 #### Additional Resources
 
-Flash drive Storage [{%externalurl%}](http://www.slideshare.net/shayhassidim/xap-memory-xtendtutorial2014)
+{%youtube f1M47625fS8 | Flash drive Storage %}
 

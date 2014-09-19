@@ -65,7 +65,7 @@ A partitioned cluster with one primary and one backup for each partition:
 For details about scaling a running space cluster **in runtime** see the [Elastic Processing Unit](./elastic-processing-unit.html) section.
 {% endtip %}
 
-The Space cluster is typically accessed from a remote JVM. Alternatively, applications that are collocated on the same JVM with a Space instance can access that instance locally without being exposed to the other instances (this is useful for implementing [SBA applications](/product_overview/a-typical-sba-application.html)).
+The Space cluster is typically accessed from a remote JVM. Alternatively, applications that are collocated on the same JVM with a Space instance can access that instance locally without being exposed to the other instances (this is useful for implementing [SBA applications](./a-typical-sba-application.html)).
 
 # Instantiating a Space
 

@@ -56,7 +56,7 @@ GigaSpaces XAP.NET is packaged as a standard Windows Installer package (.msi fil
 {%endalign%}
 {%endcolumn%}
 
-{%column width=75% %}
+{%column width=70% %}
 {%align center%}**Interacting with the Space**{%endalign%}
 This part of the tutorial will introduce you to the space as a data store.
 
@@ -88,7 +88,7 @@ Part II
 {%endalign%}
 {%endcolumn%}
 
-{%column width=75% %}
+{%column width=70% %}
 {%align center%}**Deploying a Space**{%endalign%}
 In this part of the tutorial we will show you how you can deploy an In Memory Data Grid (IMDG) that provides scalability and failover.
 

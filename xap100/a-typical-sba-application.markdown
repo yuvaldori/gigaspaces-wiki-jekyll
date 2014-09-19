@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: post100
 title:  A Typical SBA Application
-categories: PRODUCT_OVERVIEW
-weight: 100
-parent: space-based-architecture.html
+categories: XAP100
+weight: 300
+parent: beyond-the-basics.html
 ---
 
 {%summary%}{%endsummary%}
@@ -57,7 +57,7 @@ At the heart of the application is the processing unit. A processing unit repres
 - business logic units, which are essentially POJOs that process events delivered from the messaging component.
 - a data component, that holds the state required for the business logic implementation.
 
-The processing unit is built as an extension of the [{%color orange%}Spring{%endcolor%}](http://www.springframework.org/) application context, so the development of a processing unit looks just like the normal development of any Spring application context. In addition to the standard Spring framework, it provides specific components designed primarily to enable rapid development of SOA/EDA-based applications. These components are explained below.
+The processing unit is built as an extension of the [Spring](http://www.springframework.org/) application context, so the development of a processing unit looks just like the normal development of any Spring application context. In addition to the standard Spring framework, it provides specific components designed primarily to enable rapid development of SOA/EDA-based applications. These components are explained below.
 
 {% anchor event_containers %}
 
@@ -65,8 +65,8 @@ The processing unit is built as an extension of the [{%color orange%}Spring{%end
 
 There are basically two main types of event containers:
 
-- [Polling]({%latestjavaurl%}/polling-container.html)
-- [Notify]({%latestjavaurl%}/notify-container.html)
+- [Polling](./polling-container.html)
+- [Notify](./notify-container.html)
 
 Event containers are used to abstract the event processing from the event source. This abstraction enables users to build their business logic with minimal binding to the underlying event source, whether it is a space-based event source, or a JMS event source, etc.
 
@@ -106,7 +106,7 @@ public class DataProcessor {
 
 ### The GigaSpace Core Middleware Component
 
-The [GigaSpace]({% latestjavaurl  %}/the-gigaspace-interface.html) component is a POJO driven abstraction of the JavaSpaces specification. JavaSpaces is a service specification. It provides a distributed object exchange/coordination mechanism (which might or might not be persistent) for Java objects. It can be used to store the system state and implement distributed algorithms. In a space, all communication partners (peers) communicate by sharing states. It is an implementation of the [Tuple spaces idea](./concepts.html#tuple).
+The [GigaSpace](./the-gigaspace-interface.html) component is a POJO driven abstraction of the JavaSpaces specification. JavaSpaces is a service specification. It provides a distributed object exchange/coordination mechanism (which might or might not be persistent) for Java objects. It can be used to store the system state and implement distributed algorithms. In a space, all communication partners (peers) communicate by sharing states. It is an implementation of the [Tuple spaces idea](/product_overview/concepts.html#tuple).
 
 JavaSpaces is used when someone wants to achieve scalability and availability, while reducing the complexity of the overall system. Processes perform simple operations to write new objects into a space, take objects from a space, or read (make a copy of) objects from a space.
 
@@ -148,7 +148,7 @@ public class Data {
 
 ### Space-Based Remoting
 
-[Space-Based Remoting]({%latestjavaurl%}/space-based-remoting.html) allows for POJO services that are collocated within a specific processing unit to be exposed to remote clients, like any other RMI service. Spring provides a generic framework for exposing and invoking POJO-based services. OpenSpaces utilizes the Spring remoting framework to enable POJO services to expose themselves through the space, as illustrated in the diagram below:
+[Space-Based Remoting](./space-based-remoting.html) allows for POJO services that are collocated within a specific processing unit to be exposed to remote clients, like any other RMI service. Spring provides a generic framework for exposing and invoking POJO-based services. OpenSpaces utilizes the Spring remoting framework to enable POJO services to expose themselves through the space, as illustrated in the diagram below:
 
 {%align center %}![intro5.jpg](/attachment_files/intro5.jpg) {%endalign%}
 
@@ -166,7 +166,7 @@ A service that needs to be exported uses the `SpaceRemotingServiceExporter` to e
 
 ### SLA-Driven Container
 
-An [OpenSpaces SLA Driven Container]({% latestjavaurl  %}/the-processing-unit-structure-and-configuration.html) that allows you to deploy a processing unit over a dynamic pool of machines, is available through an SLA-driven container, formerly known as the Grid Service Containers - GSCs. The SLA-driven containers are Java processes that provide a hosting environment for a running processing unit. The Grid Service Manager (GSM) is used to manage the deployment of the processing unit, based on SLA. The SLA definition is part of the processing unit configuration, and is normally named `pu.xml`. The SLA definition defines: the number of PU instances that need to be running at a given point of time, the scaling policy, the failover policy based on CPU, and memory or application-specific measurement.
+An [OpenSpaces SLA Driven Container](./the-processing-unit-structure-and-configuration.html) that allows you to deploy a processing unit over a dynamic pool of machines, is available through an SLA-driven container, formerly known as the Grid Service Containers - GSCs. The SLA-driven containers are Java processes that provide a hosting environment for a running processing unit. The Grid Service Manager (GSM) is used to manage the deployment of the processing unit, based on SLA. The SLA definition is part of the processing unit configuration, and is normally named `pu.xml`. The SLA definition defines: the number of PU instances that need to be running at a given point of time, the scaling policy, the failover policy based on CPU, and memory or application-specific measurement.
 
 {%align center %}![intro6a.jpg](/attachment_files/intro6a.jpg){%endalign%}
 
