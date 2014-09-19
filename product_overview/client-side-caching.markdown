@@ -21,12 +21,14 @@ GigaSpaces supports client side caching of space data within the client applicat
 
 The client-side cache size is limited to the heap size of the client application's JVM. The client-side cache is updated automatically when the master copy of the object within the master space is updated.
 
+
 There are two variations provided:
 
-- [Local Cache]({%latestjavaurl%}/local-cache.html) - This client side cache maintains any object used by the application. The cache data is loaded on demand (lazily), based on the client application's read activities.
-- [Local View]({%latestjavaurl%}/local-view.html) - This client side cache maintains a specific subset of the entire data, and client side cache is populated when the client application is started.
+- Local Cache {%latestjavanet local-cache.html%} - This client side cache maintains any object used by the application. The cache data is loaded on demand (lazily), based on the client application's read activities.
+- Local View  {%latestjavanet local-view.html%} - This client side cache maintains a specific subset of the entire data, and client side cache is populated when the client application is started.
 
 In both cases, once updates are performed (objects are added/updated/removed) on the master space, the master space propagates the changes to all relevant local views and caches.
+
 
 {% tip %}
 Client cache is not enabled by default.
@@ -36,7 +38,8 @@ Client cache is not enabled by default.
 
 Client-side cache should be used when the application performs repetitive read operations on the same data. You should not use client-side caching when the data in the master is very frequently updated or when the read pattern of the client tends to be random (as opposed to repetitive or confined to a well-known data set).
 
-In some cases where the relevant data set size fits a single JVM (64 Bit JVM may also be utilized) , the data may be maintained in multiple locations (JVMs) having it colocated to the application code (client or a service). See example below:
+In some cases where the relevant data set size fits a single JVM (64 Bit JVM may also be utilized) , the data may be maintained in multiple locations (JVMs) having it collocated to the application code (client or a service). See example below:
+
 ![local-cache-real-life.jpg](/attachment_files/local-cache-real-life.jpg)
 
 With the above architecture the client or the remote service have a local cache/view proxy that is maintaining a data set that its master copy distributed across the different partitions. In such a case , `readbyId` or `readByIds` calls will be VERY fast since these are actually a local call (semi-reference object access) that does not involve network utilization or serialization.
@@ -47,7 +50,7 @@ Use local view in case you can encapsulate the information you need to distribut
 
 ## When to use a local cache?
 
-Use local cache in case you are not sure which information you need in the client cache and you want to read it in a dynamic manner. Therefore the local cache is more suitable for [query by ID]({%latestjavaurl%}/id-queries.html) scenarios.
+Use local cache in case you are not sure which information you need in the client cache and you want to read it in a dynamic manner. Therefore the local cache is more suitable for query by ID {%latestjavanet query-by-id.html%} scenarios.
 
 
 
