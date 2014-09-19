@@ -35,4 +35,4 @@ A SpaceSynchronizationEndpoint implementation can make use of the Change API and
 
 #### Additional Resources
 
-{%youtube k2zGdUi_ntU | Change Api%}
+{%youtube k2zGdUi_ntU | Custom Change API%}
