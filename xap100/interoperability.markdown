@@ -35,10 +35,14 @@ There are pros and cons for each alternative. Here are some points to help you d
 
 
 ### Writing Interoperable Classes
-Please refer to the [interoperability section in our XAP.NET documentation]({%currentneturl%}/dotnet-java-interoperability.html).
 
+{%refer%}
+Please refer to the [interoperability section in our XAP.NET documentation]({%currentneturl%}/dotnet-java-interoperability.html).
+{%endrefer%}
 
 
 ### Code Generator
-Please refer to the [C++ Code Generation Guidelines](./cpp-api-code-generator.html).
 
+{%refer%}
+Please refer to the [C++ Code Generation Guidelines](./cpp-api-code-generator.html).
+{%endrefer%}

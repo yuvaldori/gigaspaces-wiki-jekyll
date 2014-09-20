@@ -45,10 +45,10 @@ After scaling it to leverage 10 machines, we will have 4 instances per machine, 
 ![epu2.jpg](/attachment_files/epu2.jpg)
 
 
-{% tip %}
+{% refer %}
 For a quick start follow the [Elastic Processing Unit deployment example](./deploying-onto-the-service-grid.html#ElasticProcessingUnitDeploymentusingtheAdminAPI).
 When using the EPU, GigaSpaces manage the **entire** life cycle of the container. Once the EPU is deployed containers are started and the EPU instances are provisioned into these containers. When the EPU scales up, additional containers are started and instances are relocated into these containers. When the EPU is un-deployed, all the containers associated with the EPU are automatically terminated.
-{% endtip %}
+{% endrefer %}
 
 This guide will cover the following topics:
 

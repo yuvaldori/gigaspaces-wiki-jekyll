@@ -7,10 +7,10 @@ weight: 300
 ---
 
 
-{%summary%}The new Notify Session API provides a unified and consistent mechanism for event registration.{%endsummary%}
+{%summary%} {%endsummary%}
 
 
-# Overview
+
 
 In some cases, SBA applications require the ability to call the user's business logic once a relevant event occurs in the space. This can be a trader desk application that is notified when a quote stock object modifies its data, or when a matching engine removes/updates a matched order. The space supports a message delivery mechanism that allows clients to register for matching events inside the space - aka Continuous query. Once a matching event occurs in the space, the space triggers an event and notifies the client by calling the client business logic.
 

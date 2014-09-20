@@ -248,7 +248,8 @@ The XAP IMDG should be deployed using one of the [topologies](/product_overview/
 {% endhighlight %}
 
 
-{% tip %}See the [deploy-space]({%currentadmurl%}/deploy-command-line-interface.html) command for details.{% endtip %}
+{% refer %}See the [deploy-space]({%currentadmurl%}/deploy-command-line-interface.html) command for details.
+{% endrefer %}
 
 ### Deploying the WAN Gateway
 

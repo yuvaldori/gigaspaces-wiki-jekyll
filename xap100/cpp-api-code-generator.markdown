@@ -25,8 +25,11 @@ Here is the general flow:
 
 You can now use your C++ classes inside the space.
 
-{% refer %}For an explanation of the different `gs.xml` elements, refer to the [CPP API Mapping File](./cpp-api-mapping-file.html) section.{% endrefer %}
+{% refer %}
 
-{% refer %}To find out about the **supported C++ types**, refer to the [Supported Types](./cpp-api-mapping-file.html#type -- Supported Types) section.{% endrefer %}
+For an explanation of the different `gs.xml` elements, refer to the [CPP API Mapping File](./cpp-api-mapping-file.html) section.
 
-{% refer %}For an explanation of the `gsxml2cpp` command and how to use it, refer to the [gsxml2cpp Utility](./cpp-gsxml-utility.html) section.{% endrefer %}
+To find out about the **supported C++ types**, refer to the [Supported Types](./cpp-api-mapping-file.html#type -- Supported Types) section.
+
+For an explanation of the `gsxml2cpp` command and how to use it, refer to the [gsxml2cpp Utility](./cpp-gsxml-utility.html) section.
+{% endrefer %}

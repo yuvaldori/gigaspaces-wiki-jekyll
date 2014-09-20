@@ -977,4 +977,6 @@ public class DataProcessorServiceReducer implements RemoteResultReducer<Integer,
 
 # Working Examples
 
-1. [This repository](https://github.com/jasonnerothin/gs-executor-remoting/) provides both a [service exporter](https://github.com/jasonnerothin/gs-executor-remoting/blob/master/src/main/resources/META-INF/Spring/pu.xml#L23) and a [service consumer](https://github.com/jasonnerothin/gs-executor-remoting/blob/master/src/test/resources/com/gigaspaces/sbp/WatchRepairClient.xml#L24). Test code dispatches a remoted request right [here](https://github.com/jasonnerothin/gs-executor-remoting/blob/master/src/test/scala/com/gigaspaces/sbp/WatchRepairSuite.scala#L95).
+{%refer%}
+[This repository](https://github.com/jasonnerothin/gs-executor-remoting/) provides both a [service exporter](https://github.com/jasonnerothin/gs-executor-remoting/blob/master/src/main/resources/META-INF/Spring/pu.xml#L23) and a [service consumer](https://github.com/jasonnerothin/gs-executor-remoting/blob/master/src/test/resources/com/gigaspaces/sbp/WatchRepairClient.xml#L24). Test code dispatches a remoted request right [here](https://github.com/jasonnerothin/gs-executor-remoting/blob/master/src/test/scala/com/gigaspaces/sbp/WatchRepairSuite.scala#L95).
+{%endrefer%}

@@ -6,9 +6,9 @@ parent: session-based-messaging-api.html
 weight: 100
 ---
 
-{% summary %}Durable notifications support primary-backup space failover over and network disconnections{% endsummary %}
+{% summary %} {% endsummary %}
 
-# Overview
+
 
 Due to the asynchronous nature of notification delivery, when a primary space fails right after replicating an operation to the backup space and before sending the notification to the registered client, the backup space might not be able to send the missing notifications, since it is in the process of moving to active mode.
 This means that during this very short period of time, the registered client might not receive events that occurred in the primary space and were replicated to the backup space.

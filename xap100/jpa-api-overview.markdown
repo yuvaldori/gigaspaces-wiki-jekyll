@@ -34,3 +34,7 @@ Functionalities that are not supported by the XAP JPA API.
 
 
 <hr/>
+
+#### Additional Resources
+
+{%youtube YRbzC_89G5Q | XAP JPA API%}

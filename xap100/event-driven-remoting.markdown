@@ -16,10 +16,9 @@ weight: 300
 
 Event Driven remoting is characterized by the nature of how the client communicates with the server. Under the wires, event driven remoting uses the space write and take capabilities. The client writes an internal invocation Entry, that holds the different invocation information (such as service name, method name, and arguments) and then waits for a response (by using blocking take on an expected response). The server, meanwhile, waits (by using OpenSpaces event containers) for internal invocation entries, and once one arrives, it executes the requested service and writes back a response.
 
-{% tip %}
-**Running Example**
+{% refer %}
 You may find an Event Driven Remoting example in the [Event Driven Remoting Example best practice](/sbp/event-driven-remoting-example.html) section.
-{% endtip %}
+{% endrefer %}
 
 # Defining the Contract
 

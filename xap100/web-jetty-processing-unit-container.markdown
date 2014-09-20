@@ -455,9 +455,9 @@ You can find a complete Jetty container definition [here](/download_files/jetty.
 
 Jetty documentation outlines all the steps involved in configuring SSL. Please refer to this [link](http://docs.codehaus.org/display/JETTY/How+to+configure+SSL) for more information.
 
-{% tip %}
+{% refer %}
 Find a complete example with a keystore and certificate file included [here](/download_files/jetty-ssl.zip).
-{% endtip %}
+{% endrefer %}
 
 ## Authentication and Access Control using Security Realms
 

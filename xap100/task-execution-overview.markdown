@@ -31,3 +31,7 @@ XAP supports the execution of tasks using scripting languages like JavaScipt and
 - [Metadata](./task-metadata.html){%wbr%}
 This section explains the different Task metadata.
 <hr/>
+
+#### Additional Resources
+
+{%youtube n7P4rnQN1gw | Map Reduce%}

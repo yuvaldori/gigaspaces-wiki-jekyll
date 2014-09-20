@@ -112,7 +112,9 @@ In general, you need to simply introduce your c++ class to the space using a sta
 On top of the c++ class itself, which includes the attribute names and types, additional information is required for the space class. This information can include the indexed fields, FIFO mode, versioned mode, replicable mode, etc.
 
 To introduce this additional metadata to the space, the c++ engineer provides a simple XML-based configuration file (the `gs.xml`). This file is parsed at pre-compile time and allows a code generator facility to create a piece of code that "glues" between the c++ runtime and the space runtime (the marshaling code).
+
 {% refer %}For more details, refer to the [CPP API Code Generator](./cpp-api-code-generator.html) section.{% endrefer %}
+
 Here is a simple example of the `gs.xml` content:
 
 {% highlight xml %}
@@ -193,9 +195,9 @@ The main problem with Grid-based applications and such heterogeneous, complex en
 
 The space has already introduced Java based-business logic -- scaling your application by adding more containers on-the-fly to increase space cluster capacity. Java-based in/out-of-proc scalability is supported via Jini service beans and expanded also to Spring beans. This is one of the main capabilities of the [OpenSpaces](/product_overview/product-architecture.html#ProductArchitecture-OpenSpacesAPIandComponents) framework. The new c++ framework allows you to do the same with c++ business logic.
 
-{% note %}
+{% refer %}
 See the [Elastic Processing Unit](./elastic-processing-unit.html) section for details about Dynamic Scalability.
-{% endnote %}
+{% endrefer %}
 
 # Deployment -- Standalone and Grid-Based
 

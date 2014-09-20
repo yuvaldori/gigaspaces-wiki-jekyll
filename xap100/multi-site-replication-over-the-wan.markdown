@@ -673,10 +673,10 @@ In the above we have configured both LONDON and NEWYORK at the sources of the si
 {% endtabcontent %}
 {% endinittab %}
 
-{% tip %}
+{% refer %}
 **Multi-Master Running example**
 The [Multi-Master running example](/sbp/wan-replication-gateway.html) includes a three-way setup replicating data between three sites.
-{% endtip %}
+{% endrefer %}
 
 # Filtering Replication Between Gateways
 

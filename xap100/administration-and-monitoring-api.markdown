@@ -229,9 +229,9 @@ public void machine() {
 {% endtabcontent %}
 {% endinittab %}
 
-{% tip %}
+{% refer %}
 See a fully running example of a [Scaling Agent](/sbp/scaling-agent.html) as part of the Solutions & Patterns section.
-{% endtip %}
+{% endrefer %}
 
 # Admin Construction
 
@@ -647,8 +647,9 @@ for (Space space : admin.getSpaces()) {
 
 {% endhighlight %}
 
+{%refer%}
 For more information please refer to the API documentation: **[MirrorStatistics](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/com/gigaspaces/cluster/replication/async/mirror/MirrorStatistics.html)**
-
+{%endrefer%}
 
 # Monitoring the Remote Transport Activity
 

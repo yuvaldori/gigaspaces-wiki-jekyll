@@ -25,9 +25,9 @@ The integration dynamically creates and updates the  [mod_proxy_balancer](http:/
 
 General information on how to enable the mod_proxy load balancer and configuration can be found in the [Jetty mod_proxy docs](http://docs.codehaus.org/display/JETTY/Configuring+mod_proxy). Note, the load balancer actual configuration of specific balancer members are generated automatically as explained below.
 
-{% tip %}
+{% refer %}
 Similar agents can be implemented for other HTTP load-balancers such as [F5](http://www.f5.com), [Radware](http://www.radware.com), [CISCO ACE](http://www.cisco.com/en/US/products/ps6906), [Barracuda](http://www.barracudanetworks.com) etc., using the [Administration and Monitoring API](./administration-and-monitoring-api.html). See the [Web Load Balancer Agent PU](/sbp/web-load-balancer-agent-pu.html) for details.
-{% endtip %}
+{% endrefer %}
 
 # How it Works?
 
@@ -76,7 +76,7 @@ Windows:
 apache-lb-agent.bat -apache c:\Apache2.2 -conf-dir c:\Apache2.2\conf\gigaspaces
 {% endhighlight %}
 
-{% vbar% %}
+
 The Apache configuration should be updated to include the load-balancer configuration directory, the relevant modules required and optionally to enable the load-balancer console. Here is an example of the configuration sections that should be added to Apache:
 
 {% highlight console %}
@@ -98,13 +98,13 @@ Allow from 127.0.0.1
 </Location>
 {% endhighlight %}
 
-{% endvbar %}
+
 
 {%comment %}
 When running the Apache Load Balancer and the agent on Windows, please make sure you run the Apache Load Balancer Agent from a [windows cmd started as an administrator user](http://www.lytebyte.com/2008/10/22/how-to-run-as-administrator-in-vista-command-line). Starting it as a normal user will not allow the Apache Load Balancer Agent to reset the Apache Load Balancer successfully.
 {% endcomment %}
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Command Line parameter|Description|Default Value|
 |:---------------------|:----------|:------------|
 |-apache `location`|The installation location of apache (`apache root folder`).|windows/unix common locations|

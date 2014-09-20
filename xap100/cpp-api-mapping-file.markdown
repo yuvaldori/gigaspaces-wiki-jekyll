@@ -18,9 +18,9 @@ The `type` property is mandatory in case the `property` element is defined.
 
 The gs.xml file allows you to define c++ classes in the space. To learn how to do this, see the [CPP API Code Generator](./cpp-api-code-generator.html) section.
 
-{%note%}
+{%refer%}
 For the latest supported configurations please consult the [api documentation](/api_documentation/xap-{%currentversion%}.html)
-{%endnote%}
+{%endrefer%}
 
 The `*.gs.xml` configuration needs to reside in a `<Root Folder>\config\mapping` folder where the `<Root Folder>` should be part of the application classpath.
 
@@ -32,15 +32,15 @@ XML mapping can be defined in the same package as the class (using the class nam
 
 **Usage**: `<class name="myClass" >`
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | XML Attribute Name | Type | Description | Default Value |
 |:-------------------|:-----|:------------|:--------------|
 | `name` | string | The name of the class. | |
 | `cpp-name` | string | The C++ name of the class.{% wbr %}If not specified then 'name' is used. | |
 | `dotnet-name` | string | The .NET name of the class, including the namespace.{% wbr %}If not specified then 'name' is used. | |
 | `replicate` | boolean | When running in partial replication mode, a `true` value for this field replicates all objects of this type to a target space or spaces. | `true` |
-| `persist` | boolean | When a space is defined as persistent, a `true` value for this annotation persists objects of this type.{% wbr %}{% refer %}For more details, refer to the [Persistency](./space-persistency.html) section.{% endrefer %}{% wbr %}| `true` |
-| `fifo` | boolean | To enable FIFO-based notifications and take operations, this annotation should be `true`.{% wbr %}{% refer %}For more details, refer to the [FIFO operations](./fifo-support.html) section.{% endrefer %}{% wbr %}| `false` |
+| `persist` | boolean | When a space is defined as persistent, a `true` value for this annotation persists objects of this type.{% wbr %} For more details, refer to the [Persistency](./space-persistency.html) section. {% wbr %}| `true` |
+| `fifo` | boolean | To enable FIFO-based notifications and take operations, this annotation should be `true`.{% wbr %} For more details, refer to the [FIFO operations](./fifo-support.html) section. {% wbr %}| `false` |
 
 {% note %}
 The default values for `replicate`, `persist`, and `fifo` should only be considered as +recommended+ default values. Actual values should be specified in the `gs.xml` file.
@@ -54,7 +54,7 @@ The superclass must also be a c++ class.
 
 **Usage**: `<superclass name="myBaseClass" />`
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | XML Attribute Name | Type | Description |
 |:-------------------|:-----|:------------|
 | `name` | string | The name of the inherited class |
@@ -63,7 +63,7 @@ The superclass must also be a c++ class.
 
 This attribute is used to add include file declaration to your generated c++ code.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | XML Attribute Name | Type | Description |
 |:-------------------|:-----|:------------|
 | `file` | string | The name of the include file. |
@@ -80,7 +80,7 @@ The `property` element defines a field in this class.
 
 **Usage**: `<property name="m_Age" type="int" null-value="-1" />`
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | XML Attribute Name | Type | Description | Default Value |
 |:-------------------|:-----|:------------|:--------------|
 | `name` | string | The property name.{% wbr %}{% infosign %} It is recommended that property names start with a lowercase letter to avoid conflicts in Java. If POJO classes are generated too, then any property that starts with an uppercase letter will be excluded from its POJO class.  | `NONE` |
@@ -96,7 +96,7 @@ The `property` element defines a field in this class.
 
 The table below shows the **supported types that can be used in the space**, and how the different types are mapped in each language.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | XML Type | c++ Type | Java Type | .NET Type |
 |:---------|:---------|:----------|:----------|
 | `bool` | `bool` | `boolean` | `boolean` |
@@ -127,7 +127,7 @@ When having a Java class and a C++ class sharing data you should use int/long/fl
 
 # ref-property
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | XML Attribute Name | Type | Description | Default Value |
 |:-------------------|:-----|:------------|:--------------|
 | `name` | string | The property name | `NONE` |
@@ -139,7 +139,7 @@ When having a Java class and a C++ class sharing data you should use int/long/fl
 
 Types that can be used with the `ref-property` attribute:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | XML type | CPP Type | Java Type | .NET Type |
 |:---------|:---------|:----------|:----------|
 | `array` | `std::vector < boost::shared_ptr < POCO > >` | `POJO[]` | `PONO[]` |
@@ -147,7 +147,7 @@ Types that can be used with the `ref-property` attribute:
 
 For example:
 
-{% highlight cpp %}
+{% highlight xml %}
 <class name="com.gigaspaces.tests.test_refNode" persist="true" replicate="true" fifo="false" >
     <property name="intIndex"  type="int" null-value="0" index="true"/>
     <ref-property class-ref="com.gigaspaces.tests.test_refChildNode" name="children" type="array"></ref-property>
@@ -167,7 +167,7 @@ For example:
 
 Defines whether this field value is used when generating the Entry's UID. The field value should be unique - i.e. multiple objects with the same value cannot be written into the space. Each object should have a different field value. When writing an object into the space with an existing `id` field value, an `EntryAlreadyInSpaceException` is thrown. The Entry's UID is created based on the `id` field value.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | XML Attribute Name | Type | Description | Default Value |
 |:-------------------|:-----|:------------|:--------------|
 | `name` | string | Specifies the name of the property for holding the UID. | |
@@ -185,7 +185,7 @@ If `auto-generate` is declared as `false`, the field is indexed automatically. I
 
 # version
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | XML Attribute Name | Type | Description |
 |:-------------------|:-----|:------------|
 | `name` | string | Specifies the name of the property holding the version's ID. |
@@ -193,7 +193,7 @@ If `auto-generate` is declared as `false`, the field is indexed automatically. I
 {% comment %}
 # persist Field-Level Element - Not supported yet
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | XML Attribute Name | Type | Description |
 |:-------------------|:-----|:------------|
 | `name` | string | Specifies the name of the property holding the `persist` flag. |
@@ -204,7 +204,7 @@ If `auto-generate` is declared as `false`, the field is indexed automatically. I
 
 The `routing` element routes the field value under this element to the relevant space. This is done using hash-based load-balancing.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | XML Attribute Name | Type | Description |
 |:-------------------|:-----|:------------|
 | `name` | string | Specifies the property that allows identification of the `routing` element in the space. |
@@ -215,7 +215,7 @@ When working with a partitioned persistent space that persists into a central da
 
 # Example
 
-{% highlight cpp %}
+{% highlight xml %}
 <class name="com.gigaspaces.tests.completeType" persist="true" replicate="true" fifo="false" >
     <property name="idField" type="string" null-value="" />
     <id name="idField" auto-generate="true" />

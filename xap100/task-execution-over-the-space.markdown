@@ -17,13 +17,11 @@ OpenSpaces supports `Task` execution in an asynchronous manner, collocated with 
 {%endcolumn%}
 {%endsection%}
 
-{% tip %}
+{% refer %}
 The following [example](/sbp/map-reduce-pattern---executors-example.html) demonstrates how to use the `Task` Execution API
-{% endtip %}
+{% endrefer %}
 
-{%comment%}
-<iframe width="640" height="360" src="//www.youtube.com/embed/-07-0PXUoeM?feature=player_embedded" frameborder="0" allowfullscreen></iframe>
-{%endcomment%}
+
 
 # Task API
 

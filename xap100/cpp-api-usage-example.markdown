@@ -15,8 +15,6 @@ The C++ API Usage Example demonstrates the GigaSpaces C++ API performing the dif
 
 {% refer %}To learn about GigaSpaces C++ API, refer to the [GigaSpaces C++ API](./cpp-space-interface.html) section.{% endrefer %}
 
-{% refer %}It is assumed that you have read the [GigaSpaces CPP API Hello World Example](./cpp-api-hello-world-example.html) which serves as a starting point.{% endrefer %}
-
 The code for this example is located at `<GigaSpaces Root>\cpp\examples\APIUsageExample\`.
 
 This example runs by default using a predefined **embedded space**. It can work with any given space (embedded, remote or clustered) simply by providing the space URL as an argument.

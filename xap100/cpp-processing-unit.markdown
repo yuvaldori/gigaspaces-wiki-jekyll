@@ -31,9 +31,9 @@ Once the c++ business logic deployed with collocated spaces, there are no remote
 
 When the business logic deployed with a collocated space it can inherit the space active mode (Primary or backup). This means that you may have your business logic running in stand-by mode, none initialized as long as it's collocated space running in backup mode. Backup mode space would get its operations only from the existing primary space and is not accessible for client for direct interaction. Once the primary space and its collocated business logic fails (normally or abnormally), the collocated c++ business logic is initialized and started.
 
-{% tip %}
+{% refer %}
 You can find a fully running [C++ PU example](./cpp-processing-unit-example.html) with source code, build scripts and running instructions.
-{% endtip %}
+{% endrefer %}
 
 # Scalability - How Can I Get More Horsepower?
 
@@ -276,13 +276,13 @@ Here is an example for a processing unit declaration that introduces a processin
 
 Deploying your c++ processing unit requires 2 steps:
 
-    - Placing the processing unit declaration at the deployment folder. The default deployment folder located at <GigaSpaces Root>\deploy folder. You can change this using the gsm settings.
+1. Placing the processing unit declaration at the deployment folder. The default deployment folder located at <GigaSpaces Root>\deploy folder. You can change this using the gsm settings.
 
-    - Placing the processing unit libraries at the native libraries folder. The default location for these located at <GigaSpaces Root>\lib\ServiceGrid\native. You can change this using the <GigaSpaces Root>\bin\setenv.bat/sh script.
+2. Placing the processing unit libraries at the native libraries folder. The default location for these located at <GigaSpaces Root>\lib\ServiceGrid\native. You can change this using the <GigaSpaces Root>\bin\setenv.bat/sh script.
 
 Here is how your processing unit deployed folder should look like:
 
-{% highlight java %}
+{% highlight xml %}
 <GigaSpaces Root>deploy\cppPUexample
 
 - META-INF
@@ -293,7 +293,7 @@ Here is how your processing unit deployed folder should look like:
 
 Run `<GigaSpaces Root>\bin\gsm` And few `<GigaSpaces Root>\bin\gsc` and deploy your processing unit using the following command:
 
-{% highlight java %}
+{% highlight console %}
 <GigaSpaces Root>\bin\gs pudeploy cppPUexample
 {% endhighlight %}
 

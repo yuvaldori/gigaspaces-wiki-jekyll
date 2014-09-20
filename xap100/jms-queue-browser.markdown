@@ -19,8 +19,8 @@ while (enum.hasMoreElements()) {
 }
 {% endhighlight %}
 
-{% note %}
-This version of GigaSpaces JMS does not support message selectors. For more details, see the [JMS Known Issues and Considerations](./jms-known-issues-and-considerations.html).
-{%endnote%}
+{% refer %}
+This version of XAP JMS does not support message selectors. For more details, see the [JMS Known Issues and Considerations](./jms-known-issues-and-considerations.html).
+{%endrefer%}
 
 The JMS specifications do not define whether the `QueueBrowser` represents a snapshot of the queue, or whether the `QueueBrowser` dynamically updates it. However, with the Enterprise Messaging Grid, a snapshot is taken when the call is made to `getEnumeration()`.

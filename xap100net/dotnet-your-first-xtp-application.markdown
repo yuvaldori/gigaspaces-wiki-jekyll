@@ -168,7 +168,7 @@ See [Event Processing](./event-processing.html) for more info about event listen
 
  See [Space Based Remoting](./space-based-remoting-overview.html) for more info about remoting services over the grid.
 
-{ See [Processing Unit](./the-processing-unit-overview.html) for more info about processing units.
+ See [Processing Unit](./the-processing-unit-overview.html) for more info about processing units.
 {% endrefer %}
 
 {% anchor datafeeder %}

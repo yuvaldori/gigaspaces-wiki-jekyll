@@ -76,7 +76,7 @@ JAR files specified in the Processing Unit's `META-INF/MANIFEST.MF` descriptor f
 
 This option achieves similar behavior to the `lib/optional/pu-common` option above, but allows a more fine-grained control by enabling to specify specific JAR files (each in its own location) rather than an entire folder (and only a single folder).
 
-For more information see [Manifest Based Classpath|#ManifestBasedClasspath] section below.
+For more information see [Manifest Based Classpath](#ManifestBasedClasspath) section below.
 
 ## `lib/platform/ext` directory
 JAR files placed in the `<GigaSpaces root>/lib/platform/ext` directory will be loaded once by the GSC-wide classloader and not separately by each Processing Unit instance (this classloader is called the Common Classloader, see the [Class Loaders](#classloaders) section below).
@@ -106,7 +106,7 @@ When deployed on to the [GigaSpaces runtime environment]({%currentadmurl%}/the-r
 
 When [running within your IDE](./running-and-debugging-within-your-ide.html), it is similar to any other Java application, i.e. you should make sure all the dependent jars are part of your project classpath.
 
-# Deploying the Processing Unit to the GigaSpaces Service Grid
+# Deploying the Processing Unit to the Service Grid
 
 When deploying the processing unit to [GigaSpaces Service Grid]({%currentadmurl%}/the-runtime-environment.html), the processing unit jar file is uploaded to the [GigaSpaces Manager (GSM)](/product_overview/service-grid.html#gsm) and extracted to the `deploy` directory of the local GigaSpaces installation (located by default under `<GigaSpaces Root>/deploy`).
 
@@ -202,4 +202,6 @@ The `pu-common` directory may contain a jar file with a manifest file as describ
 1. If an entry included the `${SOME_ENV_VAL}` placeholder and there is no environment variable named `SOME_ENV_VAL`, it will be ignored.
 1. Only file URLs are supported. (i.e http, etc... will be ignored)
 
+{%refer%}
 Further details about the manifest file can be found [here](http://docs.oracle.com/javase/6/docs/technotes/guides/jar/jar.html#JAR%20Manifest).
+{%endrefer%}

@@ -15,15 +15,15 @@ The processing unit's configuration is expressed using a number of configuration
 
 Each file is used to configure separate aspects of the processing unit. The `pu.xml` file is used to configure the actual elements that the processing unit contains, e.g. space and space proxies, event handles and remote service. Generally speaking, it contains of the application specific components of the processing unit.
 
-# The `pu.xml` file
+# The pu.xml file
 
 This file is a [Spring framework](http://www.springframework.org) XML configuration file. It leverages the Spring framework [IoC container](http://static.springframework.org/spring/docs/2.5.x/reference/beans.html) and extends it by using the Spring [custom namespace mechanism](http://static.springframework.org/spring/docs/2.5.x/reference/extensible-xml.html).
 
-{% info %}
+{% refer %}
 It is recommended (although not mandatory) that you familiarize yourself with the Spring XML configuration basics. A good place to start is [here](http://static.springframework.org/spring/docs/2.5.x/reference/beans.html)
-{% endinfo %}
+{% endrefer %}
 
-# `pu.xml` Contents
+# pu.xml Contents
 
 The definitions in the `pu.xml` file are divided into 2 major categories:
 
@@ -48,7 +48,7 @@ Naturally, GigaSpaces XAP also leverages the extensibility of the above two mech
 
 Throughout this guide, every configuration example will be provided in all of the supported forms (plain Spring, custom namespace element and annotations). See below for an example pu.xml configuration file.
 
-# Sample `pu.xml` Configuration
+# Sample pu.xml Configuration
 
 Here's a sample `pu.xml` configuration file. Note the comments in the file which describe the various elements that appear in it.
 

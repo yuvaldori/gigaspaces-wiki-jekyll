@@ -77,7 +77,9 @@ FIFO ordering is maintained per partition. If a FIFO query is broadcasted to the
 
 # Initializing A Partitioned Space
 
+{%refer%}
 When initializing a partitioned space, it is possible to load only the data you need for a specific partition. For more details, see [Persistency](./space-persistency-overview.html).
+{%endrefer%}
 
 # Non-Partitioned Operations
 

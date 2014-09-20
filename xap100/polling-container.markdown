@@ -1203,21 +1203,14 @@ public class SimpleListener {
 {% endtabcontent %}
 {% endinittab %}
 
-{% tip %}
+{% refer %}
 Learn more using about `TriggerOperationsHandler` using an example application on the [Patterns wiki](/sbp/dynamic-polling-container-templates-using-triggeroperationhandler.html)
-{% endtip %}
+{% endrefer %}
 
 # Default Values of Polling Container Configuration Parameters
 
-The default values for all of the polling container configuration parameters such as `concurrent-consumers, active-when-primary, receive-timeout` and others can be found in the JavaDoc (and sources) of the class [`org.openspaces.events.polling.SimplePollingEventListenerContainer`](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/org/openspaces/events/polling/SimplePollingEventListenerContainer.html) and its super class, namely [`org.openspaces.events.polling.AbstractPollingEventListenerContainer`](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/org/openspaces/events/polling/AbstractPollingEventListenerContainer.html).
+The default values for all of the polling container configuration parameters such as `concurrent-consumers, active-when-primary, receive-timeout` and others can be found in the JavaDoc (and sources) of the class [SimplePollingEventListenerContainer](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/org/openspaces/events/polling/SimplePollingEventListenerContainer.html) and its super class, namely [AbstractPollingEventListenerContainer](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/org/openspaces/events/polling/AbstractPollingEventListenerContainer.html).
+
 For example, `concurrent-consumers` default value is documented in the method `SimplePollingEventListenerContainer.setConcurrentConsumers(int)`
 
-{%comment%}
-# Schema
 
-The Polling Container schema and complete configuration options are described below:
-
-{% indent %}
-![polling_container_schema.jpg](/attachment_files/polling_container_schema.jpg)
-{% endindent %}
-{%endcomment%}
