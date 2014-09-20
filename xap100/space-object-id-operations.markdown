@@ -149,7 +149,7 @@ MySpaceClass ret = space.readById(MySpaceClass.class, id);
 {% endinittab %}
 
 
-{% tip %}
+{% refer %}
 See the [Global ID Generator](/sbp/global-id-generator.html) for a generic ID generator service you may use with your application.
 To learn how to read space entries by ID see [ID Queries](./query-by-id.html).
-{% endtip %}
+{% endrefer %}

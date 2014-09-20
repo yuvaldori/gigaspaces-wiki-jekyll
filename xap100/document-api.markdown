@@ -315,7 +315,9 @@ Properties and nested paths can be [indexed](./indexing.html) to boost queries p
 
 Since the schema is flexible and new properties might be added after the type has been registered, it is possible to add indexes dynamically as well.
 
+{%refer%}
 For more information about indexing, see the [Indexing](./indexing.html) page.
+{%endrefer%}
 
 # Events
 
@@ -524,7 +526,9 @@ gigaspace.getTypeManager().registerTypeDescriptor(typeDescriptor);
 
 {% note %} Changing FIFO support after a type has been registered is not supported.{%endnote%}
 
+{%refer%}
 For more information about FIFO, see the [FIFO Support](./fifo-support.html) page.
+{%endrefer%}
 
 # Transactions and Optimistic Locking
 
@@ -587,7 +591,9 @@ gigaspace.getTypeManager().registerTypeDescriptor(typeDescriptor);
 
 {% note %} Changing optimistic locking after a type has been registered is not supported. {%endnote%}
 
+{%refer%}
 For more information about optimistic locking, see the [Optimistic Locking](./transaction-optimistic-locking.html) page.
+{%endrefer%}
 
 # Local Cache / Local View
 

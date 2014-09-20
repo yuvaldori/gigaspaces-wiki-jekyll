@@ -14,38 +14,36 @@ Functionalities that are not supported by the XAP JPA API.
 
 # Annotations
 
-Here's a list of JPA annotations which are not supported by XAP JPA:
+#### Here's a list of JPA annotations which are not supported by XAP JPA
 
-
-Access(AccessType.FIELD)
-JoinColumn
-Version
-UniqueConstraint
-Temporal
-AssociationOverride
-AttributeOverride
-ColumnResult
-DiscriminatorColumn
-DiscriminatorValue
-EntityResult
-FieldResult
-Inheritance
-JoinTable
-Lob
-ManyToMany
-MapKey
-
-NamedNativeQuery
-NamedQuery
-OrderBy
-OrderColumn
-PrimaryKeyJoinColumn
-SecondaryTable
-SequenceGenerator
-SqlResultSetMapping
-Table
-TableGenerator
-QueryHint
+- Access(AccessType.FIELD)
+- JoinColumn
+- Version
+- UniqueConstraint
+- Temporal
+- AssociationOverride
+- AttributeOverride
+- ColumnResult
+- DiscriminatorColumn
+- DiscriminatorValue
+- EntityResult
+- FieldResult
+- Inheritance
+- JoinTable
+- Lob
+- ManyToMany
+- MapKey
+- NamedNativeQuery
+- NamedQuery
+- OrderBy
+- OrderColumn
+- PrimaryKeyJoinColumn
+- SecondaryTable
+- SequenceGenerator
+- SqlResultSetMapping
+- Table
+- TableGenerator
+- QueryHint
 
 
 # JPQL

@@ -57,7 +57,9 @@ However, note that all objects with a given routing value will be stored on the 
 
 When writing new objects from a collocated business logic with a partitioned space, the routing field must "match" the collocated space instance. When writing new objects from a collocated business logic with a partitioned space, the routing field must "match" the collocated space instance.
 
+{%refer%}
 See [Writing New Objects from a Collocated Business Logic]({%currentadmurl%}/clustered-vs-non-clustered-proxies.html#Writing New Objects from a Collocated Business Logic) for details.
+{%endrefer%}
 
 {%anchor  Writing To a Partitioned Space %}
 
@@ -87,7 +89,11 @@ FIFO ordering is maintained per partition. If a FIFO query is broadcasted to the
 
 # Initializing a Partitioned Space
 
-When initializing a partitioned space, it is possible to load only the data you need for a specific partition. For more details, see [Space Persistency Initial Load](./space-persistency-initial-load.html).
+When initializing a partitioned space, it is possible to load only the data you need for a specific partition.
+
+{%refer%}
+For more details, see [Space Persistency Initial Load](./space-persistency-initial-load.html).
+{%endrefer%}
 
 # Non-Partitioned Operations
 

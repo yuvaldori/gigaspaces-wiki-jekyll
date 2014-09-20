@@ -17,7 +17,7 @@ The two components mentioned above are in charge of the following activities:
 - The Space synchronization endpoint component handles changes done within the space delegation to the persistency layer.
 
 
-GigaSpaces Space Persistency provides the [SpaceDataSource](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/com/gigaspaces/datasource/SpaceDataSource.html) and [SpaceSynchronizationEndpoint](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/com/gigaspaces/sync/SpaceSynchronizationEndpoint.html) classes which can be extended and then used to load data and store data into an existing data source. Data is [loaded from the data source](./space-persistency-initial-load.html) during space initialization (`SpaceDataSource`), and from then onwards the application works with the space directly.
+XAPs Space Persistency provides the [SpaceDataSource](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/com/gigaspaces/datasource/SpaceDataSource.html) and [SpaceSynchronizationEndpoint](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/com/gigaspaces/sync/SpaceSynchronizationEndpoint.html) classes which can be extended and then used to load data and store data into an existing data source. Data is [loaded from the data source](./space-persistency-initial-load.html) during space initialization (`SpaceDataSource`), and from then onwards the application works with the space directly.
 
 {% indent %}
 ![data-grid-initial-loadNew.jpg](/attachment_files/data-grid-initial-loadNew.jpg)
@@ -70,7 +70,9 @@ GigaSpaces built in Hibernate Persistency implementation is an extension of Spac
 {%endinfo%}
 
 
+{%refer%}
 For detailed API information see [Space Data Source API](./space-data-source-api.html) and [Space Synchronization Endpoint API](./space-synchronization-endpoint-api.html).
+{%endrefer%}
 
 # RDBMS Space Persistency
 

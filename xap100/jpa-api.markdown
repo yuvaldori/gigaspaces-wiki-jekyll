@@ -177,9 +177,9 @@ Detailed information regarding persistence.xml can be found in [OpenJPA's Manual
 
 ### Listing Your Persistent Classes
 
-{% info %}
+{% refer %}
 Information regarding Entities declaration can be found [here](./jpa-api.html#GigaSpaces JPA Entities)
-{% endinfo %}
+{% endrefer %}
 
 When working with persistent classes, you have a number of ways to make the JPA layer aware of them:
 
@@ -246,10 +246,10 @@ GigaSpaces JPA Entities must have both JPA and GigaSpaces annotations for the fo
 
 As with GigaSpaces POJOs, you may use the `@SpaceIndex` & `@SpaceRouting` annotations with GigaSpaces JPA entities.
 
-{% info %}
+{% refer %}
 Please note that indexes should only be declared in the owning entity of a relationship.
 Examples can be found on the [JPA Relationships](./jpa-relationships.html) page.
-{% endinfo %}
+{% endrefer %}
 
 Here's an example of a basic JPA Entity:
 
@@ -297,7 +297,9 @@ public class Trade {
 }
 {% endhighlight %}
 
+{%refer%}
 For auto generated Id declaration and complex object Id declaration refer to [JPA Entity Id](./jpa-entity-id.html).
+{%endrefer%}
 
 Example of a JPA Owner entity with one to many relationship:
 
@@ -462,7 +464,7 @@ Please note that specifying a value for the `@Enumerated.value()` attribute has 
 
 It's possible to query according to an Enum property by setting an Enum parameter or by using the Enum's value in the query string:
 
-{% highlight xml %}
+{% highlight java %}
 EntityManager em = emf.createEntityManager();
 
 // Query using an Enum parameter
@@ -572,9 +574,11 @@ result = gigaspace.read(query);
 
 GigaSpaces JPA native query execution is a powerful feature used for executing:
 
+{%refer%}
 - SQLQuery syntax-like queries ([SQLQuery](./query-sql.html)).
 - GigaSpaces Tasks ([Task Execution over the Space](./task-execution-over-the-space.html)).
 - GigaSpaces Dynamic Scripts ([Dynamic Language Tasks](./dynamic-language-tasks.html)).
+{%endrefer%}
 
 ### SQLQuery Execution
 
@@ -662,7 +666,9 @@ public class MyTask implements Task<Integer>, ApplicationContextAware {
 
 Another option instead of using the ApplicationContextAware interface is to annotate your Task with the @AutowireTask annotation and annotate the EntityManagerFactory property with a @Resource annotation.
 
+{%refer%}
 For more information about GigaSpaces tasks refer to [Task Execution over the Space](./task-execution-over-the-space.html).
+{%endrefer%}
 
 ### Dynamic Script Execution
 
@@ -687,9 +693,12 @@ query.setParameter(1, script);                       // We pass our script as a 
 Integer result = (Integer) query.getSingleResult();  // Script execution always returns a single result
 {% endhighlight %}
 
+{%refer%}
 For more information about dynamic script execution refer to [Dynamic Language Tasks](./dynamic-language-tasks.html).
+{%endrefer%}
 
-# GigaSpaces JPA Limitations
+# XAP JPA Limitations
 
-For a list of unsupported JPA features and limitations please refer to [GigaSpaces JPA Limitations](./jpa-limitations.html).
-
+{%refer%}
+For a list of unsupported JPA features and limitations please refer to [XAP JPA Limitations](./jpa-limitations.html).
+{%endrefer%}

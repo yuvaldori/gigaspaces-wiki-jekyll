@@ -37,7 +37,9 @@ The take operation can be performed with the following options:
 - By IdQuery
 - By SQLQuery
 
+{%refer%}
 To learn more about the different options refer to [Querying the Space](./querying-the-space.html)
+{%endrefer%}
 
 ##### Examples:
 
@@ -186,8 +188,9 @@ The take operations can be configured with different modifiers.
 {%endhighlight%}
 
 
+{%refer%}
 For further details on each of the available modifiers see: [TakeModifiers](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/com/gigaspaces/client/TakeModifiers.html)
-
+{%endrefer%}
 
 {% togglecloak id=os-take %}**Method summary...**{% endtogglecloak %}
 {% gcloak os-take %}

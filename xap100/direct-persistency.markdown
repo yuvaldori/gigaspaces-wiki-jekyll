@@ -109,7 +109,7 @@ A Data-Grid running in Direct persistency mode using distributed databases topol
 
 The following table lists the supported options:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |**Cache Policy**|**Central Data Source**|**Replication Recovery enabled**|**Amount of data loaded via the initial load**|**Data filtering at the initial load enabled**|
 |:---------------|:----------------------|:-------------------------------|:---------------------------------------------|:-----------------------------------------------|
 |LRU|YES|NO|Up to amount of initial load percentage value `*`|YES|

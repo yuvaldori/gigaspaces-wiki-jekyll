@@ -27,7 +27,7 @@ In order to make [The GigaSpace Interface ](./the-gigaspace-interface.html) tran
 The following should be added to your `pu.xml` to enable the configuration of transactional behavior based on annotations:
 {%endnote%}
 
-{% highlight java %}
+{% highlight xml %}
 <beans ....
        xmlns:tx="http://www.springframework.org/schema/tx"
 ...
@@ -386,9 +386,9 @@ Since version 8.0.1, GigaSpaces JTA implementation supports both local and distr
 XA transactions should be carefully considered. The overhead of managing a 2PC transaction over two or more resources is often times a performance killer.
 {%endnote%}
 
-{% tip %}
-See the [JTA-XA Example](/sbp/jta-xa-example.html) for fully running demonstration how to integrate GigaSpaces with an external JMS Server.
-{% endtip %}
+{% refer %}
+See the [JTA-XA Example](/sbp/jta-xa-example.html) for fully running demonstration how to integrate XAP with an external JMS Server.
+{% endrefer %}
 
 # Multiple Transaction Managers
 
@@ -518,7 +518,9 @@ catch (MyException e) {
 ptm.commit(status);
 {% endhighlight %}
 
+{%refer%}
 You can also use Spring's [TransactionTemplate](http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/transaction/support/TransactionTemplate.html) if you prefer. This is documented in full in the [Spring reference guide](http://static.springframework.org/spring/docs/2.5.x/reference/transaction.html#transaction-programmatic).
+{%endrefer%}
 
 {% tip %}
 When using Programmatic Transaction Management you should be expecting to handle the `org.springframework.transaction.TransactionException` that will have the exact reason as an instance of `net.jini.core.transaction.TransactionException`. This has the following subclasses exceptions: CannotAbortException, CannotCommitException, CannotJoinException, CannotNestException, CrashCountException, TimeoutExpiredException,UnknownTransactionException.
@@ -528,7 +530,7 @@ When using Programmatic Transaction Management you should be expecting to handle
 
 The following table describes the mapping between the [Spring TransactionDefinition](http://static.springsource.org/spring/docs/2.0.x/api/org/springframework/transaction/TransactionDefinition.html) Mapping to GigaSpaces ReadModifiers:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Spring TransactionDefinition| GigaSpaces ReadModifiers |
 |:---------------------------|:-------------------------|
 |ISOLATION_READ_UNCOMMITTED| DIRTY_READ|

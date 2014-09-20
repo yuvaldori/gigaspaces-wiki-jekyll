@@ -100,7 +100,9 @@ Both dynamic and fixed properties can be specified - the syntax is the same. As 
 
 # Working Examples
 
-1. [This repository](https://github.com/GigaSpaces/gs-executor-remoting/) contains an integration test that performs projection on a query in the context of [Executor Based Remoting](./executor-based-remoting.html). Relevant lines of code (Scala) are [here](https://github.com/GigaSpaces/gs-executor-remoting/blob/master/src/test/scala/com/gigaspaces/sbp/WatchRepairSuite.scala#L124).
+{%refer%}
+[This repository](https://github.com/GigaSpaces/gs-executor-remoting/) contains an integration test that performs projection on a query in the context of [Executor Based Remoting](./executor-based-remoting.html). Relevant lines of code (Scala) are [here](https://github.com/GigaSpaces/gs-executor-remoting/blob/master/src/test/scala/com/gigaspaces/sbp/WatchRepairSuite.scala#L124).
+{%endrefer%}
 
 <ul class="pager">
   <li class="previous"><a href="./query-paging-support.html">&larr; Paging Support</a></li>

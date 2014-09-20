@@ -58,14 +58,14 @@ for (Employee employee : result) {
 }
 {% endhighlight %}
 
-## Getting Partial Results
+# Getting Partial Results
 
 You can specify which properties should be populated when the result is created the [Projection API](./query-partial-results.html).
 
-{% tip %}
+{% refer %}
 See [Parent Child Relationship](/sbp/parent-child-relationship.html) for a full usage example of the `readByIds` operation.
 ReadById is intended to objects with meaningful ids,if used with auto-generate="true" ids,the given object type will be ignored.
-{% endtip %}
+{% endrefer %}
 
 
 

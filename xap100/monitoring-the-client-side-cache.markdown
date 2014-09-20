@@ -8,12 +8,6 @@ weight: 400
 
 
 
-{%comment%}
- {% summary page|60 %}The Local View/Cache Monitoring{% endsummary %}
-
-# Summary
-{%endcomment%}
-
 The Local View/Cache JMX Monitor monitors the number of objects stored within the client side cache and the activities performed with it. You can use [JConsole](http://docs.oracle.com/javase/1.5.0/docs/guide/management/jconsole.html) to graph the number of objects within the local view/cache and other exposed statistics while the application is running. The Local View/Cache JMX Monitor exposing the following statistics:
 
 - Object Count
@@ -65,15 +59,18 @@ To use the Local View/Cache JMX Monitor:
 
 You can specify up to 5 local View/Cache `GigaSpace` beans as part of the `gigaSpaceList`.
 
+{%section%}
+{%column width=80% %}
 4. Start JConsole for your application JVM, move into the MBean Tab and select the `GigaSpacesClientCacheJMXMonitor` under the `com.gigaspaces.clientcachemonitor`.
 5. Click the relevant statistics you would like to monitor, and Double click the cell on the right side panel. you may monitor the entire statistics by clicking on the Attributes tree icon and double clicking on each value at the left side panel.
 6. A graph (or multiple graphs) should be presented illustrating the value of the monitored statistic(s). The graph(s) will be updated periodically.
-See below example how you can monitor multiple local cache instances running within the same application:
-
-{% indent %}
+See   example how you can monitor multiple local cache instances running within the same application:
+{%endcolumn%}
+{%column width=20% %}
 {%popup /attachment_files/clientCacheJMXMonitor.jpg%}
+{%endcolumn%}
+{%endsection%}
 
-{% endindent %}
 
 {% note %}
 This version of the local view/cache monitor does not reflect statistics for operations using the `readByID` operation from the local view/cache.

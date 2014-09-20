@@ -49,9 +49,9 @@ For example (using the distributed transaction manager):
 {% endtabcontent %}
 {% endinittab %}
 
-{% note %}
+{% refer %}
 It is highly recommended to read the [transaction management chapter](http://static.springframework.org/spring/docs/3.0.x/reference/transaction.html) in the Spring reference documentation.
-{%endnote%}
+{%endrefer%}
 
 #### Transaction Provider
 

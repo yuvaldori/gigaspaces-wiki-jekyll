@@ -35,9 +35,9 @@ The following parameters can be defined:
 | Space Name | The space name to search. The same name defined when space has been created via the Space browser or the `createSpace` utility. |
 | [Properties String](#url properties) | (Optional) named value list of special properties. |
 
-{% note %}
+{% refer %}
 Make sure your network and machines running GigaSpaces are configured to have multicast enabled. See the [How to Configure Multicast]({%currentadmurl%}/network-multicast.html) section for details on how to enable multicast.
-{%endnote%}
+{%endrefer%}
 
 ### Examples
 

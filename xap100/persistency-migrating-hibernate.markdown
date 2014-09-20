@@ -31,9 +31,9 @@ The following tables show the correspondence between the Hibernate basic API met
 
 The [Moving from Hibernate to Space](/sbp/moving-from-hibernate-to-space.html) best practice includes step by step instructions for moving from Hibernate based application to GigaSpaces Data-Grid as the data access layer. This use Hibernate as the space persistency layer using write-through approach when pushing updates into the database.
 
-{% tip %}
+{% refer %}
 The space can be used as a [Hibernate second level cache](/sbp/gigaspaces-for-hibernate-orm-users.html).
-{% endtip %}
+{% endrefer %}
 
 # Caching policies and Space Persistency
 

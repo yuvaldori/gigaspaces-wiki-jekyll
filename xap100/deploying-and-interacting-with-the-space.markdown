@@ -61,9 +61,9 @@ A partitioned cluster with one primary and one backup for each partition:
 ![part_backup_space.jpg](/attachment_files/part_backup_space.jpg)
 {% endindent %}
 
-{% tip %}
+{% refer %}
 For details about scaling a running space cluster **in runtime** see the [Elastic Processing Unit](./elastic-processing-unit.html) section.
-{% endtip %}
+{% endrefer %}
 
 The Space cluster is typically accessed from a remote JVM. Alternatively, applications that are collocated on the same JVM with a Space instance can access that instance locally without being exposed to the other instances (this is useful for implementing [SBA applications](./a-typical-sba-application.html)).
 
@@ -198,9 +198,9 @@ ProcessingUnit pu = gsm.deploy(
 		);
 {% endhighlight %}
 
-{% tip %}
+{% refer %}
 You can use the [GigaSpaces Universal Deployer](/sbp/universal-deployer.html) to deploy complex multi processing unit applications.
-{% endtip %}
+{% endrefer %}
 
 ## Creating and Deploying a Processing Unit onto the Service Grid Infrastructure
 
@@ -305,9 +305,9 @@ The rest of this page describes the `GigaSpace` interface, and how to perform ba
 
 {% toczone minLevel=2|maxLevel=3|type=list|separator=pipe|location=top %}
 
-{% tip %}
+{% refer %}
 If you are interested in the Map API (HashTable/JCache API), refer to the [Map API](./map-api.html) section.
-{% endtip %}
+{% endrefer %}
 
 For details about the JDBC API, refer to [this](./jdbc-driver.html) page.
 However, it is recommended that you familiarize yourself with the `GigaSpace` interface before moving on to the other APIs.

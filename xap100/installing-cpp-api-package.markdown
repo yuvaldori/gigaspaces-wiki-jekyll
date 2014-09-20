@@ -27,7 +27,7 @@ The current supported platforms and compilers are:
 1. Download the c++ API file that suits your platform.
 1. Unzip the file into your `<GigaSpaces Root>` directory (download GigaSpaces [here](http://www.gigaspaces.com/LatestProductVersion)), using your favorite unzip tool (.e.g WinZip). For example - On linux you should run the following to install the C++ libraries:
 
-{% highlight java %}
+{% highlight console %}
 tar -xzvf gigaspaces-cpp-{%version xap-version %}-ga-linux-amd64-gcc-4.1.2.tar.gz
 {% endhighlight %}
 
@@ -66,12 +66,15 @@ set COMPILER=VS9.0
 {%endhighlight%}
 
 In addition, for windows 32 bit the **`PATH`** variable should be updated to include:
-
-    %JSHOMEDIR%\cpp\lib\%PLATFORM%\%COMPILER%;%JSHOMEDIR%\cpp\bin\%PLATFORM%\%COMPILER%;%JAVA_HOME%\jre\bin\client
+{%highlight console%}
+%JSHOMEDIR%\cpp\lib\%PLATFORM%\%COMPILER%;%JSHOMEDIR%\cpp\bin\%PLATFORM%\%COMPILER%;%JAVA_HOME%\jre\bin\client
+{%endhighlight%}
 
 For windows 64 bit the **`PATH`** variable should be updated to include:
 
-    %JSHOMEDIR%\cpp\lib\%PLATFORM%\%COMPILER%;%JSHOMEDIR%\cpp\bin\%PLATFORM%\%COMPILER%;%JAVA_HOME%\jre\bin\server
+{%highlight console%}
+%JSHOMEDIR%\cpp\lib\%PLATFORM%\%COMPILER%;%JSHOMEDIR%\cpp\bin\%PLATFORM%\%COMPILER%;%JAVA_HOME%\jre\bin\server
+{%endhighlight%}
 
 ## Environment Script Files
 

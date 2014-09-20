@@ -20,9 +20,6 @@ During the local view initialization, data is loaded into the client's memory ba
 ![local_view.jpg](/attachment_files/local_view.jpg)
 {% endindent %}
 
-{% refer %}
-For additional client side caching options, refer to [Client Side Caching](./client-side-caching.html).
-{%endrefer%}
 
 #### Where the Local View Can be Used?
 
@@ -227,5 +224,5 @@ The following table summarizes the configuration changes made in 8.0.5
 | space-config.dist-cache.delay-between-retries | Ignored - Irrelevant | Ignored - Irrelevant |
 | space-config.dist-cache.events.batch.size | batch-size | batchSize() |
 | space-config.dist-cache.events.batch.timeout | batch-timeout | batchTimeout() |
-| space-config.dist-cache.events.lease-renew.round-trip-time | Ignored in replication sync{% wbr %}Same in notification sync | Ignored in replication sync{% wbr %}Same in notification sync |
+| <nobr>space-config.dist-cache.events.lease-renew.round-trip-time</nobr> | Ignored in replication sync{% wbr %}Same in notification sync | Ignored in replication sync{% wbr %}Same in notification sync |
 {%endcomment%}

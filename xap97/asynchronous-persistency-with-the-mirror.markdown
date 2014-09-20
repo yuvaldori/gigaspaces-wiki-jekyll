@@ -213,15 +213,20 @@ See com.gigaspaces.sync.DataSyncOperation for more details.
 
 # Mirror Monitoring
 
+{%section%}
+{%column width=80% %}
 The activity of the mirror service can be monitored using the [Administration and monitoring API](./administration-and-monitoring-api.html#AdministrationandMonitoringAPI-MonitoringtheMirrorService). This API exposes statistics on operations that were executed by the mirror and can be used to monitor the mirror throughput and health status.
 
 You may view Mirror and its replication statistics via the [GigaSpaces Management Center]({%currentadmurl%}/gigaspaces-management-center.html). Move into the Space Browser tab, click the top tree Spaces icon, right click the table columns title area on the right panel, select the columns you would to view as part of the table and click OK.
+{%endcolumn%}
+{%column width=20% %}
 
-{% indent %}
-![mirror_ui_stats.jpg](/attachment_files/mirror_ui_stats.jpg)
-{% endindent %}
+{%popup /attachment_files/mirror_ui_stats.jpg %}
+{%endcolumn%}
+{%endsection%}
 
-{% tip %}
+
+{% refer %}
 See also the [Mirror Monitor JMX utility](/sbp/mirror-monitor.html) for graphical mirror service monitoring via JMX
-{% endtip %}
+{% endrefer %}
 

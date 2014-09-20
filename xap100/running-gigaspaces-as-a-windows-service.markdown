@@ -28,12 +28,14 @@ Easiest way to convert GSA into service is to use the .Net version of the produc
 
 Some users are not comfortable using the .Net version of the product and want to use only Java version of the product. In such cases, there are many software that can help in converting a Java Application (like GigaSpaces) to a Windows Service.
 
+{%refer%}
 Following are some popular software that can help:
 
 - [Java Service Wrapper](http://wrapper.tanukisoftware.org/)
 - [Apache Commons Daemon - Procrun](http://commons.apache.org/daemon/procrun.html)
 - [Launch4J](http://launch4j.sourceforge.net/)
 - [Yet Another Java Service Wrapper](http://sourceforge.net/projects/yajsw/)
+{%endrefer%}
 
 # Example
 

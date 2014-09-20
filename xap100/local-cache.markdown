@@ -14,9 +14,6 @@ A **Local Cache** is a Client Side Cache that maintains a subset of the master s
 ![local_cache.jpg](/attachment_files/local_cache.jpg)
 {% endindent %}
 
-{% refer %}
-For additional client side caching options, refer to [Client Side Caching](./client-side-caching.html).
-{%endrefer%}
 
 # Usage
 
@@ -151,20 +148,16 @@ Each change on the master space triggers a notification at the local cache. The 
 - `None` - Do not register for master space updates - If an object is changed in the master space, it will remain stale in the local cache until its lease expires.
 
 {%section%}
-{%column%}
-**Pull Update Policy**
-{%endcolumn%}
-{%column%}
-![local_cache_pull.jpg](/attachment_files/local_cache_pull.jpg)
-{%endcolumn%}
-{%endsection%}
+{%column width=50% %}
+#### Pull Update Policy
 
-{%section%}
-{%column%}
-**Push Update Policy**
+{%popup /attachment_files/local_cache_pull.jpg%}
 {%endcolumn%}
-{%column%}
-![local_cache_pull.jpg](/attachment_files/local_cache_pull.jpg)
+
+{%column width=50% %}
+#### Push Update Policy
+
+{%popup /attachment_files/local_cache_pull.jpg%}
 {%endcolumn%}
 {%endsection%}
 
@@ -238,7 +231,9 @@ In order to properly configure the local cache eviction mechanism, you should co
 |space-config.engine.memory_usage.explicit-gc|false|
 |space-config.engine.memory_usage.retry_yield_time|100|
 
+{%refer%}
 See the [Memory Management Facilities]({%currentadmurl%}/memory-management-facilities.html) for additional details on these configuration properties.
+{%endrefer%}
 
 {% tip %}
 Having the property `space-config.engine.memory_usage.explicit-gc` set to 'enabled' is recommended only in extreme cases when there is high load on the system, with large amount of concurrent users accessing the local cache and when the amount of CPUs/Cores is relatively small.
@@ -281,10 +276,11 @@ Below is the result of a simple benchmark comparing [Ehcache](http://ehcache.org
 
 ![ehcache_vs_localcache.jpg](/attachment_files/ehcache_vs_localcache.jpg)
 
+{%comment%}
 {% tip %}
 Tests of the **local cache** with XAP 7.0 having 10 client threads using a local cache resulted in 20M read/sec using a server with eight cores.
 {% endtip %}
-
+{%endcomment%}
 
 
 # Local Cache Properties

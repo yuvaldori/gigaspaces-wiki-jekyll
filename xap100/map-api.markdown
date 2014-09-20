@@ -267,9 +267,9 @@ gigaMap.put(key , value , 5000);
 
 There is no need to provide a Jini transaction object for the different map operations. `GigaMap` with the different OpenSpaces [transaction managers](./transaction-management.html) and Spring allow simple declarative definition of transactions. This means that if there is an ongoing transaction running, most operations performed using the `GigaMap` interface join it, using Spring's rich transaction support.
 
-{% info %}
+{% refer %}
 It is highly recommended to read the [transaction management chapter](http://static.springframework.org/spring/docs/2.0.x/reference/transaction.html) in the Spring reference documentation.
-{%endinfo%}
+{%endrefer%}
 
 ## Transaction Provider
 

@@ -22,9 +22,9 @@ The space data source API is adequate for different kinds of data sources which 
 ![SpacedataSourceAPI.jpg](/attachment_files/SpacedataSourceAPI.jpg)
 {% endindent %}
 
-{% info %}
+{% refer %}
 Persisting data to the data is explained in the [Space Synchronization Endpoint API](./space-synchronization-endpoint-api.html) page.
-{% endinfo %}
+{% endrefer %}
 
 # Configuration
 

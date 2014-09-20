@@ -17,11 +17,11 @@ This sections covers advanced options related to Space Persistency.
 
 Here are the Space Persistency Properties:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Property | Description | Default |
 |:---------|:------------|:--------|
 |space-config.external-data-source.shared-iterator.enabled| This attribute enables shared iterator mode which tries to optimize data source access by sharing the same iterator for the same query operations when possible. |true|
-|space-config.external-data-source.shared-iterator.time-to-live| This attribute specify for how long in milliseconds an iterator can be shared in shared iterator mode. If two equivalent queries are done concurrently, but the time that elapsed between the first query and the second query exceeds the time to live, the second query will open a new iterator on the data source and will not share the first one.|10000|
+|<nobr>space-config.external-data-source.shared-iterator.time-to-live</nobr>| This attribute specify for how long in milliseconds an iterator can be shared in shared iterator mode. If two equivalent queries are done concurrently, but the time that elapsed between the first query and the second query exceeds the time to live, the second query will open a new iterator on the data source and will not share the first one.|10000|
 |space-config.external-data-source.init-properties-file| This properties file content is passed directly to the data source implementation in the `init()` method. This file can be used to pass any custom parameters to the data source. | |
 |cluster-config.cache-loader.external-data-source| Provides cluster-wide support. |true|
 |cluster-config.cache-loader.central-data-source| Provides clustered database wide support. |true|
@@ -34,13 +34,13 @@ To enable Space Persistency logging, edit the `<GigaSpaces Root>\config\gs_loggi
 
 - `CONFIG` messages are intended to provide a variety of static configuration information, and to assist in debugging problems that may be associated with particular configurations.
 
-{% highlight java %}
+{% highlight console %}
 com.gigaspaces.persistent.level = CONFIG
 {% endhighlight %}
 
 - `FINER` messages log calls for entering, returning, or throwing an exception to and from the cache interface implementations.
 
-{% highlight java %}
+{% highlight console %}
 com.gigaspaces.persistent.level = FINER
 {% endhighlight %}
 

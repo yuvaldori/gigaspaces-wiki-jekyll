@@ -23,21 +23,17 @@ The space synchronization endpoint can be called in synchronous or in asynchrono
 
 {% section %}
 
-{% column %}
-**asynchronous mode**
+{% column width=50% %}
+#### asynchronous mode
 
-{% indent %}
-![SpacedataSourceAPI.jpg](/attachment_files/SpacedataSourceAPI.jpg)
-{% endindent %}
+{%popup /attachment_files/SpacedataSourceAPI.jpg %}
 
 {% endcolumn %}
-{% column %}
 
-**synchronous mode**
+{% column width=50% %}
+#### synchronous mode
 
-{% indent %}
-![SpacedataSourceSyncAPI.jpg](/attachment_files/SpacedataSourceSyncAPI.jpg)
-{% endindent %}
+{%popup /attachment_files/SpacedataSourceSyncAPI.jpg%}
 
 {% endcolumn %}
 {% endsection %}
@@ -46,9 +42,9 @@ Dynamic index creation is essential since the space allows to create index dynam
 
 In addition, the space synchronization endpoint API provides the following events interception: distributed transaction consolidation failure, successful batch and transaction synchronization.
 
-{% info %}
+{% refer %}
 Reading data from the data source is explained in the [Space Data Source API](./space-data-source-api.html) page.
-{% endinfo %}
+{% endrefer %}
 
 # Configuration
 
@@ -207,9 +203,9 @@ public class MySpaceSynchronizationEndpoint extends SpaceSynchronizationEndpoint
 }
 {% endhighlight %}
 
-{% tip %}
+{% refer %}
 For implementation reference see our built in Hibernate and Cassandra implementations: [DefaultHibernateSpaceSynchronizationEndpoint](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?org/openspaces/persistency/hibernate/DefaultHibernateSpaceSynchronizationEndpoint.html) and [CassandraSpaceSynchronizationEndpoint](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?org/openspaces/persistency/cassandra/CassandraSpaceSynchronizationEndpoint.html) classes.
-{% endtip %}
+{% endrefer %}
 
 # Example with Failure events
 

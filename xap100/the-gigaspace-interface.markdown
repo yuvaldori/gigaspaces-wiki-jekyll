@@ -127,9 +127,9 @@ GigaSpace gigaSpace = new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*
 
 {% endinittab %}
 
-{%info%}
+{%refer%}
 A full description of the Space URL Properties can be found [here.](./the-space-configuration.html)
-{%endinfo%}
+{%endrefer%}
 
 
 ## Reconnection
@@ -471,8 +471,8 @@ The above example uses Spring built-in support for configuring both a custom JDB
 
 
 
-{% info %}
+{% refer %}
 This configuration can also be used with the XAP [Mirror Service](./asynchronous-persistency-with-the-mirror.html) deployed as a Processing Unit.
-{%endinfo%}
+{%endrefer%}
 
-{%learn%}space-persistency.html{%endlearn%}
+

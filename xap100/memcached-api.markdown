@@ -45,17 +45,17 @@ However, since the protocol is simple and well-known, there have been many clien
 
 There are many memcached clients for Java; the one GigaSpaces' example applications have used is [xmemcached](http://code.google.com/p/xmemcached/).
 
-{% warning %}
-If you use Maven, you can include spymemcached as a dependency, by adding a repository reference and a dependency:
 
-{% highlight java %}
+### If you use Maven, you can include spymemcached as a dependency, by adding a repository reference and a dependency:
+
+{% highlight xml %}
 <dependency>
   <groupId>com.googlecode.xmemcached</groupId>
   <artifactId>xmemcached</artifactId>
   <version>1.2.6.2</version>
 </dependency>
 {% endhighlight %}
-{% endwarning %}
+
 
 To connect to a memcached instance, you would first deploy a memcached space in GigaSpaces. For the sake of example, let's assume the memcached instance is deployed on two IPs: 192.168.0.10 (on a server named "memcached1") and 192.168.0.11 ("memcached2").
 
@@ -70,7 +70,7 @@ MemcachedClient c = builder.build();
 {% warning %}
 Traditional memcached servers shard data by running multiple instances as unassociated peers. Clients connect to each of them, and manually determine which of the server instances data is sent to.
 
-GigaSpaces' memcached service would run access points on each of the servers - memcached1 and memcached2, as shown above - but the servers share data, so you could get the same dataset by just connecting to only one of the server instances.
+XAPs memcached service would run access points on each of the servers - memcached1 and memcached2, as shown above - but the servers share data, so you could get the same dataset by just connecting to only one of the server instances.
 {% endwarning %}
 
 Setting data and retrieving it is very simple:

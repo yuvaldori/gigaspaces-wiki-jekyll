@@ -8,12 +8,7 @@ weight: 400
 
 {% summary %}{% endsummary %}
 
-{%comment%}
-{% summary %}The optimistic locking protocol provides better performance and scalability when having concurrent access to the same data. Optimistic locking offers higher concurrency and better performance than pessimistic locking. It also avoids deadlocks.
-{% endsummary %}
 
-# Overview
-{%endcomment%}
 
 With optimistic locking, you write your business logic allowing multiple users to read the same object at the same time, but allow only one user to update the object successfully. The assumption is that there will be a relatively large number of users trying to read the same object, but a low probability of having a small number of users trying to update the same object at the same time.
 
@@ -25,7 +20,7 @@ The problem is that while the customer details object is away from the space ser
 
 For optimistic locking to work effectively, you must be able to detect these update-update conflicts, and to make the client aware of them, so they can be dealt with appropriately.
 
-GigaSpaces optimistic locking protocol:
+XAP optimistic locking protocol:
 
 - Is best suited for environments with many read-only transactions, few read-update transactions, and a relatively low volume of objects that are changed.
 - Is more suitable for real-time systems than pessimistic locking, because the space runs best with short term transactions.
@@ -375,13 +370,13 @@ Some restrictions apply when using the Map interface:
 
 Suppose that you have two applications, Application_1 and Application_2, which are both working with the same Object A. The following sequence of events describes a simple optimistic locking scenario.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Time | Action | Application\_1 | Application\_2 |
 |:-----|:-------|:---------------|:---------------|
-| `T=1` | Initial conditions: both applications read the object from the space. | Object A `VersionID=1`{% wbr %}`Value1=X`{% wbr %} `Value2=Y` | Object A{% wbr %}`VersionID=1`{% wbr %}`Value1=X`{% wbr %}`Value2=Y` |
-| `T=2` | Both modify the same objects. | Object A `VersionID=1`{% wbr %}`value1=X`{% wbr %}`Value2=Y_1` | Object A{% wbr %}`VersionID=1`{% wbr %}`value1=X_2`{% wbr %}`Value2=Y` |
-| `T=3` | Application_2 updates object A and commits - commit is successful. | Object A `VersionID=1`{% wbr %}`Value1=X`{% wbr %}`Value2=Y_1` | Object A{% wbr %}`VersionID=2`{% wbr %}`Value1=X_2`{% wbr %}`Value2=Y` |
-| `T=4` | Application_1 tries to update object A, but fails due to invalid Version ID. | Object A `VersionID=1`{% wbr %}`Value1=X`{% wbr %}`Value2=Y_1` | |
-| `T=5` | Application_1 refreshes object A (re-reads it). | Object A `VersionID=2`{% wbr %}`Value1=X_2`{% wbr %}`Value2=Y` | |
-| `T=6` | Application_1 updates object A again and commits - commit is successful. | Object A `VersionID=3`{% wbr %}`value1=X_2`{% wbr %}`Value2=Y_1` | |
+| T=1 | Initial conditions: both applications read the object from the space. | Object A `VersionID=1`{% wbr %}`Value1=X`{% wbr %} `Value2=Y` | Object A{% wbr %}`VersionID=1`{% wbr %}`Value1=X`{% wbr %}`Value2=Y` |
+| T=2 | Both modify the same objects. | Object A `VersionID=1`{% wbr %}`value1=X`{% wbr %}`Value2=Y_1` | Object A{% wbr %}`VersionID=1`{% wbr %}`value1=X_2`{% wbr %}`Value2=Y` |
+| T=3 | Application_2 updates object A and commits - commit is successful. | Object A `VersionID=1`{% wbr %}`Value1=X`{% wbr %}`Value2=Y_1` | Object A{% wbr %}`VersionID=2`{% wbr %}`Value1=X_2`{% wbr %}`Value2=Y` |
+| T=4 | Application_1 tries to update object A, but fails due to invalid Version ID. | Object A `VersionID=1`{% wbr %}`Value1=X`{% wbr %}`Value2=Y_1` | |
+| T=5 | Application_1 refreshes object A (re-reads it). | Object A `VersionID=2`{% wbr %}`Value1=X_2`{% wbr %}`Value2=Y` | |
+| T=6 | Application_1 updates object A again and commits - commit is successful. | Object A `VersionID=3`{% wbr %}`value1=X_2`{% wbr %}`Value2=Y_1` | |
 

@@ -9,13 +9,6 @@ weight: 300
 {% summary %}{% endsummary %}
 
 
-{%comment%}
- {% summary %}GigaSpaces EXCLUSIVE_READ_LOCK, READ_COMMITTED, DIRTY_READ, and REPEATABLE_READ modifiers.{% endsummary %}
-
-{% toc minLevel=1|maxLevel=1|type=flat|separator=pipe %}
-
-# Overview
-{%endcomment%}
 
 XAP `ReadModifiers` class (see [Javadoc](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/client/ReadModifiers.html)) provides static methods and constants to decode read-type modifiers. The sets of modifiers are represented as integers with distinct bit positions representing different modifiers.
 
@@ -43,8 +36,8 @@ These modifiers can be set either at the proxy level - `IJSpace.setReadModifiers
 
 The following table describes the mapping between the [Spring TransactionDefinition](http://static.springsource.org/spring/docs/2.0.x/api/org/springframework/transaction/TransactionDefinition.html) Mapping to GigaSpaces ReadModifiers:
 
-{: .table .table-bordered}
-|Spring TransactionDefinition| GigaSpaces ReadModifiers |
+{: .table .table-bordered .table-condensed}
+|Spring TransactionDefinition| XAP ReadModifiers |
 |:---------------------------|:-------------------------|
 |ISOLATION_READ_UNCOMMITTED| DIRTY_READ|
 |ISOLATION_READ_COMMITTED|READ_COMMITTED|
@@ -107,7 +100,7 @@ If the read operation is under a transaction, there is no need to "enlist" the s
 
 ## Locking and Blocking Rules
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Operation A/Operation B | Update under transaction Y | Take under transaction Y | Read under transaction Y | Update, null transaction | Take, null transaction | Read, null transaction | Exclusive Read Lock | Dirty Read Transaction Y or null | Read Committed Transaction Y or null |
 |:------------------------|:---------------------------|:-------------------------|:-------------------------|:-------------------------|:-----------------------|:-----------------------|:--------------------|:---------------------------------|:-------------------------------------|
 | Update under transaction X | Blocked | Blocked | Blocked | Blocked | Blocked | Blocked | Blocked | Allowed | Allowed|
@@ -120,7 +113,7 @@ If the read operation is under a transaction, there is no need to "enlist" the s
 | Read Committed transaction X or null | Allowed | Allowed | Allowed | Allowed | Allowed | Allowed | Allowed | Allowed | Allowed |
 | Dirty Read Transaction X or null| Allowed | Allowed | Allowed | Allowed | Allowed | Allowed | Allowed | Allowed | Allowed |
 
-{% refer %}Refer to the [Space Locking and Blocking](./transaction-locking-and-blocking.html) section for GigaSpaces general locking and blocking rules.{% endrefer %}
+{% refer %}Refer to the [Space Locking and Blocking](./transaction-locking-and-blocking.html) section for XAP general locking and blocking rules.{% endrefer %}
 
 {% note %}
 - To read the original state of a space object that is locked under a transaction (take or update) you should use READ_COMMITTED mode.

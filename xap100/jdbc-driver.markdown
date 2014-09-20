@@ -449,7 +449,7 @@ public class MyClass {
 
 Here is an example for a JDBC query call you may use with the above Space object. Both the nested Map and nested object fields are used with the JDBC query below:
 
-{% highlight java %}
+{% highlight sql %}
 String queryString =
 "select uid,
 map.key1.data1, map.key1.data2,

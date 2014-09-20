@@ -174,8 +174,9 @@ The read operations can be configured with different modifiers.
 {%endhighlight%}
 
 
+{%refer%}
 For further details on each of the available modifiers see: [ReadModifiers](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/com/gigaspaces/client/ReadModifiers.html)
-
+{%endrefer%}
 
 {% togglecloak id=os-read %}**Method summary...**{% endtogglecloak %}
 {% gcloak os-read %}

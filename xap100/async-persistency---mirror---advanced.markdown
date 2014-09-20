@@ -45,7 +45,7 @@ Here is how the space should be started:
 
 # Implementing a Custom Mirror Data Source
 
-GigaSpaces has a built in [Hibernate Space Persistency](./hibernate-space-persistency.html) implementation which is a `SpaceSynchronizationEndpoint` extension. You can implement your own Mirror very easily to accommodate your exact needs. See example below:
+XAP has a built in [Hibernate Space Persistency](./hibernate-space-persistency.html) implementation which is a `SpaceSynchronizationEndpoint` extension. You can implement your own Mirror very easily to accommodate your exact needs. See example below:
 
 {% togglecloak id=custom %}{% color #88aed2 %}Show code...{% endcolor %}{% endtogglecloak %}
 {% gcloak custom %}
@@ -126,7 +126,7 @@ And here is how this can be configured within the mirror configuration:
 {% endpanel %}
 {% endgcloak %}
 
-1. In order to use the data source as the read mechanism for the cluster Space that connects to the mirror, a `SpaceDataSource` extension needs to be implemented.
+In order to use the data source as the read mechanism for the cluster Space that connects to the mirror, a `SpaceDataSource` extension needs to be implemented.
 
 # Multiple Mirrors
 
@@ -134,7 +134,9 @@ In some cases you may need to asynchronously persist data both into a relational
 
 In such a case you may need to have multiple mirrors. In order to implement this, you should have one base mirror (for example the Hibernate Space Persistency) and extend it to include the extra functionality you may need.
 
+{%refer%}
 See the [Mirror Monitor](/sbp/mirror-monitor.html) for a simple example how such approach should be implemented.
+{%endrefer%}
 
 # Handling Mirror Exceptions
 
@@ -164,8 +166,7 @@ To override and extend this behavior, you can implement an exception handler tha
 
 With the above, we use the `SpaceSynchronizationEndpointExceptionHandler`, and wrap the `DefaultHibernateSpaceSynchronizationEndpoint` with it (and pass that to the space). On the `SpaceSynchronizationEndpointExceptionHandler`, we set our own implementation of the `ExceptionHandler`, to be called when there is an exception. With the `ExceptionHandler` you can decide what to do with the Exception: "swallow it", execute some logic, or rethrow it.
 
-{% warning %}
-It's critical to _test your persistence in the mirror_.
+{% warning title=It's critical to _test your persistence in the mirror_.%}
 
 A configured mirror will repeatedly try to store things in the DB. In the case on unrecoverable failure (imagine an invalid mapping or a constraint issue), this can cause the redo log to grow, eventually resulting in overflow of the redo to disk, and then, when the predefined disk capacity is exhausted, leading to a rejection of any non-read space operation (similar to how the memory manager works). The exception that clients will see in this case is RedologCapacityExceededException (which inherits from ResourceCapacityExceededException).
 
@@ -361,7 +362,7 @@ The following example demonstrates how to set the timeout for waiting for distri
 
 Distributed transaction participants' data will be processed individually if ten seconds have passed and all of the participants data has **not** arrived or if 20 new operations were executed after the distributed transaction.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Attribute|Default Value|
 |:--------|:------------|
 |dist-tx-wait-timeout-millis|60000 milliseconds|
@@ -378,47 +379,55 @@ packet which is unconsolidated and waits for consolidation which may never occur
 
 # Usage Scenarios
 
-{% toczone minLevel=4|maxLevel=4|type=flat|separator=pipe|location=top %}
 
-## Writing Asynchronously to the Mirror Data Source
+### Writing Asynchronously to the Mirror Data Source
 
+{%section%}
+{%column width=80% %}
 The following is a schematic flow of a synchronous replicated cluster with three members, which are communicating with a Mirror Service:
+{%endcolumn%}
+{%column width=20% %}
+{%popup /attachment_files/IMG101.gif%}
+{%endcolumn%}
+{%endsection%}
 
-{% indent %}
-![IMG101.gif](/attachment_files/IMG101.gif)
-{% endindent %}
+### Reading from the Data Source
 
-## Reading from the Data Source
-
+{%section%}
+{%column width=80% %}
 The Mirror Service space is used to asynchronously **persist** data into the data source. As noted elsewhere, the Mirror is **not** a regular space, and should **not** be interacted with directly. Thus, data can't be read from the data source using the Mirror Service space. Nonetheless, the data might be read by other spaces which are configured with a space data source.
 
 The data-grid pu.xml needs to be configured to use an **space data source** which, when dealing with a Mirror, is **central** to the cluster.
 
 Here is a schematic flow of how a Mirror Service asynchronously receives data, to persist into an data source, while the cluster is reading data directly from the data source.
+{%endcolumn%}
+{%column width=20% %}
+{%popup /attachment_files/IMG103.gif%}
+{%endcolumn%}
+{%endsection%}
 
-{% indent %}
-![IMG103.gif](/attachment_files/IMG103.gif)
-{% endindent %}
 
-## Partitioning Over a Central Mirror Data Source
+### Partitioning Over a Central Mirror Data Source
 
+{%section%}
+{%column width=80% %}
 When partitioning data, each partition asynchronously replicates data into the Mirror Service. Each partition can read back data that belongs to it (according to the load-balancing policy defined).
 
 Here is a schematic flow of how two partitions (each a primary-backup pair) asynchronously interact with a data source:
+{%endcolumn%}
+{%column width=20% %}
+{%popup /attachment_files/IMG104.gif%}
+{%endcolumn%}
+{%endsection%}
 
-{% indent %}
-![IMG104.gif](/attachment_files/IMG104.gif)
-{% endindent %}
-
-{% endtoczone %}
 
 {% anchor dist-txn-mirror %}
 
 # Considerations and Known Issues
 
-{% note %}
+{% refer %}
 [Space persistency considerations](./space-persistency-advanced-topics.html#limits) also apply to the Mirror Service.
-{%endnote%}
+{%endrefer%}
 
 - The Mirror Service cannot be used with a single space or the `partitioned` cluster schema. It is supported with the `async-replicated`, and `partitioned-sync2backup` cluster schemas.
 - The Mirror Service is a single space which joins a replication group. The Mirror Service is not a clustered space or part of the replication group declaration.
@@ -443,7 +452,7 @@ Logging is divided according to `java.util.logging.Level` as follows:
 
 {% indent %}
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Level | Description |
 |:------|:------------|
 | `INFO` | The default level for informative messages. |
@@ -459,7 +468,7 @@ This section describes how the GigaSpaces Mirror Service handles different failu
 Active services are
 {% color green %}green{% endcolor %}, while failed services are {% color red %}red{% endcolor %}.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Active/Failed Services | Cluster Behavior |
 |:-----------------------|:-----------------|
 | * {% color green %}Primary{% endcolor %}{% wbr %}- {% color green %}Backup{% endcolor %}{% wbr %}- {% color green %}Mirror{% endcolor %}{% wbr %}- {% color green %}Database{% endcolor %}{% wbr %}| * The primary and backup spaces, each include a copy of the mirror replication queue (which is created in the backup, as part of the synchronized replication between the primary and the backup). {% wbr %}- The mirror doesn't acknowledge the replication until the data is successfully committed to the database.{% wbr %}- Every time the primary gets an acknowledgment from the mirror, it notifies the backup of the last exact point in the replication queue where replication to the mirror was successful.{% wbr %}- This way, the primary and backup space include the same copy of the data and are also in sync with whatever data was replicated to the mirror and written to the database. |
@@ -474,7 +483,7 @@ The following failure scenarios are highly unlikely. However, it might be useful
 
 Active services are {% color green %}green{% endcolor %}, while failed services are {% color red %}red{% endcolor %}.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Active/Failed Services | Cluster Behavior |
 |:-----------------------|:-----------------|
 | * {% color red %}Primary{% endcolor %}{% wbr %}- {% color green %}Backup{% endcolor %}{% wbr %}- {% color red %}Mirror{% endcolor %}{% wbr %}- {% color green %}Database{% endcolor %}{% wbr %}| * Data which has already been saved in the database is safe.{% wbr %}- Data held in the mirror replication queue still exists in the backup, so no data is lost. |

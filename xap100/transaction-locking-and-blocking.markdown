@@ -74,6 +74,8 @@ In general, when a space operation is called with a `null` transaction object, i
 
 # More in this Section
 
+{%refer%}
 - [Pessimistic Locking](./transaction-pessimistic-locking.html) -- In the pessimistic locking approach, your program must explicitly obtain a lock using a transaction on one or more objects before making any changes
 - [Optimistic Locking](./transaction-optimistic-locking.html) -- The optimistic locking protocol provides better performance and scalability when having concurrent access to the same data. Optimistic locking offers higher concurrency and better performance than pessimistic locking. It also avoids deadlocks.
 - [Read Modifiers](./transaction-read-modifiers.html) -- GigaSpaces `EXCLUSIVE_READ_LOCK`, `READ_COMMITTED`, `DIRTY_READ`, and `REPEATABLE_READ` modifiers.
+{%endrefer%}

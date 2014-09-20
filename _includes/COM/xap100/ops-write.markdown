@@ -200,7 +200,9 @@ Asynchronous `write` operation can be implemented using a [Task](./task-executio
 
 #### Modifiers
 
+{%refer%}
 For further details on each of the available modifiers see: [WriteModifiers](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/com/gigaspaces/client/WriteModifiers.html)
+{%endrefer%}
 
 {%note%}
 Writing an object into a space might generate [notifications](./notify-container.html) to registered objects.
