@@ -12,6 +12,12 @@ weight: 100
 
 **Local Cache** is a wrapper class for a space proxy, which increases performance in read-mostly scenarios for read operations that are matched by the `SpaceID` field or property. The cache stores Entries that are retrieved from the space proxy, and the subsequent retrieval of these Entries is done from the cache without using the proxy. The cache is highly concurrent, and the most important thing to realize is that it is implemented purely in .NET, which boosts performance significantly for read-mostly scenarios.
 
+
+{% indent %}
+![local_cache.jpg](/attachment_files/local_cache.jpg)
+{% endindent %}
+
+
 # Usage
 
 The `ILocalCache` interface implements the `ISpaceProxy`, and working with it is exactly the same as working with the `ISpaceProxy` API. Here's a simple example of creating a local cache and using it:

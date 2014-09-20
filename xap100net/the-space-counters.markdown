@@ -113,6 +113,9 @@ When pre-loading the space via the [External Data Source initial-load](./space-p
 
 With the following example the `Counter` class wraps the `GigaSpace.change` operation providing simple `increment`,`decrement`,`get` and `unset` methods to manage counters. The example using an [extended SpaceDocument](./document-extending.html) as the space object storing the counters data. To retrieve the counter existing value a [Task](./task-execution-over-the-space.html) is used. To launch the example run the `CounterTest` unit test.
 
+{%inittab%}
+{%tabcontent CounterTest %}
+
 {% highlight csharp %}
 public class CounterTest
 {
@@ -152,7 +155,9 @@ public class CounterTest
 	}
 }
 {% endhighlight %}
+{%endtabcontent%}
 
+{%tabcontent Counter%}
 {% highlight csharp %}
 public class Counter
 {
@@ -196,7 +201,9 @@ public class Counter
 	}
 }
 {% endhighlight %}
+{%endtabcontent%}
 
+{%tabcontent CounterData%}
 {% highlight csharp %}
 public class CounterData : SpaceDocument
 {
@@ -217,7 +224,9 @@ public class CounterData : SpaceDocument
 	}
 }
 {% endhighlight %}
+{%endtabcontent%}
 
+{%tabcontent CounterTask%}
 {% highlight csharp %}
 public class CounterTask : ISpaceTask<int?> {
 
@@ -241,3 +250,6 @@ public class CounterTask : ISpaceTask<int?> {
 	}
 }
 {% endhighlight %}
+{%endtabcontent%}
+{%endinittab%}
+

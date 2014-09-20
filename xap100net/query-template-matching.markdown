@@ -12,10 +12,10 @@ Template matching (a.k.a. Match by example) is a simple way to query the space -
 
 Since by convention the default constructor usually initializes all the properties to `null` either implicitly or explicitly, in most cases it's enough to simply set the properties which should be matched, without bothering with explicitly setting null to the other properties. Note that setting two or more properties with non-null values provides an **AND** behavior.
 
-{% info %}
+{% refer %}
 It is highly recommended to index one or more of the properties used in the template to speed up the matching process. For more information see [Indexing](./indexing.html).
 If you require additional query options refer to [SQLQuery](./query-sql.html).
-{%endinfo%}
+{%endrefer%}
 
 # Examples
 
@@ -115,5 +115,6 @@ It is highly recommended to use the  primitive wrapper classes instead of primit
 
 # Nested Template Matching
 
+{%refer%}
 Nested template matching is not supported - to match nested properties, collections and arrays use [SQLQuery](./query-sql.html).
-
+{%endrefer%}

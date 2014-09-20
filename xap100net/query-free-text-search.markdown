@@ -102,9 +102,9 @@ public class MyData {
 }
 {% endhighlight %}
 
-{% tip %}
+{% refer %}
 The same approach can be implemented also with the [SpaceDocument](./document-overview.html).
-{% endtip %}
+{% endrefer %}
 
 {% comment %}
 To search for specific words in a specific order within the free text field you should use the indexed field and regular expression with another field that stores the free text.

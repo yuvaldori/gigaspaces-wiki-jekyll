@@ -106,9 +106,9 @@ ISpaceProxy spaceProxy = new SpaceProxyFactory("mySpace").Create();
 {%endtabcontent%}
 {%endinittab%}
 
-{%info%}
+{%refer%}
 A full description of the Space URL Properties can be found [here.](./the-space-configuration.html)
-{%endinfo%}
+{%endrefer%}
 
 
 ## Reconnection

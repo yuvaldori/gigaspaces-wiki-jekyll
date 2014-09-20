@@ -359,9 +359,9 @@ notifyEventListenerContainer.BatchDataEventArrived += new DelegateDataEventArriv
 
 The notify event container can register for events or notifications, and have the events delivered in a FIFO order.
 
-{% info %}
+{% refer %}
 For full FIFO support, the actual template also has to be marked as FIFO. For more details, refer to the [FIFO Support](./fifo-support.html) section.
-{%endinfo%}
+{%endrefer%}
 
 Here is an example of how FIFO events can be configured with the notify container:
 
