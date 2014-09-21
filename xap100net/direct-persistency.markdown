@@ -58,6 +58,7 @@ A Data-Grid running in Direct persistency mode using central database topology, 
   <EmbeddedSpaces>
     <add Name="space">
       <ExternalDataSource Type="GigaSpaces.Practices.ExternalDataSource.NHibernate.NHibernateExternalDataSource">
+        <!-- NHibernate-specific config goes here -->
       </ExternalDataSource>
       <Properties>
         <!-- Use ALL IN CACHE - No Read Performed from the database in lazy manner-->
@@ -83,6 +84,7 @@ A Data-Grid running in Direct persistency mode using distributed databases topol
   <EmbeddedSpaces>
     <add Name="space">
       <ExternalDataSource Type="GigaSpaces.Practices.ExternalDataSource.NHibernate.NHibernateExternalDataSource">
+        <!-- NHibernate-specific config goes here -->
       </ExternalDataSource>
       <Properties>
         <!-- Use ALL IN CACHE - No Read Performed from the database in lazy manner-->
