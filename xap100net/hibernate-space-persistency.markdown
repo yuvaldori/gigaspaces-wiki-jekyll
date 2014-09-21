@@ -1,6 +1,6 @@
 ---
 layout: post100
-title:  NHibernate External Data Source
+title:  NHibernate Integration
 categories: XAP100NET
 parent: space-persistency-overview.html
 weight: 200
@@ -8,85 +8,82 @@ weight: 200
 
 {% summary  %}{% endsummary %}
 
+XAP comes with a built in implementation of [Space Persistency](./space-persistency.html) APIs for NHibernate. This implementation is an extension of the `AbstractExternalDataSource` class. The implementation allows a custom objects persistency using NHibernate mappings.
 
+The `NHibernate Space Persistency Implementation` is used both with the [Synchronous](./direct-persistency.html) and the [Asynchronous Persistency](./asynchronous-persistency-with-the-mirror.html) modes.
 
-This page demonstrates how to use the GigaSpaces .Net NHibernate External Data Source  in a common scenario: a cluster topology with a mirror. This is asynchronous persistency, which means that the operation against the cluster members is persisted to the database in an asynchronous manner. Each cluster member uses the External Data Source in read-only mode. Therefore it only reads data from the External Data Source, and each write operation is replicated to the mirror space.
-
-The mirror uses the External Data Source interface in write mode, and delegates destructive space operations (write, update, take) to the database through the External Data Source implementation.
-
-{% note %}
-Before using the `ExternalDataSource.NHibernate` practice, compile it by calling `<XAP Root>\Bin\Practices\ExternalDataSource\NHibernate\build.bat`.
-{%endnote%}
-
-{% info %}
-The database server used in this walkthrough is MySQL, and a database named `dotnetpersistency` is created in it.
+{% info title=Building the plugin %}
+The NHibernate External Data Source is provided as a reference implementation under `<XAP Root>\Practices\ExternalDataSource\NHibernate`. You'll need to build it before using it by using the `build.bat` script.
 {%endinfo%}
 
-# NHibernate Mapping and Configuration Files
+# Configuration
 
-{% anchor sessionfactory %}
+The external data source configuration is done via the embedded space configuration within `pu.config` - Add an `ExternalDataSource` tag and set the `Type` to the class implementing the external data source (in this case - `NHibernateExternalDataSource`). For example:
 
-## NHibernate Session Factory Configuration File
+{% highlight xml %}
+<ProcessingUnit>
+  <EmbeddedSpaces>
+    <add Name="space">
+      <Properties>
+	    <!-- Space properties to enable External Data Source -->
+        <add Name="cluster-config.cache-loader.external-data-source" Value="true"/>
+        <add Name="cluster-config.cache-loader.central-data-source" Value="true"/>
+      </Properties>
+      <ExternalDataSource Type="GigaSpaces.Practices.ExternalDataSource.NHibernate.NHibernateExternalDataSource">
+        <Properties>
+		  <!-- NHibernate session factory properties: Config file and Location of HBM files -->
+          <add Name="nhibernate-config-file" Value="NHibernateCfg\nHibernate.cfg.xml"/>
+          <add Name="nhibernate-hbm-dir" Value="NHibernateCfg"/>
+		  <!-- NHibernate data source properties, for example initial load chunk size -->
+          <add name="InitialLoadChunkSize" value="2000"/>
+        </Properties>
+      </ExternalDataSource>
+    </add>
+  </EmbeddedSpaces>
+</ProcessingUnit>
+{% endhighlight %}
 
-NHibernate requires a session factory that creates new sessions over the database for each operation executed on it. You can create such a session factory, either with a configuration file or by code. This walkthrough demonstrates a simple configuration file for the session factory, over a MySQL database server into a database named dotnetpersistency. These parameters are configured in the `Connection` string property.
+In addition to the `Type`, the `ExternalDataSource` tag contains properties which are injected at runtime to initialize the actual instance. In this case, the NHibernate Session Factory requires 2 configuration settings: A configuration file and the location of the`HBM` files. Additional properties can be set to customize the external data source (for example, `InitialLoadChuckSize`).
+
+### NHibernate Session Factory Configuration File
+
+NHibernate requires a session factory that creates new sessions over the database for each operation executed on it. This walkthrough demonstrates a simple configuration file for the session factory, over a MySQL database server into a database named **dotnetpersistency**. These parameters are configured in the `Connection` string property.
 
 {% highlight xml %}
 <?xml version="1.0" ?>
 <hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
   <session-factory>
-
     <property name="dialect">NHibernate.Dialect.MySQLDialect</property>
     <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
     <property name="connection.driver_class">NHibernate.Driver.MySQLDataDriver</property>
+    <!--Connection String-->
     <property name="connection.connection_string">Server=localhost;Database=dotnetpersistency;User ID=root;CharSet=utf8</property>
-
-    <!--Disable the writing of all the SQL statments to the console-->
+    <!--Disable the writing of all the SQL statements to the console-->
     <property name="show_SQL">false</property>
     <!--Disabled the validation of your persistent classes, allows using .Net properties and not getters and setters on your fields-->
     <property name="use_proxy_validator">false</property>
     <!--This will create the tables in the database for your persistent classes according to the mapping file.-->
     <![--If the tables are already created this will recreate them and clear the data](/attachment_files/dotnet/--If the tables are already created this will recreate them and clear the data)-->
     <property name="hbm2ddl.auto">create</property>
-
   </session-factory>
 </hibernate-configuration>
 {% endhighlight %}
 
-## NHibernate Mapping File
+### NHibernate Mapping File
 
-Each persistent class requires a mapping file that defines how to map the object to and from the database. This walkthrough shows a simple `Person` class and its corresponding mapping file.
-
-{% inittab Person Class|top %}
-
-{% tabcontent Person Class %}
-Our `Person` is defined in Assembly name entities.
+Each persistent class requires a mapping file that defines how to map the object to and from the database. For example, for the following `Person` class:
 
 {% highlight csharp %}
-namespace Entities
+[SpaceClass(Persist = true)]
+public class Person
 {
-  [SpaceClass(Persist = true)]
-  public class Person
-  {
     [SpaceID, SpaceRouting]
-    public string Name {set; get;}
-
-    [SpaceProperty(NullValue = 0)]
-    public int Age{set; get;}
-
-    public Person(string name, int age)
-    {
-      this.Name = name;
-      this.Age = age;
-    }
-
-    public Person() { }
-  }
+    public string Name {get; set;}
+    public int? Age {get; set;}
 }
 {% endhighlight %}
 
-{% endtabcontent %}
-
-{% tabcontent NHibernate Mapping File %}
+We can use the following `Person.hbm.xml` file:
 
 {% highlight xml %}
 <?xml version="1.0"?>
@@ -100,114 +97,53 @@ namespace Entities
 </hibernate-mapping>
 {% endhighlight %}
 
-{% endtabcontent %}
-
-{% endinittab %}
-
-# Starting the Spaces with NHibernate External Data Source
-
-This walk through demonstrates how to start the spaces with the NHibernate External Data Source from code, using a cluster in a [partitioned-sync2backup](/product_overview/terminology.html) topology.
-Our cluster is 2,1 and a mirror. Therefore it consists of:
-
-- 2 partitioned primary spaces
-- 2 backup spaces, one for each partition
-- 1 mirror space
-
-## Starting a Cluster Member Space
-
-The following code starts a cluster member space with the NHibernate External Data Source:
-
-{% highlight csharp %}
-//Create a new space configuration object that is used to start a space
-SpaceConfig spaceConfig = new SpaceConfig();
-//Start a new ExternalDataSource config object
-spaceConfig.ExternalDataSourceConfig = new ExternalDataSourceConfig();
-//Start a new instance of NHibernateExternalDataSource and attach it to the config
-spaceConfig.ExternalDataSourceConfig.Instance = new NHibernateExternalDataSource();
-//Create custom properties that are required to build NHibernate session factory
-spaceConfig.ExternalDataSourceConfig.CustomProperties = new Dictionary<string, string>();
-//Point to NHibernate session factory config file
-spaceConfig.ExternalDataSourceConfig.CustomProperties.Add(NHibernateExternalDataSource.NHibernateConfigProperty, "<NHibernate config file>");
-//Optional - points to a directory that contains the NHibernate mapping files (hbm)
-spaceConfig.ExternalDataSourceConfig.CustomProperties.Add(NHibernateExternalDataSource.NHibernateHbmDirectory, "<NHibernate HBM files location>");
-//Our cluster member should only use the External Data Source in read only mode since the
-//mirror persist the data to the database (Async persistency)
-spaceConfig.ExternalDataSourceConfig.Usage = Usage.ReadOnly
-//Add custom properties
-spaceConfig.CustomProperties = new Dictionary<string, string>();
-//State the External Data Source is in All-In-Cache mode
-spaceConfig.CustomProperties.Add("space-config.engine.cache_policy", "1");
-
-//We need to configure this properties to let the cluster be aware that
-//there's a central database and not a database per space
-spaceConfig.CustomProperties.Add("cluster-config.cache-loader.external-data-source", "true");
-spaceConfig.CustomProperties.Add("cluster-config.cache-loader.central-data-source", "true");
-//Creates a cluster info with the partitioned-sync2backup cluster schema, stating 2,1 topology, partition id 1 and not a backup space.
-spaceConfig.ClusterInfo = new ClusterInfo("partitioned-sync2backup", 1, null, 2, 1);
-
-//Starts the space with the External Data Source
-ISpaceProxy persistentSpace = GigaSpacesFactory.FindSpace("/./mySpace?mirror=true", spaceConfig);
-{% endhighlight %}
-
 {% info %}
-`<NHibernate config file>` (see code box above) should point to the NHibernate session factory [configuration file](#sessionfactory).
+Make sure your PONO `[SpaceId]` is defined on the same property as the NHibernate `[Id]`. This is necessary for proper object mapping.
+{% endinfo %}
+See [Modeling Your Data](./modeling-your-data.html) for details about these decorations.
 
- It is recommended that you put all the NHibernate HBM mapping files in one directory, and point `<NHibernate HBM files location>` (see code box above) to that directory.
-{%endinfo%}
+# Properties
 
-{% note %}
-You can also construct your own NHibernate session factory in code, and pass it to the constructor of the `NHibernateExternalDataSource`. In this case, there is no need to use `SpaceConfig.ExternalDataSourceConfig.CustomProperties`.
-{%endnote%}
+The Hibernate Space Persistency implementation includes the following properties:
 
-To start the other members of the cluster, simply change the [ClusterInfo](./obtaining-cluster-information.html):
+{: .table .table-bordered .table-condensed}
+|Property|Description|Default|
+|:-------|:----------|:------|
+|`EnumeratorLoadFetchSize`|Sets the fetch size that will be used when working with scrollable results. |10,000|
+|`InitialLoadChunkSize`|By default, the initial load process will chunk large tables and will iterate over the table (entity) per chunk (concurrently). This setting allows to control the chunk size to split the table by. Batching can be disabled by setting -1{% wbr %}The `InitialLoadChunkSize` property allows you to have multiple threads loading data from the same table into the space - each thread loading different rows from the same table. Having the `InitialLoadChunkSize` as 100,000 will break a 1 million rows table into ten chunks. All the chunks, from all the tables, are processes by the amount of `InitialLoadThreadPoolSize` configured.|100,000|
+|`InitialLoadThreadPoolSize`|The initial load operation uses the `ConcurrentMultiDataIterator`. This property allows to control the thread pool size of the concurrent multi data iterator.Note, this usually will map one to one to the number of open connections / cursors against the database.|10|
+|`PerformOrderById`|When performing initial load, this flag indicates if the generated query will order to results by the id. |false|
+|`UseMerge`| If set to true, will use Hibernate merge to perform the create/update, and will merge before calling delete.{% wbr %}This might be required for complex mappings (depends on Hibernate) at the expense of slower performance.|false|
 
-- Backup space of the first partition member
+{% tip %}
+Tuning the `EnumeratorLoadFetchSize`, `InitialLoadChunkSize`, `InitialLoadThreadPoolSize` and `PerformOrderById` will allow you to control the initial load time. 
+{% endtip %}
 
-{% highlight java %}
-spaceConfig.ClusterInfo = new ClusterInfo("partitioned-sync2backup", 1, 1, 2, 1);
-{% endhighlight %}
+See example below:
 
-- Second primary space in the partitioned cluster
-
-{% highlight java %}
-spaceConfig.ClusterInfo = new ClusterInfo("partitioned-sync2backup", 2, null, 2, 1);
-{% endhighlight %}
-
-- Backup space of the second partition member
-
-{% highlight java %}
-spaceConfig.ClusterInfo = new ClusterInfo("partitioned-sync2backup", 2, 1, 2, 1);
-{% endhighlight %}
-
-## Starting the Mirror Space
-
-The following code starts the mirror space with the NHibernate External Data Source:
-
-{% highlight csharp %}
-//Create a new space configuration object that is used to start a space
-SpaceConfig spaceConfig = new SpaceConfig();
-//Start a new ExternalDataSource config object
-spaceConfig.ExternalDataSourceConfig = new ExternalDataSourceConfig();
-//Start a new instance of NHibernateExternalDataSource and attach it to the config
-spaceConfig.ExternalDataSourceConfig.Instance = new NHibernateExternalDataSource();
-//Create custom properties that are required to build NHibernate session factory
-spaceConfig.ExternalDataSourceConfig.CustomProperties = new Dictionary<string, string>();
-//Point to NHibernate session factory config file
-spaceConfig.ExternalDataSourceConfig.CustomProperties.Add(NHibernateExternalDataSource.NHibernateConfigProperty, "[NHibernate config file]");
-//Optional - points to a directory that contains the NHibernate mapping files (hbm)
-spaceConfig.ExternalDataSourceConfig.CustomProperties.Add(NHibernateExternalDataSource.NHibernateHbmDirectory, "[NHibernate HBM files location]");
-//The mirror persist the data, there for its usage is ReadWrite
-//However, since its a mirror it will only write data to the External Data Source and will not read data from it.
-spaceConfig.ExternalDataSourceConfig.Usage = Usage.ReadWrite
-//Add custom properties
-spaceConfig.CustomProperties = new Dictionary<string, string>();
-//State the External Data Source is in All-In-Cache mode
-spaceConfig.CustomProperties.Add("space-config.engine.cache_policy", "1");
-//We need to configure this properties to let the cluster be aware that
-//there's a central database and not a database per space
-spaceConfig.CustomProperties.Add("cluster-config.cache-loader.external-data-source", "true");
-spaceConfig.CustomProperties.Add("cluster-config.cache-loader.central-data-source", "true");
-
-//Starts the space with the External Data Source
-ISpaceProxy persistentSpace = GigaSpacesFactory.FindSpace("/./mirror-service?schema=mirror", spaceConfig);
+{% highlight xml %}
+<ProcessingUnit>
+  <EmbeddedSpaces>
+    <add Name="space">
+      <Properties>
+	    <!-- Space properties to enable External Data Source -->
+        <add Name="cluster-config.cache-loader.external-data-source" Value="true"/>
+        <add Name="cluster-config.cache-loader.central-data-source" Value="true"/>
+      </Properties>
+      <ExternalDataSource Type="GigaSpaces.Practices.ExternalDataSource.NHibernate.NHibernateExternalDataSource">
+        <Properties>
+		  <!-- NHibernate session factory properties: Config file and Location of HBM files -->
+          <add Name="nhibernate-config-file" Value="NHibernateCfg\nHibernate.cfg.xml"/>
+          <add Name="nhibernate-hbm-dir" Value="NHibernateCfg"/>
+		  <!-- NHibernate data source properties, for example initial load chunk size -->
+          <add name="EnumeratorLoadFetchSize" value="100"/>
+          <add name="InitialLoadChunkSize" value="2000"/>
+          <add name="InitialLoadThreadPoolSize" value="10"/>
+          <add name="PerformOrderById" value="true"/>
+          <add name="UseMerge" value="true"/>
+        </Properties>
+      </ExternalDataSource>
+    </add>
+  </EmbeddedSpaces>
+</ProcessingUnit>
 {% endhighlight %}

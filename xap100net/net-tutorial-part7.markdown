@@ -72,7 +72,7 @@ The Space Persistency is implemented with the `ExternalDataSource`. These `Exter
 
 
 ### Persistence Adapter
-XAP comes with a built in implementation of Space Persistency for NHibernate. This implementation is an extension of the `ISqlDataSource` class. The implementation allows objects to be persisted using NHibernate mappings.
+XAP comes with a built in implementation of Space Persistency for NHibernate. This implementation is an extension of the `AbstractExternalDataSource` class. The implementation allows objects to be persisted using NHibernate mappings.
 
 
 
