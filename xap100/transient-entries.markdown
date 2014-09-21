@@ -15,6 +15,7 @@ Transient Space objects are treated the same as persistent objects, but when you
 When using the [Space Persistency](./space-persistency.html) feature, you might not want all space objects to be persistent or to be delivered to some data source. The Space Persistency feature makes sure transient space objects are not persisted or delivered to the data source.
 {% endtip %}
 
+The following example marks an entire class transient (i.e. non-persistent):
 {% highlight java %}
 @SpaceClass (persist=false)
 public class MyData {
@@ -22,6 +23,7 @@ public class MyData {
 }
 {% endhighlight %}
 
+The following example marks the property which determines whether a class instance is transient or persistent:
 {% highlight java %}
 @SpaceClass
 public class MyData {
