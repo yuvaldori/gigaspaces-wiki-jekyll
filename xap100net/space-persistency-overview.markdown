@@ -34,6 +34,16 @@ A walkthrough of a common scenario for using the GigaSpaces NHibernate External 
 - [Initial Data Load](./space-persistency-initial-load.html){%wbr%}
 Space data source initial Load pre-loads the space with data before it is available for clients.
 
+- [Asynchronous Persistence](./asynchronous-persistency-with-the-mirror.html){%wbr%}
+Reliable Asynchronous Persistency (Mirror)
+
+- [Transient Entries](./transient-entries.html){%wbr%}
+How to specify that some objects in a persistent space should not be saved to the persistent storage.
+
+- [Advanced Concepts](./space-persistency-advanced-topics.html){%wbr%}
+Space Persistency advanced topics such as advanced operations, tuning, troubleshooting, and limitations.
+
+
 <hr/>
 
 
