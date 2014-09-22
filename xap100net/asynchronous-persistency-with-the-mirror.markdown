@@ -185,5 +185,5 @@ You may view Mirror and its replication statistics via the [GigaSpaces Managemen
 
 {% refer %}
 See also the [Mirror Monitor JMX utility](/sbp/mirror-monitor.html) for graphical mirror service monitoring via JMX
-{% enrefer %}
+{% endrefer %}
 
