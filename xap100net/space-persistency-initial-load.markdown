@@ -6,174 +6,132 @@ parent: space-persistency-overview.html
 weight: 500
 ---
 
-
 {% summary  %} {% endsummary %}
-
-
 
 The XAP Data-Grid includes special interceptor that allow users to pre-load the Data-Grid with data before it is available for clients access. This interceptor called **Initial Load** and has a default implementation that is using the [NHibernate Space Persistency](./hibernate-space-persistency.html) implementation to load data from a database directly into the Data-Grid instances.
 
 ![eds_initial_load.jpg](/attachment_files/eds_initial_load.jpg)
 
-To enable the initial load activity a `ExternalDataSource` should be specified.
+To enable the initial load activity an `ExternalDataSource` should be specified. Here is an example for a space configuration that performs only initial load from the database without writing back any changes into the database (replication to the Mirror service is not enabled with this example):
 
-Here is an example for a space configuration that performs only initial load from the database without writing back any changes into the database (replication to the Mirror service is not enabled with this example):
-
-{% highlight csharp %}
-[BasicProcessingUnitComponent]
-public class ProcessorComponent : IDisposable
-{
-	[ContainerInitializing]
-	public void Initialize(BasicProcessingUnitContainer container)
-	{
-		//Create config for the processor
-		ProcessorConfig processorConfig = new ProcessorConfig(container.Properties);
-
-		//Create a new space configuration object that is used to start a space
-		SpaceConfig spaceConfig = new SpaceConfig();
-
-		//Set a new ExternalDataSource config object
-		spaceConfig.ExternalDataSourceConfig = EdsUtils.BuildNHibernateExternalDataSource();
-
-		//Our cluster member should only use the external data source in read only mode
-		spaceConfig.ExternalDataSourceConfig.Usage = Usage.ReadOnly;
-
-		//Add custom properties
-		spaceConfig.CustomProperties = new Dictionary<string, string>();
-
-		//State the External Data Source is in All-In-Cache mode
-		spaceConfig.CustomProperties.Add("space-config.engine.cache_policy", "1");
-
-		//Set a central data base.
-		spaceConfig.CustomProperties.Add("cluster-config.cache-loader.external-data-source", "true");
-		spaceConfig.CustomProperties.Add("cluster-config.cache-loader.central-data-source", "true");
-
-		// create cluster member space:
-		ISpaceProxy spaceProxy = container.CreateSpaceProxy("ProcessingSpace", processorConfig.SpaceUrl, spaceConfig);
-
-		spaceProxy.NoWriteLeaseMode = processorConfig.ProxyNoWriteLease;
-		spaceProxy.OptimisticLocking = processorConfig.ProxyOptimisticLocking;
-    }
-}
+{% highlight xml %}
+<ProcessingUnit>
+  <EmbeddedSpaces>
+    <add Name="space">
+      <Properties>
+		<!-- Use ALL IN CACHE - No Read Performed from the database in lazy manner -->
+        <add Name="space-config.engine.cache_policy" Value="1"/>
+	    <!-- Space properties to enable External Data Source -->
+        <add Name="cluster-config.cache-loader.external-data-source" Value="true"/>
+        <add Name="cluster-config.cache-loader.central-data-source" Value="true"/>
+      </Properties>
+      <ExternalDataSource Type="GigaSpaces.Practices.ExternalDataSource.NHibernate.NHibernateExternalDataSource" Usage="ReadOnly">
+        <!-- NHibernate-specific config goes here -->
+      </ExternalDataSource>
+    </add>
+  </EmbeddedSpaces>
+</ProcessingUnit>
 {% endhighlight %}
 
-# Speeding-up Initial-Load
-
-By default each Data-Grid primary partition loading its relevant data from the database and from there replicated to the backup instances.
-
-All irrelevant objects are filtered out during the data load process. You may optimize this activity by instructing each Data-Grid primary instance to a load-specific data set from the database via a custom query you may construct during the initial load phase.
-
-{% tip %}
+{% info %}
 The Initial Load is supported with the `partitioned-sync2backup` cluster schema. If you would like to pre-load a clustered space using the Initial-Load without running backups you can use the `partitioned-sync2backup` and have ZERO as the amount of backups.
-{% endtip %}
-
-
-
-
-# Custom Initial Load
-
-To implement your own Initial Load when using the NHibernate `ExternalDataSource` you should implement the `InitialLoad` method to construct one or more `NHibernateDataEnumerator`.
-See example below:
-
-{% highlight csharp %}
-public IDataEnumerator InitialLoad()
-{
-	int fetchSize = 100;
-	int initialLoadThreadPoolSize = 10;
-	bool idOrdering = false;
-
-	Query query = new Query(null,"from Employee where age > 30");
-
-	return new NHibernateDataEnumerator(query, _sessionFactory, fetchSize, idOrdering);
-}
-{% endhighlight %}
-
-
+{% endinfo %}
 
 # Controlling the Initial Load
 
-Additional level of customization can be done by loading only the relevant data into each partition.
+By default all the entries are loaded from the database into the space, but sometimes only a subset of the data is relevant for the space. This section explains how to control which data is loaded.
 
-In this case you should use the `partition ID` and `total number of partitions` parameters to form the correct database query.
-The relevant table column mapped to the routing field should have `numeric` type to allow simple calculation of the matching rows that need to be retrieved from the database and loaded into the partition. This means your database query needs to "slice" the correct data set from the database tables based on the `partition ID`.
-Here is an example how you can retrieve the `Partition ID` from within the `NHibernateExternalDataSource`.
+## Initial Load Entries
 
-Modify the `Init()` method in the `NHibernateExternalDataSource` class to retrieve the current partition number and the number of partitions from the properties. Then you will use these numbers in your sql query statement to load the correct data with each cluster member.
+The `NHibernateExternalDataSource` can be configured to load only specific types by configuring the property `InitialLoadEntries` with a list of fully-qualified type names. For example, to load only entries of type `MyEntry`:
 
-{%highlight csharp%}
-
-    int _partitionNumber;
-    int _numberOfPartitions;
-
-	public void Init(Dictionary<string, string> properties)
-	{
-        String partitionNumber;
-        String numberOfPartitions;
-
-        properties.TryGetValue("com.gigaspaces.datasource.partition-number", out partitionNumber);
-        properties.TryGetValue("com.gigaspaces.datasource.number-of-partitions", out numberOfPartitions);
-
-        _partitionNumber = Convert.ToInt16(partitionNumber);
-        _numberOfPartitions = Convert.ToInt16(numberOfPartitions);
-
-        // .....
-    }
-
-{%endhighlight%}
-
-Here is an example how to use this partition information in the query.
 {% highlight csharp %}
-public IDataEnumerator InitialLoad()
-{
-	String hquery;
-	int fetchSize = 100;
-	int initialLoadThreadPoolSize = 10;
-	bool idOrdering = false;
-
-	if (_numberOfPartitions > 1) {
-		hquery = "FROM  Person WHERE MOD(Department,"
-		+ _numberOfPartitions + ") = " + (_partitionNumber - 1);
-	} else {
-		hquery = "from  Person ";
+	public class MyExternalDataSource : NHibernateExternalDataSource
+	{
+		public MyExternalDataSource()
+		{
+			base.InitialLoadEntries = new string[] {"MyCompany.MyProject.MyEntry"};
+		}
 	}
+{% endhighlight %}
 
-	Query query = new Query(null,hquery);
+Of course we'll need to configure the space to use our custom extension instead of the standard NHibernate implementation:
 
-	return new NHibernateDataEnumerator(query, sessionFactory, fetchSize, idOrdering);
+{% highlight xml %}
+<ProcessingUnit>
+  <EmbeddedSpaces>
+    <add Name="space">
+      <Properties>
+        <add Name="space-config.engine.cache_policy" Value="1"/>
+        <add Name="cluster-config.cache-loader.external-data-source" Value="true"/>
+        <add Name="cluster-config.cache-loader.central-data-source" Value="true"/>
+      </Properties>
+      <ExternalDataSource Type="MyCompany.MyProject.MyExternalDataSource" Usage="ReadOnly">
+        <!-- NHibernate-specific config goes here -->
+      </ExternalDataSource>
+    </add>
+  </EmbeddedSpaces>
+</ProcessingUnit>
+{% endhighlight %}
+
+## Overriding the `InitialLoad` method
+
+To implement your own Initial Load when using the NHibernate `ExternalDataSource` you can override the `InitialLoad` method to construct one or more `IDataEnumerator`. For example:
+
+{% highlight csharp %}
+public class MyExternalDataSource : NHibernateExternalDataSource
+{
+    public override IDataEnumerator InitialLoad()
+	{
+		var queries = new string[] {"from MyEntry where Foo > 50"};
+		var enumerators = new List<IDataEnumerator>();
+		foreach (var query in queries)
+			enumerators.Add(new NHibernateDataEnumerator(new Query(null, query), 
+				SessionFactory, EnumeratorLoadFetchSize, PerformOrderById));
+		return new ConcurrentMultiDataEnumerator(enumerators, EnumeratorLoadFetchSize, InitialLoadThreadPoolSize);
+    }
 }
 {% endhighlight %}
 
+# Partitioned Cluster
 
+When using a partitioned cluster, each space partition stores a subset of the data, based on the entry routing property hash code value. Each partition performs its own initial load process and checks each loaded entry to verify it belongs to that partition - entries which do not belong are discarded.
+
+While this process protects the partition from storing irrelevant data, its performance is naive - imagine a cluster with 10 partitions which are evenly distributed: each partition will load the entire database and discard 90% of it, i.e. take roughly x10 times longer to load than actually needed. 
+
+Fortunately, there's a simple pattern which can be used to load only entries relevant to the partition in most cases. When a space entry has a routing property with a numeric type mapped to a column in the database, we can generate a custom initial load query to load only entries relevant for the partition based on the routing property. 
+
+For example, suppose class `MyEntry` has a routing property called **RoutingProperty**:
+
+{% highlight csharp %}
+public class MyEntry
+{
+	public int? Foo { get; set; }
+	[SpaceRouting]
+	public int? RoutingProperty { get; set; } 
+}
+{% endhighlight %}
+
+A customized initial load query would be:
+
+{% highlight csharp %}
+public override IDataEnumerator InitialLoad()
+{
+	var clusterInfo = ProcessingUnitContainer.Current.ClusterInfo;
+	var queries = new string[]
+	{
+		"from MyEntry where Foo > 50 AND RoutingProperty % " + clusterInfo.NumberOfInstances + " = " + clusterInfo.InstanceId
+	};
+	var enumerators = new List<IDataEnumerator>();
+	foreach (var query in queries)
+		enumerators.Add(new NHibernateDataEnumerator(new Query(null, query), 
+			SessionFactory, EnumeratorLoadFetchSize, PerformOrderById));
+	return new ConcurrentMultiDataEnumerator(enumerators, EnumeratorLoadFetchSize, InitialLoadThreadPoolSize);
+}
+{% endhighlight %}
+
+Note that the partition id and number of partitions are taken from the context of the currently running processing unit.
 
 {% note %}
-Make sure the routing field (i.e. `Department`) will be an Integer type.
+This mechanism only works for entries whose routing property type is numeric.
 {%endnote%}
-
-Since each space partition stores a subset of the data , based on the entry routing field hash code value , you need to load the data from the database in the same manner the client load balance the data when interacting with the different partitions.
-
-The database query using the `MOD`, `Department`, `number of partitions` and the `partition ID` to perform identical activity performed by a space client when performing write/read/take operations with partitioned space to rout the operation into the correct partition.
-
-{%learn%}./routing-in-partitioned-spaces.html{%endlearn%}
-
-# Multi-Parallel Initial Load
-
-The `ConcurrentMultiDataEnumerator` can be used for Multi-Parallel load. This will allow multiple threads to load data into each space primary partition. With the example below 10 threads will be used to load data into the space primary partition , each will handle a different `IDataEnumerator`:
-
-{% highlight csharp %}
-public IDataEnumerator InitialLoad()
-{
-    List<IDataEnumerator> enumerators = new List<IDataEnumerator>();
-
-	int fetchSize = 100;
-	int initialLoadThreadPoolSize = 10;
-	bool idOrdering = false;
-
-	Query query1 = new Query(null,"from Employee where Age > 30");
-	enumerators.Add(new NHibernateDataEnumerator(query1, sessionFactory, fetchSize, idOrdering);
-
-    Query query2 = new Query(null,"from Employee where LastName = ‘David’");
-    enumerators.Add(new NHibernateDataEnumerator(query2, sessionFactory, fetchSize, idOrdering);
-
-    return new ConcurrentMultiDataEnumerator(enumerators.ToArray(), fetchSize, initialLoadThreadPoolSize);
-}
-{% endhighlight %}
