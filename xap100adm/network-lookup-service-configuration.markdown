@@ -53,11 +53,12 @@ If you are looking for a way to use a unicast discovery, please refer to the [Ho
 # Multicast Settings
 
 {% note %}
-To support co-existence of different GigaSpaces versions, the defaults below may change between releases.
+To support co-existence of different XAP versions, the defaults below may change between releases.
 {%endnote%}
 
 Adjusting the lookup services multicast settings can be done using the following system properties:
 
+{%comment%}
 {: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
@@ -66,6 +67,9 @@ Adjusting the lookup services multicast settings can be done using the following
 |com.gs.multicast.discoveryPort|the port used during discovery for multicast requests. Defaults to `4174`. Note that in case the property `com.sun.jini.reggie.initialUnicastDiscoveryPort` system property is not defined it is also used as the default post for unicast requests.||
 |com.gs.multicast.ttl|The multicast packet time to live. | 3|
 |com.gs.multicast.enabled|a global property allowing you to completely enable or disable multicast in the system.||
+{%endcomment%}
+
+{% include /COM/xap100/config-multicast.markdown %}
 
 {% info %}
 The two multicast addresses allow you to completely separate two different GigaSpaces installations, so lookup services won't communicate with each other (even on the wire level, which is different than the groups, which communicate on the content level).

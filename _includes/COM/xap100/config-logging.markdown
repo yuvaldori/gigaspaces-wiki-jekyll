@@ -1,0 +1,6 @@
+
+{: .table .table-bordered .table-condensed}
+| Property name | Description | Default   |
+|-----|---|--|
+| com.gs.logging.disabled | If **true**, the default **gs_logging.properties** file will not be loaded and none of the GS log handlers will be set to the **LogManager**. | **false** |
+| line.separator | The GS logging formatter Line separator string.&nbsp; This is the value of the **line.separator** property at the moment that the **SimpleFormatter** was created. | |

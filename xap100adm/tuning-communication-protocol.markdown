@@ -137,6 +137,10 @@ To allow the above , the client must set the `java.rmi.server.hostname` property
 
 The `LRMI` configuration options set as system properties. They are listed below:
 
+
+{% include /COM/xap100/config-lrmi-transport.markdown %}
+
+{%comment%}
 {: .table .table-bordered .table-condensed }
 | System Property | Description | Default value | Server Client Setting | Unit | Can be overridden at the client side|
 |:----------------|:------------|:--------------|:----------------------|:-----|:------------------------------------|
@@ -162,7 +166,7 @@ The `LRMI` configuration options set as system properties. They are listed below
 | com.gs.transport_protocol.lrmi.timeout_resolution | Resolution in percents. Timeout resolution indicates the accuracy of the request timeout. | 10 | Client | Percent|Yes|
 |com.gs.transport_protocol.lrmi.system-priority.threadpool.min-threads|This parameter specifies the minimum size of a thread pool used to control admin API calls| 128 |  Server| Threads|No|
 |com.gs.transport_protocol.lrmi.system-priority.threadpool.max-threads | This parameter specifies the maximum size of a thread pool used to control admin API calls | 128 | Server | Threads|No|
-
+{%endcomment%}
 
 {% refer %}
 If you are using the **notification slow consumer** mechanism see the [Slow Consumer](./slow-consumer.html#Configuration -- Server Side) for additional LRMI parameters to configure.

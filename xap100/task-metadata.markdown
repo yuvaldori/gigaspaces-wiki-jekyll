@@ -15,9 +15,8 @@ weight: 400
 |Attribute Annotation|@TaskGigaSpace   |
 |Description         | This annotation injects a clustered proxy into the Task implementation. This is useful when the Task should access other partitions.   |
 
+Example:
 
-{% togglecloak id=4 %}**Example**{% endtogglecloak %}
-{% gcloak 4 %}
 {%highlight java%}
 public class MyTask implements Task<Integer>  {
 
@@ -30,7 +29,7 @@ public class MyTask implements Task<Integer>  {
 ....
 }
 {%endhighlight%}
-{% endgcloak %}
+
 
 {%learn%}./task-execution-overview.html{%endlearn%}
 
@@ -42,8 +41,8 @@ public class MyTask implements Task<Integer>  {
 |Description         | This annotation selects the routing value. In case it is a POJO defined with a @SpaceRouting on one of its properties, the value of that property will be used as the routing information when passed as a parameter.   |
 
 
-{% togglecloak id=5 %}**Example**{% endtogglecloak %}
-{% gcloak 5 %}
+Example:
+
 {%highlight java%}
 public class MyTask implements Task<Integer>  {
 
@@ -54,5 +53,5 @@ public class MyTask implements Task<Integer>  {
 ....
 }
 {%endhighlight%}
-{% endgcloak %}
+
 {%learn%}./task-execution-overview.html{%endlearn%}

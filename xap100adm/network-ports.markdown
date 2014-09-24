@@ -13,13 +13,14 @@ XAP space and client components open different ports in various situations. The 
 {% refer %}Learn how to **[set XAP over a firewall](./network-over-firewall.html)**.{% endrefer %}
 
 {: .table .table-bordered .table-condensed}
-| Service | Description | Configuration Property| Default value |
-|:--------|:------------|:----------------------|:--------------|
-|Lookup Service listening port|Used as part of the unicast lookup discovery protocol.|com.sun.jini.reggie.initialUnicastDiscoveryPort System property|XAP 6:4162{% wbr %}XAP 7:4164{% wbr %}XAP 8:4166{% wbr %}XAP 9:4170{% wbr %}<nobr>XAP 9.5:4174</nobr>|
-|LRMI listening port|Used with client-space and space-space communication. |com.gs.transport_protocol.lrmi.bind-port System property. |variable , random|
-|RMI registry listening port |Used as an alternative directory service.| com.gigaspaces.system.registryPort System property|10098 and above.|
-|RMI registry Retries |Used as an alternative directory service.| com.gigaspaces.system.registryRetries System property|Default is 20.|
-|Webster listening port|Internal web service used as part of the application deployment process. |com.gigaspaces.start.httpPort System property|9813|
+| Property name | Description |   Default value |
+|:--------|:------------|:----------------------|
+|com.sun.jini.reggie.initialUnicastDiscoveryPort|Lookup Service listening port<br>Used as part of the unicast lookup discovery protocol.|XAP 6:4162{% wbr %}XAP 7:4164{% wbr %}XAP 8:4166{% wbr %}XAP 9:4170{% wbr %}<nobr>XAP 9.5:4174</nobr>|
+|com.gs.transport_protocol.lrmi.bind-port|LRMI listening port<br>Used with client-space and space-space communication.  |variable , random|
+|com.gigaspaces.system.registryPort|RMI registry listening port <br>Used as an alternative directory service.|10098 and above.|
+|com.gigaspaces.system.registryRetries|RMI registry Retries <br>Used as an alternative directory service.|Default is 20.|
+|com.gigaspaces.start.httpPort|Webster listening port<br>Internal web service used as part of the application deployment process. |9813|
+
 
 - When starting a space and providing the port as part of the URL - i.e. `java://localhost:PORT/container/space` - the specified port will be used both for the RMI registry listener and also for the container to register into the RMI registry.
 - The Jini Lookup Service uses unicast and multicast announcements and requests.

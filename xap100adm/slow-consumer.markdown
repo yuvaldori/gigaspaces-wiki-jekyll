@@ -57,6 +57,9 @@ When the LRMI thread pool queue size in the client side reached its limit (clien
 
 To enable and tune the slow consumer mechanism, you should configure the LRMI layer at the server side with the following JVM system properties:
 
+{% include /COM/xap100/config-slow-consumer-server.markdown %}
+
+{%comment%}
 {: .table .table-bordered .table-condensed}
 |Property|Description|Default|Unit|
 |:-------|:----------|:------|:---|
@@ -64,6 +67,7 @@ To enable and tune the slow consumer mechanism, you should configure the LRMI la
 |<nobr>com.gs.transport_protocol.lrmi.slow-consumer.throughput</nobr>| Specify what is the lower bound of notification network traffic consumption (in bytes) by a client which below it, is suspected as a slow consumer. | 5000 | bytes/second  |
 |com.gs.transport_protocol.lrmi.slow-consumer.latency| Specify a time period the space will evaluate a client suspected as slow consumer until it will be identified as a slow consumer. At the end of this time period, a client identified as a slow consumer will have its notification lease canceled.| 500 | milliseconds|
 |com.gs.transport_protocol.lrmi.slow-consumer.retries| Specify the number of times within the specified latency limitation a space will retry to send notification into a client suspected as a slow consumer. | 3 | retries|
+{%endcomment%}
 
 {% note %}
 It may be required to alter the default slow consumer parameters according to the specific scenario.
@@ -78,8 +82,12 @@ You should configure the following JVM system properties at the **client side**.
 When using FIFO notifications, the fifo notify queue should be limited as well for the same reasons
 {%endinfo%}
 
+{% include /COM/xap100/config-slow-consumer-client.markdown %}
+
+{%comment%}
 {: .table .table-bordered .table-condensed}
 |Property|Description|Default|Unit|
 |:-------|:----------|:------|:---|
 |com.gs.transport_protocol.lrmi.threadpool.queue-size| specify the lrmi thread pool maximum queue size|Integer.MAX_VALUE |Notification Packets (object/batch)|
 |com.gs.fifo_notify.queue| specify the fifo notifications queue size|Integer.MAX_VALUE|Notification Packets (object/batch)|
+{%endcomment%}
