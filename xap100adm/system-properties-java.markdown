@@ -50,6 +50,10 @@ Refer to [Tuning the communication protocol](./tuning-communication-protocol.htm
 
 {% include /COM/xap100/config-jmx.markdown %}
 
+{%refer%}
+Refer to [JMX Management](./space-jmx-management.html)
+{%endrefer%}
+
 # Multicast
 
 {% include /COM/xap100/config-multicast.markdown %}
@@ -67,6 +71,9 @@ Refer to [Multicast Settings](./network-lookup-service-configuration.html#multic
 
 {% include /COM/xap100/config-local-cache.markdown %}
 
+{%refer%}
+Refer to [Local Cache]({%currentjavaurl%}/local-cache.html)
+{%endrefer%}
 
 # Space Filter
 
@@ -76,6 +83,9 @@ Refer to [Multicast Settings](./network-lookup-service-configuration.html#multic
 
 {% include /COM/xap100/config-logging.markdown %}
 
+{%refer%}
+Refer to [Logging](./logging-overview.html)
+{%endrefer%}
 
 # Debug
 
@@ -127,6 +137,9 @@ Refer to [Slow consumer](./slow-consumer.html)
 
 {% include /COM/xap100/config-jdbc.markdown %}
 
+{%refer%}
+Refer to [JDBC Driver]({%currentjavaurl%}/jdbc-driver.html)
+{%endrefer%}
 
 # Hibernate
 

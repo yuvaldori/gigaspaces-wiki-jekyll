@@ -110,7 +110,7 @@ LRU eviction based on the amount of available memory, performs the following:
 
 The used memory rate is calculated via:
 
-{% highlight java %}
+{% highlight console %}
 Used_memory_rate = (Runtime.totalMemory() - Runtime.freeMemory() * 100.0) / Runtime.maxMemory()
 {% endhighlight %}
 
@@ -127,7 +127,7 @@ The `org.openspaces.core.SpaceMemoryShortageException` (which wraps the `com.j_s
 
 If a client is running a local cache, and the local cache cannot evict its data fast enough, or somehow there is no available memory for the local cache to function, the following is thrown:
 
-{% highlight java %}
+{% highlight console %}
 org.openspaces.core.SpaceMemoryShortageException: Memory shortage at: host: MachineHostName,
 container: mySpace_container_container1, space mySpace_container_DCache, total memory: 1527 mb,
 used memory: 1497 mb
