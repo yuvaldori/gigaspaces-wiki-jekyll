@@ -31,21 +31,21 @@ Recovery process has two phases: a snapshot phase and a completion phase.
 All space objects are copied from to the target to the source in batches. This is done concurrently by multiple threads.
 In case the recovery process takes a lot of time, the following configuration can be tuned to decrease the recovery time.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Property | Description | Default Value |
 |:---------|:------------|:--------------|
-| `cluster-config.groups.group.repl-policy.recovery-chunk-size` | Integer value. Defines how many operations are recovered is a single batch  | 200 |
-| `cluster-config.groups.group.repl-policy.recovery-thread-pool-size` | Integer value. Defines how many threads are recovering the data during the snapshot process . | 4 |
+| cluster-config.groups.group.repl-policy.recovery-chunk-size | Integer value. Defines how many operations are recovered is a single batch  | 200 |
+| cluster-config.groups.group.repl-policy.recovery-thread-pool-size | Integer value. Defines how many threads are recovering the data during the snapshot process . | 4 |
 
 ## Completion Phase
 
 Operations that were performed on the source space during the snapshot phase are not a part of the recovered snapshot, so they are accumulated in the source space instance redo-log and are sent to the target space once the snapshot phase is finished via replication.
 In case a limited redo log is used the following property defines the maximum size of the redo log during recovery:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Property | Description | Default Value |
 |:---------|:------------|:--------------|
-| `cluster-config.groups.group.repl-policy.redo-log-recovery-capacity` | Integer value. Defines the maximum size of the redo log kept on the source space during recovery.  | 5000000 |
+| cluster-config.groups.group.repl-policy.redo-log-recovery-capacity | Integer value. Defines the maximum size of the redo log kept on the source space during recovery.  | 5000000 |
 
 {% refer %}For more info refer to [Controlling the Replication Redo Log](./controlling-the-replication-redo-log.html){% endrefer %}
 

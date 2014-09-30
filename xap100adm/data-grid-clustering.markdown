@@ -24,7 +24,7 @@ This section describes in detail how In-Memory-Data-Grid clustering works. It co
 
 
 
-- [Overview](data-grid-clustering-overview.html){%wbr%}
+- [Clustering](data-grid-clustering-overview.html){%wbr%}
 This section describe into details how the In-Memory-Data-Grid clustering works. It goes into the details of the fail-over, load-balancing, and replication facilities used.
 
 
@@ -47,6 +47,18 @@ This section gives a detailed description of the Space’s replication mechanism
 This section describes Data-Grid cluster split brain and primary resolution flow.
 
 <hr/>
+
+#### Additional Resources
+
+
+
+NoCAP [{%externalurl%}](http://natishalom.typepad.com/nati_shaloms_blog/2010/10/nocap.html)
+
+NoCAP - Part II Availability and Partition tolerance [{%externalurl%}](http://natishalom.typepad.com/nati_shaloms_blog/2010/11/nocap-part-ii-availability-and-partition-tolerance.html)
+
+NoCAP - Part III - GigaSpaces clustering explained [{%externalurl%}](http://natishalom.typepad.com/nati_shaloms_blog/2010/11/nocap-part-iii-gigaspaces-clustering-explained.html)
+
+Data Grid Clustering [{%externalurl%}](http://www.slideboom.com/presentations/615477/GigaSpaces_HA)
 
 
 

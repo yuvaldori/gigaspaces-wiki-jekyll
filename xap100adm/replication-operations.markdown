@@ -14,10 +14,10 @@ The replication module used to synchronize the data and state between two space 
 
 # Which Operations are Replicated?
 
-1. Write/Update/Take of space objects.
-1. Registration to notify events.
-1. Object/Notifications lease cancellation or renewal.
-1. Committed transactions.
+- Write/Update/Take of space objects.
+- Registration to notify events.
+- Object/Notifications lease cancellation or renewal.
+- Committed transactions.
 
 {% refer %}
 All the operations that are replicated, are also recovered during the space recovery process. See [Space Instance Recovery](./space-instance-recovery.html)
@@ -25,12 +25,12 @@ All the operations that are replicated, are also recovered during the space reco
 
 # Which Operations are Not Replicated?
 
-1. Notifications on space operations.
-1. Object/Notifications lease expiration.
-1. Data loading from the database.
-1. Uncommitted transactions.
-1. Space tasks
-1. Read only operations - read/count etc.
+- Notifications on space operations.
+- Object/Notifications lease expiration.
+- Data loading from the database.
+- Uncommitted transactions.
+- Space tasks
+- Read only operations - read/count etc.
 
 #  Replication Granularity
 
@@ -95,15 +95,15 @@ This behavior can be controlled with the following configuration:
 
 Here are the system behaviors when using these options:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Property | Description | Default Value |
 |:---------|:------------|:--------------|
-| `cluster-config.groups.group.repl-policy.replicate-notify-templates` | Boolean value. If set to `true`, the notify templates are replicated to the target space. | true|
-| `cluster-config.groups.group.repl-policy.trigger-notify-templates` | Boolean value. If set to `true`, the replicated operations will trigger the notify templates and send events to the registered listeners. | false |
+|  cluster-config.groups.group.repl-policy.replicate-notify-templates  | Boolean value. If set to **true**, the notify templates are replicated to the target space. | true|
+|  cluster-config.groups.group.repl-policy.trigger-notify-templates  | Boolean value. If set to **true**, the replicated operations will trigger the notify templates and send events to the registered listeners. | false |
 
 A table describing the behavior of combining the different properties:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Replicate Notify Template Setting | Trigger Notify Template Setting | Explanation |
 |:----------------------------------|:--------------------------------|:------------|
 | True | False | Client gets notification from the active space after registration.{% wbr %}If the active source space fails the target  space instance will continue to send the events to the registered listeners. |
@@ -129,10 +129,10 @@ Most common scenarios:
 The default behavior in these cases is to treat the conflicting operations as duplicates and ignore them.
 This can be controlled using the following property:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Property | Description | Default Value |
 |:---------|:------------|:--------------|
-| `cluster-config.groups.group.repl-policy.on-conflicting-packets` | Enum value. If set to `ignore`, the conflicting operations are ignored. If set to `override` the newest operation will override the data in the target.| ignore|
+| cluster-config.groups.group.repl-policy.on-conflicting-packets | Enum value. If set to **ignore**, the conflicting operations are ignored. If set to **override** the newest operation will override the data in the target.| ignore|
 
 # Replication Optimizations
 

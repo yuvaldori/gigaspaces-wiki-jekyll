@@ -1,6 +1,6 @@
 ---
 layout: post100
-title:  Overview
+title:  Clustering
 categories: XAP100ADM
 parent: data-grid-clustering.html
 weight: 50
@@ -10,71 +10,51 @@ weight: 50
 {% summary %} {% endsummary %}
 
 
+{%section%}
+{%column width=80% %}
+{%wbr%}
+{%wbr%}
+{%wbr%}
+XAP's Data-Grid clustering, scalability and High-Availability are based on the following concepts:
+{%endcolumn%}
+{%column width=20% %}
+{%popup /attachment_files/data-grid-clustering-explained.jpg | Data Grid Clustering %}
+{%endcolumn%}
+{%endsection%}
 
-GigaSpaces Data-Grid clustering Scalability and High-Availability are based on the following concepts:
+
+
+{%vbar title=Scalability%}
+
+- Data is segmented into [partitions](./data-partitioning.html). Each partition includes a primary instance and ZERO or more backups instances. A partition (primary or a backup) hosted within a single [Grid Service container]({%currentadmurl%}/the-runtime-environment.html).
+- Data access is load-balanced across the different partitions using a routing field or a [routing value]({%currentjavaurl%}/routing-in-partitioned-spaces.html) specified as part of the space object or as part of the read/execute request. This allows the application to control the data distribution in a transparent manner.
+- Some operations such as batch read or [execute]({%currentjavaurl%}/task-execution-over-the-space.html) support [map-reduce]({%currentjavaurl%}/space-based-remoting.html) behavior allowing the application to access multiple partitions in parallel.
+- Partition maximum size would be the Grid Service container heap size. GigaSpaces support large heap size (up to 100GB in RAM). A Grid Service container may host multiple partitions (primary or backup instances).
+- A Data-Grid may have unlimited number of partitions. In reality the number of partition will be in the same magnitude as the number of Grid Service containers or servers that will be running the Data-Grid. This allows the data-grid to scale dynamically and re-balance itself across more Grid Service containers.
+- The number of Data-Grid partitions is determined at the deployment time. The number of Grid Service containers hosting the Data-Grid partitions is dynamic and may change in runtime. It can scale in an [elastic]({%currentjavaurl%}/elastic-processing-unit.html) manner when using the ESM.
+{%endvbar%}
+
+{%vbar title=High-Availability%}
+
+- Data Availability using [synchronous replication](./synchronous-replication.html) to remote in-memory backups.
+- Backup instances are always running on different physical machines than the ones running primary instances
+- Persistency to database/disk done in a reliable [Asynchronous manner]({%currentjavaurl%}/asynchronous-persistency-with-the-mirror.html).
+- Once an instance of the system [fails](./failover.html) a new one recreated on-the-fly on some available machine. If the instance is primary, the existing backup turn into primary and a new backup is created.
+- You can have more than a single backup copy per partition.
+- Backup can be on the LAN or WAN. For remote WAN, special replication module is provided called the [replication Gateway]({%currentjavaurl%}/multi-site-replication-over-the-wan.html ).
+- Backup instances cannot be accessed by clients for write/read. This ensures total data consistency and avoids conflicts.
+- Once a backup is not available the primary will log all activities (on file or [overflow to disk](./controlling-the-replication-redo-log.html)) and send these to the backup once it will be available (send only delta). With a long disconnection total recovery of the backup will be conducted.
+- Transaction boundary preserved when data is replicated from primary instance to the backup, when persisting the data or when replicating the data into remote site over the WAN ([WAN Gateway]({%currentjavaurl%}/multi-site-replication-over-the-wan.html)).
+{%endvbar%}
 
 
 
 
 
-## Scalability
 
-1. Data is segmented into [partitions](./data-partitioning.html). Each partition includes a primary instance and ZERO or more backups instances. A partition (primary or a backup) hosted within a single [Grid Service container]({%currentadmurl%}/the-runtime-environment.html).
-1. Data access is load-balanced across the different partitions using a routing field or a [routing value]({%currentjavaurl%}/routing-in-partitioned-spaces.html) specified as part of the space object or as part of the read/execute request. This allows the application to control the data distribution in a transparent manner.
-1. Some operations such as batch read or [execute]({%currentjavaurl%}/task-execution-over-the-space.html) support [map-reduce]({%currentjavaurl%}/space-based-remoting.html) behavior allowing the application to access multiple partitions in parallel.
-1. Partition maximum size would be the Grid Service container heap size. GigaSpaces support large heap size (up to 100GB in RAM). A Grid Service container may host multiple partitions (primary or backup instances).
-1. A Data-Grid may have unlimited number of partitions. In reality the number of partition will be in the same magnitude as the number of Grid Service containers or servers that will be running the Data-Grid. This allows the data-grid to scale dynamically and re-balance itself across more Grid Service containers.
-1. The number of Data-Grid partitions is determined at the deployment time. The number of Grid Service containers hosting the Data-Grid partitions is dynamic and may change in runtime. It can scale in an [elastic]({%currentjavaurl%}/elastic-processing-unit.html) manner when using the ESM.
 
-## High-Availability
 
-1. Data Availability using [synchronous replication](./synchronous-replication.html) to remote in-memory backups.
-1. Backup instances are always running on different physical machines than the ones running primary instances
-1. Persistency to database/disk done in a reliable [Asynchronous manner]({%currentjavaurl%}/asynchronous-persistency-with-the-mirror.html).
-1. Once an instance of the system [fails](./failover.html) a new one recreated on-the-fly on some available machine. If the instance is primary, the existing backup turn into primary and a new backup is created.
-1. You can have more than a single backup copy per partition.
-1. Backup can be on the LAN or WAN. For remote WAN, special replication module is provided called the [replication Gateway]({%currentjavaurl%}/multi-site-replication-over-the-wan.html ).
-1. Backup instances cannot be accessed by clients for write/read. This ensures total data consistency and avoids conflicts.
-1. Once a backup is not available the primary will log all activities (on file or [overflow to disk](./controlling-the-replication-redo-log.html)) and send these to the backup once it will be available (send only delta). With a long disconnection total recovery of the backup will be conducted.
-1. Transaction boundary preserved when data is replicated from primary instance to the backup, when persisting the data or when replicating the data into remote site over the WAN ([WAN Gateway]({%currentjavaurl%}/multi-site-replication-over-the-wan.html)).
-
-{% indent %}
-![data-grid-clustering-explained.jpg](/attachment_files/data-grid-clustering-explained.jpg)
-{% endindent %}
-
-# References
-
-[NoCAP](http://natishalom.typepad.com/nati_shaloms_blog/2010/10/nocap.html)
-
-[NoCAP - Part II Availability and Partition tolerance](http://natishalom.typepad.com/nati_shaloms_blog/2010/11/nocap-part-ii-availability-and-partition-tolerance.html)
-
-[NoCAP - Part III - GigaSpaces clustering explained](http://natishalom.typepad.com/nati_shaloms_blog/2010/11/nocap-part-iii-gigaspaces-clustering-explained.html)
-
-# GigaSpaces Clustering
-
-See below high-level description of the GigaSpaces Clustering. It explains how load-balancing, failover , replication and high-availability works.
-
-<div style="width:425px;text-align:left">
-  <a style="font:14px Helvetica,Arial,Sans-serif;color: #0000CC;display:block;margin:12px 0 3px 0;text-decoration:underline;" href="//www.slideboom.com/presentations/615477/GigaSpaces_HA" title="GigaSpaces Clustering"></a>
-  <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="425" height="370" id="onlinePlayer615477">
-    <param name="movie" value="//www.slideboom.com/player/player.swf?id_resource=615477" />
-    <param name="allowScriptAccess" value="always" />
-    <param name="quality" value="high" />
-    <param name="bgcolor" value="#ffffff" />
-    <param name="allowFullScreen" value="true" />
-    <param name="flashVars" value="" />
-    <embed src="//www.slideboom.com/player/player.swf?id_resource=615477" width="425" height="370" name="onlinePlayer615477" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" allowScriptAccess="always" quality="high" bgcolor="#ffffff" allowFullScreen="true" flashVars="" ></embed>
-  </object>
-  <div style="font-size:11px;font-family:tahoma,arial;height:26px;padding-top:2px;"></div>
-</div>
-
-More details about Data-Grid clustering can be found here:
-
-{% children %}
-
-# GigaSpaces Clustering Explained
-
-## Consistency
+# Consistency
 
 ### Consistency under concurrent updates
 
@@ -84,19 +64,19 @@ To ensure consistency in the case of concurrent updates on the same data record 
 
 To ensure the continuous high availability we keep one or more copies of our data. In asynchronous replication, we may end up with scenarios where read and write operations would hit two different nodes at the same time and end up reading two separate versions of that same data. There are various algorithms that were developed to handle that situation. In our case we chose to avoid getting into that situation in the first place through the use of synchronous backup.  The performance overhead of the synchronous replication is fixed and is not proportional to the size of the cluster (each partition replicates data only to its backup replica). The replication to the database is kept asynchronous to reduce the overhead of writing to disk.
 
-### Transaction Consistency
+# Transaction Consistency
 
 Single operations or groups of operations can be executed under transactions. This ensures the ACID properties. Transactions can be made local to each partition. In this case, they will bound to the scope of a single partition and would be highly optimized in terms of performance. Transaction can also span between nodes (in this case the overhead is obviously going to be higher).
 
-### Ordering
+# Ordering
 
 All operations are ordered based on the time they were written. This is specifically relevant to ensure the consistency between the in-memory cluster and the long-term storage which is being updated asynchronously.
 
-## Availability
+# Availability
 
 ### Primary failure
 
-GigaSpaces keep one or more replica nodes as a hot backup. The hot backup will take over immediately in case a primary node fails. The hot backup nodes uses synchronous replication to ensure no data loss before fail-over took place.
+XAP keep one or more replica nodes as a hot backup. The hot backup will take over immediately in case a primary node fails. The hot backup nodes uses synchronous replication to ensure no data loss before fail-over took place.
 
 ### Backup failure
 
@@ -112,9 +92,9 @@ Clients use a cluster-aware proxy to communicate with the cluster. The smart pro
 
 ### Lookup Discovery protocol
 
-The GigaSpaces cluster discovery mechanism is based on the Jini specification. Services use the discovery protocol to find nodes within the cluster and share cluster state amongst all nodes.
+The XAP cluster discovery mechanism is based on the Jini specification. Services use the discovery protocol to find nodes within the cluster and share cluster state amongst all nodes.
 
-## Partition Tolerance
+# Partition Tolerance
 
 ### Network partition between primary and backup
 
@@ -131,7 +111,7 @@ Most people referred to scenarios where two sites can live in two separate locat
 - Disaster Recovery Site - This often located in close geographical proximity to the primary site and is backed by high-bandwidth and redundant network.
 - Geographically Distributed Sites over Internet WAN - In this case we have multiple sites that are spread over the globe. Unlike disaster recovery sites those sites tend to operate under lower SLA's and significantly higher latency. The recommended approach for dealing with multi site network partition would be fairly different in each of the categories that are mentioned above:
 
-### Disaster Recovery Site
+# Disaster Recovery Site
 
 Disaster recovery sites are very much like any node in a local network but often live in different network segments and with higher latency than local networks. Nodes within a cluster can be tagged with a zones tag to mark their data-center affinity. The system can use this information to automatically provision primary and backup nodes between the two sites. It will use the zone tag to ensure that primary and backup are always spread between two data centers.
 Consistency & Availability - The consistency and availability mode would be just the same as LAN based deployment as described above but the performance and throughput per partition would be lower due to the higher latency associated with the synchronous replication.
@@ -150,7 +130,7 @@ In this scenario, nodes are spread over internet connections where the SLAs are 
 Another option to deal with consistency under concurrent updates between two sites can be based on versioning. In that case it is assumed that the latest version wins or the system will delegate the decision for resolution on conflicting updates to the application.  This is a more complex scenario that goes beyond the scope of this article.
 {% endnote %}
 
-## Handling Extreme Failure
+# Handling Extreme Failure
 
 ### Multiple node Failures at the Same Time
 
@@ -160,7 +140,7 @@ In cases where both the primary and backup of a given partition fails at the sam
 If we choose to use a proper disaster recovery site setup where we ensure that primaries and their backups never run on the same site the chances for having such a failure is close to zero in the first place and can be considered equal for having the two sites down at the same time.
 {% endnote %}
 
-### Recovery from a Total Failure
+# Recovery from a Total Failure
 
 When the entire system crashes, it will boot itself from the long-term persistent storage or from a snapshot (new). In that case we may lose some of the data that was kept in memory and wasn't yet delivered to the  long term persistent storage. It is important to note that in a disaster recovery setup that event can happen only when both sites goes down at the same time.  In that case the system would recover itself from the data that was last updated in the long-term storage.
 

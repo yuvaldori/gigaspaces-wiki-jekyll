@@ -16,9 +16,9 @@ Replication is the process of duplicating or copying application data and operat
 
 The replication topologies are split into three groups:
 
-1. Primary backup
-1. Primary backup with a mirror (reliable asynchronous replication)
-1. Active-Active (fully replicated)
+- Primary backup
+- Primary backup with a mirror (reliable asynchronous replication)
+- Active-Active (fully replicated)
 
 ## Primary-Backup
 
@@ -38,8 +38,8 @@ This topology consists of a group of space instances that are part of the same r
 
 There are two replication modes:
 
-1. Synchronous replication - the data is replicated as part of the modifying space operation
-1. Asynchronous replication - the data is replicated asynchronously to the space operation
+- Synchronous replication - the data is replicated as part of the modifying space operation
+- Asynchronous replication - the data is replicated asynchronously to the space operation
 
 The common usage of these modes is synchronous for Primary-Backup topology and asynchronous for Active-Active topologies.
 

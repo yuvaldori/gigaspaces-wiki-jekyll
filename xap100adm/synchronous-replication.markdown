@@ -37,11 +37,11 @@ Synchronous replication is most beneficial in the following scenarios:
 
 1. A destructive space operation is called.
 1. The source space:
-    1.Performs the operation.
-    1.Replicates the operation to all the targets and wait for acknowledgement from the targets.
+    1. Performs the operation.
+    1. Replicates the operation to all the targets and wait for acknowledgement from the targets.
 
 1. The target space receives a replication packet:
-    1.Makes sure parallel operations are processed in the correct order.
+    1. Makes sure parallel operations are processed in the correct order.
 
 1. Once the replication packet is processed, the target space sends a confirmation to the source space.
 1. The source space sends acknowledgement to the client.

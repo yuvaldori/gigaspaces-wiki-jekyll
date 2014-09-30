@@ -43,7 +43,7 @@ The XAP LRMI using two independent resource pools working collaboratively allowi
 
 The client LRMI connection pool maintained per server component - i.e. by each space partition. For each space partition a client maintains a dedicated connection pool shared between all client threads accessing a specific partition. When having multiple partitions (N) hosted within the same GSC, a client may open maximum of `N * com.gs.transport_protocol.lrmi.max-conn-pool` connections against the GSC JVM process.
 
-{% tip %}
+{% vbar %}
 You may need to change the `com.gs.transport_protocol.lrmi.max-conn-pool` value (1024) to have a smaller number. The default might be high for application with multiple partitions.
 
 {% highlight console %}
@@ -57,7 +57,7 @@ ulimit -n 32000
 {% endhighlight %}
 
 or by lowering the `com.gs.transport_protocol.lrmi.max-conn-pool` value.
-{% endtip %}
+{% endvbar %}
 
 ## Server LRMI Connection Thread Pool
 

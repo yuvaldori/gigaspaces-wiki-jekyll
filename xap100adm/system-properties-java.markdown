@@ -44,6 +44,10 @@ Refer to [Tuning the communication protocol](./tuning-communication-protocol.htm
 
 {% include /COM/xap100/config-jms.markdown %}
 
+{%refer%}
+Refer to [Messaging support]({%currentjavaurl%}/messaging-support.html)
+{%endrefer%}
+
 
 
 #JMX
@@ -79,6 +83,13 @@ Refer to [Local Cache]({%currentjavaurl%}/local-cache.html)
 
 {% include /COM/xap100/config-space-filter.markdown %}
 
+{%refer%}
+Refer to [Space Filters]({%currentjavaurl%}/the-space-filters.html)
+{%endrefer%}
+
+
+
+
 # Logging
 
 {% include /COM/xap100/config-logging.markdown %}
@@ -105,11 +116,11 @@ Refer to [Logging](./logging-overview.html)
 
 # Slow Consumer
 
-#### Server side
+### Server side
 
 {% include /COM/xap100/config-slow-consumer-server.markdown %}
 
-#### Client side
+### Client side
 
 {% include /COM/xap100/config-slow-consumer-client.markdown %}
 
@@ -122,10 +133,18 @@ Refer to [Slow consumer](./slow-consumer.html)
 
 {% include /COM/xap100/config-cluster.markdown %}
 
+{%refer%}
+Refer to [Data Grid Clustering](./data-grid-clustering.html)
+{%endrefer%}
+
 
 # Replication
 
 {% include /COM/xap100/config-replication.markdown %}
+
+{%refer%}
+Refer to [Replication](./replication.html)
+{%endrefer%}
 
 
 # Space Browser

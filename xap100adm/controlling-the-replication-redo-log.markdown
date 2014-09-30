@@ -24,7 +24,7 @@ The below configuration parameters have a significant effect on the behavior of 
 
 Here are the parameters you may configure to tune the redo log behavior. You may configure the redo log behavior between replicated spaces and between the spaces and the Mirror:
 
-{: .table .table-bordered .table-condensed}
+{: .table .table-bordered .table-condensed .table-condensed}
 | Space Cluster Property | Description | Default Value for partitioned-sync2backup | Default Value for replicated clusters |
 |:-----------------------|:------------|:------------------------------------------|:--------------------------------------|
 |cluster-config.groups.group.repl-policy.redo-log-capacity | Specifies the total capacity of replication packets the redo log can hold for a standard replication target.| 150000 | -1/unlimited |
@@ -37,7 +37,7 @@ Here are the parameters you may configure to tune the redo log behavior. You may
 
 The following parameters are low level configuration that relates to the swap redo log mechanism:
 
-{: .table .table-bordered .table-condensed}
+{: .table .table-bordered .table-condensed .table-condensed}
 | Space Cluster Property | Description | Default Value|
 |:-----------------------|:------------|:-------------|
 |cluster-config.groups.group.repl-policy.swap-redo-log.flush-buffer-packet-count | Specifies the number of packets buffer size that the swap redo log is using when flushing packets to the disk. | 500 |
