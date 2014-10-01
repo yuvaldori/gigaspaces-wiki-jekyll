@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/Gigaspaces/gigaspaces-wiki-jekyll/tree/master.png?style=badge)](https://circleci.com/gh/Gigaspaces/gigaspaces-wiki-jekyll/tree/master)
+
 # GigaSpaces XAP Documentation
 
 This repository contains the markup files, html templates and javascript sources for the new [GigaSpaces XAP documentation portal](http://docs.gigaspaces.com).
