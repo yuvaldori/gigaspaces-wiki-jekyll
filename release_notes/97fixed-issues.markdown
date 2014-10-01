@@ -83,6 +83,7 @@ Below is a list of issues that have been fixed in GigaSpaces 9.7.X.
 | GS-11536 | LRMI threads cause JVM-wide slowdown with parallel reads | 9.7.1, 10.0.0 | 8527 | Java |
 | GS-11559 | ESM - Scale undeployment is in progress, stuck in a loop caused by ExpectedMachineWithMoreMemoryException | 9.7.0 | 8586 | Java |
 | GS-11561 | Reading a POJO which contains a document using mongo EDS fails | 9.7.1, 10.0.0 |  | Java |
+| GS-11599 | Limit number of LookupKeepaliveTask's per lookup service | 9.7.1, 10.0.0 |  | Java |
 | GS-11606 | Deterministic Deployment is not working on secured grid | 9.7.1, 10.0.0 | 8642 | All |
 | GS-11615 | SpaceDataSourceSplitter#initialMetadataLoad might causes NPE | 9.7.1, 10.0.0 | 8655 | All |
 | GS-11616 | ReadModifiers  missing default constructor  | 9.7.1, 10.0.0 | 8657 | Java |
