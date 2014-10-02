@@ -153,6 +153,7 @@ RPC (Remote Procedure Call) is used to invoke business logic method on a remote 
 In XAP, this mode of interaction is achieved by space-based remoting. This method leverages the fact that the space is already exposed as a remote entity, and has an existing virtualization mechanism, to enable remote invocation on services that are spread across multiple Processing Units, possibly running on multiple physical machines.
 
 With space-based remoting, a remote stub in generated for the remote service, using dynamic proxies. When a method is invoked on this proxy, the stub implicitly maps it to a command that is written to the space and is routed to the appropriate server instance. On the server-side, a generic delegator takes these commands and execute the method on the specific bean instance, based on the method name and arguments provided in the command. The result is also returned through the space, is received by the dynamic proxy, and is returned transparently to the client as the return value of the method.
+
 {% refer %}For more details, see [Executor Based Remoting]({%latestjavaurl%}/executor-based-remoting.html).{% endrefer %}
 
 ## Remote Client Interaction Options
