@@ -1,7 +1,9 @@
 ---
 layout: post
-title:  Product Overview
+title:  Overview
 categories: PRODUCT_OVERVIEW
+parent: none
+weight: 100
 ---
 
 {%summary%}{%endsummary%}
