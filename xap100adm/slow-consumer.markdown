@@ -2,8 +2,8 @@
 layout: post100
 title:  Slow Consumer
 categories: XAP100ADM
-parent: tuning-gigaspaces-performance.html
-weight: 50
+parent:  tuning-gigaspaces-performance-overview.html
+weight: 200
 ---
 
 {% summary %}  {% endsummary %}

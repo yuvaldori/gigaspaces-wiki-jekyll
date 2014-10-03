@@ -15,7 +15,7 @@ In this guide you will find information on how to tune your XAP application. Amo
 - [Infrastructure Tuning](./tuning-infrastructure.html){%wbr%}
 Recommendations for tuning the infrastructure on which XAP is running.
 
-- [XAP Performance Tuning](./tuning-gigaspaces-performance.html){%wbr%}
+- [XAP Performance Tuning](./tuning-gigaspaces-performance-overview.html){%wbr%}
 Recommendations for tuning XAP, boosting its performance, and improving its scalability.
 
 - [JVM Tuning](./tuning-java-virtual-machines.html){%wbr%}

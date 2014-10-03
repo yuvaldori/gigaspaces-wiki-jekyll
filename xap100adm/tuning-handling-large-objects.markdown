@@ -2,15 +2,15 @@
 layout: post100
 title:  Handling Large Objects
 categories: XAP100ADM
-parent: tuning-gigaspaces-performance.html
-weight: 200
+parent:  tuning-gigaspaces-performance-overview.html
+weight: 500
 ---
 
 {% summary %}{% endsummary %}
 
 
 
-GigaSpaces IMDG may store file and large objects in memory (audio files/movie files/large xml files). The GigaSpaces internal communication protocol implementation split large data objects passed between different remote processes (i.e. client and space) into multiple chunks (64K size by default). This provides scalable and stable system allowing clients to write and read large space objects. You may use any client interface; Java, .Net and C++ leveraging any of the supported data access API with large objects: [GigaSpace]({%currentjavaurl%}/the-gigaspace-interface.html) , [GigaMap]({%currentjavaurl%}/map-api.html) , [JDBC Driver]({%currentjavaurl%}/jdbc-driver.html), [JMS]({%currentjavaurl%}/messaging-support.html), [JPA]({%currentjavaurl%}/jpa-api.html), [Document]({%currentjavaurl%}/document-api.html).
+XAP IMDG may store file and large objects in memory (audio files/movie files/large xml files). The XAP internal communication protocol implementation split large data objects passed between different remote processes (i.e. client and space) into multiple chunks (64K size by default). This provides scalable and stable system allowing clients to write and read large space objects. You may use any client interface; Java, .Net and C++ leveraging any of the supported data access API with large objects: [GigaSpace]({%currentjavaurl%}/the-gigaspace-interface.html) , [GigaMap]({%currentjavaurl%}/map-api.html) , [JDBC Driver]({%currentjavaurl%}/jdbc-driver.html), [JMS]({%currentjavaurl%}/messaging-support.html), [JPA]({%currentjavaurl%}/jpa-api.html), [Document]({%currentjavaurl%}/document-api.html).
 
 In order to store large files in memory, you should simply load the file into the relevant Data type (byte array , blob) and use the relevant API to write the data into the space. Large objects are treated like any other objects stored within the space.
 

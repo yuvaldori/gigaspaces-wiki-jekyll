@@ -2,8 +2,8 @@
 layout: post100
 title:  Large Scale Deployment
 categories: XAP100ADM
-parent: tuning-gigaspaces-performance.html
-weight: 110
+parent:  tuning-gigaspaces-performance-overview.html
+weight: 300
 ---
 
 {% summary%}{% endsummary %}

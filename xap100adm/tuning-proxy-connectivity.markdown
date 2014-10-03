@@ -2,8 +2,8 @@
 layout: post100
 title:  Proxy Connectivity
 categories: XAP100ADM
-parent: tuning-gigaspaces-performance.html
-weight: 120
+parent:  tuning-gigaspaces-performance-overview.html
+weight: 400
 ---
 
 {% summary %}{% endsummary %}
