@@ -4,55 +4,85 @@ title:  Test Page
 categories: HOWTO
 ---
 
+# Properties with accordion
+
+{% accordion id=acc0 %}
+{%accord parent=acc0 | title=com.gs.transport_protocol.lrmi.max-conn-pool %}
+The maximum amount of connections to the space server remote services that can work simultaneously in a client connection pool.
+Starts with 1 connection. Defined per each remote service (by default, each remote service has **1024** maximum connections).
+
+{: .table  .table-condensed}
+|  Unit     | Default | Server / Client | Can be overridden by client|
+|Connection| 1024    | Server          |  No |
+{% endaccord %}
+
+{%accord parent=acc0 | title=com.gs.transport_protocol.lrmi.min-threads %}
+XAP maintains a thread pool in the client and server side, that manages incoming remote requests.
+The thread pool size is increased each time with one additional thread and shrinks when existing threads are not used for 5 minutes.
+This parameter specifies the minimum size of this thread pool.
+
+{: .table   .table-condensed}
+| Unit     | Default | Server / Client | Can be overridden by client|
+|Threads| 1    | Server          |  No |
+{% endaccord %}
+
+{%accord parent=acc0 | title=com.gs.transport_protocol.lrmi.max-threads %}
+This parameter specifies the maximum size of a thread pool used to serve remote write , writeMultiple, read , readMultiple , take , takeMultiple , clear , min, max , sum , average,  aggregate , custom aggregators , custom change, count and change operations.{% wbr %}Make sure the maximum size of the thread pool accommodates the maximum number of concurrent requests to the space.
+The client uses this pool for server requests into the client side - i.e. notify callbacks. When the pool is exhausted and all threads are consumed to process incoming requests, additional requests are blocked until existing requested processing are complete. Using a value as **1024** for the LRMI Connection Thread Pool should be sufficient for most large scale systems.
+
+{: .table   .table-condensed}
+| Unit     | Default | Server / Client | Can be overridden by client|
+|Threads| 128   | Server          |  No |
+{% endaccord %}
+{%endaccordion%}
 
 
-<div class="panel-group" id="accordion1">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse ">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
+# Table format
+
+{: .table  .table-bordered  .table-condensed}
+|Property name| com.gs.transport_protocol.lrmi.max-threads|
+|Description |This parameter specifies the maximum size of a thread pool used to serve remote write , writeMultiple, read , readMultiple , take , takeMultiple , clear , min, max , sum , average,  aggregate , custom aggregators , custom change, count and change operations.{% wbr %}Make sure the maximum size of the thread pool accommodates the maximum number of concurrent requests to the space. The client uses this pool for server requests into the client side - i.e. notify callbacks. When the pool is exhausted and all threads are consumed to process incoming requests, additional requests are blocked until existing requested processing are complete. Using a value as **1024** for the LRMI Connection Thread Pool should be sufficient for most large scale systems.|
+| Unit     |  Threads|
+|Default |    128 |
+|Server / Client | Server|
+|<nobr>Client override</nobr>| No |
 
 
 
+# LRMI
+
+{%panel bgColor=white | title=com.gs.transport_protocol.lrmi.min-threads%}
+
+{%inittab%}
+{%tabcontent  Description%}
+XAP maintains a thread pool in the client and server side, that manages incoming remote requests.
+The thread pool size is increased each time with one additional thread and shrinks when existing threads are not used for 5 minutes.
+This parameter specifies the minimum size of this thread pool.
+{%endtabcontent%}
+
+{%tabcontent  Values%}
+{: .table   .table-condensed}
+| Unit     | Default | Server / Client | Can be overridden by client|
+|Threads| 1    | Server          |  No |
+{%endtabcontent%}
+{%endinittab%}
+{%endpanel%}
+
+{%panel bgColor=white | title=com.gs.transport_protocol.lrmi.max-threads%}
+
+{%inittab%}
+{%tabcontent  Description%}
+This parameter specifies the maximum size of a thread pool used to serve remote write , writeMultiple, read , readMultiple , take , takeMultiple , clear , min, max , sum , average,  aggregate , custom aggregators , custom change, count and change operations.{% wbr %}Make sure the maximum size of the thread pool accommodates the maximum number of concurrent requests to the space. The client uses this pool for server requests into the client side - i.e. notify callbacks. When the pool is exhausted and all threads are consumed to process incoming requests, additional requests are blocked until existing requested processing are complete. Using a value as **1024** for the LRMI Connection Thread Pool should be sufficient for most large scale systems.
+{%endtabcontent%}
+
+{%tabcontent  Values%}
+{: .table   .table-condensed}
+| Unit     | Default | Server / Client | Can be overridden by client|
+|Threads| 128   | Server          |  No |
+{%endtabcontent%}
+{%endinittab%}
+
+{%endpanel%}
 
 
 # Tab in Tab
