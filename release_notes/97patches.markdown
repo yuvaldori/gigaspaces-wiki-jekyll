@@ -26,3 +26,4 @@ This document provides the information needed for patches of 9.7.X xap product
 | 9.7.1 patch3 | 9032 | GS-11775 | NPE - when trying to resolve certain split brain scenario |  |  | 10830 | 24/7/2014 |
 | 9.7.1 patch3 | 8815 | GS-11740 | Duplicate lease renewal in MapCache |  |  | 10830 | 24/7/2014 |
 | 9.7.1 patch5 |  | GS-12045 | IndexOutOfBoundsException when using IOutgoingReplicatione |  |  | 10850 | 1/10/2014 |
+| 9.7.1 patch6 | 7914 | GS-11048 | SQLQuery with "IN" on property with different types fails |  |  | 10860 | 5/10/2014 |
