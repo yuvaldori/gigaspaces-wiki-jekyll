@@ -12,7 +12,7 @@ weight: 200
 
 The Java Management Extensions (JMX specification) describe an architecture, design patterns, API's, and services for application and network management in the Java programming language. JMX functions beyond a simple API since it can specify the architecture as to how that API is used. It provides the means to construct Java code, create smart Java agents, implement distributed management middleware and managers, and integrate these solutions smoothly into existing management systems. You can integrate such solutions with either HTML or industry standards such as SNMP and WBEM. JMX is dynamic, allowing the monitoring and management of resources in real time while they are created, installed, and implemented. The JMX also works along with JVM, the Java Virtual Machine.
 
-{% refer %}For more details about JMX, refer to: [http://java.sun.com/products/JavaManagement/](http://java.sun.com/products/JavaManagement/).{% endrefer %}
+{% refer %}For more details about JMX, refer to: [JavaManagement](http://java.sun.com/products/JavaManagement/).{% endrefer %}
 
 ## Manageable Resource
 
@@ -175,9 +175,7 @@ The Space MBean exposes space attributes and operations. You can get the basic s
 
 The space **Attributes** tab displays a list of space attributes/elements by XPath, in the selected space. Attribute values appearing in blue can be controlled, while values in black can not be changed. Red values are unavailable.
 
-{% refer %}
-For details on specific configuration file elements, refer to the Configuration Files Element List\*** section.
-{% endrefer %}
+
 
 {% indent %}
 ![space_JMX_13_IMG993.gif](/attachment_files/space_JMX_13_IMG993.gif)
@@ -207,14 +205,11 @@ The space **Operations** tab allows you to perform different space operations:
 
 
 {% refer %}
+For more details, see [Javadoc](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/admin/SpaceRuntimeInfo.html).
 
-For more details, see
+[Javadoc](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/filters/FilterOperationCodes.html) and the [statistics filter operation codes list](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/constant-values.html#com.j_spaces.core.filters.FilterOperationCodes.AFTER_ALL_NOTIFY_TRIGGER).
 
-[Javadoc](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/admin/SpaceRuntimeInfo.html).
-
-[Javadoc](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/filters/FilterOperationCodes.html) and the [statistics filter operation codes list](http://www.gigaspaces.com/docs/JavaDoc/constant-values.html#com.j_spaces.core.filters.FilterOperationCodes.AFTER_ALL_NOTIFY_TRIGGER).
-
-[com.j_spaces.core.admin.StatisticsAdmin](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/admin/StatisticsAdmin.html) or [com.j_spaces.core.filters.StatisticsContext](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/filters/StatisticsContext.html).
+[StatisticsAdmin](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/index.html?com/j_spaces/core/admin/StatisticsAdmin.html) or [StatisticsContext](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?com/j_spaces/core/filters/StatisticsContext.html).
 {% endrefer %}
 
 
