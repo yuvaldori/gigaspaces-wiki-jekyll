@@ -731,5 +731,30 @@ public void serviceMonitorsEventListeners() {
 }
 {%endhighlight%}
 
+By default the listener will fire  every 5 second. You can change this in the following general way:
+
+{%highlight java%}
+public void changeServiceMonitorsTimer() {
+	Admin admin = new AdminFactory().createAdmin();
+    admin. setStatisticsInterval(30l, TimeUnit.SECONDS);
+}
+{%endhighlight%}
+
+This will set the timer on the following objects: `Spaces`,`VirtualMachines`,`Transports`,`OperatingSystems`,`ProcessingUnits`
+
+
+You can also change the intervals individually:
+
+{%highlight java%}
+Spaces.setStatisticsInterval(30l, TimeUnit.SECONDS);
+
+VirtualMachines.setStatisticsInterval(10l, TimeUnit.MINUTES);
+
+Transports.setStatisticsInterval(10l, TimeUnit.SECONDS);
+
+OperatingSystems.setStatisticsInterval(3l, TimeUnit.MINUTES);
+
+ProcessingUnits.setStatisticsInterval(30l, TimeUnit.SECONDS);
+{%endhighlight%}
 
 
