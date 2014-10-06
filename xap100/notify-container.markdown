@@ -904,9 +904,28 @@ When a network failure occurs and the space can't communicate with the client, t
 
 {% include /COM/notify-recovery.markdown %}
 
+
+# Triggering Notifications on Backup Instances
+
+By default notifications are replicated to backup instances but are not triggered. To enable notifications triggered also on backup instances the `cluster-config.groups.group.repl-policy.trigger-notify-templates` should be enabled. See below:
+
+{% highlight xml %}
+<os-core:space id="space" url="/./space" >	
+	<os-core:properties>
+		<props>
+			<prop key="cluster-config.groups.group.repl-policy.trigger-notify-templates">true</prop>
+		</props>
+	</os-core:properties>
+</os-core:space>
+{% endhighlight %}
+
+{% note %}
+When this option is enabled - When running collocated notify container the listener implementation should not access its collocated instance as this is blocked with backup instances.  
+{%endnote%}
+
 # Durable Notifications
 
-Due to the asynchronous nature of notification delivery, when a primary space fails right after replicating an operation to the backup space and before sending the notification to the registered client, the backup space might not be able to send the missing notifications, since it is in the process of moving to active mode.
+Due-to the asynchronous nature of notification delivery, when a primary space fails right after replicating an operation to the backup space and before sending the notification to the registered client, the backup space might not be able to send the missing notifications, since it is in the process of moving to active mode.
 This means that during this very short period of time, the registered client might not receive events that occurred in the primary space and were replicated to the backup space.
 
 Durable notifications allows configuring the notify container to withstand failover and short network disconnections with no notifications lost.
