@@ -10,7 +10,7 @@ weight: 200
 
 
 
-A replication gateway is used in order to send replication events from one space to another space by acting as the delegator of outgoing replication from one space to another, and by receiving incoming replication from a remote gateway and dispatching it to the local space. The gateway is composed of two components that handle this operation, a delegator and a sink. These components are configured in a standard `pu.xml` and usually the gateway should be deployed as a single processing unit (with one instance) into the service grid on each site configured with the local site relevant properties.
+A replication gateway is used in order to send replication events from one data grid to another data grid by acting as the delegator of outgoing replication from one data grid to another, and by receiving incoming replication from a remote gateway and dispatching it to the local data grid. The gateway is composed of two components that handle this operation, a delegator and a sink. These components are configured in a standard `pu.xml` and usually the gateway should be deployed as a single processing unit (with one instance) into the service grid on each site configured with the local site relevant properties.
 
 
 
@@ -18,7 +18,7 @@ A replication gateway is used in order to send replication events from one space
 
 ## Gateway Delegator
 
-The gateway's delegator main purpose is to delegate outgoing replication from one site to another, the need for the delegator arises from the common gateway usage topology, which is replicating data between spaces across the WAN. In this case, usually each space instance machine cannot open a direct socket to the remote site, therefor it uses the local delegator which is deployed on the local network in order to create a replication connection to the remote site. The machine on which the delegator is deployed, should have access to the remote site over the WAN and the ability to open sockets with the ports for discovery and communication which are configured in the gateway. Because the delegator is an outgoing communication point for replication, it is also used in the [Bootstrap](./replication-gateway-bootstrapping-process.html) process to delegate the bootstrap related communication from the bootstrapped site to the bootstrap source site.
+The gateway's delegator main purpose is to delegate outgoing replication from one site to another. The need for the delegator arises from the common gateway usage topology, which is replicating data between different data grids across the WAN. In this case, usually each data grid space instance machine cannot open a direct socket to the remote site, therefor it uses the local delegator which is deployed on the local network in order to create a replication connection to the remote site. The machine on which the delegator is deployed, should have access to the remote site(s) over the WAN and the ability to open sockets with the ports for discovery and communication which are configured in the gateway. Because the delegator is an outgoing communication point for replication, it is also used in the [Bootstrap](./replication-gateway-bootstrapping-process.html) process to delegate the bootstrap related communication from the bootstrapped target site to the bootstrap source site.
 
 The delegator configuration block in the gateway `pu.xml` looks as follows:
 
@@ -31,11 +31,11 @@ The delegator configuration block in the gateway `pu.xml` looks as follows:
 </os-gateway:delegator>
 {% endhighlight %}
 
-In this example, this is a delegator of New-York's gateway which acts as a delegation point for two targets, London and Hong-Kong. This will be the mediation point for the two replication channels to London and Hong-Kong of each space instance. It is important to understand that the delegator is not in charge of broadcasting each packet to all the targets but it receives the relevant packet from each source channel and delegate it to the correct target according to the channel endpoint.
+In this example, we have New-York's delegator gateway which acts as a delegation point for two targets, London and Hong-Kong. This will be the mediation point for the two replication channels to London and Hong-Kong data grids. It is important to understand that the delegator is not in charge of broadcasting each packet to all the targets but it receives the relevant packet from each source channel and delegate it to the correct target according to the channel endpoint.
 
 ## Gateway Sink
 
-The gateway sink main purpose is to handle incoming replication, which is received by a remote gateway delegator from a remote site, and dispatches it into the local space. The sink has a special proxy to the local space that it uses in order to dispatch the replication into the space. The sink is also used the [Bootstrap](./replication-gateway-bootstrapping-process.html) process in both ends, it is used to initiate the bootstrap process and to fill in the local space with the data. It is also used at the bootstrap source site as the communication mediator between the remote sink and the local space which is used as the source for bootstrapping.
+The gateway sink main purpose is to handle incoming replication activity, which is received by a remote gateway delegator from a remote site, and dispatches it into the local data grid. The sink has a special proxy to the local data grid that it uses in order to dispatch the replication into the data grid. The sink is also used the [Bootstrap](./replication-gateway-bootstrapping-process.html) process in both ends, it is used to initiate the bootstrap process and to fill in the local data grid with the data. It is also used at the bootstrap source site as the communication mediator between the remote sink and the local data grid which is used as the source for bootstrapping.
 
 The sink configuration block in the gateway `pu.xml` looks as follows:
 
@@ -50,13 +50,13 @@ The sink configuration block in the gateway `pu.xml` looks as follows:
 </os-gateway:sink>
 {% endhighlight %}
 
-In this example, this is the sink of New-York gateway that is open for incoming replication from London and Hong-Kong and will dispatch this incoming replication to the local space named "myNYSpace".
+In this example, this is the sink of New-York gateway that is open for incoming replication from London and Hong-Kong and will dispatch this incoming replication to the local data grid named "myNYSpace".
 
 # Gateway Lookup Mechanism
 
 In the above configuration samples, there is a `gateway-lookup` attribute, this attribute points to the lookup related configuration parameters.
 
-The gateway components should locate each other in order to communicate with each other. This lookup is done both across sites and in some cases locally. Additionally the local space needs to locate the gateway delegator it needs to use for delegation, and the gateway sink needs to locate the local space in order to dispatch incoming replication to it.
+The gateway components should locate each other in order to communicate with each other. This lookup is done both across sites and in some cases locally. Additionally the local data grid needs to locate the gateway delegator it needs to use for delegation, and the gateway sink needs to locate the local data grid in order to dispatch incoming replication to it.
 
 We will split the lookup described here into two categories:
 
@@ -65,12 +65,11 @@ We will split the lookup described here into two categories:
 
 ## Local Site Lookup
 
-This lookup is done using the locally deployed lookup services which are already used by the service grid components and spaces in order to locate each other. The gateway components register in the local lookup services and therefor can be located by all the local services and components. e.g a space locates the local delegator to the remote target via the local lookup service.
+This lookup is done using the locally deployed lookup services which are already used by the service grid components and data grids in order to locate each other. The gateway components register in the local lookup services and therefor can be located by all the local services and components. e.g a data grid locates the local delegator to the remote target via the local lookup service.
 
 ## Cross Site Lookup
 
-In most common scenarios, each site resides on a different LAN, and there is no direct network connection between the machines on different sites. However, the machines hosting the gateways of each site, needs to have some network connectivity available in order for the gateway to connect to each other and send the replication data between the sites. For the gateway to be able to communicate and locate each other, they need to be able to use two available ports, one used for the discovery process and the other for the communication between the gateways. These are known as the discovery ports (Lookup service port) and the communication port (LRMI port). By default, each gateway will start an embedded lookup service which is used for the discovery process, that lookup service will be started with the specified discovery port for that gateway. This is not mandatory, and the gateway can use an already existing lookup service which will be explained later on.
-Each component, delegator and sink, will publish themselves in the lookup services in order for the other gateway components to be able to locate them between the sites.
+In most common scenarios, each site resides on a different LAN, and there is no direct network connection between the machines on different sites. However, the machines hosting the gateways of each site, needs to have some network connectivity available in order for the gateway to connect to each other and send the replication data between the sites. For the gateway to be able to communicate and locate each other, they need to be able to use two available ports, one used for the lookup discovery process and the other for the actual communication activity between the gateways. These are known as the discovery ports (Lookup service port) and the communication port (LRMI port). By default, each gateway will start an embedded lookup service which is used for the discovery process, that lookup service will be started with the specified discovery port for that gateway. This is not mandatory, and the gateway can use an **already existing lookup service** which will be explained later on. Each component, delegator and sink, will publish themselves in the lookup services in order for the other gateway components to be able to locate them between the sites.
 
 The configuration which specifies the discovery and communication ports, along with the lookup service machine host (which by default should be the gateway machine it self as it starts the embedded lookup service) is described in each gateway `pu.xml` as follows:
 
@@ -271,7 +270,7 @@ Sink pu.xml:
 </beans>
 {% endhighlight %}
 
-It is also possible to bundle more than one sink and/or delegator in one processing unit, thus having one processing unit acting as the gateway of multiple spaces.
+It is also possible to bundle more than one sink and/or delegator in one processing unit, thus having one processing unit acting as the gateway of multiple data grids.
 It is important to understand that a gateway is a logical and not a physical term which relates to all of the deployed processing units that contains at least one of the gateway components with the same name (sink or delegator).
 Additionally, one can bundle two different gateways (i.e gateway components, sinks or delegators, with different names) in the same processing unit.
 
@@ -281,8 +280,8 @@ When having Network Address Translation (NAT) data transit across different rout
 
 # Security
 
-On Multiple Site topologies, securing grid components and Spaces is done as described in XAP [Security]({%currentsecurl%}/index.html) page. When using a secured environment it is required to provide security credentials for the Gateway components (Sink & Delegator).
-The security credentials are used for accessing a secured Space and for performing administrative operations such as creating a new GSC for the gateway components if necessary.
+On Multiple Site topologies, securing grid components and data grids is done as described in XAP [Security]({%currentsecurl%}/index.html) page. When using a secured environment it is required to provide security credentials for the Gateway components (Sink & Delegator).
+The security credentials are used for accessing a secured data grid and for performing administrative operations such as creating a new GSC for the gateway components if necessary.
 
 Providing the security credentials can be done in two ways:
 
