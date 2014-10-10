@@ -116,7 +116,7 @@ See below example for `Hibernate Space Persistency` that is configured having a 
     <property name="initialLoadChunkSize" value="2000"/>
 </bean>
 
-<bean id="hibernateSpaceSpaceSynchronizationEndpoint" class="org.openspaces.persistency.hibernate.DefaultHibernateSpaceSynchronizationEndpointFactoryBean">
+<bean id="hibernateSpaceSynchronizationEndpoint" class="org.openspaces.persistency.hibernate.DefaultHibernateSpaceSynchronizationEndpointFactoryBean">
     <property name="sessionFactory" ref="sessionFactory"/>
 </bean>
 
