@@ -15,7 +15,7 @@ Here is a simple mapping between the J2EE common components and equivalent XAP c
 |:--------|:---|:--|
 |Persistency|JPA|[Hibernate]({%latestjavaurl%}/hibernate-space-persistency.html), [JPA]({%latestjavaurl%}/jpa-api.html)|
 |Messaging|JMS,MDB|[JMS]({%latestjavaurl%}/messaging-support.html){%wbr%}Polling Container {%latestjavanet polling-container.html%} {%wbr%}Notify Container {%latestjavanet notify-container.html%} {%wbr%} [Native Messaging API]({%latestjavaurl%}/session-based-messaging-api.html), MDB {% star %} |
-|Security|JAAS, SSL|[Spring Security]({%latestjavaurl%}/spring-security-bridge.html), [SSL]({%latestjavaurl%}/securing-the-transport-layer-(using-ssl).html)|
+|Security|JAAS, SSL|[Spring Security]({%latestsecurl%}/spring-security-bridge.html), [SSL]({%latestsecurl%}/securing-the-transport-layer-(using-ssl).html)|
 |Web Session Management|HttpSession|[Global HttpSession sharing]({%latestjavaurl%}/global-http-session-sharing-overview.html)|
 |Transaction Management|JTA|[Spring Transaction via Jini Transaction Manager]({%latestjavaurl%}/transaction-management.html)|
 |Data Access|JDBC , Session Bean (Stateless or Stateful), Entity Bean|[JDBC]({%latestjavaurl%}/jdbc-driver.html), [Space]({%latestjavaurl%}/the-gigaspace-interface.html), [JPA]({%latestjavaurl%}/jpa-api.html) , Session Bean(Stateless or Stateful) {% star %}, Entity Bean {% star %}|
