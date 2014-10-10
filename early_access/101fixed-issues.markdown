@@ -18,7 +18,7 @@ Below is a list of issues that have been fixed in GigaSpaces 10.1.X.
 | <nobr>GS-11847</nobr> | ElectionInProcessException thrown when deploying processing unit with a backup | 10.1.0 |  | Java |
 | GS-10903 | Repeatable SQLQuery with a slight difference per each SQL (changing the value is enough) for long time causes java.lang.OutOfMemoryError | 10.1.0 | 7791 | All |
 | GS-11675 | Change default Setting of cache policy in case of spaceDataSource defined from LRU to ALL IN CACHE | 10.1.0 |  | All |
-| GS-11825 | SpaceMetadataException logged In loop when adding index to a type that doesn’t exists in the mirror | 10.1.0 | 9044 | Java |
+| GS-11825 | SpaceMetadataException logged In loop when adding index to a type that doesn't exists in the mirror | 10.1.0 | 9044 | Java |
 | GS-11833 | Missing parttition after reboot of node due to ESM negative capacity exception | 9.7.0patch5, 10.1.0 | 9017 | All |
 | GS-11834 | GSC that is supposed to be terminated due to rebalancing does not terminate | 9.7.0patch5, 10.1.0 | 9074 | All |
 | GS-11847 | ElectionInProcessException thrown when deploying processing unit with a backup | 10.1.0 |  | Java |

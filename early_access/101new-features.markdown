@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title:  New Features and Improvements
 categories: EARLY_ACCESS
