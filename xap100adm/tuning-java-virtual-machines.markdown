@@ -49,7 +49,7 @@ Generally, you may want to set the maximum heap size as high as possible, but no
 
 - -Xms  -- This setting controls the initial size of the Java heap. Properly tuning this parameter reduces the overhead of garbage collection, improving server response time and throughput. The default setting for this option is typically too low, resulting in a high number of minor garbage collections.
 - -Xmx  -- This setting controls the maximum size of the Java heap. Properly tuning this parameter can reduce the overhead of garbage collection, improving server response time and throughput. The default setting for this is typically too low, resulting in a high number of minor garbage collections.
-- -Xmn  -- This setting controls the size of the heap allocated for the young generation objects  it represents all the objects which have a short life of time. Young generation objects are in a specific location into the heap, where the garbage collector will pass often. All new objects are created into the young generation region (called "eden"). When an object survive is still "alive" after more than 2-3 gc cleaning, then it will be swap has an "old generation" : they are "survivor". A recommended value for the `Xmn` should be 33% of the `Xmx` value.
+- -Xmn  -- This setting controls the size of the heap allocated for the young generation objects  it represents all the objects which have a short life of time. Young generation objects are in a specific location into the heap, where the garbage collector will pass often. All new objects are created into the young generation region (called "eden"). When an object survive is still "alive" after more than 2-3 gc cleaning, then it will be swap has an "old generation" : they are "survivor". A recommended value for the `Xmn` should be 25% of the `Xmx` value.
 
 The size you should specify for the heap depends on your heap usage over time. In cases where the heap size changes frequently, you might improve performance if you specify the same value for the `Xms` and `Xmx` parameters.
 
@@ -104,7 +104,7 @@ Some applications with significant amounts of un contended synchronization may a
 
 On 64-bit systems, the call stack for each thread is allocated with 1MB of memory space. Most threads do not use that much space. Using the `-XX:ThreadStackSize=256k` flag, you can decrease the stack size to 256k to allow more threads.
 
-The `-Xmn<size>` flag lets you manually set the size of the "young generation" memory space for short-lived objects. If your application generates lots of new objects, you might improve GCs dramatically by increasing this value. The "young generation" size should almost never be more than 50% of heap. A recommended value for the `Xmn` should be 33% of the `Xmx` value.
+The `-Xmn<size>` flag lets you manually set the size of the "young generation" memory space for short-lived objects. If your application generates lots of new objects, you might improve GCs dramatically by increasing this value. The "young generation" size should almost never be more than 50% of heap. A recommended value for the `Xmn` should be 25% of the `Xmx` value.
 
 The -XX:+UseCompressedOops option can improve performance of the 64-bit JRE when the Java object heap is less than 32 gigabytes in size. In this case, HotSpot compresses object references to 32 bits, reducing the amount of data that it must process. Available in Sun JVM since JDK6u14.
 
