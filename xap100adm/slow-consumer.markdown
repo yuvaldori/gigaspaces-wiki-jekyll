@@ -8,7 +8,7 @@ weight: 200
 
 {% summary %}  {% endsummary %}
 
-The space includes a special mechanism that detects clients that cannot consume the notifications sent fast enough - i.e. slow consumers.
+The Space includes a special mechanism that detects clients that cannot consume the notifications sent fast enough - i.e. slow consumers.
 
 # Handling Slow Consumers
 
@@ -53,28 +53,21 @@ In general, you should have a different LRMI thread pool queue size value for cl
 
 When the LRMI thread pool queue size in the client side reached its limit (client can't consume incoming notifications), the client will stop consuming incoming network packets. This in return will initiate the slow consumer mechanism at the space side that will cancel the client notify registration.
 
-# Configuration - Server Side
+# Configuration
+
+### Server Side
 
 To enable and tune the slow consumer mechanism, you should configure the LRMI layer at the server side with the following JVM system properties:
 
 {% include /COM/xap100/config-slow-consumer-server.markdown %}
 
-{%comment%}
-{: .table .table-bordered .table-condensed}
-|Property|Description|Default|Unit|
-|:-------|:----------|:------|:---|
-|com.gs.transport_protocol.lrmi.slow-consumer.enabled| Specify whether slow consumer protection is enabled | false | |
-|<nobr>com.gs.transport_protocol.lrmi.slow-consumer.throughput</nobr>| Specify what is the lower bound of notification network traffic consumption (in bytes) by a client which below it, is suspected as a slow consumer. | 5000 | bytes/second  |
-|com.gs.transport_protocol.lrmi.slow-consumer.latency| Specify a time period the space will evaluate a client suspected as slow consumer until it will be identified as a slow consumer. At the end of this time period, a client identified as a slow consumer will have its notification lease canceled.| 500 | milliseconds|
-|com.gs.transport_protocol.lrmi.slow-consumer.retries| Specify the number of times within the specified latency limitation a space will retry to send notification into a client suspected as a slow consumer. | 3 | retries|
-{%endcomment%}
 
 {% note %}
 It may be required to alter the default slow consumer parameters according to the specific scenario.
 Please make sure you are not adding the services.config file to your server class path, this may cause the slow consumer to be turned on by default.
 {%endnote%}
 
-# Configuration - Client Side
+### Client Side
 
 You should configure the following JVM system properties at the **client side**. These specify the capacity of the LRMI thread pool, and set a specific limit. This allows the client to block incoming requests once the capacity is reached, in this case an incoming notification invocation. This will trigger the slow consumer mechanism at the server side since that client will stop receiving new notification invocations.
 
@@ -84,10 +77,3 @@ When using FIFO notifications, the fifo notify queue should be limited as well f
 
 {% include /COM/xap100/config-slow-consumer-client.markdown %}
 
-{%comment%}
-{: .table .table-bordered .table-condensed}
-|Property|Description|Default|Unit|
-|:-------|:----------|:------|:---|
-|com.gs.transport_protocol.lrmi.threadpool.queue-size| specify the lrmi thread pool maximum queue size|Integer.MAX_VALUE |Notification Packets (object/batch)|
-|com.gs.fifo_notify.queue| specify the fifo notifications queue size|Integer.MAX_VALUE|Notification Packets (object/batch)|
-{%endcomment%}

@@ -8,14 +8,14 @@ weight: 400
 
 {%summary%}{%endsummary%}
 
-# Deployment
-
-{% include /COM/xap100/config-deploy.markdown %}
-
-
 # Administration
 
 {% include /COM/xap100/config-admin.markdown %}
+
+
+# Deployment
+
+{% include /COM/xap100/config-deploy.markdown %}
 
 
 # Security
@@ -50,7 +50,7 @@ Refer to [Messaging support]({%currentjavaurl%}/messaging-support.html)
 
 
 
-#JMX
+# JMX
 
 {% include /COM/xap100/config-jmx.markdown %}
 
@@ -71,6 +71,8 @@ Refer to [Multicast Settings](./network-lookup-service-configuration.html#multic
 {% include /COM/xap100/config-web.markdown %}
 
 
+{%comment%}
+
 # Local Cache
 
 {% include /COM/xap100/config-local-cache.markdown %}
@@ -78,6 +80,8 @@ Refer to [Multicast Settings](./network-lookup-service-configuration.html#multic
 {%refer%}
 Refer to [Local Cache]({%currentjavaurl%}/local-cache.html)
 {%endrefer%}
+
+{%endcomment%}
 
 # Space Filter
 
