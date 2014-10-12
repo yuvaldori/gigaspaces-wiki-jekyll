@@ -65,13 +65,13 @@ All the classes above inherit from benchmarkBase Class, which includes a `long` 
 - Benchmark command example communicating with a remote space:
 
 {% highlight console %}
-benchmark "jini://localhost/*/mySpace?NoWriteLease=true" 1 1 2 10000 1000 100 Payload false
+benchmark "jini://localhost/*/mySpace" 1 1 2 10000 1000 100 Payload false
 {% endhighlight %}
 
 - Benchmark command example communicating with an embedded space (collocated with the benchmark program running in the same process):
 
 {% highlight console %}
-benchmark "/./mySpace?NoWriteLease=true" 1 1 2 10000 1000 100 Payload false
+benchmark "/./mySpace" 1 1 2 10000 1000 100 Payload false
 {% endhighlight %}
 
 The benchmark produces an output file that includes the test name, its duration and the average throughput of the tested operation.

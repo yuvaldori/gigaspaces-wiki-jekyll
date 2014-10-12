@@ -83,7 +83,6 @@ The default value is 60000 milliseconds (60 seconds).
 -Dsun.rmi.dgc.server.gcInterval=20000000
 
 com.gs.env.report=true
-gs.space.url.arg.nowritelease=true
 -Dcom.gs.debug=true
 -Dcom.gs.clusterXML.debug=false
 -Dcom.gs.client.debug=false
