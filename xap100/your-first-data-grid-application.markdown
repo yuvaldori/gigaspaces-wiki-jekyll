@@ -178,7 +178,7 @@ public class Program {
 
     public static void main(String[] args) {
 
-        System.out.println("Connecting to data grid " + url);
+        System.out.println("Connecting to data grid");
         UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/myGrid");
         GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).create();
 
