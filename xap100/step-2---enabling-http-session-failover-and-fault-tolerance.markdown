@@ -244,6 +244,7 @@ The following table summarizes the available deployment properties:
 Now that we've gone over all the details, let's see everything in action. In this section we will start a partitioned space with 2 primaries and 2 backups. We will deploy 3 web application instances to the GigaSpaces environment. We will then start Apache HTTP server and the Apache load balancer agent (see [Step 1](./step-1---deploying-your-web-application-to-the-gigaspaces-environment.html) of this tutorial for more details), and connect to the application from the load balancer. We will write some objects into the HTTP session and verify that they are indeed there. Finally, we will terminate one of the running containers (the one which handled our requests) and watch the failover and self-healing process in action, verifying that session information was not lost. Let's start:
 
 1. Build the application [as described earlier in this tutorial](#BuildDirections)
+1. Unzip the advanced_scripts archive by calling `unzip <gs root>/bin/advanced_scripts.zip`
 1. Start one GSM by calling `<gs root>/bin/gsm.(sh/bat)`
 1. Start four GSCs by calling `<gs root>/bin/gsc.(sh/bat)` four times
 1. Start the GigaSpaces user interface by calling `<gs root>/bin/gs-ui.(sh/bat)`. When the user interface is started, you should see the four GSCs presented in it.
