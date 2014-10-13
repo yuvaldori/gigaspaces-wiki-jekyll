@@ -180,6 +180,7 @@ public class Program {
 
         System.out.println("Connecting to data grid");
         UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/myGrid");
+        configurer.lookupGroups("{%version default-lookup-group %}");
         GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).create();
 
         System.out.println("Write (store) a couple of entries in the data grid:");
