@@ -71,17 +71,7 @@ Refer to [Multicast Settings](./network-lookup-service-configuration.html#multic
 {% include /COM/xap100/config-web.markdown %}
 
 
-{%comment%}
 
-# Local Cache
-
-{% include /COM/xap100/config-local-cache.markdown %}
-
-{%refer%}
-Refer to [Local Cache]({%currentjavaurl%}/local-cache.html)
-{%endrefer%}
-
-{%endcomment%}
 
 # Space Filter
 
