@@ -4,6 +4,16 @@ title:  Test Page
 categories: HOWTO
 ---
 
+
+{% summary page %}This article shows how to  use the Spring Cache Abstraction Provider with  XAP{% endsummary %}
+
+{% tip %}
+ **Author**:  Ali Hodroj, Director of Solution Architecture, GigaSpaces<br/>
+ **Recently tested with XAP version**: XAP 9.7<br/>
+ **Last Update:** Feb 2014<br/>
+{% endtip %}
+
+
 # Properties with accordion
 
 {% accordion id=acc0 %}

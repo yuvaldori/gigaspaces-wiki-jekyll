@@ -3,10 +3,12 @@ module Jekyll
 
     def initialize(tag_name, text, tokens)
       super
+      @url = text
     end
 
     def render(context)
-      "<i class='fa fa-download'></i>"
+         output = "<a href=\"#{@url}"
+         output << "\"><i class=\"fa fa-download fa-lg\"></i></a>"
     end
   end
 end

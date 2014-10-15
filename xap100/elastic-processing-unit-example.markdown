@@ -27,7 +27,7 @@ This demo assumes you have about 300 MB available memory on your machine.
 # Running the Example
 
 #### Step 1. Download and Install<br>
-Download the example [{%download%}](/download_files/EPUScaleDemo.zip) and extract it.
+Download the example {%download /download_files/EPUScaleDemo.zip%} and extract it.
 
 #### Step 2. Start gs-agent<br>
 Start gs-agent using the following command:

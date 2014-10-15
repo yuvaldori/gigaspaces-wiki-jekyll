@@ -34,7 +34,7 @@ You can download all examples presented here from {%git https://github.com/Gigas
 
 
 {%vbar title=Download and Install XAP%}
-GigaSpaces XAP.NET is packaged as a standard Windows Installer package (.msi file). After you have downloaded [{%download%}](http://www.gigaspaces.com/xap-download) the latest version, start the installation by double-clicking the msi file, and the installation wizard will pop up and guide you through the installation process.
+GigaSpaces XAP.NET is packaged as a standard Windows Installer package (.msi file). After you have downloaded {%download http://www.gigaspaces.com/xap-download%} the latest version, start the installation by double-clicking the msi file, and the installation wizard will pop up and guide you through the installation process.
 
 {%endvbar%}
 
