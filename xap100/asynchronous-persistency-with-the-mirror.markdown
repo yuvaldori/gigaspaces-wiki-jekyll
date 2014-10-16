@@ -60,6 +60,7 @@ The IMDG Mirror replication settings includes the following options:
 {% note %}
 The Mirror Service may receive replication events from multiple active primary partitions. Each active partition sends its operations to the Mirror service via a dedicated replication channel. The Mirror handles incoming replication requests simultaneously. Every Primary Space sending its operations to the Mirror Service in the same order the operations have been executed allowing the Mirror preserve the consistency of the data within the data source.
 {% endnote %}
+
 The Data-Grid Space settings would look like this:
 
 {% highlight xml %}
@@ -67,7 +68,7 @@ The Data-Grid Space settings would look like this:
     <property name="sessionFactory" ref="sessionFactory"/>
 </bean>
 
-<os-core:embedded-space  id="space" name="space" schema="persistent"
+<os-core:embedded-space  id="space" name="mySpace" schema="persistent"
     mirror="true" space-data-source="hibernateSpaceDataSource">
     <os-core:properties>
         <props>
