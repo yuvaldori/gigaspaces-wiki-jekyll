@@ -67,7 +67,7 @@ The Data-Grid Space settings would look like this:
     <property name="sessionFactory" ref="sessionFactory"/>
 </bean>
 
-<os-core:space id="space" url="/./space" schema="persistent"
+<os-core:space id="space" url="/./mySpace" schema="persistent"
     mirror="true" space-data-source="hibernateSpaceDataSource">
     <os-core:properties>
         <props>

@@ -154,9 +154,6 @@ Refer to [Replication](./replication.html)
 Refer to [JDBC Driver]({%currentjavaurl%}/jdbc-driver.html)
 {%endrefer%}
 
-# Hibernate
-
-{% include /COM/xap100/config-hibernate.markdown %}
 
 
 # XML
