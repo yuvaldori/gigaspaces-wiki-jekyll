@@ -5,46 +5,42 @@ categories: HOWTO
 ---
 
 
-{% summary page %}This article shows how to  use the Spring Cache Abstraction Provider with  XAP{% endsummary %}
 
-{% tip %}
- **Author**:  Ali Hodroj, Director of Solution Architecture, GigaSpaces<br/>
- **Recently tested with XAP version**: XAP 9.7<br/>
- **Last Update:** Feb 2014<br/>
-{% endtip %}
+{% mute %}This article shows how to  use the Spring Cache Abstraction Provider with  XAP{% endmute %}
+
+{% panel %}
+{%section%}
+{%column width=15% %}
+**XAP Version**<br>
+**Last Updated**<br>
+**Reference**<br>
+**Example**
+{%endcolumn%}
+{%column  width=50% %}
+9.7<br>
+October 2014<br>
+[Spring Framework](http://docs.spring.io/spring-framework/docs/4.0.x/spring-framework-reference/html/cache.html)<br>
+{%git https://github.com/GigaSpaces-ProfessionalServices/spring-cache-abstraction %}
+{%endcolumn%}
+{%column  width=10% %}
+{%align right%}
+**Author**
+{%endalign%}
+{%endcolumn%}
+{%column  width=25% %}
+{%align center%}
+Ali Hodroj <br>
+Director of Solution Architecture<br>
+GigaSpaces
+{%endalign%}
+{%endcolumn%}
+{%endsection%}
+{% endpanel %}
 
 
-# Properties with accordion
 
-{% accordion id=acc0 %}
-{%accord parent=acc0 | title=com.gs.transport_protocol.lrmi.max-conn-pool %}
-The maximum amount of connections to the space server remote services that can work simultaneously in a client connection pool.
-Starts with 1 connection. Defined per each remote service (by default, each remote service has **1024** maximum connections).
+{%summary%}{%endsummary%}
 
-{: .table  .table-condensed}
-|  Unit     | Default | Server / Client | Can be overridden by client|
-|Connection| 1024    | Server          |  No |
-{% endaccord %}
-
-{%accord parent=acc0 | title=com.gs.transport_protocol.lrmi.min-threads %}
-XAP maintains a thread pool in the client and server side, that manages incoming remote requests.
-The thread pool size is increased each time with one additional thread and shrinks when existing threads are not used for 5 minutes.
-This parameter specifies the minimum size of this thread pool.
-
-{: .table   .table-condensed}
-| Unit     | Default | Server / Client | Can be overridden by client|
-|Threads| 1    | Server          |  No |
-{% endaccord %}
-
-{%accord parent=acc0 | title=com.gs.transport_protocol.lrmi.max-threads %}
-This parameter specifies the maximum size of a thread pool used to serve remote write , writeMultiple, read , readMultiple , take , takeMultiple , clear , min, max , sum , average,  aggregate , custom aggregators , custom change, count and change operations.{% wbr %}Make sure the maximum size of the thread pool accommodates the maximum number of concurrent requests to the space.
-The client uses this pool for server requests into the client side - i.e. notify callbacks. When the pool is exhausted and all threads are consumed to process incoming requests, additional requests are blocked until existing requested processing are complete. Using a value as **1024** for the LRMI Connection Thread Pool should be sufficient for most large scale systems.
-
-{: .table   .table-condensed}
-| Unit     | Default | Server / Client | Can be overridden by client|
-|Threads| 128   | Server          |  No |
-{% endaccord %}
-{%endaccordion%}
 
 
 # Table format
