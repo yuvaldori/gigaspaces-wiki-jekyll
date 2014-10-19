@@ -22,6 +22,9 @@ weight: 400
 
 {% include /COM/xap100/config-security.markdown %}
 
+# PU
+
+{% include /COM/xap100/config-pu.markdown %}
 
 # LRMI
 
@@ -146,6 +149,7 @@ Refer to [Replication](./replication.html)
 {% include /COM/xap100/config-space-browser.markdown %}
 
 
+{%comment%}
 # JDBC
 
 {% include /COM/xap100/config-jdbc.markdown %}
@@ -154,6 +158,7 @@ Refer to [Replication](./replication.html)
 Refer to [JDBC Driver]({%currentjavaurl%}/jdbc-driver.html)
 {%endrefer%}
 
+{%endcomment%}
 
 
 # XML
@@ -161,24 +166,23 @@ Refer to [JDBC Driver]({%currentjavaurl%}/jdbc-driver.html)
 {% include /COM/xap100/config-xml.markdown %}
 
 
+# Transaction
+
+{% include /COM/xap100/config-transaction.markdown %}
+
+
 # Misc
 
 {: .table .table-bordered .table-condensed}
 | Property name | Description | Default value |
 |---|--|--|
-|  com.gs.jndi.url  | Used by the container schema. | **localhost:10098** |
-|  com.gs.protocol  | Used by the space schema. | **NIO** |
-|  com.gs.engine.cache_policy  | Used by the space schema. | **1 - ALL IN CACHE** |
-|  com.gs.memory_usage_enabled  | Used by the space schema. | **false** |
-|  com.gs.callGC  | Boolean value.{% wbr %}Call garbage collection when performing eviction. This used when running in LRU cache policy and also at client side when using local cache. | **false** |
-|  com.gs.xa.failOnInvalidRollback  | Boolean value.{% wbr %}When set to **false**, the **XAResource** does not throw an error when attempting to roll back a non-existing transaction or a transaction the has already been rolled back. For more details, see [Javadoc](http://docs.oracle.com/javase/1.5.0/docs/api/javax/transaction/xa/XAResource.html) | **true** {% anchor maxbuffer %} |
-|  com.gs.active_election.timeout  | Defines the sleep timeout between iterations in the Active election algorithm | 1000 msec |
-|  com.gs.env.report  | Allows you to view all the runtime configuration settings. | |
+|  com.gs.jndi.url  | Used by the container schema. | localhost:10098 |
+|  com.gs.protocol  | Used by the space schema. | NIO |
+|  com.gs.engine.cache_policy  | Used by the space schema. | 1 - ALL IN CACHE |
+|  com.gs.env.report  | Allows you to view all the runtime configuration settings. | false|
 |  com.gs.licensekey  | License key string. | |
 |  com.gs.localhost.name  | | |
-|  com.gs.onewaynotify | Boolean value. If **false**, performs notify operations in two way mode (ack on notify).| **true** |
-|  com.gs.resourcepool.timeout  | Sets the resource release timeout in ms. | **5000** |
-|  com.gs.url  | Cache factory. | |
+
 
 
 
