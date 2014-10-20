@@ -26,12 +26,10 @@ Configuring a global or local LUS.
 Configuring a global or local GSM.
 
 
-- [Java System Properties](./system-properties-java.html){%wbr%}
+- [System Properties](./system-properties-java.html){%wbr%}
 A list of Java runtime parameters.
 
 
-- [.NET System Properties](./system-properties-net.html){%wbr%}
-A list of .NET runtime parameters.
 
 <hr/>
 
