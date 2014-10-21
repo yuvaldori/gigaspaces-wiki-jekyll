@@ -27,7 +27,7 @@ Configuring a global or local GSM.
 
 
 - [System Properties](./system-properties-java.html){%wbr%}
-A list of Java runtime parameters.
+A list of system runtime parameters.
 
 
 
