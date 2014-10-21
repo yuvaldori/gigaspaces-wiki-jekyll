@@ -280,6 +280,8 @@ When having Network Address Translation (NAT) data transit across different rout
 
 # Security
 
+{%note title=Space PU Security%} Before addressing the gateway security, first make sure your space PU is deployed as secured.  Fore more details see [Security](./securing-your-data.html#processing-unit){%endnote%}
+
 On Multiple Site topologies, securing grid components and data grids is done as described in XAP [Security]({%currentsecurl%}/index.html) page. When using a secured environment it is required to provide security credentials for the Gateway components (Sink & Delegator).
 The security credentials are used for accessing a secured data grid and for performing administrative operations such as creating a new GSC for the gateway components if necessary.
 
