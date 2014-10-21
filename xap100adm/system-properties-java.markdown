@@ -1,6 +1,6 @@
 ---
 layout: post100
-title:  Java System Properties
+title:  System Properties
 categories: XAP100ADM
 parent: runtime-configuration.html
 weight: 400
