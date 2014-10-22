@@ -1,6 +1,6 @@
 ---
 layout: post101
-title:  Java Developers Guide
+title:  .NET Developers Guide
 categories: XAP101NET
 ---
 

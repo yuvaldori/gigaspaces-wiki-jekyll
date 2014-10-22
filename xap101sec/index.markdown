@@ -1,6 +1,6 @@
 ---
 layout: post101
-title:  Java Developers Guide
+title:  Security Guide
 categories: XAP101SEC
 ---
 
