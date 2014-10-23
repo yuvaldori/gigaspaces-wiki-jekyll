@@ -79,7 +79,7 @@ Space synchronization endpoint configuration can be done using a Spring bean or 
 SpaceSynchronizationEndpoint spaceSynchronizationEndpoint = new MySpaceSynchronizationEndpoint();
 GigaSpace gigaSpace = new GigaSpaceConfigurer(new UrlSpaceConfigurer("/./space")
   .schema("persistent")
-  .cachePolicy(new LruCachePolicy())
+  .cachePolicy(new AllInCachePolicy ())
   .spaceSynchronizationEndpoint(spaceSynchronizationEndpoint)
   .space()).gigaSpace();
 {% endhighlight %}
