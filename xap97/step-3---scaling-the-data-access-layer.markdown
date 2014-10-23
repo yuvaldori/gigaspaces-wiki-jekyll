@@ -8,26 +8,9 @@ parent: your-first-web-application.html
 
 
 
-{% comment %}
- Information Artifact Type: Tutorial
-{% endcomment %}
+**Step summary**: Learn how to **access the GigaSpaces in memory data grid** from within your web application, thus removing the database bottleneck from your data access layer
 
-{% comment %}
---------------------------------------------------------------------------
-{% color grey %}   Summary
-{% endcolor %}
--------------------------------------------------------------------------------
-{% endcomment %}
 
-{% excerpt %}
-**Step summary**: Learn how to **access the GigaSpaces in memory data grid** from within your web application, thus removing the database bottleneck from your data access layer{% endexcerpt %}
-
-{% comment %}
-========================================================================================
-{% color grey %}   Example location
-{% endcolor %}
-==========================================================================================
-{% endcomment %}
 
 {% section %}
 

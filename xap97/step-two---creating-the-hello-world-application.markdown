@@ -173,7 +173,7 @@ Next, let's take a look at the Processor Processing Unit.
 #### The Processor Processing Unit (pu.xml, Processor.java)
 
 The Processor Processing Unit contains two components: a space (cache), which holds objects in memory, and a processor bean that takes, modifies and writes objects back to this space.
-{% c %}
+{% comment %}
 ----COMMENTED OUT-----
 
 **Processing Unit File Structure**
@@ -191,7 +191,7 @@ The Processing Unit is the GigaSpaces unit of deployment. It is packaged as a JA
 {% endindent %}
 
 ----COMMENTED OUT-----
-{% endc %}
+{% endcomment %}
 
 **Processor Processing Unit Configuration** (META-INF/spring/pu.xml)
 
@@ -214,9 +214,7 @@ Finally a bean called _gigaSpace_ wraps the _space_, and provides a simple clien
 <bean id="helloProcessor" class="org.openspaces.example.helloworld.processor.Processor"/>
 {% endhighlight %}
 
-{% c %}
-------------SHOW FOR JDK1.5----------
-{% endc %}
+
 The third, key component in this workflow is the **Polling Container**,  which continuously removes (takes) objects matching certain criteria from the space. The criteria are expressed in the form of a template object (also known as example object). In our case, the polling container is instructed to take objects of type Message. However, it does not take all instances of the Message class, only those whose "info" property equals the string "Hello ". When a match is found, the object is taken and passed to a listener bean - here the listener is the previously defined _Processor bean_. This bean has a method annotated with the @SpaceDataEvent annotation, which is invoked with the taken object as a parameter. It returns a processed Message object, which is written back to the space by the _Polling Container_.
 
 {% highlight xml %}
@@ -261,9 +259,7 @@ public class Processor {
 
 Now we are ready to view feeder application that feeds Message objects to the space.
 
-{% c %}
--------[END FOR JAVA]-------
-{% endc %}
+
 
 {% anchor JFeeder %}
 

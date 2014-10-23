@@ -12,7 +12,7 @@ parent: cook-books.html
 =============================================================
 {% endcomment %}
 
-**Summary:** {% excerpt %}This tutorial explains how the sample Spring PetClinic application can be fine tuned to use GigaSpaces XAP [JPA API](./jpa-api.html) and deployed into the GigaSpaces XAP platform{% endexcerpt %}
+**Summary:**  This tutorial explains how the sample Spring PetClinic application can be fine tuned to use GigaSpaces XAP [JPA API](./jpa-api.html) and deployed into the GigaSpaces XAP platform
 
 {% comment %}
 =============================================================

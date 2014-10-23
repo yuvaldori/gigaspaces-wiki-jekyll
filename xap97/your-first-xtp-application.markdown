@@ -6,7 +6,7 @@ weight: 500
 parent: cook-books.html
 ---
 
-{% trainingbox %}
+
 
 
 
@@ -16,7 +16,7 @@ parent: cook-books.html
 =============================================================
 {% endcomment %}
 
-**Summary:** {% excerpt %}This tutorial explains how to build your first GigaSpaces Application in 4 easy steps, from basic API usage to scaling your application and making it highly available{% endexcerpt %}
+**Summary:**  This tutorial explains how to build your first GigaSpaces Application in 4 easy steps, from basic API usage to scaling your application and making it highly available
 
 
 {% comment %}

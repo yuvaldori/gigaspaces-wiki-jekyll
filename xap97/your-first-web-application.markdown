@@ -6,7 +6,7 @@ weight: 400
 parent: cook-books.html
 ---
 
-{% trainingbox %}
+
 
 
 {% comment %}
@@ -15,8 +15,7 @@ parent: cook-books.html
 =============================================================
 {% endcomment %}
 
-**Summary:** {% excerpt %}This tutorial explains how your web application can be deployed into the GigaSpaces XAP platform and what are the benefits that can be obtained by doing so{% endexcerpt %}
-
+**Summary:**  This tutorial explains how your web application can be deployed into the GigaSpaces XAP platform and what are the benefits that can be obtained by doing so
 {% comment %}
 =============================================================
          Set Up Your Environment

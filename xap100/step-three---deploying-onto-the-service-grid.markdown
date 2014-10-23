@@ -8,25 +8,9 @@ parent: your-first-xtp-application.html
 
 
 
-{% comment %}
---------------------------------------------------------------------------
-{% color grey %}   SUMMARY
-   =======
-   TODO: Write one sentence summery inside the excerpt macro, saying what the
-   user is going to LEARN in the tutorial, and what the user is going to DO in the tutorial.
-   Use the form: Learn how to ________ by doing _________
-{% endcolor %}
--------------------------------------------------------------------------------
-{% endcomment %}
 
-{% excerpt %}
-**Tutorial summary**: In this tutorial you learn how to deploy the Hello World application onto the GigaSpaces Service Grid to achieve fail-over, scaling and self-healing capabilities for your application. {% sub %}Approx 10 min{% endsub %} {% endexcerpt %}
+**Tutorial summary**: In this tutorial you learn how to deploy the Hello World application onto the GigaSpaces Service Grid to achieve fail-over, scaling and self-healing capabilities for your application. {% sub %}Approx 10 min{% endsub %}
 
-{% comment %}
-=======================================================================
-                  OVERVIEW
-=======================================================================
-{% endcomment %}
 
 ## Overview
 

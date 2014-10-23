@@ -14,8 +14,8 @@ parent: your-first-xtp-application.html
 -------------------------------------------------------------------------------
 {% endcomment %}
 
-{% excerpt %}
-**Tutorial summary**: Learn how to scale the Hello World Application. {% sub %}Approx 10 min{% endsub %} {% endexcerpt %}
+
+**Tutorial summary**: Learn how to scale the Hello World Application. {% sub %}Approx 10 min{% endsub %}
 
 {% comment %}
 =======================================================================

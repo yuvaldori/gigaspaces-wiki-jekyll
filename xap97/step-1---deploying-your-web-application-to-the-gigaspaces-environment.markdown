@@ -12,15 +12,9 @@ parent: your-first-web-application.html
  Information Artifact Type: Tutorial
 {% endcomment %}
 
-{% comment %}
---------------------------------------------------------------------------
-{% color grey %}   Summary
-{% endcolor %}
--------------------------------------------------------------------------------
-{% endcomment %}
 
-{% excerpt %}
-**Step summary**: Learn how to **deploy an existing standard web application into the GigaSpaces environment**, benefitting from the platform's self healing and dynamic load balancing capabilities{% endexcerpt %}
+
+**Step summary**: Learn how to **deploy an existing standard web application into the GigaSpaces environment**, benefitting from the platform's self healing and dynamic load balancing capabilities
 
 {% comment %}
 ========================================================================================

@@ -6,6 +6,7 @@ categories: HOWTO
 
 
 
+
 {% mute %}This article shows how to  use the Spring Cache Abstraction Provider with  XAP{% endmute %}
 
 {% panel %}
@@ -253,7 +254,7 @@ Some code
 
 # Bookmarks
 
-{%bookmarks%}
+
 
 
 # Code

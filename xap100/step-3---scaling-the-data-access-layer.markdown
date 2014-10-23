@@ -19,8 +19,8 @@ parent: your-first-web-application.html
 -------------------------------------------------------------------------------
 {% endcomment %}
 
-{% excerpt %}
-**Step summary**: Learn how to **access the GigaSpaces in memory data grid** from within your web application, thus removing the database bottleneck from your data access layer{% endexcerpt %}
+
+**Step summary**: Learn how to **access the GigaSpaces in memory data grid** from within your web application, thus removing the database bottleneck from your data access layer
 
 {% comment %}
 ========================================================================================

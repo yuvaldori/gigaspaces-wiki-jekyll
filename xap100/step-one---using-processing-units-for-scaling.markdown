@@ -8,7 +8,7 @@ parent: your-first-xtp-application.html
 
 
 
-**Summary:** {% excerpt %}In this step we will use a car wash analogy to compare the traditional tier based approach for architecting enterprise application with GigaSpaces' Space Based approach, and explain the concept of _Processing Units_.{% endexcerpt %}
+**Summary:**  In this step we will use a car wash analogy to compare the traditional tier based approach for architecting enterprise application with GigaSpaces' Space Based approach, and explain the concept of _Processing Units_.
 
 #### Preface
 
@@ -41,10 +41,9 @@ Self contained Processing Units also have the advantage that they can be easily 
 
 #### A GigaSpaces Processing Unit
 
-{% c %}
----------------SHOW FOR JAVA---------
-{% endc %}
+
 Now let's translate this to the enterprise application terminology. In the diagram below you can see a GigaSpaces Processing Unit instance, which runs within a Processing Unit Container. (This is in fact a JVM with a thin layer that knows how to run processing units.)
+
 You can see the _Space_ (the "car depot") in the center of the processing unit. The space holds objects in the local JVM memory, making them accessible to all the local services (the "washing services"). The space can also act as a messaging layer, by notifying the relevant service when a particular object is written to it. The services can then respond to the message by processing it, and writing it back to the space. They can also use the space to retrieve additional pieces of information needed for the processing. A client application can interact with the space-side services by writing objects to the Processing Unit's space and reading them after they are processed. We can linearly scale the system by simply adding more Processing Unit instances, since the processing units are entirely independent of one another.
 
 {% align center %}![Spacebasedreal.jpg](/attachment_files/Spacebasedreal.jpg){% endalign %}

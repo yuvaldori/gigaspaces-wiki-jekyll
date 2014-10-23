@@ -18,8 +18,8 @@ parent: your-first-web-application.html
 -------------------------------------------------------------------------------
 {% endcomment %}
 
-{% excerpt %}
-**Step summary**: Learn how to **make your application's HTTP session store highly available and fault tolerant**, by backing it with GigaSpaces XAP's data grid - the Space{% endexcerpt %}
+
+**Step summary**: Learn how to **make your application's HTTP session store highly available and fault tolerant**, by backing it with GigaSpaces XAP's data grid - the Space
 
 {% comment %}
 ========================================================================================
