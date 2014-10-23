@@ -185,6 +185,27 @@ class MyBean implements SpaceBeforeBackupListener, SpaceAfterPrimaryListener {
 }
 {% endhighlight %}
 
+When there is more than one Proxy, the following should be done in order to be sure that the Primary Backup Notifications arived from the current space instance.
+
+{% highlight java %}
+class MyBean {
+
+    boolean isPrimary; 
+
+    @PostPrimary
+    public void afterChangeModeToPrimary(AfterSpaceModeChangeEvent event) { 
+        if (SpaceUtils.isSameSpace(gigaSpace.getSpace(),event.getSpace()))
+	    isPrimary = true 
+    }
+	
+    @PostBackup
+    public void afterChangeModeToBackup(AfterSpaceModeChangeEvent event) { 
+        if (SpaceUtils.isSameSpace(gigaSpace.getSpace(), event.getSpace())) 
+	    isPrimary = false; 
+    }
+}
+{% endhighlight %}
+
 If the bean would not implement any of the interfaces above, another option is to annotate the bean's methods that need to be invoked when a space mode changes.
 
 {: .table .table-bordered}
