@@ -109,7 +109,6 @@ also asynchronously persists the data using a mirror (see [Cassandra Space Synch
         mirror="true">
         <os-core:properties>
             <props>
-                <!-- Use ALL IN CACHE, put 0 for LRU -->
                 <prop key="space-config.engine.cache_policy">1</prop>
                 <prop key="cluster-config.cache-loader.central-data-source">true</prop>
                 <prop key="cluster-config.mirror-service.supports-partial-update">true</prop>
@@ -149,7 +148,7 @@ CassandraSpaceDataSource spaceDataSource = new CassandraSpaceDataSourceConfigure
 GigaSpace gigaSpace = new GigaSpaceConfigurer(new UrlSpaceConfigurer("/./mySpace")
   .schema("persistent")
   .mirror(true)
-  .cachePolicy(new LruCachePolicy())
+  .cachePolicy(new AllInCachePolicy())
   .addProperty("cluster-config.cache-loader.central-data-source", "true")
   .addProperty("cluster-config.mirror-service.supports-partial-update", "true")
   .spaceDataSource(spaceDataSource)
