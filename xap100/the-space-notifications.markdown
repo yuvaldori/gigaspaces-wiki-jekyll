@@ -213,6 +213,27 @@ class MyBean {
 }
 {% endhighlight %}
 
+When there is more than one Proxy (e.g: embedded, remote, ...), the following should be done in order to be sure that the Primary Backup Notifications arived from the current space instance
+
+{% highlight java %}
+class MyBean {
+
+    boolean isPrimary; 
+
+    @PostPrimary
+    public void afterChangeModeToPrimary(AfterSpaceModeChangeEvent event) { 
+        if (SpaceUtils.isSameSpace(gigaSpace.getSpace(),event.getSpace()))
+	    isPrimary = true 
+    }
+	
+    @PostBackup
+    public void afterChangeModeToBackup(AfterSpaceModeChangeEvent event) { 
+        if (SpaceUtils.isSameSpace(gigaSpace.getSpace(), event.getSpace())) 
+	    isPrimary = false; 
+    }
+}
+{% endhighlight %}
+
 In order to enable this feature, the following should be placed within the application context configuration:
 
 {% inittab os_simple_space|top %}
