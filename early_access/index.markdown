@@ -6,7 +6,7 @@ categories: EARLY_ACCESS
 weight:
 ---
 
-{%summary%}Here you will find mile stone releases for XAP 10.1{%endsummary%}
+{%summary%}Here you will find milestone releases for XAP 10.1{%endsummary%}
 
 {%comment%}
 At this point in time there is no early access version available. The latest release 10.1 can be found [here](/index.html).
