@@ -602,6 +602,51 @@ For more information please refer to the API documentation: **[MirrorStatistics]
 You may monitor the remote communication activity via the Administration and Monitoring API. You may receive information in real-time about every aspect of the communication and transport activity. See the [Monitoring LRMI via the Administration API]({%currentadmurl%}/tuning-communication-protocol.html#Monitoring LRMI via the Administration API) for details.
 
 
+
+
+# PU Status Changed Events
+
+It is possible to receive notifications about the deployment status of a Processing Unit. An event listener can be attached to the Admin that delivers events describing the current and previous [DeploymentStatus](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/index.html?org/openspaces/admin/pu/DeploymentStatus.html) of a Processing Unit.
+Here is an example:
+
+{%inittab%}
+{%tabcontent ChangeStatus%}
+{%highlight java  %}
+public class ProcessingUnitStatusChanged {
+
+	public void processingUnitStatusChanged() {
+
+		Admin admin = new AdminFactory().addGroup("myGroup").createAdmin();
+
+		MyProcessingUnitStatusChangedEventListener listener = new MyProcessingUnitStatusChangedEventListener();
+
+		admin.addEventListener(listener);
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent Listener%}
+{%highlight java  %}
+public class MyProcessingUnitStatusChangedEventListener implements
+		ProcessingUnitStatusChangedEventListener {
+
+	@Override
+	public void processingUnitStatusChanged(
+			ProcessingUnitStatusChangedEvent event) {
+
+		DeploymentStatus newStatus = event.getNewStatus();
+
+		if (newStatus.equals(DeploymentStatus.INTACT))
+		{
+			// All has settled down
+		}
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+{%endinittab%}
+
 {%anchor servicemonitors%}
 
 # Service Monitors

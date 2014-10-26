@@ -234,7 +234,7 @@ In order to enable this feature, the following should be placed within the appli
 {% endtabcontent %}
 {% endinittab %}
 
-# Listening for Space Mode Changed Events
+# Space Mode Changed Events
 
 When a remote client is interested to receive events when a space instance changing its runtime mode (from primary to backup or vise versa), it should implement the `SpaceModeChangedEventListener`. See below how:
 
@@ -295,3 +295,5 @@ class MyBean {
 
 }
 {% endhighlight %}
+
+
