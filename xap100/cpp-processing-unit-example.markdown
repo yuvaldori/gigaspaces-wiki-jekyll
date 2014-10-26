@@ -7,8 +7,8 @@ weight: 300
 ---
 
 
-The Processing Unit example is located at `<GigaSpaces Root>\cpp\examples\CppService\` and `<GigaSpaces Root>\cpp\examples\CppServiceOpenSpaces\`.
-If you use **Visual Studio** open the solution `examples.sln` located in `<GigaSpaces Root>\cpp\examples`. It is recommended to set your solution configuration to `Release` and do a rebuild that will generate all related files.
+The Processing Unit example is located at `<XAP Root>\cpp\examples\CppService\` and `<XAP Root>\cpp\examples\CppServiceOpenSpaces\`.
+If you use **Visual Studio** open the solution `examples.sln` located in `<XAP Root>\cpp\examples`. It is recommended to set your solution configuration to `Release` and do a rebuild that will generate all related files.
 
 # c++ Processing Unit Implementation
 
@@ -152,7 +152,7 @@ The CPP PU following the standard [Processing Unit Configuration](./the-processi
 
 
 
-The Processing Unit configuration file (`<GigaSpaces Root>\cpp\examples\CppServiceOpenSpaces\src\META-INF\spring\pu.xml`) includes the following:
+The Processing Unit configuration file (`<XAP Root>\cpp\examples\CppServiceOpenSpaces\src\META-INF\spring\pu.xml`) includes the following:
 
 {% highlight xml %}
 <?xml version="1.0" encoding="UTF-8"?>
@@ -193,15 +193,15 @@ The Processing Unit configuration file (`<GigaSpaces Root>\cpp\examples\CppServi
 
 # Building and Running the Example
 
-- To open the example use the `example.sln` located in `<GigaSpaces Root>\cpp\examples`.
+- To open the example use the `example.sln` located in `<XAP Root>\cpp\examples`.
 - Select the _Release_ configuration and rebuild the solution.
 - Run:
 
 {% highlight console %}
-<GigaSpaces Root>\bin\gs-agent.bat/sh
+<XAP Root>\bin\gs-agent.bat/sh
 {% endhighlight %}
 
-The build and configuration files are located in `<GigaSpaces Root>\cpp\examples\CppServiceOpenSpaces` folder.
+The build and configuration files are located in `<XAP Root>\cpp\examples\CppServiceOpenSpaces` folder.
 To deploy the processing unit , move to the above folder and run the following:
 
 {% highlight console %}
@@ -263,7 +263,7 @@ The gs-agent console will have the following output:
 
 To view the deployed CPP PU start the GS-UI:
 
-1. Run <GigaSpaces Root>\bin\gs-ui.bat/sh
+1. Run <XAP Root>\bin\gs-ui.bat/sh
 
 ![cpp_pu.jpg](/attachment_files/cpp_pu.jpg)
 

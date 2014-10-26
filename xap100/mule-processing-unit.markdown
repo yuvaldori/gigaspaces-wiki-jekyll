@@ -30,20 +30,20 @@ In the example above, the `OpenSpacesMuleContextLoader` loads a Mule application
 Packaging of the Processing Unit should follow the [Processing Unit structure](./the-processing-unit-structure-and-configuration.html).
 
 {% note %}
-When deploying a Processing Unit into the [SLA-driven container](./deploying-onto-the-service-grid.html), Mule JAR files should be "installed" into the GigaSpaces installation (on each node). The following minimum set of JARs need to be copied into **`<GigaSpaces Root>\lib\platform\mule`** (if the Mule directory does not exists, create it).
+When deploying a Processing Unit into the [SLA-driven container](./deploying-onto-the-service-grid.html), Mule JAR files should be "installed" into the XAP installation (on each node). The following minimum set of JARs need to be copied into **`<XAP Root>\lib\platform\mule`** (if the Mule directory does not exists, create it).
 {%endnote%}
 
-- Copy the following JAR files from `<Mule Root>\lib\mule` to `<GigaSpaces Root>\lib\platform\mule`:
+- Copy the following JAR files from `<Mule Root>\lib\mule` to `<XAP Root>\lib\platform\mule`:
 `mule-core`, `mule-module-spring-config`, `mule-module-spring-extras`, `mule-transport-quartz`, `mule-transport-stdio`, `mule-transport-vm` . Other transports (if used) should be copied as well.
 
-- Copy the following JAR files from `<Mule Root>\lib\opt` to `<GigaSpaces Root>\lib\platform\mule`:
+- Copy the following JAR files from `<Mule Root>\lib\opt` to `<XAP Root>\lib\platform\mule`:
 `commons-beanutils`, `commons-io`, `commons-lang`, `jug-2.0.0-asl`, `quartz-all-1.6.6`. Other required JAR files can be copied as well (or they can be put in the Processing Unit `lib` directory).
 
 Note, since version 7.0, the required mule jar files can also be placed within the processing unit `lib` directory, without "installing" mule into each GSC node installation.
 
 #### Packaging for Mule example
 
-In the [Mule ESB example](/sbp/mule-esb-example.html), the following jars are required and should be placed under <GigaSpaces Root>\lib\platform\mule
+In the [Mule ESB example](/sbp/mule-esb-example.html), the following jars are required and should be placed under <XAP Root>\lib\platform\mule
 
 {% highlight console %}
 commons-beanutils-1.8.0.jar

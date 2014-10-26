@@ -105,7 +105,7 @@ By default, Jini is configured to support multicast over multiple (all) interfac
 
 Jini clients perform lookup discovery by either unicast and/or multicast. By default, the configuration is set to multicast. Multicast discovery is configured to use all the network interfaces. To limit the use to a specific network interface, the relevant Jini service configuration file needs to be changed.
 
-The service configuration files are located under `<GigaSpaces Root>\config\services\`. By default, `<GigaSpaces Root>\config\services\services.config` is used to configure Reggie, Mahalo and other services.
+The service configuration files are located under `<XAP Root>\config\services\`. By default, `<XAP Root>\config\services\services.config` is used to configure Reggie, Mahalo and other services.
 
 The multicast network interface specifies the network interfaces that send and receive multicast request and announcement packets as part of multicast discovery.
 
@@ -235,7 +235,7 @@ You can set the `jini://` and/or `rmi://` protocols in the `com.gs.cluster.url-p
 
 # Testing Your Configuration
 
-The replicated example, located under `<GigaSpaces Root>\examples\Advanced\Data_Grid\replicated`, can be used to test the above configuration. The example interacts using the `setenv` and `gsInstance` scripts.
+The replicated example, located under `<XAP Root>\examples\Advanced\Data_Grid\replicated`, can be used to test the above configuration. The example interacts using the `setenv` and `gsInstance` scripts.
 
 The `NIC_ADDR` should be set corresponding at each machine's network interface card.
 
@@ -297,7 +297,7 @@ ${JAVACMD} ${UNIX_ENABLED} ${URL_PREFIX} ${RMI_OPTIONS} ${JAVA_OPTIONS %}
 {JSHOMEDIR}${CPS}${JSHOMEDIR}/lib/JSpaces.jar" com.j_spaces.core.client.SpaceFinder "${SPACE_URL}"
 {% endhighlight %}
 
-The `<GigaSpaces Root>\bin\start-node1` and the `<GigaSpaces Root>\bin\start-node2` scripts should set `NIC_ADDR` as mentioned above.
+The `<XAP Root>\bin\start-node1` and the `<XAP Root>\bin\start-node2` scripts should set `NIC_ADDR` as mentioned above.
 
 Remember that the `NIC_ADDR` variable is set prior to the call to `setExampleEnv`, thus overriding the `NIC_ADDR` set in the `setenv` script.
 

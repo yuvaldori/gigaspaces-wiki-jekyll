@@ -15,14 +15,14 @@ The C++ API Usage Example demonstrates the GigaSpaces C++ API performing the dif
 
 {% refer %}To learn about GigaSpaces C++ API, refer to the [GigaSpaces C++ API](./cpp-space-interface.html) section.{% endrefer %}
 
-The code for this example is located at `<GigaSpaces Root>\cpp\examples\APIUsageExample\`.
+The code for this example is located at `<XAP Root>\cpp\examples\APIUsageExample\`.
 
 This example runs by default using a predefined **embedded space**. It can work with any given space (embedded, remote or clustered) simply by providing the space URL as an argument.
 
 # Building and Running the Example
 
 {% note %}
-This example can be built and run on **Windows OS** only. If you use **Visual Studio** open the solution `examples.sln` located in `<GigaSpaces Root>\cpp\examples\`. It is recommended to set your solution configuration to `Release` and do a rebuild that will generate all related files.
+This example can be built and run on **Windows OS** only. If you use **Visual Studio** open the solution `examples.sln` located in `<XAP Root>\cpp\examples\`. It is recommended to set your solution configuration to `Release` and do a rebuild that will generate all related files.
 {%endnote%}
 
 For more information on setting the environment refer to [Installing C++ Package](./installing-cpp-api-package.html#Setting the Environment).

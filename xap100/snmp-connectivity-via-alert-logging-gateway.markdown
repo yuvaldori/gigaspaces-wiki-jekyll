@@ -125,7 +125,7 @@ log4j.appender.TRAP_LOG.layout.ConversionPattern=%d,%p,%t,%c,%m%n
 
 # Running the Example
 
-The example is located under `<GigaSpaces root>/tools/alert-integration`. To run it you should do the following:
+The example is located under `<XAP root>/tools/alert-integration`. To run it you should do the following:
 
 1. Set the "group" value in the pu.xml file to your own XAP group. Optionally you may edit the function `registerAlertTrapper()` in `SnmpTrapTransmitter.java` to create your own `Admin` object in any way you see fit.
 1. Optionally edit file `notify-alerts.xml` to set your own alerts and alert conditions that will be listened to by this example.

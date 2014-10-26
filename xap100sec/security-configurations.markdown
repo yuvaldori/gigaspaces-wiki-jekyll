@@ -31,7 +31,7 @@ If all of the components will be requiring the same security configuration, then
 Commonly placed under:
 
 {% highlight java %}
-<GigaSpaces root>/config/security/security.properties
+<XAP root>/config/security/security.properties
 {% endhighlight %}
 
 # Component Security Properties File

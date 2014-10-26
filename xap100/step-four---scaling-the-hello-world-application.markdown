@@ -32,7 +32,7 @@ parent: your-first-xtp-application.html
 -------------------------------------------------------------------------------
 {% endcomment %}
 
-{%folderopen%} Example Folder - <GigaSpaces Root>\examples\helloworld
+{%folderopen%} Example Folder - <XAP Root>\examples\helloworld
 
 {% tip %} Features Introduced - Scaling, Partitioning, Routing, Routing Index. {%endtip%}
 
@@ -264,8 +264,8 @@ Next, we show you how to start the service grid components, by starting a grid s
 
 #### Starting the Service Grid Components
 
-1. Start **GigaSpaces Management Center (GS-UI)** by running `<GigaSpaces Root>/bin/gs-ui.bat(.sh)`.
-1. Start a **GigaSpaces Agent (GSA)** by running `<GigaSpaces Root>/bin/gs-agent.(sh/bat)`.
+1. Start **GigaSpaces Management Center (GS-UI)** by running `<XAP Root>/bin/gs-ui.bat(.sh)`.
+1. Start a **GigaSpaces Agent (GSA)** by running `<XAP Root>/bin/gs-agent.(sh/bat)`.
 The GSA, by default, will start 2 local Grid Service Containers, and manage a global Grid Service Manager and a global Lookup Service.
 
 {% togglecloak id=AGENT %} What is a GigaSpaces Agent...{% endtogglecloak %}
@@ -292,7 +292,7 @@ The Service Grid now has 3 **Grid Service Containers**.
 
 {% anchor Configure Scale 3 and Build %} **Configuring the application to be partitioned over 3 instances**
 
-1. Edit the processor's  **pu.xml** configuration file located under `<GigaSpaces root>/examples/helloworld/processor/src/META-INF/spring` folder.
+1. Edit the processor's  **pu.xml** configuration file located under `<XAP root>/examples/helloworld/processor/src/META-INF/spring` folder.
 1. Uncomment, or add the following SLA bean definition, which contains the deployment configuration, to the **pu.xml** file:
 
 {% highlight xml %}
@@ -345,7 +345,7 @@ Before deploying the application with a backup, we first undeploy the currently 
 {% anchor Configure Scale 2backup and Build %}
 **Configuring scaling to be partitioned over 2 instances, with 1 backup each**
 
-1. Edit the processor's  **pu.xml** configuration file located under `<GigaSpaces root>/examples/helloworld/processor/src/META-INF/spring` folder.
+1. Edit the processor's  **pu.xml** configuration file located under `<XAP root>/examples/helloworld/processor/src/META-INF/spring` folder.
 1. Uncomment, or add the following SLA bean definition, which contains the deployment configuration, to the **pu.xml** file (the number-of-backups sets the number of backups per instance):
 
 {% highlight xml %}

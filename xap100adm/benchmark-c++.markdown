@@ -109,4 +109,4 @@ The benchmark program executable is located at:
 # Adding your Space Class
 
 To add your own Space Class into the benchmark framework you should add a class inherited from the Benchmark class and add your code.
-You should add into the `<GigaSpaces Root>\cpp\examples\benchmark\serializer\benchmark.gs.xml` your class space declaration that is supported by your new benchmark implementation.
+You should add into the `<XAP Root>\cpp\examples\benchmark\serializer\benchmark.gs.xml` your class space declaration that is supported by your new benchmark implementation.

@@ -26,7 +26,7 @@ parent: your-first-xtp-application.html
 -------------------------------------------------------------------------------
 {% endcomment %}
 
-{%folderopen%} Example Folder - <GigaSpaces Root>\examples\helloworld
+{%folderopen%} Example Folder - <XAP Root>\examples\helloworld
 
 {% tip %}
 Features Introduced - Service Grid, Grid Service Manager (GSM), Grid Service Container (GSC), Failover, Self-Healing, Deployment.
@@ -262,8 +262,8 @@ In some tutorials this part can be called Build/Build and Package
 
 #### Starting the Service Grid Components
 
-1. Start **GigaSpaces Management Center (GS-UI)** by running `<GigaSpaces Root>/bin/gs-ui.bat(.sh)`.
-1. Start a **GigaSpaces Agent (GSA)** by running `<GigaSpaces Root>/bin/gs-agent.(sh/bat)`.
+1. Start **GigaSpaces Management Center (GS-UI)** by running `<XAP Root>/bin/gs-ui.bat(.sh)`.
+1. Start a **GigaSpaces Agent (GSA)** by running `<XAP Root>/bin/gs-agent.(sh/bat)`.
 The GSA, by default, will start 2 local Grid Service Containers, and manage a global Grid Service Manager and a global Lookup Service.
 
 {% togglecloak id=AGENT %} What is a GigaSpaces Agent...{% endtogglecloak %}
@@ -346,7 +346,7 @@ If you are a community edition user, please note that you will not be able to pe
 {% anchor Prepare Single With Backup %}
 **Prepare the Processor Processing Unit for deployment as a single instance with backup**
 
-1. Edit the processor's  **pu.xml** configuration file located under `<GigaSpaces root>/examples/helloworld/processor/src/META-INF/spring` folder.
+1. Edit the processor's  **pu.xml** configuration file located under `<XAP root>/examples/helloworld/processor/src/META-INF/spring` folder.
 1. Uncomment (Remove the surrounding <!-- -->), or add the following SLA bean definition, which contains the deployment configuration, to the **pu.xml** file:
 
 {% highlight xml %}

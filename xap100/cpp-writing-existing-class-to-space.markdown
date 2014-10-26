@@ -8,10 +8,10 @@ weight: 400
 
 
 
-This example shows you how to write your own c++ class to the space (as opposed to writing a class that is generated from a XML file). The code for this example is located at `<GigaSpaces Root>\cpp\examples\PocoFromExistingClass\`. This path will be referred to as `<Example Root>` in this page.
+This example shows you how to write your own c++ class to the space (as opposed to writing a class that is generated from a XML file). The code for this example is located at `<XAP Root>\cpp\examples\PocoFromExistingClass\`. This path will be referred to as `<Example Root>` in this page.
 
 {% note %}
-This example can be built and run on **Windows OS** only. If you use **Visual Studio** open the solution `PocoFromExistingClass.sln` located in `<GigaSpaces Root>\cpp\examples\PocoFromExistingClass\`. It is recommended to set your solution configuration to `Release` and do a rebuild that will generate all related files.
+This example can be built and run on **Windows OS** only. If you use **Visual Studio** open the solution `PocoFromExistingClass.sln` located in `<XAP Root>\cpp\examples\PocoFromExistingClass\`. It is recommended to set your solution configuration to `Release` and do a rebuild that will generate all related files.
 {%endnote%}
 
 {% refer %}It is assumed that you have read the [GigaSpaces C++ Hello World example](./cpp-api-hello-world-example.html) which serves as a starting point.{% endrefer %}
@@ -96,7 +96,7 @@ Step 4. Optional -- add a smart pointer:
 typedef boost::shared_ptr<UserMessage>    UserMessagePtr;
 {% endhighlight %}
 
-Step 5. Handle the c++ serializer code generation, build the shared library (DLL) from this code, and place the library in the appropriate directory (`<GigaSpaces Root>\lib\platform\native`).
+Step 5. Handle the c++ serializer code generation, build the shared library (DLL) from this code, and place the library in the appropriate directory (`<XAP Root>\lib\platform\native`).
 The following instructions show you how to do this in Visual Studio using the supplied makefile (`<Example Root>/makefileSerializer.mk`):
 
 Step 6. Create a custom build for `PocoFromExistingClass.gs.xml`:
@@ -128,7 +128,7 @@ Step 8. **Rebuild** the example.
 Compiling the file `PocoFromExistingClass.gs.xml` causes the following:
 
 - The file `UserMessageSerializer.cpp` is automatically generated in `<Example Root>`.
-- The DLL `UserMessageSerializer.dll` is created and placed in `<GigaSpaces Root>\lib\platform\native\`.
+- The DLL `UserMessageSerializer.dll` is created and placed in `<XAP Root>\lib\platform\native\`.
 {% endinfo %}
 
 Step 9. Run the example. The output should be as follows:

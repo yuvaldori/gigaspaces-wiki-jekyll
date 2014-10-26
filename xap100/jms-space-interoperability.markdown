@@ -204,7 +204,7 @@ spaceProxy.write(textMessage, null, Lease.Forever);
 {% endhighlight %}
 
 {% info %}
-The `SpaceWriter` example that resides in `<GigaSpaces Root>\examples\Basic\helloJMS` uses this technique to write JMS messages to the space.
+The `SpaceWriter` example that resides in `<XAP Root>\examples\Basic\helloJMS` uses this technique to write JMS messages to the space.
 {%endinfo%}
 
 ## Reading/Taking JMS Messages

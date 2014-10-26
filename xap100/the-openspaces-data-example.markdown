@@ -13,7 +13,7 @@ This example gives an extensive overview of the OpenSpaces APIs, the Processing 
 
 
 {% info %}
-The example is located under `<GigaSpaces Root>/examples/data`
+The example is located under `<XAP Root>/examples/data`
 {% endinfo %}
 
 The purpose of this example is to show many of the capabilities of GigaSpaces XAP and its mainstream APi, namely OpenSpaces. The example uses the following features:
@@ -388,9 +388,9 @@ private IDataProcessor dataProcessor;
 
 # Building and Packaging
 
-This example includes a `build.xml` `ant` file and with a `build.bat/sh` script to invoke `Ant` (there is no need to pre-install `Ant`, the `Ant` jars are already bundled in the `<GigaSpaces Root>/lib/platform` directory).
+This example includes a `build.xml` `ant` file and with a `build.bat/sh` script to invoke `Ant` (there is no need to pre-install `Ant`, the `Ant` jars are already bundled in the `<XAP Root>/lib/platform` directory).
 
-From the `<Example Root>` directory (`<GigaSpaces Root>/examples/data`) call:
+From the `<Example Root>` directory (`<XAP Root>/examples/data`) call:
 
 {% highlight console %}
 build.bat/sh build

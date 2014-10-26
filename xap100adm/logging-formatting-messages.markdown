@@ -55,5 +55,5 @@ Jul 14, 2009  com.gigaspaces.Class.method(..) INFO - Sample message
 {% endhighlight %}
 
 {%refer%}
-For more details on how to customize a message see [java.text.MessageFormat](http://java.sun.com/javase/6/docs/api/java/text/MessageFormat.html) and [java.text.SimpleDateFormat](http://java.sun.com/javase/6/docs/api/java/text/SimpleDateFormat.html)
+For more details on how to customize a message see [java.text.MessageFormat](http://java.sun.com/javase/{%version java-version%}/docs/api/java/text/MessageFormat.html) and [java.text.SimpleDateFormat](http://java.sun.com/javase/{%version java-version%}/docs/api/java/text/SimpleDateFormat.html)
 {%endrefer%}

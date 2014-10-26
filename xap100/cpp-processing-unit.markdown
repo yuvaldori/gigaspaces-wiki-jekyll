@@ -276,14 +276,14 @@ Here is an example for a processing unit declaration that introduces a processin
 
 Deploying your c++ processing unit requires 2 steps:
 
-1. Placing the processing unit declaration at the deployment folder. The default deployment folder located at <GigaSpaces Root>\deploy folder. You can change this using the gsm settings.
+1. Placing the processing unit declaration at the deployment folder. The default deployment folder located at <XAP Root>\deploy folder. You can change this using the gsm settings.
 
-2. Placing the processing unit libraries at the native libraries folder. The default location for these located at <GigaSpaces Root>\lib\ServiceGrid\native. You can change this using the <GigaSpaces Root>\bin\setenv.bat/sh script.
+2. Placing the processing unit libraries at the native libraries folder. The default location for these located at <XAP Root>\lib\ServiceGrid\native. You can change this using the <XAP Root>\bin\setenv.bat/sh script.
 
 Here is how your processing unit deployed folder should look like:
 
 {% highlight xml %}
-<GigaSpaces Root>deploy\cppPUexample
+<XAP Root>deploy\cppPUexample
 
 - META-INF
        spring <-- Here you should place your processing unit declaration - called pu.xml
@@ -291,9 +291,9 @@ Here is how your processing unit deployed folder should look like:
 - lib
 {% endhighlight %}
 
-Run `<GigaSpaces Root>\bin\gsm` And few `<GigaSpaces Root>\bin\gsc` and deploy your processing unit using the following command:
+Run `<XAP Root>\bin\gsm` and  `<XAP Root>\bin\gsc` and deploy your processing unit using the following command:
 
 {% highlight console %}
-<GigaSpaces Root>\bin\gs pudeploy cppPUexample
+<XAP Root>\bin\gs pudeploy cppPUexample
 {% endhighlight %}
 

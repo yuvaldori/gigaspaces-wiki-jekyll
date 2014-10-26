@@ -1,9 +1,9 @@
 ---
 layout: post100
-title:  XAP Interactive API Tutorial
+title:  Interactive API Tutorial
 categories: XAP100
-weight: 800
-parent: cook-books.html
+weight: 150
+parent: tutorials.html
 ---
 
 {%summary%}{%endsummary%}

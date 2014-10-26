@@ -46,7 +46,7 @@ call C:\gigaspaces-xap-premium-8.0.0-ga\bin\setenv.bat
 java -cp bin;%GS_JARS% -Djava.rmi.server.hostname=127.0.0.1 -DlocalMachineDemo=true com.test.scaledemo.ScaleDemoMain
 {% endhighlight %}
 
-- You should replace the GigaSpaces root folder and your machine IP with the relevant values.
+- You should replace the XAP root folder and your machine IP with the relevant values.
 - You will find a `run.bat` script you may use to run the client.
 
 # Expected Instances Distribution

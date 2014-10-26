@@ -76,7 +76,7 @@ Spring Security supports authentication against LDAP through `LdapAuthentication
 {% endhighlight %}
 
 {% info %}
-An LDAP Spring Security configuration file can be found under <GigaSpaces root>/config/security/ldap-security-config.xml
+An LDAP Spring Security configuration file can be found under <XAP root>/config/security/ldap-security-config.xml
 {% endinfo %}
 
 ## Authenticating with LDAP binding

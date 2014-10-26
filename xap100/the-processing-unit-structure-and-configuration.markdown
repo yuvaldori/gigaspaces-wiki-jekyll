@@ -61,7 +61,7 @@ In some cases, multiple Processing Units use the same JAR files. In such cases i
 There are three options to achieve this:
 
 ## `lib/optional/pu-common directory`
-JAR files placed in the `<GigaSpaces root>/lib/optional/pu-common` directory will be loaded by each Processing Unit instance in its own separate classloader (called the Service Classloader, [see the](#ClassLoaders) section below).
+JAR files placed in the `<XAP root>/lib/optional/pu-common` directory will be loaded by each Processing Unit instance in its own separate classloader (called the Service Classloader, [see the](#ClassLoaders) section below).
 
 This means they are not shared between Processing Units on the same JVM, which provides an isolation quality often required for JARs containing the application's proprietary business-logic. On the other hand this option consumes more PermGen memory (due to potentially multiple instances per JVM).
 
@@ -79,7 +79,7 @@ This option achieves similar behavior to the `lib/optional/pu-common` option abo
 For more information see [Manifest Based Classpath](#ManifestBasedClasspath) section below.
 
 ## `lib/platform/ext` directory
-JAR files placed in the `<GigaSpaces root>/lib/platform/ext` directory will be loaded once by the GSC-wide classloader and not separately by each Processing Unit instance (this classloader is called the Common Classloader, see the [Class Loaders](#classloaders) section below).
+JAR files placed in the `<XAP root>/lib/platform/ext` directory will be loaded once by the GSC-wide classloader and not separately by each Processing Unit instance (this classloader is called the Common Classloader, see the [Class Loaders](#classloaders) section below).
 
 This means they are shared between Processing Units on the same JVM and thereby offer no isolation. On the other hand this option consumes less PermGen memory (one instance per JVM).
 
@@ -108,11 +108,11 @@ When [running within your IDE](./running-and-debugging-within-your-ide.html), it
 
 # Deploying the Processing Unit to the Service Grid
 
-When deploying the processing unit to [GigaSpaces Service Grid]({%currentadmurl%}/the-runtime-environment.html), the processing unit jar file is uploaded to the [GigaSpaces Manager (GSM)](/product_overview/service-grid.html#gsm) and extracted to the `deploy` directory of the local GigaSpaces installation (located by default under `<GigaSpaces Root>/deploy`).
+When deploying the processing unit to [GigaSpaces Service Grid]({%currentadmurl%}/the-runtime-environment.html), the processing unit jar file is uploaded to the [XAP Manager (GSM)](/product_overview/service-grid.html#gsm) and extracted to the `deploy` directory of the local GigaSpaces installation (located by default under `<XAP Root>/deploy`).
 
-Once extracted, the [GSM](/product_overview/service-grid.html#gsm) processes the deployment descriptor and based on that provisions processing unit instances to the running [GigaSpaces containers](/product_overview/service-grid.html#gsc).
+Once extracted, the [GSM](/product_overview/service-grid.html#gsm) processes the deployment descriptor and based on that provisions processing unit instances to the running [XAP containers](/product_overview/service-grid.html#gsc).
 
-Each GSC to which a certain instance was provisioned, downloads the processing unit jar file from the GSM, extracts it to its local work directory (located by default under `<GigaSpaces Root>/work/deployed-processing-units`) and starts the processing unit instance.
+Each GSC to which a certain instance was provisioned, downloads the processing unit jar file from the GSM, extracts it to its local work directory (located by default under `<XAP Root>/work/deployed-processing-units`) and starts the processing unit instance.
 
 {% anchor dataOnlyPUs %}
 
@@ -122,7 +122,7 @@ In some cases, your processing unit contains only a [Space](./the-space-configur
 
 One way to package such processing unit is to use the standard processing unit packaging described above, and create a processing unit jar file which only includes a [deployment descriptor](./configuring-processing-unit-elements.html) with the required space definitions and SLA.
 
-GigaSpaces also provides a simpler option via its built-in data-only processing unit templates (located under `<GigaSpaces Root>/deploy/templates/datagrid`. Using these templates you can deploy and run data only processing unit without creating a dedicated jar for them.
+GigaSpaces also provides a simpler option via its built-in data-only processing unit templates (located under `<XAP Root>/deploy/templates/datagrid`. Using these templates you can deploy and run data only processing unit without creating a dedicated jar for them.
 
 For more information please refer to [Deploying and running the processing unit](./deploying-and-running-the-processing-unit.html)
 
@@ -203,5 +203,5 @@ The `pu-common` directory may contain a jar file with a manifest file as describ
 1. Only file URLs are supported. (i.e http, etc... will be ignored)
 
 {%refer%}
-Further details about the manifest file can be found [here](http://docs.oracle.com/javase/6/docs/technotes/guides/jar/jar.html#JAR%20Manifest).
+Further details about the manifest file can be found [here](http://docs.oracle.com/javase/{%version java-version%}/docs/technotes/guides/jar/jar.html#JAR%20Manifest).
 {%endrefer%}

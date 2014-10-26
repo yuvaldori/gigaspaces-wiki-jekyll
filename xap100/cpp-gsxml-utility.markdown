@@ -22,7 +22,7 @@ gs> gsxml2cpp <XML input file> <Package name> <output serializer file (.cpp)> <o
 
 # Options
 
-To run this command from the command line, the environment must be set using the `<GigaSpaces Root>\cpp\env.cmd` script.
+To run this command from the command line, the environment must be set using the `<XAP Root>\cpp\env.cmd` script.
 
 The `gsxml2cpp` command has the following parameters:
 

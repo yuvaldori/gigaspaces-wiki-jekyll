@@ -87,7 +87,7 @@ public class Main {
 {% endhighlight %}
 
 {% info %}
- When running a standalone test, you will need to include the following jars in your classpath: <GigaSpaces root>/lib/optional/security/spring-security-core-\*.jar , <GigaSpaces root>/lib/optional/spring/\*.jar , <GigaSpaces root>/lib/required/\*.jar
+ When running a standalone test, you will need to include the following jars in your classpath: <XAP root>/lib/optional/security/spring-security-core-\*.jar , <XAP root>/lib/optional/spring/\*.jar , <XAP root>/lib/required/\*.jar
 {% endinfo %}
 
 # GigaSpaces Security Authorities

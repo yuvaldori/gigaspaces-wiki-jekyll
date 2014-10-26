@@ -54,7 +54,7 @@ XAP is packaged with a number of predefined alerts whose thresholds are configur
 
 # Static Configuration
 
-The static configuration for the predefined alerts mentioned above is defined in the `<GigaSpaces Root>/config/alerts/alerts.xml` file. It includes the default settings for each alert.
+The static configuration for the predefined alerts mentioned above is defined in the `<XAP Root>/config/alerts/alerts.xml` file. It includes the default settings for each alert.
 
 For example, the following is a snippet that represents the configuration of the **CPU Utilization Alert**.
 The alert is configured with a high threshold of 80% and a low threshold of 60% and a   period of 1 minute. An alert will be raised if CPU utilization in a certain host in the GigaSpaces cluster crosses 80% for a period of 1 minute. A raised alert will be resolved if the CPU utilization goes below 60% for 1 minute.
@@ -78,7 +78,7 @@ Since GigaSpaces XAP is working in a distributed environment, an alert is identi
 
 # Viewing Alerts (Web-UI)
 
-Alerts are visible in the Alerts View of the Web-UI Since 8.0.1. The Web-UI server utilizes the `<GigaSpaces Root>/config/alerts/alerts.xml` configuration file. These configurations apply to any client connecting to the Web-UI at the specified host and port.
+Alerts are visible in the Alerts View of the Web-UI Since 8.0.1. The Web-UI server utilizes the `<XAP Root>/config/alerts/alerts.xml` configuration file. These configurations apply to any client connecting to the Web-UI at the specified host and port.
 
 The alerts are grouped together by their 'type' (e.g. CPU, Memory, GC, etc.). When an alert is raised, it is aggregated with other consecutive alerts of the same 'type'. Previous alerts form the aggregation get "pushed" down (circled in red). A resolved alert "closes" the aggregation (circled in green). A new alert of the same 'type' will "open" a new aggregation.
 

@@ -2,7 +2,7 @@
 layout: post100
 title:  JVM Configuration
 categories: XAP100NET
-parent: configuration.html
+parent: administrators-guide.html
 weight: 500
 ---
 

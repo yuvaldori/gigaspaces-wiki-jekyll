@@ -42,7 +42,7 @@ parent: your-first-web-application.html
 {% endcomment %}
 
 {% note %}
-The Sample application for this step is located under `<GigaSpaces Root>/examples/web/plain`.
+The Sample application for this step is located under `<XAP Root>/examples/web/plain`.
 {%endnote%}
 
 #####Features Introduced

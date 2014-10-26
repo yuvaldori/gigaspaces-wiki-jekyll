@@ -2,7 +2,7 @@
 layout: post100
 title:  System Configuration
 categories: XAP100NET
-parent: configuration.html
+parent: administrators-guide.html
 weight: 200
 ---
 
@@ -10,7 +10,7 @@ weight: 200
 
 
 
-GigaSpaces XAP.NET offers a collection of system properties which can be used to tweak the system's behavior. For a list of system properties refer to [System Properties List]({%currentadmurl%}/system-properties-net.html). This page discusses various options of defining and overriding system properties configuration.
+GigaSpaces XAP.NET offers a collection of system properties which can be used to tweak the system's behavior. For a list of system properties refer to [System Properties List]({%currentadmurl%}/system-properties.html). This page discusses various options of defining and overriding system properties configuration.
 
 # Using Application Configuration File
 

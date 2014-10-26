@@ -355,7 +355,7 @@ If you haven't already done so,[download GigaSpaces and set up your development 
 \- This is needed for running the tutorial sample application.
 {% anchor JImporting Project to the IDE %} **Importing the project into Eclipse**
 
-1. Import the **hello-common**, **hello-processor* and **hello-feeder** projects located under the `<GigaSpaces Root>/examples/helloworld` folder.
+1. Import the **hello-common**, **hello-processor* and **hello-feeder** projects located under the `<XAP Root>/examples/helloworld` folder.
 (After importing, you'll see some errors since the GS_HOME path variable is not set yet)
 ![ide-2.jpg](/attachment_files/ide-2.jpg)
 
@@ -384,7 +384,7 @@ If you haven't already done so,[download GigaSpaces and set up your development 
 {% gcloak GSHOME %}
 {% panel bgColor=white|borderStyle=solid %}
 
-**Setting an environment variable pointing to the GigaSpaces root folder**
+**Setting an environment variable pointing to the XAP root folder**
 
 1. Right Click on the **hello-common* project in the *Package Explorer tab** to open the _context menu_
 1. Select **Build Path > Configure Build Path...** to open the _Java Build Path dialog_
@@ -402,7 +402,7 @@ If you haven't already done so,[download GigaSpaces and set up your development 
 {% endgcloak %}
 
 {% tip %}
-Make sure your project includes the latest Spring libraries located at `<GigaSpaces Root>\lib\required` folder.
+Make sure your project includes the latest Spring libraries located at `<XAP Root>\lib\required` folder.
 {% endtip %}
 
 {% anchor Run Processor in IDE %} **Running the Processor**

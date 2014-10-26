@@ -85,7 +85,7 @@ The number of connections a client should open also depends on the size of the o
 
 ## Watchdog
 
-When reading from a [NIO SocketChannel](http://download.oracle.com/javase/6/docs/api/java/nio/channels/SocketChannel.html) and the connection between the client and server fails abnormally, no notification is generated. The most common example for such failure is disconnecting the network cable while performing the read operation. In this case the read operation is blocked for a long time, without ever knowing that the connection is closed. This can cause several problems such as exceeding the number of open sockets on the server or causing client read requests to hang.
+When reading from a [NIO SocketChannel](http://download.oracle.com/javase/{%version java-version%}/docs/api/java/nio/channels/SocketChannel.html) and the connection between the client and server fails abnormally, no notification is generated. The most common example for such failure is disconnecting the network cable while performing the read operation. In this case the read operation is blocked for a long time, without ever knowing that the connection is closed. This can cause several problems such as exceeding the number of open sockets on the server or causing client read requests to hang.
 
 Known solutions and problems they may have:
 
@@ -203,7 +203,7 @@ You can troubleshoot the space activity using LRMI logging. You can turn on LRMI
 
 ## Offline mode -- via gs_logging.properties
 
-`Step 1:` Open `<GigaSpaces Root>/config/gs_logging.properties`
+`Step 1:` Open `<XAP Root>/config/gs_logging.properties`
 
 `Step 2:` Locate the following line:
 
@@ -219,7 +219,7 @@ com.gigaspaces.lrmi.level = INFO
 
 `Step 4:` Save and close the `gs_logging.properties` file.
 
-`Step 5:` Start a space by deploying a data-grid PU or a custom PU with a space. You may also start a space via `<GigaSpaces Root>/bin/gsInstance`.
+`Step 5:` Start a space by deploying a data-grid PU or a custom PU with a space. You may also start a space via `<XAP Root>/bin/gsInstance`.
 
 LRMI communication transport protocol debug messages are displayed.
 

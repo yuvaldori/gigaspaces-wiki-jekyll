@@ -95,7 +95,7 @@ REMOTE_JMX=-Dcom.sun.management.jmxremote.port=5001 -Dcom.sun.management.jmxremo
 
 # Viewing Thread CPU Usage with JDK 1.6
 
-JConsole includes a [new tab](http://blog.luminis.nl/luminis/entry/top_threads_plugin_for_jconsole) that displays CPU usage for each JVM thread. This tab is displayed using the [-pluginpath](http://java.sun.com/javase/6/docs/technotes/guides/management/jconsole.html) JConsole parameter (already implemented in GigaSpaces).
+JConsole includes a [new tab](http://blog.luminis.nl/luminis/entry/top_threads_plugin_for_jconsole) that displays CPU usage for each JVM thread. This tab is displayed using the [-pluginpath](http://java.sun.com/javase/{%version java-version%}/docs/technotes/guides/management/jconsole.html) JConsole parameter (already implemented in GigaSpaces).
 
 **To view this tab in your JConsole**:
 
@@ -105,7 +105,7 @@ JConsole includes a [new tab](http://blog.luminis.nl/luminis/entry/top_threads_p
 ![space_JMX_7_JDK6.jpg](/attachment_files/space_JMX_7_JDK6.jpg)
 {% endindent %}
 
-- **[Download the topthreads.jar file](http://blog.luminis.nl/luminis/resource/peter/topthreads.jar)** and add it to your `<GigaSpaces Root>\lib\ui` folder.
+- **[Download the topthreads.jar file](http://blog.luminis.nl/luminis/resource/peter/topthreads.jar)** and add it to your `<XAP Root>\lib\ui` folder.
 
 {% info %}
 `topthreads.jar` is used by default. If `topthreads.jar` isn't found, the `JTop.jar` file (which is part of the JDK) is used instead.
@@ -256,7 +256,7 @@ There is an option to restrict the access to space and space container operation
 This way, you can view, restrict or modify most of the space and space container **configuration** (as set in the space/container schema files), or the basic **admin operations**, which were discussed in the above sections.
 {%endinfo%}
 
-To do this, modify the following space and space container **MBean Descriptors**, which are located inside the `<GigaSpaces Root>\lib\JSpaces.jar` file:
+To do this, modify the following space and space container **MBean Descriptors**, which are located inside the `<XAP Root>\lib\JSpaces.jar` file:
 
 - `ContainerMBeanDescriptors.xml`
 - `JavaSpaceExtMBeanDescriptors.xml`

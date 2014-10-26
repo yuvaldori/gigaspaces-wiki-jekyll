@@ -17,7 +17,7 @@ To setup a production environment see the [Moving into Production Checklist](/sb
 
 # Verifying Local Installation
 
-1. Run a single GigaSpaces space instance by moving to the `<GigaSpaces Root>\bin` directory and running the `gsInstance.bat/sh` command. You should see such an output:
+1. Run a single GigaSpaces space instance by moving to the `<XAP Root>\bin` directory and running the `gsInstance.bat/sh` command. You should see such an output:
 
 {% highlight console %}
 D:\gigaspaces-xap-premium-8.0.1-ga\bin>gsInstance.bat
@@ -81,10 +81,10 @@ persistency mode [memory]
     - Network setup - Make sure the machine has a valid network interface installed with a valid IP.
     - hosts file - Make sure it includes entry for `localhost` or other machines you are accessing.
     - Multiple NICs - If your machine running multiple network interfaces, make sure you have the `NIC_ADDR` environment variable set to a valid IP of the machine. This should be done on every machine running GigaSpaces.
-    - User permissions - Make sure you run the `gsInstnce.sh` script with a linux user that has permissions to write into the `<Gigaspaces root>/logs` folder.
+    - User permissions - Make sure you run the `gsInstnce.sh` script with a linux user that has permissions to write into the `<XAP root>/logs` folder.
     - `CLASSPATH` environment variable - Make sure the `CLASSPATH` environment variable is not specified. You might have some libraries specified as part of the `CLASSPATH` that cause GigaSpaces to fail.
     - `JSHOMEDIR` - environment variable - Make sure the `JSHOMEDIR` environment variable is not specified or pointing to a different GigaSpaces release folder. It might be you have some other GigaSpaces release installed on the same machine with `JSHOMEDIR` variable pointing to this release folder.
-1. Ping the space by running the `<GigaSpaces Root>\bin\gs.bat/sh` utility:{% wbr %}
+1. Ping the space by running the `<XAP Root>\bin\gs.bat/sh` utility:{% wbr %}
     `gs space ping -url jini://*/*/mySpace`
 
 {% tip %}

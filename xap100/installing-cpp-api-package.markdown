@@ -19,13 +19,13 @@ The current supported platforms and compilers are:
     - 32/64bit -- VS 9.0/10.0 (Visual Studio 2008/2010)
 
 {%comment%}
-{% exclamation %} Prior to installation, see the **[GigaSpaces installation prerequisites](./installation.html#Prior-to-Installation)**.
+{% exclamation %} Prior to installation, see the **[XAP installation prerequisites](./installation.html#Prior-to-Installation)**.
 {%endcomment%}
 
 # Installation
 
 1. Download the c++ API file that suits your platform.
-1. Unzip the file into your `<GigaSpaces Root>` directory (download GigaSpaces [here](http://www.gigaspaces.com/LatestProductVersion)), using your favorite unzip tool (.e.g WinZip). For example - On linux you should run the following to install the C++ libraries:
+1. Unzip the file into your `<XAP Root>` directory (download GigaSpaces [here](http://www.gigaspaces.com/LatestProductVersion)), using your favorite unzip tool (.e.g WinZip). For example - On linux you should run the following to install the C++ libraries:
 
 {% highlight console %}
 tar -xzvf gigaspaces-cpp-{%version xap-version %}-ga-linux-amd64-gcc-4.1.2.tar.gz
@@ -52,7 +52,7 @@ There are several environment settings that are necessary to build and run the e
 
 The following environment variables need to be defined:
 
-- **`JSHOMEDIR`** -- the `<GigaSpaces Root>` directory.
+- **`JSHOMEDIR`** -- the `<XAP Root>` directory.
 - **`PLATFORM`** -- the build platform, in this case win32 or win64.
 - **`COMPILER`** -- the compiler used for building, for example: VS9.0.
 - **`PATH`** -- This should include the compiler folder , GigaSpaces gsxml2cpp location and the jvm.dll location
@@ -80,8 +80,8 @@ For windows 64 bit the **`PATH`** variable should be updated to include:
 
 If you don't want to set these variables globally (by defining System Variables) then the GigaSpaces C++ package includes the following script files that help set the environment:
 
-- **`<GigaSpaces Root>\cpp\env.cmd`** -- Running this file defines these variables to match your platform.
-- **`<GigaSpaces Root>\cpp\GigaVisualStudio.bat`** -- Running this file starts **Visual Studio** and automatically sets the environment.
+- **`<XAP Root>\cpp\env.cmd`** -- Running this file defines these variables to match your platform.
+- **`<XAP Root>\cpp\GigaVisualStudio.bat`** -- Running this file starts **Visual Studio** and automatically sets the environment.
 
 {% tip %} You might need to edit these files to include the correct values for the `PATH` , `JAVA_HOME` and `JSHOMEDIR` environment variables and the correct location of Visual Studio and the jvm.dll.{%endtip%}
 
@@ -92,7 +92,7 @@ If you don't want to set these variables globally (by defining System Variables)
 
 The following environment variables need to be defined:
 
-- **`JSHOMEDIR`** -- the `<GigaSpaces Root>` directory.
+- **`JSHOMEDIR`** -- the `<XAP Root>` directory.
 - **`PLATFORM`** -- the build platform, in this case linux-amd64 or linux32.
 - **`COMPILER`** -- the compiler used for building, for example: gcc-4.1.2.
 
@@ -106,20 +106,20 @@ Example:
 
 If you don't want to set these variables globally the GigaSpaces C++ package includes the following script file that help set the environment:
 
-- **`<GigaSpaces Root>/cpp/setenv.sh`** -- Running this file defines these variables to match your platform.
+- **`<XAP Root>/cpp/setenv.sh`** -- Running this file defines these variables to match your platform.
 {% endtabcontent %}
 {% endinittab %}
 
 # Testing the Installation
 
-The package provides the following scripts (placed in `<GigaSpaces Root>\cpp`):
+The package provides the following scripts (placed in `<XAP Root>\cpp`):
 
 - **sanity** -- Run sanity tests on embedded, remote and partitioned space
 - **runBenchmark** -- Run benchmark tests on embedded space
 - **runTest** -- Run all functional tests on embedded space
 - **testJiniTransactions** -- Run benchmark and functional tests on partitioned space using Jini Mahalo transactions
 
-Result files can be found in `<GigaSpaces Root>\cpp`:
+Result files can be found in `<XAP Root>\cpp`:
 
 `benchmarkResult*.txt`  -- Benchmark tests results
 `testResult*.xml` -- Functional tests results

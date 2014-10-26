@@ -9,14 +9,29 @@ weight: 500
 {%wbr%}
 
 
-As the administrator of your organization's computing applications, you are responsible for setting up and running a system that is critical to your corporate mission. You must plan how to maximize the performance and reliability of your GigaSpaces XAP, and then make it happen.
+The XAP.NET installer enables developers to start evaluating and using the product immediately, without any manual configuration changes.
+At some point there's a need to tweak the configuration.
 
 
 <hr/>
 
 
-- [Configurations](./configuration.html){%wbr%}
-This section describes configuration parameters.
+- [System configuration](./system-configuration.html){%wbr%}
+Using System Properties to configure XAP.NET.
+
+{%comment%}
+- [Systems properties](./system-properties-list.html){%wbr%}
+A list of properties that can be configured.
+{%endcomment%}
+
+- [Platform configuration](./system-configuration-list.html){%wbr%}
+This page explains how to configure XAP.NET Grid environment.
+
+- [JVM configuration](./jvm-configuration.html){%wbr%}
+.Net Client application JVM Settings Configuration.
+
+- [Logging configuration](./log-configuration.html){%wbr%}
+Logging and Tracing of XAP.NET components.
 
 
 

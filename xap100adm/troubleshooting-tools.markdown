@@ -16,7 +16,7 @@ weight: 500
 
 The application starts a space and collects the memory and CPU utilization and dumps the threads when the CPU britches the configured CPU level.
 
-- Extract the *[zip](/download_files/winJVMDumper.zip)* under `Gigaspaces root dir/bin`.
+- Extract the *[zip](/download_files/winJVMDumper.zip)* under `XAP root dir/bin`.
 - Modify the config.dat and set the proper classpath, the CPU (in % beyond it the dump will be created) and the TIME (in msc of the time which lasts the application to breech beyond the configured CPU value)
 - Run the GetJvmDump.exe
 

@@ -92,8 +92,8 @@ After starting the appropriate amount of GSCs and GSMs in your cluster (note tha
 
 ## Deploying a Space Using the Management UI
 
-1. Start the GigaSpaces Agent by running `<GigaSpaces root>/bin/gs-agent.sh(bat)` on the machines on which you would like to deploy the clustered space.
-2. Start the management UI by running `<GigaSpaces root>/bin/gs-ui.sh(bat)`.
+1. Start the GigaSpaces Agent by running `<XAP root>/bin/gs-agent.sh(bat)` on the machines on which you would like to deploy the clustered space.
+2. Start the management UI by running `<XAP root>/bin/gs-ui.sh(bat)`.
 3. Click  the ![deploy-dg.jpg](/attachment_files/deploy-dg.jpg) **Deploy In-Memory Data Grid** button (top left, second button).
 4. In the dialog box that opens, fill in the data grid name, number of instances/backups, the cluster schema (which defines the Space topology), and any other relevant details. Four examples are shown below.
 
@@ -134,9 +134,9 @@ After starting the appropriate amount of GSCs and GSMs in your cluster (note tha
 
 ## Deploying a Space Using the CLI
 
-1. Start the GigaSpaces Agent by running `<GigaSpaces root>/bin/gs-agent.sh(bat)` on the machines on which you would like to deploy the clustered space.
+1. Start the GigaSpaces Agent by running `<XAP root>/bin/gs-agent.sh(bat)` on the machines on which you would like to deploy the clustered space.
 
-2. Use the the GigaSpaces CLI by starting `<GigaSpaces root>/bin/gs.sh(bat)`.
+2. Use the the GigaSpaces CLI by starting `<XAP root>/bin/gs.sh(bat)`.
 
 {% highlight java %}
 gs deploy-space -cluster [schema=<cluster schema>] total_members=<number of instances>[,<number of backups>] <Space name>

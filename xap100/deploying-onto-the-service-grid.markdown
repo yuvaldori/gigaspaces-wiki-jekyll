@@ -36,7 +36,7 @@ However, GigaSpaces XAP also supports the deployment of exploded processing unit
 
 # Distribution of Processing Unit Binaries to the Running GSCs
 
-By default, when a processing unit instance is provisioned to run on a certain GSC, the GSC downloads the processing unit archive from the GSM into the `<GigaSpaces Root>/work/deployed-processing-units` directory (The location of this directory can be overridden via the `com.gs.work` system property).
+By default, when a processing unit instance is provisioned to run on a certain GSC, the GSC downloads the processing unit archive from the GSM into the `<XAP Root>/work/deployed-processing-units` directory (The location of this directory can be overridden via the `com.gs.work` system property).
 
 Downloading the processing unit archive to the GSC is the recommended option, but it can be disabled. In order to disable it, the `pu.download` [deployment property](./deployment-properties.html)  should be set to `false`. This will not download the entire archive to the GSC, but will force the GSC to load the processing unit classes one at a time from the GSM via a URLClassLoader.
 
@@ -86,13 +86,13 @@ In the below example we create an Ant macro using this class and use it to deplo
 Deploying via the CLI is based on the `deploy` command. This command accepts various parameters to control the deployment process. These parameters are documented in full in the [`deploy` CLI reference documentation.]({%currentadmurl%}/deploy-command-line-interface.html).
 
 {% highlight java %}
-> <gigaspaces root>/bin/gs.sh(bat) deploy myPU.jar
+> <XAP root>/bin/gs.sh(bat) deploy myPU.jar
 {% endhighlight %}
 
 {% endtabcontent %}
 {% tabcontent GigaSpaces UI %}
 
-- Open the GigaSpaces UI by launching `<gigaspaces root>/bin/gs-ui.sh(bat)
+- Open the GigaSpaces UI by launching `<XAP root>/bin/gs-ui.sh(bat)
 - Click the "Deploy Application" button ![deploy_processing_unit_button.jpg](/attachment_files/deploy_processing_unit_button.jpg) at the top left of the window
 - In the deployment wizard, click **...** to select your processing unit archive, and then click **Deploy**
 {% endtabcontent %}
@@ -411,7 +411,7 @@ Here is the content of the application.xml file (that resides alongside feeder.j
 Since XAP v9.0.1 the processing unit dependencies can be described using an XML file.
 
 {% highlight java %}
-> <gigaspaces root>/bin/gs.sh(bat) deploy-application examples/data/dist.zip
+> <XAP root>/bin/gs.sh(bat) deploy-application examples/data/dist.zip
 {% endhighlight %}
 
 Here is the content of the application.xml file (that resides alongside feeder.jar in dist.zip):

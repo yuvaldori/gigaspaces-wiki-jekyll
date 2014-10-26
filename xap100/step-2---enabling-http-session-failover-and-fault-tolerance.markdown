@@ -39,7 +39,7 @@ parent: your-first-web-application.html
 -------------------------------------------------------------------------------
 {% endcomment %}
 
-{% info %} The Sample application for this step is located under `<GigaSpaces Root>/examples/web/session`.
+{% info %} The Sample application for this step is located under `<XAP Root>/examples/web/session`.
 {%endinfo%}
 
 #####Features Introduced

@@ -13,7 +13,7 @@ weight: 200
 
 The benchmark example provides a good tool for running performance benchmarks on the cache in various scenarios. This program performs a loop of `write/put` and `read/get` or `take/remove` operations from a space according to a different set of parameters. The result is the average time it took to perform the operations. You can define a sampling rate to allow you to track the intermediate performance while the benchmark example is running. You may also dump the results into a file to be converted into graphs and analyzed using a spreadsheet and analysis tools.
 
-You can find the benchmark in the `<GigaSpaces Root>\tools\benchmark` directory.
+You can find the benchmark in the `<XAP Root>\tools\benchmark` directory.
 
 Typing `run.bat -h` in the console displays:
 

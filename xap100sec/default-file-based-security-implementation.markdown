@@ -19,7 +19,7 @@ One such custom security implementation is the [Spring Security Bridge](./spring
 
 The default security file-based directory is first created when you try to manage the security directory (either using the UI or API).
 
-The default file is created under **`<GigaSpaces root>/security/gs-directory.fsm`**.
+The default file is created under **`<XAP root>/security/gs-directory.fsm`**.
 The `.fsm` is an abbreviation of File Security Manager.
 
 When the file doesn't exist, we create a new file and an **`admin/admin`** user is added with both **Manage Users** and **Manage Roles** privileges. With this `admin` user you can start to manage the roles and users. The `admin` user has no privileges to perform any other operation. Of course, it can be deleted, and replaced with your own administrator.

@@ -31,19 +31,19 @@ You can use a different directory by configuring the `com.gigaspaces.lib.opt.sec
 {%endinfo%}
 
 {% highlight java %}
-<GigaSpaces root>/lib/optional/security/my-custom-security.jar
+<XAP root>/lib/optional/security/my-custom-security.jar
 {% endhighlight %}
 
 Processing units may share a custom security implementation that may +differ+ from that of the GSM and GSCs. In this case, the custom security jar can be placed under `pu-common`.
 
 {% highlight java %}
-<GigaSpaces root>/lib/optional/pu-common/my-pu-custom-security.jar
+<XAP root>/lib/optional/pu-common/my-pu-custom-security.jar
 {% endhighlight %}
 
 If each processing unit has its **own** custom security implementation, the custom security jar can be part of the processing unit distribution.
 
 {% highlight java %}
-<GigaSpaces root>/deploy/hello-processor/lib/my-processor-custom-security.jar
+<XAP root>/deploy/hello-processor/lib/my-processor-custom-security.jar
 {% endhighlight %}
 
 {% info %} It is recommended that the custom security jar should only contain security-related classes. {%endinfo%}

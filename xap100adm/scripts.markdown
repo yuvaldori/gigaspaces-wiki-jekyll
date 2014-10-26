@@ -8,7 +8,7 @@ weight: 50
 
 {% summary page%}{% endsummary %}
 
-The `<gigaspaces root>/bin` folder includes scripts to manage and monitor [GigaSpaces Runtime](./the-runtime-environment.html) Components and Applications:
+The `<XAP root>/bin` folder includes scripts to manage and monitor [GigaSpaces Runtime](./the-runtime-environment.html) Components and Applications:
 
 - **setenv** - Used by all scripts to configure and load [Common Environment Variables]({%currentjavaurl%}/common-environment-variables.html).
 - **gs** - starts the GigaSpaces [interactive shell](./command-line-interface.html).
@@ -64,7 +64,7 @@ You can enable this option in one of the following ways:
 
     -Dcom.gs.start-embedded-mahalo=true
 
-- Setting XPath in the `<GigaSpaces Root>\config\gs.properties` file:
+- Setting XPath in the `<XAP Root>\config\gs.properties` file:
 
     com.j_spaces.core.container.embedded-services.mahalo.start-embedded-mahalo=true
 
@@ -74,7 +74,7 @@ GigaSpaces supports space monitoring and management using JMX - The Java Managem
 
 {% note %}
 When running `gsIntance`, the Jini Lookup Service runs implicitly. When having many Jini Lookup Services running across the network, the spaces and clients might be overloaded since they publish themselves into the Lookup Service, or are trying to get updates about newly registered services.
-A good practice is to have two Lookup Services running using the `startJiniLUS` command located in the `<GigaSpaces Root>\bin` directory, or the GSM command located in the `<GigaSpaces Root>\bin` folder. This ensures no single point of failure for the Lookup Service.
+A good practice is to have two Lookup Services running using the `startJiniLUS` command located in the `<XAP Root>\bin` directory, or the GSM command located in the `<XAP Root>\bin` folder. This ensures no single point of failure for the Lookup Service.
 {% endnote %}
 
 ### Syntax & Arguments

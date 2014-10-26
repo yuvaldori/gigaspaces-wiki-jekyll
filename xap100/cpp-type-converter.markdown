@@ -15,10 +15,10 @@ Supported types are stated in the `gs.xml` file. For more details, refer to the 
 {%endrefer%}
 
 
-The code for this example is located at `<GigaSpaces Root>\cpp\examples\PocoUserPackaging`. This path will be referred to as `<Example Root>` in this page.
+The code for this example is located at `<XAP Root>\cpp\examples\PocoUserPackaging`. This path will be referred to as `<Example Root>` in this page.
 
 {% note %}
-This example can be built and run on **Windows OS** only. If you use **Visual Studio** open the solution `PocoUserPackaging.sln` located in `<GigaSpaces Root>\cpp\examples\PocoUserPackaging\`. It is recommended to set your solution configuration to `Release` and do a rebuild that will generate all related files.
+This example can be built and run on **Windows OS** only. If you use **Visual Studio** open the solution `PocoUserPackaging.sln` located in `<XAP Root>\cpp\examples\PocoUserPackaging\`. It is recommended to set your solution configuration to `Release` and do a rebuild that will generate all related files.
 {%endnote%}
 
 In this example, we translate an object of type `std::map` (which is not supported by GigaSpaces c++ API) into two buffers of type `std::vector` (which is a supported type).

@@ -40,7 +40,7 @@ You do not need to use distributed transactions when consuming from a Topic, and
 
 To use Mahalo, you must first enable the Mahalo service in GigaSpaces.
 
-To enable Mahalo, set the following XPath property in the `<GigaSpaces Root>\config\gs.properties` file:
+To enable Mahalo, set the following XPath property in the `<XAP Root>\config\gs.properties` file:
 
 {% highlight java %}
 com.j_spaces.core.container.embedded-services.mahalo.start-embedded-mahalo=true

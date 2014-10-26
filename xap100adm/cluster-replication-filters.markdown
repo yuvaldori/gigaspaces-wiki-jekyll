@@ -216,7 +216,7 @@ public class RepFilter implements IReplicationFilter{
 # Example - The XML Replication Filter
 
 {% info %}
-Download the [XML replication filter example](/attachment_files/XMLReplicationfilter.zip) and extract it under `\GigaSpaces Root\examples\Advanced\Integration_Plugins`.
+Download the [XML replication filter example](/attachment_files/XMLReplicationfilter.zip) and extract it under `\XAP Root\examples\Advanced\Integration_Plugins`.
 {%endinfo%}
 
 The XML replication filter example illustrates a generic replication filter that allows you to define the data to be filtered via XML.
@@ -224,7 +224,7 @@ The example is composed from 2 spaces: siteA space and siteB space, clustered vi
 
 {% inittab more code stuff|top %}
 {% tabcontent Configuration Files %}
-The example configurations files are located under the `GigaSpaces Root\examples\Advanced\Integration_Plugins\XMLReplicationfilter\config` folder.
+The example configurations files are located under the `XAP Root\examples\Advanced\Integration_Plugins\XMLReplicationfilter\config` folder.
 cluster-configWXMLRepfilter.xml - the static cluster configuration. Includes the location of the XML based filter to be used by the replication filter implementation.
 ReplicationFilterConfig.xml - The XML based filter. The objects to be replicated data
 rfilter.properties - space property file. Includes the location of the static cluster configuration file.

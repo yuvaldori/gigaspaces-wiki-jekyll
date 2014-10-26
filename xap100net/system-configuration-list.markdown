@@ -2,7 +2,7 @@
 layout: post100
 title:  Platform Configuration
 categories: XAP100NET
-parent: configuration.html
+parent: administrators-guide.html
 weight: 400
 ---
 

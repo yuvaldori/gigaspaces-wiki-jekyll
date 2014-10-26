@@ -8,7 +8,7 @@ weight: 400
 
 
 
-The Local View/Cache JMX Monitor monitors the number of objects stored within the client side cache and the activities performed with it. You can use [JConsole](http://docs.oracle.com/javase/1.5.0/docs/guide/management/jconsole.html) to graph the number of objects within the local view/cache and other exposed statistics while the application is running. The Local View/Cache JMX Monitor exposing the following statistics:
+The Local View/Cache JMX Monitor monitors the number of objects stored within the client side cache and the activities performed with it. You can use [JConsole](http://docs.oracle.com/javase/{%version java-version%}/docs/technotes/guides/management/jconsole.html) to graph the number of objects within the local view/cache and other exposed statistics while the application is running. The Local View/Cache JMX Monitor exposing the following statistics:
 
 - Object Count
 - Read Count, Take Count, Write Count, Update Count
@@ -18,11 +18,11 @@ The Local View/Cache JMX Monitor monitors the number of objects stored within th
 
 To use the Local View/Cache JMX Monitor:
 
-1. Download the [GSClientCacheJMXMonitorXAP9.jar](/download_files/GSClientCacheJMXMonitorXAP9.jar) and add it into your application classpath.
+1. {%download /download_files/GSClientCacheJMXMonitorXAP9.jar%} the monitor jar and add it into your application classpath.
 2. Add into your local view/cache configuration the `space-config.filters.Statistics.enabled` parameter as demonstrated below.
 3. Add into your application Spring file the `gsClientCacheMonitor` bean. The following example assumes you have an application using two master spaces, each has its own client local cache proxy. See how the `GigaSpacesClientCacheJMXMonitor` is configured to specify the different proxies used by the application:
 
-{% highlight java %}
+{% highlight xml %}
 <os-core:space-proxy id="space" name="mySpace" />
 
 <os-core:local-cache id="localCacheSpace" space="space">

@@ -40,7 +40,7 @@ parent: your-first-web-application.html
 -------------------------------------------------------------------------------
 {% endcomment %}
 
-{% infosign %} The Sample application for this step is located under `<GigaSpaces Root>/examples/web/space-access`.
+{% infosign %} The Sample application for this step is located under `<XAP Root>/examples/web/space-access`.
 
 ##### Features Introduced
 
@@ -348,7 +348,7 @@ Note that incase needed, you can use both approaches in the same application, an
 
 # Accessing the Space from a Standalone Web Container
 
-In some cases, you may want to access the space from an external web application, or another external client, which is not running on the GigaSpaces containers (Note that this means that application/standalone client is not managed by GigaSpaces and cannot benefit from the convenient deployment and self-healing capabilities of this environment). In such case, you need to make sure to include all the `jar` files under the `<GigaSpaces Root>/lib/required` directory in your classpath (typically by placing them in the `WEB-INF/lib` directory):
+In some cases, you may want to access the space from an external web application, or another external client, which is not running on the GigaSpaces containers (Note that this means that application/standalone client is not managed by GigaSpaces and cannot benefit from the convenient deployment and self-healing capabilities of this environment). In such case, you need to make sure to include all the `jar` files under the `<XAP Root>/lib/required` directory in your classpath (typically by placing them in the `WEB-INF/lib` directory):
 
 - `gs-runtime.jar`
 - `gs-openspaces.jar`
