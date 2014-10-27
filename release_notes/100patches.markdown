@@ -1,0 +1,15 @@
+---
+layout: post
+title:  Patches
+categories: RELEASE_NOTES
+parent: xap100.html
+weight: 300
+---
+
+This document provides the information needed for patches of 10.0.X xap product 
+
+
+{: .table .table-bordered .table-condensed}
+| Patch | CaseID | JiraID  | Description | Comments | Install on server \ client | Build Number | Release Date | 
+|:------|:-------|:--------|:------------|:---------|:---------------------------|:-------------|:-------------|
+| <nobr>10.0.1 patch2</nobr> | 8925 | <nobr>GS-11726</nobr> | Add In & BETWEEN support for nested values |  |  | 11820 | 27/10/2014 |
