@@ -174,27 +174,31 @@ $(function () {
                 // updateTimeLeft(msg.status.timeleft);
                 updateButtonState(msg);
                 updateExpires(msg);
+                updateLog(msg.data.output);
 
                 if (msg.data.nodeModel && !msg.data.nodeModel.publicIp) {
                     msg.data.nodeModel.publicIp = msg.data.nodeModel.machineSshDetails.publicIp;
                 }
 
-                //Update manage  url
-                updateManageUrl('http://' + msg.data.nodeModel.publicIp + ':8099/');
-                if (msg.data.widget.consoleLink) {
-                    if (msg.data.exitStatus && msg.data.exitStatus.code === 0) {
-                        updateTermUrl('http://' + msg.data.nodeModel.publicIp + ':8080');
+                if (msg.data.nodeModel && msg.data.nodeModel.publicIp) {
+                    //Update manage  url
+                    updateManageUrl('http://' + msg.data.nodeModel.publicIp + ':8099/');
+                    if (msg.data.widget.consoleLink) {
+                        if (msg.data.exitStatus && msg.data.exitStatus.code === 0) {
+                            updateTermUrl('http://' + msg.data.nodeModel.publicIp + ':8080');
+                        }
+                        //Update use url
+                        updateUseUrl(msg.data.widget.consoleLink.url.replace('$HOST', msg.data.nodeModel.publicIp), msg.data.widget.consoleLink.title);
+                        updateTtyUrl('http://' + msg.data.nodeModel.publicIp + ':8080/');
+                        // NProgres.done();
                     }
-                    //Update use url
-                    updateUseUrl(msg.data.widget.consoleLink.url.replace('$HOST', msg.data.nodeModel.publicIp), msg.data.widget.consoleLink.title);
-                    updateTtyUrl('http://' + msg.data.nodeModel.publicIp + ':8080/');
-                    // NProgres.done();
-                } else {
+                }
+                else {
                     updateTtyUrl();
                     updateUseUrl();
                 }
 
-                updateLog(msg.data.output);
+//                updateLog(msg.data.output);
                 if (msg.name != "widget_played") {
                     //$("#loading").attr('style', 'display:none');
                     //$("#butterflyWrapper").hide();
