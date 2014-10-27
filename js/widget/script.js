@@ -175,7 +175,7 @@ $(function () {
                 updateButtonState(msg);
                 updateExpires(msg);
 
-                if (!msg.data.nodeModel.publicIp) {
+                if (msg.data.nodeModel && !msg.data.nodeModel.publicIp) {
                     msg.data.nodeModel.publicIp = msg.data.nodeModel.machineSshDetails.publicIp;
                 }
 
