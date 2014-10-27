@@ -185,6 +185,8 @@ class MyBean implements SpaceBeforeBackupListener, SpaceAfterPrimaryListener {
 }
 {% endhighlight %}
 
+
+
 If the bean would not implement any of the interfaces above, another option is to annotate the bean's methods that need to be invoked when a space mode changes.
 
 {: .table .table-bordered .table-condensed}
@@ -234,6 +236,31 @@ In order to enable this feature, the following should be placed within the appli
 {% endtabcontent %}
 {% endinittab %}
 
+When there is more than one Proxy (e.g: embedded, remote, ...), the following should be done in order to be sure that the Primary Backup Notifications arrived from the current Space instance:
+
+{% highlight java %}
+class MyBean {
+
+    @Resource(name="gigaSpace")
+    private GigaSpace gigaSpace;
+
+	boolean isPrimary;
+
+	@PostPrimary
+	public void afterChangeModeToPrimary(AfterSpaceModeChangeEvent event) {
+		if (SpaceUtils.isSameSpace(gigaSpace.getSpace(), event.getSpace()))
+			isPrimary = true;
+	}
+
+	@PostBackup
+	public void afterChangeModeToBackup(AfterSpaceModeChangeEvent event) {
+		if (SpaceUtils.isSameSpace(gigaSpace.getSpace(), event.getSpace()))
+			isPrimary = false;
+	}
+
+}
+{% endhighlight %}
+
 # Space Mode Changed Events
 
 When a remote client is interested to receive events when a space instance changing its runtime mode (from primary to backup or vise versa), it should implement the `SpaceModeChangedEventListener`. See below how:
@@ -272,28 +299,6 @@ public class MySpaceModeListener implements SpaceModeChangedEventListener{
 {% endhighlight %}
 
 
-When there is more than one Proxy (e.g: embedded, remote, ...), the following should be done in order to be sure that the Primary Backup Notifications arrived from the current Space instance:
 
-{% highlight java %}
-class MyBean {
-
-	private GigaSpace gigaSpace;
-
-	boolean isPrimary;
-
-	@PostPrimary
-	public void afterChangeModeToPrimary(AfterSpaceModeChangeEvent event) {
-		if (SpaceUtils.isSameSpace(gigaSpace.getSpace(), event.getSpace()))
-			isPrimary = true;
-	}
-
-	@PostBackup
-	public void afterChangeModeToBackup(AfterSpaceModeChangeEvent event) {
-		if (SpaceUtils.isSameSpace(gigaSpace.getSpace(), event.getSpace()))
-			isPrimary = false;
-	}
-
-}
-{% endhighlight %}
 
 

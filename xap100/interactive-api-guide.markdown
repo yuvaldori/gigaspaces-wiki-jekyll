@@ -217,11 +217,11 @@ public class EngineerPojo implements Serializable {
 ## XAP 10 new API
 
 This option will introduce you to some unique XAP features:
-<br>
-- [Query Aggregations](./aggregators.html)
-<br>
+
+{%refer%}
+- [Query Aggregations](./aggregators.html)<br>
 - [Custom Change Operation](./change-api-custom-operation.html)
-<br>
+{%endrefer%}
 
 
 {%anchor option3%}

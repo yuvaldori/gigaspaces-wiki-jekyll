@@ -10,26 +10,9 @@ parent: tutorials.html
 
 This tutorial explains how to deploy and use a XAP [Data Grid](/product_overview/the-in-memory-data-grid.html) from a Java client application.
 
-{%comment%}
-
-In this tutorial we will:
-
-1. Download and install **XAP**.
-2. Deploy a Data Grid.
-3. Write code that connects to the Data Grid and interacts with it.
- 
-# Download and Install XAP
-
-Getting XAP is simple: download it from the [Current Releases](http://www.gigaspaces.com/LatestProductVersion) page.
-
-Installing XAP is just as easy - unzip it into a directory of your choice:
-
-* On Windows, you might unzip it into `c:\tools\`, which will create `c:\tools\{%version gshome-directory %}`.
-* On Unix, you might unzip it into `/usr/local/`, which will create `/usr/local/{%version gshome-directory %}`. You'll also need to grant execution permissions to the scripts in the `bin` folder.
-{%endcomment%}
 
 {%vbar title=Download and Install XAP %}
-- Download and unzip the latest XAP release from the [downloads page](http://www.gigaspaces.com/xap-download)
+- {%download http://www.gigaspaces.com/xap-download %}  and unzip the latest XAP release.
 - Unzip the distribution into a working directory; GS_HOME
 - Set the JAVA_HOME environment variable to point to the JDK root directory
 - Start your favorite Java IDE
