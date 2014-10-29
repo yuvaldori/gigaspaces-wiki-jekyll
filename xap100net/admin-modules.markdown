@@ -6,7 +6,7 @@ parent: programmers-guide.html
 weight: 1300
 ---
 
-{%wbr%}
+<br>
 
 {% section %}
 {% column  width=10% %}
@@ -21,15 +21,17 @@ The Admin API provides a way to administer and monitor all of XAP services and c
 
 
 
-<hr/>
+<br>
 
-- [Admin API](./administration-and-monitoring-api.html){%wbr%}
+{%fpanel%}
+
+[Admin API](./administration-and-monitoring-api.html){%wbr%}
 Simple API to monitor and administer XAP services and components.
 
-- [Scaling Agent](./scaling-agent-example.html){%wbr%}
+[Scaling Agent](./scaling-agent-example.html){%wbr%}
 This example demonstrates how to harness the Service Grid Admin API to build an agent that monitors a deployed application, and scale it up on demand.
 
 
-<hr/>
+{%endfpanel%}
 
 

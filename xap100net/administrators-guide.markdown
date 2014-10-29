@@ -6,34 +6,31 @@ parent: none
 weight: 500
 ---
 
-{%wbr%}
+<br>
 
 
 The XAP.NET installer enables developers to start evaluating and using the product immediately, without any manual configuration changes.
 At some point there's a need to tweak the configuration.
 
 
-<hr/>
+<br>
 
+{%fpanel%}
 
-- [System configuration](./system-configuration.html){%wbr%}
+[System configuration](./system-configuration.html){%wbr%}
 Using System Properties to configure XAP.NET.
 
-{%comment%}
-- [Systems properties](./system-properties-list.html){%wbr%}
-A list of properties that can be configured.
-{%endcomment%}
 
-- [Platform configuration](./system-configuration-list.html){%wbr%}
+[Platform configuration](./system-configuration-list.html){%wbr%}
 This page explains how to configure XAP.NET Grid environment.
 
-- [JVM configuration](./jvm-configuration.html){%wbr%}
+[JVM configuration](./jvm-configuration.html){%wbr%}
 .Net Client application JVM Settings Configuration.
 
-- [Logging configuration](./log-configuration.html){%wbr%}
+[Logging configuration](./log-configuration.html){%wbr%}
 Logging and Tracing of XAP.NET components.
 
+{%endfpanel%}
 
 
-<hr/>
 
