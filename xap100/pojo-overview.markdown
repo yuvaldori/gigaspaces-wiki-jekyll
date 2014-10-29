@@ -6,7 +6,7 @@ parent: programmers-guide.html
 weight: 100
 ---
 
-{%wbr%}
+<br>
 
 {%section%}
 {%column width=10% %}
@@ -17,12 +17,14 @@ XAP's [POJO](http://en.wikipedia.org/wiki/Plain_Old_Java_Object) support allows 
 {%endcolumn%}
 {%endsection%}
 
-<hr/>
+<br>
 
-- [Overview](./pojo-support.html){%wbr%}
+
+{% fpanel %}
+[Overview](./pojo-support.html){%wbr%}
 Using POJOs as space objects.
 
-- [Dynamic Properties](./dynamic-properties.html){%wbr%}
+[Dynamic Properties](./dynamic-properties.html){%wbr%}
 Using Dynamic Properties with POJO entries.
+{%endfpanel%}
 
-<hr/>

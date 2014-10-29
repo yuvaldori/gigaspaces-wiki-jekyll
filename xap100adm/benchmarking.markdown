@@ -6,22 +6,23 @@ parent: none
 weight: 1100
 ---
 
-{%wbr%}
+<br>
 
 This section will introduce you to tools and utilities for benchmarking your XAP applications.
 
-<hr/>
+<br>
 
-- [Benchmark Overview](./benchmarking-intro.html){%wbr%}
+{%fpanel%}
+
+[Benchmark Overview](./benchmarking-intro.html){%wbr%}
 Performance benchmarks with XAP
 
-- [Benchmark Utility](./benchmark-utility-cli.html) {%wbr%}
+[Benchmark Utility](./benchmark-utility-cli.html) {%wbr%}
 A tool to run performance benchmarks with the space in various scenarios.
 
-- [Benchmark View](./benchmark-browser.html){%wbr%}
+[Benchmark View](./benchmark-browser.html){%wbr%}
 The Benchmark view provides a user interface for benchmarking the space.
 
-- [C++ Benchmark](./benchmark-c++.html){%wbr%}
+[C++ Benchmark](./benchmark-c++.html){%wbr%}
 How to configure and run the c++ POCO Benchmark Framework.
-
-<hr/>
+{%endfpanel%}

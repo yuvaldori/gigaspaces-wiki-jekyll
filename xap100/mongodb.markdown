@@ -7,8 +7,7 @@ weight: 300
 ---
 
 
-
-{%wbr%}
+<br>
 
 {%section%}
 {%column width=10% %}
@@ -24,13 +23,14 @@ MongoDB is built for scalability, performance and high availability, scaling fro
 
 
 
-<hr>
+<br>
 
-- [Space Persistence](./mongodb-space-persistency.html){%wbr%}
+{%fpanel%}
+[Space Persistence](./mongodb-space-persistency.html){%wbr%}
 A MongoDB Space Persistency Solution
 
-- [Archive Handler](./mongodb-archive-operation-handler.html){%wbr%}
+[Archive Handler](./mongodb-archive-operation-handler.html){%wbr%}
 Archives space objects to MongoDB.
 
+{%endfpanel%}
 
-<hr>

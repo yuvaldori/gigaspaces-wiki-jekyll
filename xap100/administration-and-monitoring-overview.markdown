@@ -7,7 +7,7 @@ weight: 1800
 ---
 
 
-{%wbr%}
+<br>
 
 
 {% section %}
@@ -21,22 +21,24 @@ The Admin API provides a way to administer and monitor all of XAP services and c
 {% endcolumn %}
 {% endsection %}
 
-<hr/>
+<br>
 
-- [Admin API](./administration-and-monitoring-api.html){%wbr%}
+{%fpanel%}
+
+[Admin API](./administration-and-monitoring-api.html){%wbr%}
 Simple API to monitor and administer XAP services and components.
 
-- [Dump API](./dump.html){%wbr%}
+[Dump API](./dump.html){%wbr%}
 Simple API to generate dump files of the runtime XAP environment.
 
-- [Runtime Alerts](./administrative-alerts.html){%wbr%}
+[Runtime Alerts](./administrative-alerts.html){%wbr%}
 Runtime administrative alerts - monitoring the “health state” of the system.
 
-- [SNMP](./snmp-connectivity-via-alert-logging-gateway.html){%wbr%}
+[SNMP](./snmp-connectivity-via-alert-logging-gateway.html){%wbr%}
 Logging Gateway for Administrative alerts.
+{%endfpanel%}
 
-
-<hr/>
+<br>
 
 #### Additional Resources
 

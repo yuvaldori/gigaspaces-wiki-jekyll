@@ -5,23 +5,27 @@ categories: XAP100ADM
 parent: none
 weight: 500
 ---
-{%wbr%}
+
+<br>
+
 This section explains how you can configure logging with XAP. We will show you how you can format the log output, choose file names and rollover policies.
 
-<hr/>
+<br>
 
-- [Overview](./logging.html){%wbr%}
+{%fpanel%}
+
+[Overview](./logging.html){%wbr%}
 Logging concepts and options.
 
-- [Logging API](./logging-api.html){%wbr%}
+[Logging API](./logging-api.html){%wbr%}
 Using the API for logging.
 
-- [Formatting messages](./logging-formatting-messages.html){%wbr%}
+[Formatting messages](./logging-formatting-messages.html){%wbr%}
 Formatting the logged output.
 
-- [Managing files](./logging-managing-files.html){%wbr%}
+[Managing files](./logging-managing-files.html){%wbr%}
 Managing log file naming, and rolling over policies.
 
-- [Backup custom policy](./logging-backing-custom-policy.html){%wbr%}
+[Backup custom policy](./logging-backing-custom-policy.html){%wbr%}
 Custom backup policy.
-<hr/>
+ {%endfpanel%}

@@ -6,7 +6,7 @@ parent: big-data.html
 weight: 200
 ---
 
-{%wbr%}
+<br>
 
 {%section%}
 {%column width=10% %}
@@ -14,8 +14,6 @@ weight: 200
 {%endcolumn%}
 {%column width=90% %}
 The [Apache Cassandra Project™](http://cassandra.apache.org) is a scalable multi-master database with no single points of failure. The Apache Cassandra Project develops a highly scalable second-generation distributed database, bringing together Dynamo's fully distributed design and Bigtable's ColumnFamily-based data model.
-
-
 {%endcolumn%}
 {%endsection%}
 
@@ -23,13 +21,16 @@ Cassandra is in use at Digg, Facebook, Twitter, Reddit, Rackspace, Cloudkick, Ci
 
 
 
-<hr>
+<br>
 
-- [Space Persistence](./cassandra-space-persistency.html){%wbr%}
-A MongoDB Space Persistency Solution
+{%fpanel%}
 
-- [Archive Handler](./cassandra-archive-operation-handler.html){%wbr%}
+[Space Persistence](./cassandra-space-persistency.html){%wbr%}
+A Cassandra Space Persistency Solution
+
+[Archive Handler](./cassandra-archive-operation-handler.html){%wbr%}
 Archives space objects to a Cassandra backend.
+{%endfpanel%}
 
-<hr>
+
 

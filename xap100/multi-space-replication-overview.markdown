@@ -6,7 +6,7 @@ parent: none
 weight: 800
 ---
 
-{%wbr%}
+<br>
 
 {%section%}
 {%column width=10% %}
@@ -24,15 +24,19 @@ The Gateway requires a separate license in addition to the GigaSpaces commercial
 {% endinfo %}
 
 
-<hr/>
+<br>
 
-- [Overview](./multi-space-replication-over-the-lan-or-vpn.html){%wbr%}
+{%fpanel%}
+
+[Overview](./multi-space-replication-over-the-lan-or-vpn.html){%wbr%}
 Establish data synchronization between multiple spaces which have direct network communication between each other.
 
-- [Space Bootstrapping](./replication-gateway-lan-bootstrapping-process.html){%wbr%}
+[Space Bootstrapping](./replication-gateway-lan-bootstrapping-process.html){%wbr%}
 Bootstrapping a space from another space via the gateway.
 
-<hr/>
+{%endfpanel%}
+
+<br>
 
 #### Additional Resources
 

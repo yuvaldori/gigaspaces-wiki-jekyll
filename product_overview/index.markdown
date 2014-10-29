@@ -7,7 +7,7 @@ categories: PRODUCT_OVERVIEW
 
 
 
-{%wbr%}
+<br>
 
 {% section %}
 {% column width=10% %}
@@ -18,33 +18,33 @@ XAP is a platform that scales out stateful applications in high-performance low-
 {% endcolumn %}
 {% endsection %}
 
+<br>
+
+{%fpanel%}
+
+[Overview](./overview.html){%wbr%}
+
+[Concepts](./concepts.html){%wbr%}
+
+[Terminology](./terminology.html){%wbr%}
+
+[Product Architecture](./product-architecture.html){%wbr%}
+
+[Application Layer](./the-application-layer.html){%wbr%}
+
+[The Service Grid](./the-runtime-environment.html){%wbr%}
+
+[The In-Memory Data Grid](./the-in-memory-data-grid.html){%wbr%}
+
+[Space Based Architecture](./space-based-architecture.html){%wbr%}
+
+[J2EE verses XAP](./j2ee-vs-xap.html){%wbr%}
+
+[About Jini](./about-jini.html){%wbr%}
+
+[Real Time Analytics](./real-time-analytics.html){%wbr%}
+{%endfpanel%}
 
 
-
-<hr/>
-
-- [Overview](./overview.html){%wbr%}
-
-- [Concepts](./concepts.html){%wbr%}
-
-- [Terminology](./terminology.html){%wbr%}
-
-- [Product Architecture](./product-architecture.html){%wbr%}
-
-- [Application Layer](./the-application-layer.html){%wbr%}
-
-- [The Service Grid](./the-runtime-environment.html){%wbr%}
-
-- [The In-Memory Data Grid](./the-in-memory-data-grid.html){%wbr%}
-
-- [Space Based Architecture](./space-based-architecture.html){%wbr%}
-
-- [J2EE verses XAP](./j2ee-vs-xap.html){%wbr%}
-
-- [About Jini](./about-jini.html){%wbr%}
-
-- [Real Time Analytics](./real-time-analytics.html){%wbr%}
-
-<hr/>
 
 

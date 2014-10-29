@@ -6,10 +6,11 @@ parent: memory-management-overview.html
 weight: 400
 ---
 
-{%wbr%}
+<br>
 
 {% section %}
 {% column  width=10% %}
+<br>
 ![flash-imdg.png](/attachment_files/subject/flash-imdg.png)
 {% endcolumn %}
 {%column width=90% %}
@@ -17,18 +18,21 @@ XAP 10 introduces a new storage model called BlobStore Storage Model, which allo
 {% endcolumn %}
 {% endsection %}
 
-<hr/>
+<br>
 
-- [BlobStore Storage Model Overview](./blobstore-cache-policy.html)<br>
+{%fpanel%}
+
+[BlobStore Storage Model Overview](./blobstore-cache-policy.html)<br>
 Overview and introduction to MemoryXtend.
 
-- [Advanced Tuning Guide](./blobstore-tuning-guide.html)<br>
+[Advanced Tuning Guide](./blobstore-tuning-guide.html)<br>
 Tuning options for MemoryXtend.
 
-- [Troubleshooting](./blobstore-trouble-shooting.html)<br>
+[Troubleshooting](./blobstore-trouble-shooting.html)<br>
 How to troubleshoot common problems.
+{%endfpanel%}
 
-<hr/>
+<br>
 
 #### Additional Resources
 
