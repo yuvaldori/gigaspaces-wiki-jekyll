@@ -40,7 +40,7 @@ Read an entry of type **Person** whose **firstName** is **John** and **lastName*
 {% highlight java %}
 Person template = new Person();
 template.setFirstName("John");
-template.setFirstName("Smith");
+template.setLastName("Smith");
 Person person = gigaspace.read(template);
 {% endhighlight %}
 
