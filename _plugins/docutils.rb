@@ -6,12 +6,12 @@ module DocUtils
         isDotNet = sectionPath.end_with?("net");
         isAdmin = sectionPath.end_with?("adm");
         isSecurity = sectionPath.end_with?("sec");
-        isMultiSite = sectionPath.end_with?("msr");
+        isTutSite = sectionPath.end_with?("tut");
         sectionPath = sectionPath.sub("xap","")
         sectionPath = sectionPath.sub("net","")
         sectionPath = sectionPath.sub("adm","")
         sectionPath = sectionPath.sub("sec","")
-        sectionPath = sectionPath.sub("msr","")
+        sectionPath = sectionPath.sub("tut","")
         version = sectionPath.insert(sectionPath.length - 1, ".")
         if isDotNet 
           "" + version + " .Net"
@@ -19,8 +19,8 @@ module DocUtils
           return "" + version + " Administration"
         elsif isSecurity
           return "" + version + " Security"
-        elsif isMultiSite
-          return "" + version + " Multi Site Replication"
+        elsif isTutSite
+          return "" + version + " Tutorials"
         else 
           return "" + version + " Java"
         end
