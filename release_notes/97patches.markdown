@@ -17,6 +17,7 @@ This document provides the information needed for patches of 9.7.X xap product
 | 9.7.0 patch3 |      | GS-11656 | Notification event triggering is moved to a custom LRMI thread pool (together with space tasks) |  |  | 10530 | 17/3/2014 |
 | 9.7.0 patch5 | 8242 | GS-11381 | ESM caught in a re-balancing loop after addition of new machine |  |  | 10551 | 31/7/2014 |
 | 9.7.0 patch5 | 9218 | GS-11978 | Memory Leak in FIfo Groups in certain condition |  |  | 10552 | 14/9/2014 |
+| 9.7.0 patch5 | 9081 | GS-11824 | Fail to shutdown GSC due to recovery thread that hang on socket trying to load class |  |  | 10553 | 30/10/2014 |
 | 9.7.0 patch7 | 8935 | GS-11732 | Disributed transaction over multiple clusters might cause consolidations problems |  |  | 10570 | 10/9/2014 |
 | 9.7.0 patch7 | 8642 | GS-11606 | Deterministic Deployment is not working on secured grid |  |  | 10571 | 23/9/2014 |
 | 9.7.1 patch1 |      | GS-11722 | Improve like&rlike queries performance by matching the indexed unique values first |  |  | 10810 | 9/6/2014 |
