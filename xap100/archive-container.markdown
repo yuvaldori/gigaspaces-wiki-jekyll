@@ -9,7 +9,7 @@ weight: 100
 {% summary %}{% endsummary %}
 
 {%section%}
-{%column width=70% %}
+{%column width=80% %}
 The archive container is used to transfer historical data into Big-Data storage (for example Cassandra).
 
 The typical scenario is when streaming vast number of raw events through the Space, enriching them and then moving them to a Big-Data storage. Typically, there is no  intention of keeping them in the space nor querying them in the space.
@@ -25,8 +25,8 @@ The typical scenario is when streaming vast number of raw events through the Spa
 {%endvbar%}
 
 {%endcolumn%}
-{%column width=30% %}
-![](/attachment_files/archive-container.jpg)
+{%column width=20% %}
+{%popup /attachment_files/archive-container.jpg %}
 {%endcolumn%}
 {%endsection%}
 

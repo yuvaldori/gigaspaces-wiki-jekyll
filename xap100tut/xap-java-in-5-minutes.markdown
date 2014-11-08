@@ -1,25 +1,24 @@
 ---
 layout: post100
-title:  Quick Start
+title:  XAP in 5 Minutes
 categories: XAP100TUT
 parent: none
-weight: 300
+weight: 400
 ---
 
 
+{%section%}
+{%column width=10% %}
+![data-access.jpg](/attachment_files/subject/data-access.png)
+{%endcolumn%}
+{%column width=90% %}
+{%summary%}{%endsummary%}
+{%endcolumn%}
+{%endsection%}
 
-{%panel%}
-{%inittab%}
-{%tabcontent Overview%}
-<br>
+
 This tutorial explains how to deploy and use a XAP [Data Grid](/product_overview/the-in-memory-data-grid.html) from a Java client application.
 
-{%endtabcontent%}
-{%endinittab%}
-{%endpanel%}
-
-
-{%summary%}{%endsummary%}
 
 
 # Starting a Service Grid

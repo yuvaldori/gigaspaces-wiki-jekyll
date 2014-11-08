@@ -40,12 +40,10 @@ Persistency can be configured to run in Synchronous or Asynchronous mode:
 {% endindent %}
 
 {% info %}
-The difference between the Synchronous or Asynchronous persistency mode concerns how data is persisted back to the database. The Synchronous mode data is persisted immediately once the operation is conducted where the client application wait for the `SpaceDataSource`/`SpaceSynchronizationEndpoint` to confirm the write. With the Asynchronous mode (mirror Service), data is persisted in a **reliable** asynchronous manner using the mirror Service as a write behind activity. This mode provides maximum performance.
-{%endinfo%}
+The difference between the Synchronous or Asynchronous persistency mode concerns how data is persisted back to the database. The Synchronous mode data is persisted immediately once the operation is conducted where the client application wait for the `SpaceDataSource`/`SpaceSynchronizationEndpoint` to confirm the write. With the Asynchronous mode (mirror Service), data is persisted in a **reliable** asynchronous manner using the mirror service as a write behind activity. This mode provides maximum performance.
 
-{% tip %}
 If you're migrating from a GigaSpaces version prior to 9.7 please see the [Migrating From External Data Source API](./migrating-from-external-data-source-api.html) page.
-{% endtip %}
+{% endinfo %}
 
 # Space Persistency API
 
@@ -56,22 +54,18 @@ The ability to customize the space persistency functionality allows GigaSpaces t
 {: .table .table-bordered .table-condensed}
 | Client Call | Space Data Source/{%wbr%}Synchronization Endpoint Call| Cache Policy Mode|EDS Usage Mode|
 |:------------|:-----------------------------------------------|:-----------------|:-------------|
- 	|write , change , take , asyncTake , writeMultiple , takeMultiple , clear|onOperationsBatchSynchronization , afterOperationsBatchSynchronization|ALL_IN_CACHE, LRU|read-write|
- 	|readById|getById|ALL_IN_CACHE, LRU|read-write,read-only|
- 	|readByIds|getDataIteratorByIds|ALL_IN_CACHE, LRU|read-write,read-only|
- 	|read , asyncRead|getDataIterator|LRU|read-write,read-only|
- 	|readMultiple , count|getDataIterator|LRU|read-write,read-only|
- 	|takeMultiple|getDataIterator|ALL_IN_CACHE, LRU|read-write|
- 	|transaction committed|onTransactionSynchronization , afterTransactionSynchronization|ALL_IN_CACHE, LRU|read-write|
- 	|transaction failed|onTransactionConsolidationFailure|ALL_IN_CACHE, LRU|read-write|
-
-{% info %}
-GigaSpaces built in Hibernate Persistency implementation is an extension of SpaceDataSource and SpaceSynchronizationEndpoint classes.
-{%endinfo%}
+|write , change , take , asyncTake , writeMultiple , takeMultiple , clear|onOperationsBatchSynchronization , afterOperationsBatchSynchronization|ALL_IN_CACHE, LRU|read-write|
+|readById|getById|ALL_IN_CACHE, LRU|read-write,read-only|
+|readByIds|getDataIteratorByIds|ALL_IN_CACHE, LRU|read-write,read-only|
+|read , asyncRead|getDataIterator|LRU|read-write,read-only|
+|readMultiple , count|getDataIterator|LRU|read-write,read-only|
+|takeMultiple|getDataIterator|ALL_IN_CACHE, LRU|read-write|
+|transaction committed|onTransactionSynchronization , afterTransactionSynchronization|ALL_IN_CACHE, LRU|read-write|
+|transaction failed|onTransactionConsolidationFailure|ALL_IN_CACHE, LRU|read-write|
 
 
 {%refer%}
-For detailed API information see [Space Data Source API](./space-data-source-api.html) and [Space Synchronization Endpoint API](./space-synchronization-endpoint-api.html).
+XAP's built in Hibernate Persistency implementation is an extension of SpaceDataSource and SpaceSynchronizationEndpoint classes. For detailed API information see [Space Data Source API](./space-data-source-api.html) and [Space Synchronization Endpoint API](./space-synchronization-endpoint-api.html).
 {%endrefer%}
 
 # RDBMS Space Persistency

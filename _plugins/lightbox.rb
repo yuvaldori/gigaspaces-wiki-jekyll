@@ -14,10 +14,10 @@ module Jekyll
     path, title, alt = @text.split('|').map(&:strip)
     output ="<div class=\"container\">
       <div class=\"row\">
-        <div style=\"float:left;width:150px;height=140px; padding-left:0px;padding-right:0px;position:relative;margin-left:0px;margin-right:0px;\">
+        <div style=\"float:left;width:150px;height=140px; border-style:solid;border-color:#E5E4E2;border-radius:10px;padding:0px;position:relative;margin:0px;\">
          <p>
-          <a  href=\"#{path}\" data-toggle=\"lightbox\" data-title=\"#{title}\">
-             <img src=\"#{path}\" class=\"img-responsive img-rounded\"> #{title}
+          <a  href=\"#{path}\" data-toggle=\"lightbox\">
+             <img src=\"#{path}\" class=\"img-responsive img-rounded\">
           </a>
          </p>
         </div>
@@ -29,3 +29,6 @@ end
  
 Liquid::Template.register_tag('popup', Jekyll::LightboxTag)
 
+#<div style=\"float:left;width:150px;height=140px; border-style:solid;border-color:#E5E4E2;border-radius:10px;padding-left:0px;padding-right:0px;position:relative;margin-left:0px;margin-right:0px;\">
+
+#          <a  href=\"#{path}\" data-toggle=\"lightbox\" data-title=\"#{title}\">

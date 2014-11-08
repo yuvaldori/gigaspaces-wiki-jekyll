@@ -30,7 +30,7 @@ XAP comes with several built-in Aggregators you may use. The aggregation process
 {%endcolumn%}
 {%endsection%}
 
-
+<br>
 
 {: .table .table-bordered .table-condensed}
 | Name | Description |
@@ -103,6 +103,8 @@ Compound aggregation will execute multiple aggregation operations across the spa
 {%popup /attachment_files/aggregation2.png %}
 {%endcolumn%}
 {%endsection%}
+
+<br>
 
 {% highlight c# %}
 SqlQuery<Person> query = new SqlQuery<Person>("Country=? OR Country=?");

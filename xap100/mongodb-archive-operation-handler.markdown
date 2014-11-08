@@ -8,12 +8,12 @@ weight: 200
 
 
 {%section%}
-{%column width=60% %}
+{%column width=80% %}
 The [Archive Container](./archive-container.html) can be configured to work against MongoDB (without writing any extra code). The [ArchiveOperationHandler interface](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/org/openspaces/archive/ArchiveOperationHandler.html) abstracts the Big-Data storage from the [Archive Container](./archive-container.html). The MongoDB Archive Operation Handler implements this interface by serializing space objects into MongoDB.
 {%endcolumn%}
-{%column width=35% %}
+{%column width=20% %}
 
-![archive-container-mongodb.jpg](/attachment_files/archive-container-mongodb.jpg)
+{%popup /attachment_files/archive-container-mongodb.jpg%}
 {%endcolumn%}
 {%endsection%}
 

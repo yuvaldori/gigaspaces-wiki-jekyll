@@ -2,16 +2,23 @@
 layout: post100
 title:  Security
 categories: XAP100TUT
-weight: 1300
+weight: 1400
 parent: none
 ---
 
+
+{%section%}
+{%column width=10% %}
+![cassandra.png](/attachment_files/qsg/security.png)
+{%endcolumn%}
+{%column width=90% %}
+{% summary   %} {% endsummary %}
+{%endcolumn%}
+{%endsection%}
+
+
 In this part of the tutorial we will introduce you to XAP security, where it fits in the XAP architecture, which components can be secured, and how to configure and customize the security depending on your application security requirements.
 XAP Security provides comprehensive support for securing your data and services.
-
-
-
-{% summary   %} {% endsummary %}
 
 
 

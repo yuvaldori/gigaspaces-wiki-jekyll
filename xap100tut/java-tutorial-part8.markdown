@@ -2,15 +2,25 @@
 layout: post100
 title:  Web Deployment
 categories: XAP100TUT
-weight: 1100
+weight: 1200
 parent: none
 ---
 
- In this part of the tutorial we will show you how you can deploy a standard WAR file onto the Service Grid.
 
-
-
+{%section%}
+{%column width=10% %}
+{%wbr%}
+![cassandra.png](/attachment_files/qsg/web.png)
+{%endcolumn%}
+{%column width=90% %}
 {% summary   %} {% endsummary %}
+{%endcolumn%}
+{%endsection%}
+
+
+In this part of the tutorial we will show you how you can deploy a standard WAR file onto the Service Grid.
+
+
 
 
 XAP allows you to deploy web applications (packaged as a WAR file) onto the Service Grid. The integration is built on top of the Service Grid Processing Unit Container. The web container used behind the scenes is Jetty.
@@ -52,29 +62,37 @@ You can deploy a war file just like a PU with the Web Administration UI:
 
 {%section%}
 {%column%}
+Host view
+
 {%popup /attachment_files/qsg/Deploy-web1.png | Host view%}
 {%endcolumn%}
 
 {%column%}
+Upload war file
+
 {%popup /attachment_files/qsg/Deploy-web2.png | Upload war file%}
 {%endcolumn%}
  
 {%column%}
+Application display
+
 {%popup /attachment_files/qsg/Deploy-web3.png | Application display%}
 {%endcolumn%}
 
 {%column%}
+Service display
+
 {%popup /attachment_files/qsg/Deploy-web4.png | Service display%}
 {%endcolumn%}
 
 {%column%}
+Web page display
+
 {%popup /attachment_files/qsg/Deploy-web5.png | Web page display%}
 {%endcolumn%}
 {%endsection%}
 
-There are fully functional examples on GitHub available.
-
-{%try%}https://github.com/Gigaspaces/xap-tutorial{%endtry%}
+There are fully functional examples on GitHub available. {%try%}https://github.com/Gigaspaces/xap-tutorial{%endtry%}
 
 
 
@@ -168,9 +186,11 @@ For example, if the session will be stored on a remote clustered space with a lo
 
 - Using Deploy property
 Here is how you can deploy an existing WAR file without changing it (or use Spring) to use XAP's HTTP Session Management:
+
 {%highlight console%}
 gs deploy -properties embed://jetty.sessions.spaceUrl=jini://*/*/sessionSpace?useLocalCache xapTutorialSpace.war
 {%endhighlight%}
+
 In this example we connect to a remote space called sessionSpace and create a local cache for the session caching.
 
 - Using Spring
@@ -182,42 +202,54 @@ There are fully functional examples on GitHub available.{%try%}https://github.co
 
 
 {%section%}
-{%column%}
 
+{%column%}
+Deploy http Space
 
 {%popup /attachment_files/qsg/Deploy-session1.png | Deploy http Space%}
-{%comment%}
-[<img src="/attachment_files/qsg/Deploy-session1.png" width="120" height="100">](/attachment_files/qsg/Deploy-session1.png)
-{%endcomment%}
 {%endcolumn%}
 
 {%column%}
+Define deployment
+
 {%popup /attachment_files/qsg/Deploy-session2.png | Define deployment%}
 {%endcolumn%}
 
 {%column%}
+Inspect data grid
+
 {%popup /attachment_files/qsg/Deploy-session3.png | Inspect data grid%}
 {%endcolumn%}
 
 {%column%}
+Deploy war file
+
 {%popup /attachment_files/qsg/Deploy-session4.png | Deploy war file%}
 {%endcolumn%}
 {%endsection%}
 
 {%section%}
 {%column%}
+Select web URL
+
 {%popup /attachment_files/qsg/Deploy-session51.png | Select web URL%}
 {%endcolumn%}
 
 {%column%}
+Web page
+
 {%popup /attachment_files/qsg/Deploy-session6.png | Web page%}
 {%endcolumn%}
 
 {%column%}
+Inspect data grid
+
 {%popup /attachment_files/qsg/Deploy-session65.png | Inspect data grid%}
 {%endcolumn%}
 
 {%column%}
+Inspect session
+
 {%popup /attachment_files/qsg/Deploy-session7.png | Inspect session%}
 {%endcolumn%}
 {%endsection%}

@@ -631,16 +631,16 @@ Lets look at a Spring configuration file that represents the creation of an embe
 	xsi:schemaLocation="
    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-{%version spring%}.xsd
    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-{%version spring%}.xsd
-   http://www.openspaces.org/schema/core http://www.openspaces.org/schema/{% currentversion %}/core/openspaces-core.xsd>
+   http://www.openspaces.org/schema/core http://www.openspaces.org/schema/{% currentversion %}/core/openspaces-core.xsd">
 
-	<!-- Scan the packages for annotations / -->
-	<context:component-scan base-package="xap" />
+    <!-- Scan the packages for annotations -->
+	<context:component-scan base-package="xap.tutorial"/>
 
 	<!-- Enables to configure Spring beans through annotations -->
-	<context:annotation-config />
+	<context:annotation-config/>
 
 	<!-- A bean representing a space (an IJSpace implementation) -->
-	<os-core:embedded-space id="space" name="tutorialSpace" />
+	<os-core:embedded-space id="space" name="tutorialSpace"/>
 
 	<!-- Define the GigaSpace instance that the application will use to access the space -->
 	<os-core:giga-space id="xapTutorialSpace" space="space"/>

@@ -2,14 +2,22 @@
 layout: post100
 title:  Big Data
 categories: XAP100TUT
-weight: 1200
+weight: 1300
 parent: none
 ---
 
+
+{%section%}
+{%column width=10% %}
+![cassandra.png](/attachment_files/subject/big-data.png)
+{%endcolumn%}
+{%column width=90% %}
+{% summary   %} {% endsummary %}
+{%endcolumn%}
+{%endsection%}
+
 In this part of the tutorial will introduce you to XAP's Big Data interface. Will show you how you can use Cassandra and other Big-Data storage systems to archive data or use them for space persistence.
 
-
-{% summary   %} {% endsummary %}
 
 
 
@@ -41,9 +49,10 @@ The Apache Cassandra Project™ is a scalable multi-master database with no sing
 
 XAP provides out of the box support for Cassandra and uses the [Hector Library](http://hector-client.github.com/hector/build/html/index.html) to communicate with the Cassandra cluster.
 Lets take our online payment system; every transaction that is performed in our application creates an Audit Record. Each one of these records will be persisted in Cassandra for future auditing reviews. First, lets defining the archive container:
+
 {%endcolumn%}
 {%column width=20% %}
-<img src="/attachment_files/qsg/archive-container-cassandra.jpg" width="200" height="200">
+{%popup /attachment_files/qsg/archive-container-cassandra.jpg %}
 {%endcolumn%}
 {%endsection%}
 

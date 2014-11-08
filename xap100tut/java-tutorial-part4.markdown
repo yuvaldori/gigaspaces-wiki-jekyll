@@ -2,15 +2,23 @@
 layout: post100
 title:  Events and Messaging
 categories: XAP100TUT
-weight: 700
+weight: 800
 parent: none
 ---
 
-
+{%section%}
+{%column width=10% %}
+{%wbr%}
+![cassandra.png](/attachment_files/qsg/Events-Message.png)
+{%endcolumn%}
+{%column width=90% %}
+{% summary   %} {% endsummary %}
+{%endcolumn%}
+{%endsection%}
 
 The Space's Messaging and Events support provides messaging handlers that simplify event driven programming.
 
-{% summary   %} {% endsummary %}
+
 
 Events are generated when objects are written, updated or taken from the space. With this framework you select events based on its content and designate a method that would be triggered as a result of that event, all through a simple and non-intrusive configuration. There are three main event handlers that are available:
 

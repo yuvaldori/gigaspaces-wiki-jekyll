@@ -3,18 +3,21 @@ layout: post100
 title:  Installation
 categories:  XAP100TUT
 parent: none
-weight: 200
+weight: 100
 ---
 
 
-{%panel%}
-{%inittab%}
-{%tabcontent Overview%}
-<br>
+{%section%}
+{%column width=10% %}
+![data-access.jpg](/attachment_files/subject/data-access.png)
+{%endcolumn%}
+{%column width=90% %}
+{%summary%}{%endsummary%}
+{%endcolumn%}
+{%endsection%}
+
+
 Instructions for installing XAP
-{%endtabcontent%}
-{%endinittab%}
-{%endpanel%}
 
 
 

@@ -58,7 +58,7 @@ module DocUtils
         versionDir = versionDir.sub("net","")
         versionDir = versionDir.sub("adm","")
         versionDir = versionDir.sub("sec","")
-        versionDir = versionDir.sub("msr","")
+        versionDir = versionDir.sub("tut","")
         versionDir.insert(versionDir.length - 1, ".")
       else 
         context.registers[:site].config["latest_xap_release"]

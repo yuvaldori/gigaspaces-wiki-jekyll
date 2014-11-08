@@ -2,14 +2,24 @@
 layout: post100
 title:  Space Persistence
 categories: XAP100TUT
-weight: 1000
+weight: 1100
 parent: none
 ---
 
+
+{%section%}
+{%column width=10% %}
+![cassandra.png](/attachment_files/qsg/persistence.png)
+{%endcolumn%}
+{%column width=90% %}
+{% summary   %} {% endsummary %}
+{%endcolumn%}
+{%endsection%}
+
+
+
 There are many situations where space data needs to be persisted to permanent storage and retrieved from it.
 
-
-{% summary   %} {% endsummary %}
 
 
 

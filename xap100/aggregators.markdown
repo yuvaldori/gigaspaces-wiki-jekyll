@@ -10,11 +10,11 @@ parent: the-gigaspace-interface-overview.html
 
 
 {%section%}
-{%column width=70% %}
+{%column width=80% %}
 With many systems such as pricing systems, risk management, trading and other analytic and business intelligence applications you may need to perform an aggregation activity across data stored within the data grid when generating reports or when running some business process. Such activity can leverage data stored in memory and will be much faster than performing it with a database.
 XAP provides common functionality to perform aggregations across the space. There is no need to retrieve the entire data set from the space to the client side , iterate the result set and perform the aggregation. This would be an expensive activity as it might return large amount of data into the client application.
 {%endcolumn%}
-{%column width=30% %}
+{%column width=20% %}
 {%youtube H22qPux8Fh8 | Aggregations %}
 {%endcolumn%}
 {%endsection%}
@@ -39,6 +39,7 @@ XAP comes with several built-in Aggregators you may use. The aggregation process
 {%popup /attachment_files/aggregation1.png %}
 {%endcolumn%}
 {%endsection%}
+<br>
 
 {: .table .table-bordered .table-condensed}
 | Name | Description |
@@ -140,6 +141,7 @@ Compound aggregation will execute multiple aggregation operations across the spa
 {%endcolumn%}
 {%endsection%}
 
+<br>
 
 {% highlight java %}
 import static org.openspaces.extensions.QueryExtension.*;

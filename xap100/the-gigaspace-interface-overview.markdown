@@ -56,3 +56,25 @@ Lease basics and explains how Leases can be managed.
 
 {%endfpanel%}
 
+
+<br>
+
+#### Additional Resources
+
+
+{%section%}
+{%column width=30%  %}
+{%youtube k2zGdUi_ntU | Custom Change API%}
+{%endcolumn%}
+
+{%column width=30%  %}
+{%youtube H22qPux8Fh8 | Aggregations %}
+{%endcolumn%}
+
+{%column width=30%  %}
+{%endcolumn%}
+{%endsection%}
+
+
+
+
