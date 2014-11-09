@@ -416,6 +416,28 @@ Example:
 {%learn%}./dynamic-properties.html{%endlearn%}
 
 
+# SpaceDocumentSupport
+
+{: .table   .table-condensed  .table-bordered}
+|Syntax     | document-support |
+|Description|  If the POJO contains properties which are POJO themselves, the space will implicitly convert these properties to space documents as needed.This works the other way around as well - if a Space document is created with a nested space document property, it will be converted to a POJO with a nested POJO property when read as a POJO. You can disable this implicit conversion and preserve the nested POJO instance within document entries by setting it to `copy`|
+
+
+Example:
+
+{%highlight java%}
+<gigaspaces-mapping>
+	<class name="model.Person">
+		<property name="id" />
+        <property name="firstName" />
+        <property name="address" document-support="copy"/>
+	</class>
+</gigaspaces-mapping>
+{%endhighlight%}
+
+{%learn%}./document-pojo-interoperability.html#deep-interoperability{%endlearn%}
+
+
 
 
 
