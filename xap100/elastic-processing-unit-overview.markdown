@@ -44,8 +44,4 @@ Example configuration and deployment of an Elastic Processing Unit.
 
 <br>
 
-#### Additional Resources
-
-Elastic PU [{%externalurl%}](http://www.slideshare.net/shayhassidim/the-elastic-pu)
-
 
