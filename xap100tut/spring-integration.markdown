@@ -3,7 +3,7 @@ layout: post100
 title:  Spring Integration
 categories:  XAP100TUT
 parent: none
-weight: 300
+weight: 10000
 ---
 
 

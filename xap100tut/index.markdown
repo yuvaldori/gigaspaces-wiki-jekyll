@@ -1,6 +1,6 @@
 ---
 layout: post100
-title:  Tutorial
+title:  Tutorials
 categories:  XAP100TUT
 ---
 
@@ -11,21 +11,22 @@ Here you will find .......
 <br>
 
 
+#### Try XAP online
+
 {%fpanel%}
 
 <a href="./xap_cloud_management.html" target="_blank">XAP in one click</a><br>
 This is a tutorial that will setup a XAP Cluster on a real server on demand. The tutorial includes an interactive shell that will allow you to execute the various XAP APIs for writing and reading data as well as open a groovy shell to write your own code and experience the full XAP API.
 
+{%endfpanel%}
+
+
+#### Download XAP and run the tutorials on your local machine
+
+{%fpanel%}
+
 [Installation](./installation.html)<br>
 You will learn   how to download and install XAP.
-
-
-[Maven integration](./maven-integration.html)<br>
-Maven is a tool used to automate and simplify the development cycle of any Java-based project. The XAP plugin for Maven utilizes Maven to simplify the development cycle of XAP-based applications. You can use this plugin to easily create, compile, package, run unit tests, execute and deploy Processing Units.
-
-[Spring Integration](./spring-integration.html)<br>
-All XAP components can be wired and configured with the application using corresponding [Spring Beans](http://spring.io/).
-
 
 [Interactive API guide](./interactive-api-guide.html)<br>
 This tutorial lets you experience the XAP API in an interactive way. Three options are presented. The first two options demonstrate the various API calls you can use to interact with the Space. The third option provides an interactive shell that lets you exercise API calls.
@@ -65,6 +66,15 @@ In this part of the tutorial will introduce you to XAP’s Big Data interface. W
 
 [Security](./java-tutorial-part10.html)<br>
 In this part of the tutorial we will introduce you to XAP security, where it fits in the XAP architecture, which components can be secured, and how to configure and customize the security depending on your application security requirements. XAP Security provides comprehensive support for securing your data and services.
+
+[Spring Integration](./spring-integration.html)<br>
+All XAP components can be wired and configured with the application using corresponding [Spring Beans](http://spring.io/).
+
+
+[Maven integration](./maven-integration.html)<br>
+Maven is a tool used to automate and simplify the development cycle of any Java-based project. The XAP plugin for Maven utilizes Maven to simplify the development cycle of XAP-based applications. You can use this plugin to easily create, compile, package, run unit tests, execute and deploy Processing Units.
+
+
 
 {%endfpanel%}
 

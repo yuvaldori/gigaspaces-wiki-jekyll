@@ -3,7 +3,7 @@ layout: post100
 title:  Maven Integration
 categories:  XAP100TUT
 parent: none
-weight: 200
+weight: 20000
 ---
 
 
