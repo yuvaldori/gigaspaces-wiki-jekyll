@@ -31,3 +31,5 @@ This document provides the information needed for patches of 9.7.X xap product
 | 9.7.1 patch7 | 9204  | GS-11599 | Limit number of LookupKeepaliveTask's per lookup service |  |  | 10870 | 6/10/2014 |
 | 9.7.1 patch7 | 9238 | GS-11887 | Reported Memory Usage is Incorrect |  |  | 10870 | 6/10/2014 |
 | 9.7.1 patch7 | 9198 | GS-12047 | Limit the query results by a system property to avoid crashing the space with large queries |  |  | 10870 | 6/10/2014 |
+| 9.7.1 patch8 | 9279 | GS-12074 | Deploy Application with dependencies hang in case of more then 2 instances per service | Fix: PendingServiceElementManager.Key accepts a timestamp in constructor but does not assign it to its inner field. This causes comparison of Key.compareTo to misbehave |  | 10880 | 13/11/2014 |
+| 9.7.1 patch8 | 9373 | GS-12101 | XA transaction with suspend resume fails |  When code inside a transactional boundary invokes a method that is itself a transactional boundary marked with @Transactional(propagation = Propagation.NOT_SUPPORTED) GigaSpace throws an error with a null message at commit time.  |  | 10880 | 13/11/2014 |
