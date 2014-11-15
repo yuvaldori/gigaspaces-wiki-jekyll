@@ -1,0 +1,2511 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for "No namespace"</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
+         <!--
+        var propertiesBoxes= new Array('properties_service-exporter_service-exporter_aspect_ref', 
+				'properties_service-exporter_service-exporter_service_ref', 
+				'properties_service-exporter_template-lookup-name', 
+				'properties_event-driven-proxy_event-driven-proxy_routing-handler_ref', 
+				'properties_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref', 
+				'properties_event-driven-proxy_event-driven-proxy_aspect_ref', 
+				'properties_event-driven-proxy_giga-space', 
+				'properties_event-driven-proxy_interface', 
+				'properties_event-driven-proxy_void-one-way', 
+				'properties_event-driven-proxy_global-one-way', 
+				'properties_event-driven-proxy_timeout', 
+				'properties_event-driven-proxy_fifo', 
+				'properties_executor-proxy_executor-proxy_routing-handler_ref', 
+				'properties_executor-proxy_executor-proxy_result-reducer_ref', 
+				'properties_executor-proxy_executor-proxy_meta-arguments-handler_ref', 
+				'properties_executor-proxy_executor-proxy_aspect_ref', 
+				'properties_executor-proxy_giga-space', 
+				'properties_executor-proxy_interface', 
+				'properties_executor-proxy_timeout', 
+				'properties_executor-proxy_broadcast', 
+				'properties_executor-proxy_return-first-result');
+var usedByBoxes= new Array('usedBy_service-exporter_service-exporter_aspect_ref', 
+				'usedBy_service-exporter_service-exporter_service_ref', 
+				'usedBy_service-exporter_template-lookup-name', 
+				'usedBy_event-driven-proxy_event-driven-proxy_routing-handler_ref', 
+				'usedBy_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref', 
+				'usedBy_event-driven-proxy_event-driven-proxy_aspect_ref', 
+				'usedBy_event-driven-proxy_giga-space', 
+				'usedBy_event-driven-proxy_interface', 
+				'usedBy_event-driven-proxy_void-one-way', 
+				'usedBy_event-driven-proxy_global-one-way', 
+				'usedBy_event-driven-proxy_timeout', 
+				'usedBy_event-driven-proxy_fifo', 
+				'usedBy_executor-proxy_executor-proxy_routing-handler_ref', 
+				'usedBy_executor-proxy_executor-proxy_result-reducer_ref', 
+				'usedBy_executor-proxy_executor-proxy_meta-arguments-handler_ref', 
+				'usedBy_executor-proxy_executor-proxy_aspect_ref', 
+				'usedBy_executor-proxy_giga-space', 
+				'usedBy_executor-proxy_interface', 
+				'usedBy_executor-proxy_timeout', 
+				'usedBy_executor-proxy_broadcast', 
+				'usedBy_executor-proxy_return-first-result');
+var sourceBoxes= new Array('source_service-exporter_service-exporter_aspect_ref', 
+				'source_service-exporter_service-exporter_service_ref', 
+				'source_service-exporter_template-lookup-name', 
+				'source_event-driven-proxy_event-driven-proxy_routing-handler_ref', 
+				'source_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref', 
+				'source_event-driven-proxy_event-driven-proxy_aspect_ref', 
+				'source_event-driven-proxy_giga-space', 
+				'source_event-driven-proxy_interface', 
+				'source_event-driven-proxy_void-one-way', 
+				'source_event-driven-proxy_global-one-way', 
+				'source_event-driven-proxy_timeout', 
+				'source_event-driven-proxy_fifo', 
+				'source_executor-proxy_executor-proxy_routing-handler_ref', 
+				'source_executor-proxy_executor-proxy_result-reducer_ref', 
+				'source_executor-proxy_executor-proxy_meta-arguments-handler_ref', 
+				'source_executor-proxy_executor-proxy_aspect_ref', 
+				'source_executor-proxy_giga-space', 
+				'source_executor-proxy_interface', 
+				'source_executor-proxy_timeout', 
+				'source_executor-proxy_broadcast', 
+				'source_executor-proxy_return-first-result');
+var annotationBoxes= new Array('annotations_service-exporter_service-exporter_aspect_ref', 
+				'annotations_service-exporter_service-exporter_service_ref', 
+				'annotations_service-exporter_template-lookup-name', 
+				'annotations_event-driven-proxy_event-driven-proxy_routing-handler_ref', 
+				'annotations_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref', 
+				'annotations_event-driven-proxy_event-driven-proxy_aspect_ref', 
+				'annotations_event-driven-proxy_giga-space', 
+				'annotations_event-driven-proxy_interface', 
+				'annotations_event-driven-proxy_void-one-way', 
+				'annotations_event-driven-proxy_global-one-way', 
+				'annotations_event-driven-proxy_timeout', 
+				'annotations_event-driven-proxy_fifo', 
+				'annotations_executor-proxy_executor-proxy_routing-handler_ref', 
+				'annotations_executor-proxy_executor-proxy_result-reducer_ref', 
+				'annotations_executor-proxy_executor-proxy_meta-arguments-handler_ref', 
+				'annotations_executor-proxy_executor-proxy_aspect_ref', 
+				'annotations_executor-proxy_giga-space', 
+				'annotations_executor-proxy_interface', 
+				'annotations_executor-proxy_timeout', 
+				'annotations_executor-proxy_broadcast', 
+				'annotations_executor-proxy_return-first-result');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft"></td>
+               <td class="rt_lineTop"></td>
+               <td class="rt_cornerTopRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft"></td>
+               <td class="rt_content">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control" /></span><span class="globalControlName">Annotations</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control" /></span><span class="globalControlName">Properties </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                  </table>
+                  <div align="right"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lineRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft"></td>
+               <td class="rt_lineBottom"></td>
+               <td class="rt_cornerBottomRight"></td>
+            </tr>
+         </table>
+      </div><a id="service-exporter_service-exporter_aspect_ref"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#service-exporter" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">service-exporter</a></b> / <b><a href="remoting.html#service-exporter_aspect" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">aspect</a></b> / @ref</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_service-exporter_service-exporter_aspect_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_service-exporter_service-exporter_aspect_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_service-exporter_service-exporter_aspect_ref" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tI">
+</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_service-exporter_service-exporter_aspect_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_service-exporter_service-exporter_aspect_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_service-exporter_service-exporter_aspect_ref" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_service-exporter_service-exporter_aspect_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_service-exporter_service-exporter_aspect_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_service-exporter_service-exporter_aspect_ref" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#service-exporter_aspect" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">service-exporter/aspect</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_service-exporter_service-exporter_aspect_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('source_service-exporter_service-exporter_aspect_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_service-exporter_service-exporter_aspect_ref" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"ref"</span><span class="tAN"> type=</span><span class="tAV">"xsd:string"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tCD">&lt;![CDATA[</span><span class="tCD">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tCD">]]</span><span class="tCD">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="service-exporter_service-exporter_service_ref"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#service-exporter" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">service-exporter</a></b> / <b><a href="remoting.html#service-exporter_service" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">service</a></b> / @ref</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_service-exporter_service-exporter_service_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_service-exporter_service-exporter_service_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_service-exporter_service-exporter_service_ref" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tI">
+</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_service-exporter_service-exporter_service_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_service-exporter_service-exporter_service_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_service-exporter_service-exporter_service_ref" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_service-exporter_service-exporter_service_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_service-exporter_service-exporter_service_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_service-exporter_service-exporter_service_ref" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#service-exporter_service" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">service-exporter/service</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_service-exporter_service-exporter_service_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('source_service-exporter_service-exporter_service_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_service-exporter_service-exporter_service_ref" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"ref"</span><span class="tAN"> type=</span><span class="tAV">"xsd:string"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tCD">&lt;![CDATA[</span><span class="tCD">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tCD">]]</span><span class="tCD">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="service-exporter_template-lookup-name"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#service-exporter" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">service-exporter</a></b> / @template-lookup-name</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_service-exporter_template-lookup-name" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_service-exporter_template-lookup-name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_service-exporter_template-lookup-name" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Allows to narrow down the async polling container to perform a lookup only on specific</span><span class="tI">
+</span><span class="tT">lookup name (which is usually the interface that will be used to proxy it on the client</span><span class="tI">
+</span><span class="tT">side). Defaults to match on all async remoting invocations. This option allows to create</span><span class="tI">
+</span><span class="tT">several polling container, each for different service that will perform the actual</span><span class="tI">
+</span><span class="tT">invocation.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_service-exporter_template-lookup-name" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_service-exporter_template-lookup-name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_service-exporter_template-lookup-name" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">use</td>
+                                    <td><b>optional</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_service-exporter_template-lookup-name" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_service-exporter_template-lookup-name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_service-exporter_template-lookup-name" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#service-exporter" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">service-exporter</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_service-exporter_template-lookup-name" type="image" src="img/btM.gif" value="-" onclick="switchState('source_service-exporter_template-lookup-name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_service-exporter_template-lookup-name" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"template-lookup-name"</span><span class="tAN"> type=</span><span class="tAV">"xsd:string"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Allows to narrow down the async polling container to perform a lookup only on specific lookup name (which is usually the interface that will be used to proxy it on the client side). Defaults to match on all async remoting invocations. This option allows to create several polling container, each for different service that will perform the actual invocation.</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="event-driven-proxy_event-driven-proxy_routing-handler_ref"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b> / <b><a href="remoting.html#event-driven-proxy_routing-handler" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">routing-handler</a></b> / @ref</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_event-driven-proxy_event-driven-proxy_routing-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_event-driven-proxy_event-driven-proxy_routing-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_event-driven-proxy_event-driven-proxy_routing-handler_ref" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tI">
+</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_event-driven-proxy_event-driven-proxy_routing-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_event-driven-proxy_event-driven-proxy_routing-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_event-driven-proxy_event-driven-proxy_routing-handler_ref" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_event-driven-proxy_event-driven-proxy_routing-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_event-driven-proxy_event-driven-proxy_routing-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_event-driven-proxy_event-driven-proxy_routing-handler_ref" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#event-driven-proxy_routing-handler" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy/routing-handler</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_event-driven-proxy_event-driven-proxy_routing-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('source_event-driven-proxy_event-driven-proxy_routing-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_event-driven-proxy_event-driven-proxy_routing-handler_ref" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"ref"</span><span class="tAN"> type=</span><span class="tAV">"xsd:string"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tCD">&lt;![CDATA[</span><span class="tCD">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tCD">]]</span><span class="tCD">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b> / <b><a href="remoting.html#event-driven-proxy_meta-arguments-handler" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">meta-arguments-handler</a></b> / @ref</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tI">
+</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#event-driven-proxy_meta-arguments-handler" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy/meta-arguments-handler</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('source_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_event-driven-proxy_event-driven-proxy_meta-arguments-handler_ref" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"ref"</span><span class="tAN"> type=</span><span class="tAV">"xsd:string"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tCD">&lt;![CDATA[</span><span class="tCD">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tCD">]]</span><span class="tCD">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="event-driven-proxy_event-driven-proxy_aspect_ref"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b> / <b><a href="remoting.html#event-driven-proxy_aspect" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">aspect</a></b> / @ref</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_event-driven-proxy_event-driven-proxy_aspect_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_event-driven-proxy_event-driven-proxy_aspect_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_event-driven-proxy_event-driven-proxy_aspect_ref" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tI">
+</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_event-driven-proxy_event-driven-proxy_aspect_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_event-driven-proxy_event-driven-proxy_aspect_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_event-driven-proxy_event-driven-proxy_aspect_ref" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_event-driven-proxy_event-driven-proxy_aspect_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_event-driven-proxy_event-driven-proxy_aspect_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_event-driven-proxy_event-driven-proxy_aspect_ref" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#event-driven-proxy_aspect" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy/aspect</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_event-driven-proxy_event-driven-proxy_aspect_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('source_event-driven-proxy_event-driven-proxy_aspect_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_event-driven-proxy_event-driven-proxy_aspect_ref" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"ref"</span><span class="tAN"> type=</span><span class="tAV">"xsd:string"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tCD">&lt;![CDATA[</span><span class="tCD">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tCD">]]</span><span class="tCD">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="event-driven-proxy_giga-space"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b> / @giga-space</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_event-driven-proxy_giga-space" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_event-driven-proxy_giga-space');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_event-driven-proxy_giga-space" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Sets the GigaSpace interface that will be used to work with the space as the transport</span><span class="tI">
+</span><span class="tT">layer for both writing and taking EventDrivenSpaceRemotingEntry.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>gigaSpaceRefType</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_event-driven-proxy_giga-space" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_event-driven-proxy_giga-space');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_event-driven-proxy_giga-space" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">use</td>
+                                    <td><b>required</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_event-driven-proxy_giga-space" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_event-driven-proxy_giga-space');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_event-driven-proxy_giga-space" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_event-driven-proxy_giga-space" type="image" src="img/btM.gif" value="-" onclick="switchState('source_event-driven-proxy_giga-space');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_event-driven-proxy_giga-space" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"giga-space"</span><span class="tAN"> type=</span><span class="tAV">"os-core:gigaSpaceRefType"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Sets the GigaSpace interface that will be used to work with the space as the transport layer for both writing and taking EventDrivenSpaceRemotingEntry.</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="event-driven-proxy_interface"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b> / @interface</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_event-driven-proxy_interface" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_event-driven-proxy_interface');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_event-driven-proxy_interface" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">The interface (fully qualified class name) that this remoting proxy will proxy. Also</span><span class="tI">
+</span><span class="tT">controls which service will be invoked in the "server".</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>classType</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_event-driven-proxy_interface" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_event-driven-proxy_interface');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_event-driven-proxy_interface" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">use</td>
+                                    <td><b>required</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_event-driven-proxy_interface" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_event-driven-proxy_interface');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_event-driven-proxy_interface" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_event-driven-proxy_interface" type="image" src="img/btM.gif" value="-" onclick="switchState('source_event-driven-proxy_interface');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_event-driven-proxy_interface" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"interface"</span><span class="tAN"> type=</span><span class="tAV">"os-core:classType"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The interface (fully qualified class name) that this remoting proxy will proxy. Also controls which service will be invoked in the "server".</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="event-driven-proxy_void-one-way"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b> / @void-one-way</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_event-driven-proxy_void-one-way" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_event-driven-proxy_void-one-way');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_event-driven-proxy_void-one-way" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">If set to true (defaults to false) service methods that return void will be invoked and</span><span class="tI">
+</span><span class="tT">the proxy will not wait for a return value. Note, any exception raised by the remote</span><span class="tI">
+</span><span class="tT">service will be logged on the server side and not propagated to the client.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:boolean</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_event-driven-proxy_void-one-way" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_event-driven-proxy_void-one-way');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_event-driven-proxy_void-one-way" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_event-driven-proxy_void-one-way" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_event-driven-proxy_void-one-way');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_event-driven-proxy_void-one-way" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_event-driven-proxy_void-one-way" type="image" src="img/btM.gif" value="-" onclick="switchState('source_event-driven-proxy_void-one-way');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_event-driven-proxy_void-one-way" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"void-one-way"</span><span class="tAN"> type=</span><span class="tAV">"xsd:boolean"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">If set to true (defaults to false) service methods that return void will be invoked and the proxy will not wait for a return value. Note, any exception raised by the remote service will be logged on the server side and not propagated to the client.</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="event-driven-proxy_global-one-way"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b> / @global-one-way</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_event-driven-proxy_global-one-way" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_event-driven-proxy_global-one-way');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_event-driven-proxy_global-one-way" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">If set to true (defaults to false) all of the service methods will be invoked and the</span><span class="tI">
+</span><span class="tT">proxy will not wait for a return value. Note, any exception raised by the remote service</span><span class="tI">
+</span><span class="tT">will be logged on the server side and not propagated to the client.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:boolean</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_event-driven-proxy_global-one-way" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_event-driven-proxy_global-one-way');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_event-driven-proxy_global-one-way" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_event-driven-proxy_global-one-way" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_event-driven-proxy_global-one-way');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_event-driven-proxy_global-one-way" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_event-driven-proxy_global-one-way" type="image" src="img/btM.gif" value="-" onclick="switchState('source_event-driven-proxy_global-one-way');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_event-driven-proxy_global-one-way" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"global-one-way"</span><span class="tAN"> type=</span><span class="tAV">"xsd:boolean"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">If set to true (defaults to false) all of the service methods will be invoked and the proxy will not wait for a return value. Note, any exception raised by the remote service will be logged on the server side and not propagated to the client.</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="event-driven-proxy_timeout"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b> / @timeout</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_event-driven-proxy_timeout" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_event-driven-proxy_timeout');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_event-driven-proxy_timeout" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Sets the timeout that will be used to wait for the remote invocation response. The</span><span class="tI">
+</span><span class="tT">timeout value is in milliseconds and defaults to 60000 (60 seconds).</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_event-driven-proxy_timeout" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_event-driven-proxy_timeout');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_event-driven-proxy_timeout" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_event-driven-proxy_timeout" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_event-driven-proxy_timeout');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_event-driven-proxy_timeout" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_event-driven-proxy_timeout" type="image" src="img/btM.gif" value="-" onclick="switchState('source_event-driven-proxy_timeout');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_event-driven-proxy_timeout" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"timeout"</span><span class="tAN"> type=</span><span class="tAV">"xsd:string"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Sets the timeout that will be used to wait for the remote invocation response. The timeout value is in milliseconds and defaults to 60000 (60 seconds).</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="event-driven-proxy_fifo"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b> / @fifo</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_event-driven-proxy_fifo" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_event-driven-proxy_fifo');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_event-driven-proxy_fifo" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Sets the remote invocation objects written to the Space to work in FIFO. Note, when</span><span class="tI">
+</span><span class="tT">setting this setting make sure to set it on the 'service-exporter'. This allows for</span><span class="tI">
+</span><span class="tT">remoting to work in fifo mode without needing to set the whole Space to work in fifo</span><span class="tI">
+</span><span class="tT">mode.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:boolean</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_event-driven-proxy_fifo" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_event-driven-proxy_fifo');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_event-driven-proxy_fifo" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_event-driven-proxy_fifo" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_event-driven-proxy_fifo');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_event-driven-proxy_fifo" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_event-driven-proxy_fifo" type="image" src="img/btM.gif" value="-" onclick="switchState('source_event-driven-proxy_fifo');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_event-driven-proxy_fifo" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"fifo"</span><span class="tAN"> type=</span><span class="tAV">"xsd:boolean"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Sets the remote invocation objects written to the Space to work in FIFO. Note, when setting this setting make sure to set it on the 'service-exporter'. This allows for remoting to work in fifo mode without needing to set the whole Space to work in fifo mode.</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="executor-proxy_executor-proxy_routing-handler_ref"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b> / <b><a href="remoting.html#executor-proxy_routing-handler" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">routing-handler</a></b> / @ref</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_executor-proxy_executor-proxy_routing-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_executor-proxy_executor-proxy_routing-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_executor-proxy_executor-proxy_routing-handler_ref" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tI">
+</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_executor-proxy_executor-proxy_routing-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_executor-proxy_executor-proxy_routing-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_executor-proxy_executor-proxy_routing-handler_ref" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_executor-proxy_executor-proxy_routing-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_executor-proxy_executor-proxy_routing-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_executor-proxy_executor-proxy_routing-handler_ref" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#executor-proxy_routing-handler" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy/routing-handler</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_executor-proxy_executor-proxy_routing-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('source_executor-proxy_executor-proxy_routing-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_executor-proxy_executor-proxy_routing-handler_ref" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"ref"</span><span class="tAN"> type=</span><span class="tAV">"xsd:string"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:appinfo</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;tool:annotation</span><span class="tAN"> kind=</span><span class="tAV">"ref"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;tool:expected-type</span><span class="tAN"> type=</span><span class="tAV">"org.openspaces.remoting.RemoteRoutingHandler"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/tool:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:appinfo&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tCD">&lt;![CDATA[</span><span class="tCD">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tCD">]]</span><span class="tCD">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="executor-proxy_executor-proxy_result-reducer_ref"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b> / <b><a href="remoting.html#executor-proxy_result-reducer" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">result-reducer</a></b> / @ref</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_executor-proxy_executor-proxy_result-reducer_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_executor-proxy_executor-proxy_result-reducer_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_executor-proxy_executor-proxy_result-reducer_ref" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tI">
+</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_executor-proxy_executor-proxy_result-reducer_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_executor-proxy_executor-proxy_result-reducer_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_executor-proxy_executor-proxy_result-reducer_ref" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_executor-proxy_executor-proxy_result-reducer_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_executor-proxy_executor-proxy_result-reducer_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_executor-proxy_executor-proxy_result-reducer_ref" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#executor-proxy_result-reducer" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy/result-reducer</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_executor-proxy_executor-proxy_result-reducer_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('source_executor-proxy_executor-proxy_result-reducer_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_executor-proxy_executor-proxy_result-reducer_ref" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"ref"</span><span class="tAN"> type=</span><span class="tAV">"xsd:string"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:appinfo</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;tool:annotation</span><span class="tAN"> kind=</span><span class="tAV">"ref"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;tool:expected-type</span><span class="tAN"> type=</span><span class="tAV">"org.openspaces.remoting.RemoteResultReducer"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/tool:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:appinfo&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tCD">&lt;![CDATA[</span><span class="tCD">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tCD">]]</span><span class="tCD">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="executor-proxy_executor-proxy_meta-arguments-handler_ref"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b> / <b><a href="remoting.html#executor-proxy_meta-arguments-handler" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">meta-arguments-handler</a></b> / @ref</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_executor-proxy_executor-proxy_meta-arguments-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_executor-proxy_executor-proxy_meta-arguments-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_executor-proxy_executor-proxy_meta-arguments-handler_ref" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tI">
+</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_executor-proxy_executor-proxy_meta-arguments-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_executor-proxy_executor-proxy_meta-arguments-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_executor-proxy_executor-proxy_meta-arguments-handler_ref" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_executor-proxy_executor-proxy_meta-arguments-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_executor-proxy_executor-proxy_meta-arguments-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_executor-proxy_executor-proxy_meta-arguments-handler_ref" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#executor-proxy_meta-arguments-handler" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy/meta-arguments-handler</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_executor-proxy_executor-proxy_meta-arguments-handler_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('source_executor-proxy_executor-proxy_meta-arguments-handler_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_executor-proxy_executor-proxy_meta-arguments-handler_ref" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"ref"</span><span class="tAN"> type=</span><span class="tAV">"xsd:string"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tCD">&lt;![CDATA[</span><span class="tCD">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tCD">]]</span><span class="tCD">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="executor-proxy_executor-proxy_aspect_ref"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b> / <b><a href="remoting.html#executor-proxy_aspect" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">aspect</a></b> / @ref</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_executor-proxy_executor-proxy_aspect_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_executor-proxy_executor-proxy_aspect_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_executor-proxy_executor-proxy_aspect_ref" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tI">
+</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_executor-proxy_executor-proxy_aspect_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_executor-proxy_executor-proxy_aspect_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_executor-proxy_executor-proxy_aspect_ref" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_executor-proxy_executor-proxy_aspect_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_executor-proxy_executor-proxy_aspect_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_executor-proxy_executor-proxy_aspect_ref" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#executor-proxy_aspect" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy/aspect</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_executor-proxy_executor-proxy_aspect_ref" type="image" src="img/btM.gif" value="-" onclick="switchState('source_executor-proxy_executor-proxy_aspect_ref');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_executor-proxy_executor-proxy_aspect_ref" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"ref"</span><span class="tAN"> type=</span><span class="tAV">"xsd:string"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tCD">&lt;![CDATA[</span><span class="tCD">A short-cut alternative to a nested "&lt;ref bean='...'/&gt;".</span><span class="tCD">]]</span><span class="tCD">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="executor-proxy_giga-space"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b> / @giga-space</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_executor-proxy_giga-space" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_executor-proxy_giga-space');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_executor-proxy_giga-space" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Sets the GigaSpace interface that will be used to work with the space as the transport</span><span class="tI">
+</span><span class="tT">layer for executions of Space tasks.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>gigaSpaceRefType</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_executor-proxy_giga-space" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_executor-proxy_giga-space');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_executor-proxy_giga-space" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">use</td>
+                                    <td><b>required</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_executor-proxy_giga-space" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_executor-proxy_giga-space');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_executor-proxy_giga-space" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_executor-proxy_giga-space" type="image" src="img/btM.gif" value="-" onclick="switchState('source_executor-proxy_giga-space');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_executor-proxy_giga-space" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"giga-space"</span><span class="tAN"> type=</span><span class="tAV">"os-core:gigaSpaceRefType"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Sets the GigaSpace interface that will be used to work with the space as the transport layer for executions of Space tasks.</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="executor-proxy_interface"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b> / @interface</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_executor-proxy_interface" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_executor-proxy_interface');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_executor-proxy_interface" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">The interface (fully qualified class name) that this remoting proxy will proxy. Also</span><span class="tI">
+</span><span class="tT">controls which service will be invoked in the "server".</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>classType</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_executor-proxy_interface" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_executor-proxy_interface');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_executor-proxy_interface" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">use</td>
+                                    <td><b>required</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_executor-proxy_interface" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_executor-proxy_interface');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_executor-proxy_interface" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_executor-proxy_interface" type="image" src="img/btM.gif" value="-" onclick="switchState('source_executor-proxy_interface');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_executor-proxy_interface" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"interface"</span><span class="tAN"> type=</span><span class="tAV">"os-core:classType"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The interface (fully qualified class name) that this remoting proxy will proxy. Also controls which service will be invoked in the "server".</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="executor-proxy_timeout"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b> / @timeout</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_executor-proxy_timeout" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_executor-proxy_timeout');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_executor-proxy_timeout" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Sets the timeout that will be used to wait for the remote invocation response. The</span><span class="tI">
+</span><span class="tT">timeout value is in milliseconds and defaults to 60000 (60 seconds).</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_executor-proxy_timeout" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_executor-proxy_timeout');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_executor-proxy_timeout" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_executor-proxy_timeout" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_executor-proxy_timeout');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_executor-proxy_timeout" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_executor-proxy_timeout" type="image" src="img/btM.gif" value="-" onclick="switchState('source_executor-proxy_timeout');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_executor-proxy_timeout" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"timeout"</span><span class="tAN"> type=</span><span class="tAV">"xsd:string"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Sets the timeout that will be used to wait for the remote invocation response. The timeout value is in milliseconds and defaults to 60000 (60 seconds).</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="executor-proxy_broadcast"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b> / @broadcast</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_executor-proxy_broadcast" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_executor-proxy_broadcast');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_executor-proxy_broadcast" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">If set the true (defaults to false) causes the remote invocation to be called on all</span><span class="tI">
+</span><span class="tT">active (primary) cluster members.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:boolean</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_executor-proxy_broadcast" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_executor-proxy_broadcast');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_executor-proxy_broadcast" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_executor-proxy_broadcast" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_executor-proxy_broadcast');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_executor-proxy_broadcast" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_executor-proxy_broadcast" type="image" src="img/btM.gif" value="-" onclick="switchState('source_executor-proxy_broadcast');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_executor-proxy_broadcast" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"broadcast"</span><span class="tAN"> type=</span><span class="tAV">"xsd:boolean"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">If set the true (defaults to false) causes the remote invocation to be called on all active (primary) cluster members.</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="executor-proxy_return-first-result"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b> / @return-first-result</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_executor-proxy_return-first-result" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_executor-proxy_return-first-result');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_executor-proxy_return-first-result" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">When set to true (defaults to true) will return the first result when using broadcast.</span><span class="tI">
+</span><span class="tT">If set to false, an array of results will be retuned. Note, this only applies when</span><span class="tI">
+</span><span class="tT">not setting a reducer.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xsd:boolean</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_executor-proxy_return-first-result" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_executor-proxy_return-first-result');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_executor-proxy_return-first-result" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_executor-proxy_return-first-result" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_executor-proxy_return-first-result');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_executor-proxy_return-first-result" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_executor-proxy_return-first-result" type="image" src="img/btM.gif" value="-" onclick="switchState('source_executor-proxy_return-first-result');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_executor-proxy_return-first-result" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"return-first-result"</span><span class="tAN"> type=</span><span class="tAV">"xsd:boolean"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">When set to true (defaults to true) will return the first result when using broadcast. If set to false, an array of results will be retuned. Note, this only applies when not setting a reducer.</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div align="center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor Trial Edition.
+         </div>
+      </div><script type="text/javascript">
+         <!--
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //--></script></body>
+</html>
