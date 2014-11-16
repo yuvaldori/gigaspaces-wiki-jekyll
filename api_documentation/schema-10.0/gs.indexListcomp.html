@@ -242,60 +242,52 @@
       <h2><a id="INDEX">Table of Contents</a></h2>
       <div class="toc">
          <form action="none">
-            <div><span> Group by: <select id="selectTOC" onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'xx.indexList.html', 'xx.indexListns.html', 'xx.indexListcomp.html');">
-                     <option value="toc_group_by_namespace" selected="selected">Namespace</option>
+            <div><span> Group by: <select id="selectTOC" onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'gs.indexList.html', 'gs.indexListns.html', 'gs.indexListcomp.html');">
+                     <option value="toc_group_by_namespace">Namespace</option>
                      <option value="toc_group_by_location">Location</option>
-                     <option value="toc_group_by_component_type">Component Type</option></select></span></div>
+                     <option value="toc_group_by_component_type" selected="selected">Component Type</option></select></span></div>
          </form>
-         <div class="level1" id="toc_group_by_namespace" style="display:block">
+         <div class="level1" id="toc_group_by_component_type" style="display:block">
             <div>
-               <div class="level2">
-                  <p><input id="button_boxIdNamespace1" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1');" class="control" /><span class="indexGroupTitle">http://www.openspaces.org/schema/remoting</span></p>
-                  <div id="boxIdNamespace1" style="display:block">
-                     <div class="horizontalLayout">
-                        <table class="rt">
-                           <tr>
-                              <td class="rt_cornerTopLeft"></td>
-                              <td class="rt_lineTop"></td>
-                              <td class="rt_cornerTopRight"></td>
-                           </tr>
-                           <tr>
-                              <td class="rt_lineLeft"></td>
-                              <td class="rt_content">
-                                 <table class="componentGroup">
-                                    <tbody>
-                                       <tr>
-                                          <td class="componentGroup"><input id="button_boxIdNamespace1Element" type="image" value="-" src="img/btM.gif" onclick="switchState('boxIdNamespace1Element');" class="control" /></td>
-                                          <td class="componentGroup">
-                                             <div class="componentGroupTitle">Elements</div>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <td class="componentGroup"></td>
-                                          <td class="componentGroup">
-                                             <div id="boxIdNamespace1Element" class="componentGroup" style="display:block">
-                                                <div><b><a href="remoting.html#annotation-support" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">annotation-support</a></b></div>
-                                                <div><b><a href="remoting.html#event-driven-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">event-driven-proxy</a></b></div>
-                                                <div><b><a href="remoting.html#executor-proxy" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">executor-proxy</a></b></div>
-                                                <div><b><a href="remoting.html#service-exporter" target="mainFrame" title="http://www.openspaces.org/schema/remoting" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/remoting')">service-exporter</a></b></div>
-                                             </div>
-                                          </td>
-                                       </tr>
-                                    </tbody>
-                                 </table>
-                              </td>
-                              <td class="rt_lineRight"></td>
-                           </tr>
-                           <tr>
-                              <td class="rt_cornerBottomLeft"></td>
-                              <td class="rt_lineBottom"></td>
-                              <td class="rt_cornerBottomRight"></td>
-                           </tr>
-                        </table>
-                     </div>
-                     <div style="clear:left"></div>
-                  </div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft"></td>
+                        <td class="rt_lineTop"></td>
+                        <td class="rt_cornerTopRight"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft"></td>
+                        <td class="rt_content">
+                           <table class="componentGroup">
+                              <tbody>
+                                 <tr>
+                                    <td class="componentGroup"><input id="button_Element" type="image" value="-" src="img/btM.gif" onclick="switchState('Element');" class="control" /></td>
+                                    <td class="componentGroup">
+                                       <div class="componentGroupTitle">Elements</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="componentGroup"></td>
+                                    <td class="componentGroup">
+                                       <div id="Element" class="componentGroup" style="display:block">
+                                          <div><b><a href="metadata.html#gigaspaces-mapping" target="mainFrame" title="http://www.openspaces.org/schema/metadata" onclick="updatePageTitle('Schema documentation for namespace http://www.openspaces.org/schema/metadata')">gigaspaces-mapping</a></b></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                        <td class="rt_lineRight"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft"></td>
+                        <td class="rt_lineBottom"></td>
+                        <td class="rt_cornerBottomRight"></td>
+                     </tr>
+                  </table>
                </div>
+               <div style="clear:left"></div>
             </div>
          </div>
       </div>
