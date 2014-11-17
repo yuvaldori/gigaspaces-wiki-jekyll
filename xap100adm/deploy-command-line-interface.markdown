@@ -193,8 +193,7 @@ Multiple deployment properties can be injected by having ; between each property
 
 {% highlight java %}
 >gs deploy -cluster schema=partitioned-sync2backup total_members=10,1
--properties "embed://dataGridName=myIMDG;space-config.proxy.router.active-server-lookup-timeout=5000;space-config.engine.max_threads=256"
--override-name myPU /tmp/myPu.jar
+-properties "embed://dataGridName=myIMDG;space-config.proxy.router.active-server-lookup-timeout=5000;space-config.engine.max_threads=256;mypropA=aaa;mypropB=bbb" -override-name myPU /tmp/myPu.jar
 {% endhighlight %}
 {% endtip %}
 
