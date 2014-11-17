@@ -8,7 +8,7 @@ weight: 200
 
 {%summary%} {%endsummary%}
 
-GigaSpaces provides an interactive command line tool as part of the product. This can be started using gs.sh/bat command (referred to as **GigaSpaces CLI**).
+XAP provides an interactive command line tool as part of the product. This can be started using gs.sh/bat command (referred to as **GigaSpaces CLI**).
 
 This tool provides many commands that can be used to manage and gather information about the various GigaSpaces runtime components. This section describes the commands supported by GigaSpaces CLI.
 
@@ -30,11 +30,11 @@ Deploys an [application]({%currentjavaurl%}/deploying-onto-the-service-grid.html
 {: .table .table-bordered .table-condensed}
 |Option|Description|Value Format|
 |:-----|:----------|:-----------|
-| `-timeout` | Allows you to specify a timeout value (in milliseconds) when looking up the GSM to deploy to.{% wbr %}Defaults to `5000` milliseconds (5 seconds).| `-timeout [timeoutValue]`|
-| `-deploy-timeout` | Timeout for deploy operation (in milliseconds),{% wbr %}otherwise blocks until all successful/failed deployment events arrive (default)" |`-deploy-timeout [timeoutValue]`|
-| `-h` / `-help`  | Prints help | |
-| `-secured` | Deploys a secured processing unit (implicit when using -user/-password) - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| `-secured [true/false]`|
-| `-user` `-password` | Deploys a secured processing unit propagated with the supplied user and password - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| `-user xxx -password yyyy`|
+| -timeout | Allows you to specify a timeout value (in milliseconds) when looking up the GSM to deploy to.{% wbr %}Defaults to **5000** milliseconds (5 seconds).| -timeout [timeoutValue]|
+| -deploy-timeout | Timeout for deploy operation (in milliseconds),{% wbr %}otherwise blocks until all successful/failed deployment events arrive (default)" |-deploy-timeout [timeoutValue]|
+| -h / -help  | Prints help | |
+| -secured | Deploys a secured processing unit (implicit when using -user/-password) - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| -secured [true/false]|
+| -user -password | Deploys a secured processing unit propagated with the supplied user and password - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| -user xxx -password yyyy|
 
 {% togglecloak id=1 %}**Example**{% endtogglecloak %}
 {% gcloak 1 %}
@@ -99,7 +99,7 @@ Undeploys an [application]({%currentjavaurl%}/deploying-onto-the-service-grid.ht
 {: .table .table-bordered .table-condensed}
 |Option|Description|Value Format|
 |:-----|:----------|:-----------|
-| `-timeout` | Allows you to specify a timeout value (in milliseconds) when looking up the GSM to deploy to.{% wbr %}Defaults to `5000` milliseconds (5 seconds).| `-timeout [timeoutValue]`|
+|  -timeout  | Allows you to specify a timeout value (in milliseconds) when looking up the GSM to deploy to.{% wbr %}Defaults to  **5000  milliseconds (5 seconds).| `-timeout [timeoutValue]`|
 | `-undeploy-timeout` | Timeout for deploy operation (in milliseconds), otherwise blocks until all successful/failed deployment events arrive (default)" |`-undeploy-timeout [timeoutValue]`|
 | `-h` / `-help`  | Prints help | |
 | `-secured` | Deploys a secured processing unit (implicit when using -user/-password) - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| `-secured [true/false]`|
@@ -349,3 +349,11 @@ The `task` command submits a task in the form of an Ant configuration file..
 |:-------|:------------|
 | `ant-file` | The name of the Ant configuration file, an XML file representing the task. The file must reside in the current directory. |
 | `list-of-machines` | A comma-separated list of hostnames or of IP addresses, or the name of a file containing such a list, saying where to submit the Ant configuration file. By default, if machines are available, you receive a list to choose from. If no machines are currently available, are prompted to start an HTTP server. |
+
+
+# Hot Deploy
+
+{%refer%}
+The [XAP Hot Deploy](/sbp/xap-hot-deploy.html) tool allows business logic running as a PU to be refreshed (rolling PU upgrade) without any system downtime and data loss. The tool uses the hot deploy approach , placing new PU code on the GSM PU deploy folder and later restart each PU instance.
+
+{%endrefer%}

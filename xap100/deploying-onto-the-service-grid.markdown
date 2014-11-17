@@ -312,6 +312,12 @@ public class PUReatartMain {
 }
 {% endhighlight %}
 
+
+{%refer%}
+The [XAP Hot Deploy](/sbp/xap-hot-deploy.html) tool allows business logic running as a PU to be refreshed (rolling PU upgrade) without any system downtime and data loss. The tool uses the hot deploy approach , placing new PU code on the GSM PU deploy folder and later restart each PU instance.
+{%endrefer%}
+
+
 # Application Deployment and Processing Unit Dependencies
 
 An application is a logical abstraction that groups one or more Processing Units. Application allows:
