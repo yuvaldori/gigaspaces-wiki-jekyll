@@ -230,7 +230,15 @@ The following example queries for a **Dealer** which has a **Car** whose *compan
 
 ![/attachment_files/nestedquery.jpg](/attachment_files/nestedquery.jpg)
 
+{%warning title=The following is not supported%}
 
+
+{%highlight java%}
+... = new SqlQuery<Dealer>("Cars[*](company = 'Honda' OR color = 'Red' OR tags[*] = 'Convertible')");
+{%endhighlight%}
+
+As it does not make sense to perform an OR in this case.
+{%endwarning%}
 
 
 ## Indexing
