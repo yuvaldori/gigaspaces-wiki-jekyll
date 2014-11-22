@@ -38,7 +38,7 @@ How to troubleshoot common problems.
 
 {%section%}
 {%column width=30%  %}
-{%youtube f1M47625fS8 | XAP MemoryXtend %}
+{%youtube kAe-ZxFnIYc | XAP MemoryXtend %}
 {%endcolumn%}
 
 {%column width=30%  %}
