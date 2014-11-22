@@ -154,6 +154,7 @@ Property files and other resources should be jared and placed within any of the 
 | Processing Unit Location/Name -- **mandatory** | The location of the processing unit directory or jar file on your file system (see [this page]({%currentjavaurl%}/deploying-onto-the-service-grid.html)).{% wbr %}If you are using a few options in the `deploy` command, pass this option as the **last parameter**.{% wbr %}For example: `gs> deploy hello-world.jar`{% wbr %}(`hello-world.jar` is the processing jar file). | |
 | `-cluster` |Allows you to control the clustering characteristics of the processing unit.{% wbr %}The cluster option is a simplified option that overrides the cluster part of the processing unit's built in SLA (if such exists).{% wbr %}The following options are available (used automatically by any embedded space included in the Processing Unit):{% wbr %}- `schema` -- the cluster schema used by the Processing Unit.{% wbr %}- `total_members` -- the number of instances, optionally followed by the number of backups{% wbr %}(number of backups is required only if the `partitioned-sync2backup` schema is used). | `-cluster schema=[schema name]`{% wbr %}`total_members=`{% wbr %}`numberOfInstances[,numberOfBackups]` |
 | `-properties` | Allows you to control [deployment properties]({%currentjavaurl%}/deployment-properties.html). | `-properties [bean name] location` |
+| `-properties embed` | Direct property injection | -properties embed://user=admin|
 | `-sla` | Allows you to specify a link (default to file-system) to a Spring XML configuration, holding the SLA definition. | `-sla [slaLocation]` |
 | `-zones` | Allows you to specify a list of deployment zones that are to restrict that the deployment to specific GSCs. | `-zones [zoneName1 zoneName2 ... ]` |
 | `-timeout` | Allows you to specify a timeout value (in milliseconds) when looking up the GSM to deploy to.Defaults to `5000` milliseconds (5 seconds).| `-timeout [timeoutValue]`|
@@ -173,20 +174,46 @@ You may use the [Primary-Backup Zone Controller](/sbp/primary-backup-zone-contro
 {% gcloak 3 %}
 
 The following deploys a processing unit jar file named `data-processor.jar` using the `sync_replicated` cluster schema with 2 instances (`total_members`).
-
-    gs> deploy -cluster schema=sync_replicated total_members=2 data-processor.jar
+{%highlight console%}
+gs> deploy -cluster schema=sync_replicated total_members=2 data-processor.jar
+{%endhighlight%}
 
 The following deploys a processing unit archive called `data-processor.jar` using deployment properties file called `pu.properties`.
 
-    gs> deploy -properties file://config/pu.properties data-processor.jar
+{%highlight console%}
+gs> deploy -properties file://config/pu.properties data-processor.jar
+
+{%endhighlight%}
+
+The following deploys a processing unit archive called `data-processor.jar` direct injecting the properties.
+
+{%highlight console%}
+gs> deploy -properties embed://DB_username=postgres;DB_password=pass mirror
+{%endhighlight%}
+
+Using the following pu configuration:
+{%highlight xml%}
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="org.postgresql.Driver"/>
+    <property name="url" value="jdbc:postgresql:presence"/>
+    <property name="username" value="${DB_username}"/>
+    <property name="password" value="${DB_password}"/>
+</bean>
+
+{%endhighlight%}
 
 The following deploys a processing unit archive called `data-processor.jar` using an SLA element read from an external `sla.xml` file.
-
-    gs> deploy -sla file://config/sla.xml data-processor.jar
+{%highlight console%}
+gs> deploy -sla file://config/sla.xml data-processor.jar
+{%endhighlight%}
 
 The following example deploys a `partitioned-sync2backup` space cluster with the name `mySpace` for both the processing unit and the Space it contains.
 
-    deploy -cluster schema=partitioned-sync2backup total_members=2,1 -override-name mySpace -properties embed://dataGridName=mySpace myPUFolder
+{%highlight console%}
+deploy -cluster schema=partitioned-sync2backup total_members=2,1 -override-name mySpace -properties embed://dataGridName=mySpace myPUFolder
+{%endhighlight%}
+
+
 
 {% tip %}
 Multiple deployment properties can be injected by having ; between each property - see below example:
