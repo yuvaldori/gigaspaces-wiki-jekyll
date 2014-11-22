@@ -57,23 +57,33 @@ You can deploy a war file just like a PU with the Web Administration UI:
 
 {%section%}
 {%column%}
-{%popup /attachment_files/qsg/Deploy-web1.png | Host view%}
+Host view
+
+{%popup /attachment_files/qsg/Deploy-web1.png  %}
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/Deploy-web2.png | Upload war file%}
+Upload war file
+
+{%popup /attachment_files/qsg/Deploy-web2.png %}
 {%endcolumn%}
  
 {%column%}
-{%popup /attachment_files/qsg/Deploy-web3.png | Application display%}
+Application display
+
+{%popup /attachment_files/qsg/Deploy-web3.png  %}
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/Deploy-web4.png | Service display%}
+Service display
+
+{%popup /attachment_files/qsg/Deploy-web4.png  %}
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/Deploy-web5.png | Web page display%}
+Web page display
+
+{%popup /attachment_files/qsg/Deploy-web5.png  %}
 {%endcolumn%}
 {%endsection%}
 
@@ -188,42 +198,61 @@ There are fully functional examples on GitHub available.{%try%}https://github.co
 
 {%section%}
 {%column%}
+Deploy http Space
 
+{%popup /attachment_files/qsg/Deploy-session1.png  %}
 
-{%popup /attachment_files/qsg/Deploy-session1.png | Deploy http Space%}
-{%comment%}
-[<img src="/attachment_files/qsg/Deploy-session1.png" width="120" height="100">](/attachment_files/qsg/Deploy-session1.png)
-{%endcomment%}
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/Deploy-session2.png | Define deployment%}
+Define deployment
+
+{%popup /attachment_files/qsg/Deploy-session2.png  %}
+
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/Deploy-session3.png | Inspect data grid%}
+Inspect data grid
+
+{%popup /attachment_files/qsg/Deploy-session3.png  %}
+
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/Deploy-session4.png | Deploy war file%}
+Deploy war file
+
+{%popup /attachment_files/qsg/Deploy-session4.png  %}
+
 {%endcolumn%}
 {%endsection%}
 
 {%section%}
 {%column%}
-{%popup /attachment_files/qsg/Deploy-session51.png | Select web URL%}
+Select web URL
+
+{%popup /attachment_files/qsg/Deploy-session51.png  %}
+
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/Deploy-session6.png | Web page%}
+Web page
+
+{%popup /attachment_files/qsg/Deploy-session6.png  %}
+
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/Deploy-session65.png | Inspect data grid%}
+Inspect data grid
+
+{%popup /attachment_files/qsg/Deploy-session65.png  %}
+
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/Deploy-session7.png | Inspect session%}
+Inspect session
+
+{%popup /attachment_files/qsg/Deploy-session7.png  %}
+
 {%endcolumn%}
 {%endsection%}
 

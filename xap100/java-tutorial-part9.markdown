@@ -199,36 +199,52 @@ There is a fully working example on GitHub. You can download, build and execute 
 
 {%section%}
 {%column%}
-{%popup /attachment_files/qsg/Cassandra1.png | Start deploy%}
+ Start deploy
+
+{%popup /attachment_files/qsg/Cassandra1.png %}
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/Cassandra2.png |Deploy Cassandra PU %}
+Deploy Cassandra PU
+
+{%popup /attachment_files/qsg/Cassandra2.png  %}
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/Cassandra3.png | Applications%}
+ Applications
+
+{%popup /attachment_files/qsg/Cassandra3.png %}
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/Cassandra4.png | Data Grid%}
+Data Grid
+
+{%popup /attachment_files/qsg/Cassandra4.png  %}
 {%endcolumn%}
 {%endsection%}
 
 {%section%}
 {%column%}
-{%popup /attachment_files/qsg/OpsCenter1.png | OpsCenter%}
+OpsCenter
+
+{%popup /attachment_files/qsg/OpsCenter1.png  %}
 {%endcolumn%}
 {%column%}
-{%popup /attachment_files/qsg/OpsCenter2.png | OpsCenter schema%}
+OpsCenter schema
+
+{%popup /attachment_files/qsg/OpsCenter2.png  %}
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/OpsCenter3.png | Keyspace%}
+Keyspace
+
+{%popup /attachment_files/qsg/OpsCenter3.png  %}
 {%endcolumn%}
 
 {%column%}
-{%popup /attachment_files/qsg/OpsCenter4.png | Data Explorer%}
+Data Explorer
+
+{%popup /attachment_files/qsg/OpsCenter4.png  %}
 {%endcolumn%}
 {%endsection%}
 
