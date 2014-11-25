@@ -12,42 +12,42 @@ weight:
 At this point in time there is no early access version available. The latest release 10.1 can be found [here](/index.html).
 {%endcomment%}
 
-# Release Candidate M6 b12587
+# Release Candidate M7 b12588
 
 {%panel%}
 
 
 {%panel title=Java%}
 
-[XAP Premium](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m6/gigaspaces-xap-premium-10.1.0-m6-b12587-with-license.zip)
+[XAP Premium](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m7/gigaspaces-xap-premium-10.1.0-m7-b12588-with-license.zip)
 
-[XAP Caching](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m6/gigaspaces-xap-caching-10.1.0-m6-b12587.zip)
+[XAP Caching](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m7/gigaspaces-xap-caching-10.1.0-m7-b12588.zip)
 {%endpanel%}
 
 
 {%panel title=.Net%}
-[XAP Premium x86](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m6/GigaSpaces-XAP.NET-Premium-10.1.0.12587-M6-x86.msi)
+[XAP Premium x86](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m7/GigaSpaces-XAP.NET-Premium-10.1.0.12588-M7-x86.msi)
 
-[XAP Premium x64](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m6/GigaSpaces-XAP.NET-Premium-10.1.0.12587-M6-x64.msi)
+[XAP Premium x64](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m7/GigaSpaces-XAP.NET-Premium-10.1.0.12588-M7-x64.msi)
 
-[XAP Caching x86](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m6/GigaSpaces-XAP.NET-Caching-10.1.0.12587-M6-x86.msi)
+[XAP Caching x86](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m7/GigaSpaces-XAP.NET-Caching-10.1.0.12588-M7-x86.msi)
 
-[XAP Caching x64](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m6/GigaSpaces-XAP.NET-Caching-10.1.0.12587-M6-x64.msi)
+[XAP Caching x64](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m7/GigaSpaces-XAP.NET-Caching-10.1.0.12588-M7-x64.msi)
 {%endpanel%}
 
 {%panel title=CPP%}
 
-[XAP Linux 32 gcc-4.1.2](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m6/gigaspaces-cpp-10.1.0-m6-linux32-gcc-4.1.2.tar.gz)
+[XAP Linux 32 gcc-4.1.2](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m7/gigaspaces-cpp-10.1.0-m7-linux32-gcc-4.1.2.tar.gz)
 
-[XAP linux-amd64-gcc-4.1.2](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m6/gigaspaces-cpp-10.1.0-m6-linux-amd64-gcc-4.1.2.tar.gz)
+[XAP linux-amd64-gcc-4.1.2](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m7/gigaspaces-cpp-10.1.0-m7-linux-amd64-gcc-4.1.2.tar.gz)
 
-[XAP win64 vs10.0](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m6/gigaspaces-cpp-10.1.0-m6-win64-vs10.0.tar.gz)
+[XAP win64 vs10.0](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m7/gigaspaces-cpp-10.1.0-m7-win64-vs10.0.tar.gz)
 
-[XAP win32-vs10.0](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m6/gigaspaces-cpp-10.1.0-m6-win32-vs10.0.tar.gz)
+[XAP win32-vs10.0](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m7/gigaspaces-cpp-10.1.0-m7-win32-vs10.0.tar.gz)
 
-[XAP win64-vs9.0](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m6/gigaspaces-cpp-10.1.0-m6-win64-vs9.0.tar.gz)
+[XAP win64-vs9.0](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m7/gigaspaces-cpp-10.1.0-m7-win64-vs9.0.tar.gz)
 
-[XAP win32-vs9.0](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m6/gigaspaces-cpp-10.1.0-m6-win32-vs9.0.tar.gz)
+[XAP win32-vs9.0](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m7/gigaspaces-cpp-10.1.0-m7-win32-vs9.0.tar.gz)
 {%endpanel%}
 
 {%endpanel%}
