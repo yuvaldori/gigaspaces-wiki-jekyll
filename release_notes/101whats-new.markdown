@@ -14,6 +14,8 @@ This page lists the main new features in XAP 10.1 (Java and .Net editions). It's
 {%comment%}
 - [Interactive Online Tutorial](#0)
 
+Elastic deployment with command line
+
 - [Native Integration with Solid State Drives](#1)
 
 - [Global HTTP Session Sharing](#2)
