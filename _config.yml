@@ -82,7 +82,7 @@ categories-list: ["SBP", "XAP97", "XAP97NET", "XAP97ADM", "XAP100", "XAP101", "X
 10.1-java-version:         "7"
 
 # Jar versions
-10.1-spring:               "3.9"
+10.1-spring:               "3.2"
 10.1-mongo-java-driver:    "2.11.2"
 10.1-antlr4-runtime:       "4.0"
 10.1-mongo-datasource:     "10.0.0-SNAPSHOT"
