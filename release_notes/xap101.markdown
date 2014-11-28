@@ -1,0 +1,23 @@
+---
+layout: post
+title:  XAP 10.1
+categories: RELEASE_NOTES
+parent: none
+weight: 90
+---
+
+
+
+
+{%children%}
+
+
+## Previouse releases
+
+You can find release notes of earlier versions then 10.1
+
+
+
+XAP 9.6 and earlier [here](http://wiki.gigaspaces.com/wiki/display/RN/GigaSpaces+Release+Notes).
+XAP 9.7 and later
+

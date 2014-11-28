@@ -10,27 +10,27 @@ weight: 400
 
 # Administration
 
-{% include /COM/xap100/config-admin.markdown %}
+{% include /COM/xap101/config-admin.markdown %}
 
 
 # Deployment
 
-{% include /COM/xap100/config-deploy.markdown %}
+{% include /COM/xap101/config-deploy.markdown %}
 
 
 # Security
 
-{% include /COM/xap100/config-security.markdown %}
+{% include /COM/xap101/config-security.markdown %}
 
 # PU
 
-{% include /COM/xap100/config-pu.markdown %}
+{% include /COM/xap101/config-pu.markdown %}
 
 # LRMI
 
 #### Transport
 
-{% include /COM/xap100/config-lrmi-transport.markdown %}
+{% include /COM/xap101/config-lrmi-transport.markdown %}
 
 {%refer%}
 Refer to [Tuning the communication protocol](./tuning-communication-protocol.html)
@@ -39,13 +39,13 @@ Refer to [Tuning the communication protocol](./tuning-communication-protocol.htm
 
 #### Filter
 
-{% include /COM/xap100/config-lrmi-filter.markdown %}
+{% include /COM/xap101/config-lrmi-filter.markdown %}
 
 
 
 #JMS
 
-{% include /COM/xap100/config-jms.markdown %}
+{% include /COM/xap101/config-jms.markdown %}
 
 {%refer%}
 Refer to [Messaging support]({%currentjavaurl%}/messaging-support.html)
@@ -55,7 +55,7 @@ Refer to [Messaging support]({%currentjavaurl%}/messaging-support.html)
 
 # JMX
 
-{% include /COM/xap100/config-jmx.markdown %}
+{% include /COM/xap101/config-jmx.markdown %}
 
 {%refer%}
 Refer to [JMX Management](./space-jmx-management.html)
@@ -63,7 +63,7 @@ Refer to [JMX Management](./space-jmx-management.html)
 
 # Multicast
 
-{% include /COM/xap100/config-multicast.markdown %}
+{% include /COM/xap101/config-multicast.markdown %}
 
 {%refer%}
 Refer to [Multicast Settings](./network-lookup-service-configuration.html#multicast-settings)
@@ -71,14 +71,14 @@ Refer to [Multicast Settings](./network-lookup-service-configuration.html#multic
 
 # Web
 
-{% include /COM/xap100/config-web.markdown %}
+{% include /COM/xap101/config-web.markdown %}
 
 
 
 
 # Space Filter
 
-{% include /COM/xap100/config-space-filter.markdown %}
+{% include /COM/xap101/config-space-filter.markdown %}
 
 {%refer%}
 Refer to [Space Filters]({%currentjavaurl%}/the-space-filters.html)
@@ -89,7 +89,7 @@ Refer to [Space Filters]({%currentjavaurl%}/the-space-filters.html)
 
 # Logging
 
-{% include /COM/xap100/config-logging.markdown %}
+{% include /COM/xap101/config-logging.markdown %}
 
 {%refer%}
 Refer to [Logging](./logging-overview.html)
@@ -97,29 +97,29 @@ Refer to [Logging](./logging-overview.html)
 
 # Debug
 
-{% include /COM/xap100/config-debug.markdown %}
+{% include /COM/xap101/config-debug.markdown %}
 
 
 
 # Fault Detection
 
-{% include /COM/xap100/config-fault-detection.markdown %}
+{% include /COM/xap101/config-fault-detection.markdown %}
 
 
 # Space Proxy Router
 
-{% include /COM/xap100/config-space-proxy-router.markdown %}
+{% include /COM/xap101/config-space-proxy-router.markdown %}
 
 
 # Slow Consumer
 
 ### Server side
 
-{% include /COM/xap100/config-slow-consumer-server.markdown %}
+{% include /COM/xap101/config-slow-consumer-server.markdown %}
 
 ### Client side
 
-{% include /COM/xap100/config-slow-consumer-client.markdown %}
+{% include /COM/xap101/config-slow-consumer-client.markdown %}
 
 {%refer%}
 Refer to [Slow consumer](./slow-consumer.html)
@@ -128,7 +128,7 @@ Refer to [Slow consumer](./slow-consumer.html)
 
 # Cluster
 
-{% include /COM/xap100/config-cluster.markdown %}
+{% include /COM/xap101/config-cluster.markdown %}
 
 {%refer%}
 Refer to [Data Grid Clustering](./data-grid-clustering.html)
@@ -137,7 +137,7 @@ Refer to [Data Grid Clustering](./data-grid-clustering.html)
 
 # Replication
 
-{% include /COM/xap100/config-replication.markdown %}
+{% include /COM/xap101/config-replication.markdown %}
 
 {%refer%}
 Refer to [Replication](./replication.html)
@@ -146,13 +146,13 @@ Refer to [Replication](./replication.html)
 
 # Space Browser
 
-{% include /COM/xap100/config-space-browser.markdown %}
+{% include /COM/xap101/config-space-browser.markdown %}
 
 
 {%comment%}
 # JDBC
 
-{% include /COM/xap100/config-jdbc.markdown %}
+{% include /COM/xap101/config-jdbc.markdown %}
 
 {%refer%}
 Refer to [JDBC Driver]({%currentjavaurl%}/jdbc-driver.html)
@@ -163,12 +163,12 @@ Refer to [JDBC Driver]({%currentjavaurl%}/jdbc-driver.html)
 
 # XML
 
-{% include /COM/xap100/config-xml.markdown %}
+{% include /COM/xap101/config-xml.markdown %}
 
 
 # Transaction
 
-{% include /COM/xap100/config-transaction.markdown %}
+{% include /COM/xap101/config-transaction.markdown %}
 
 
 # Misc

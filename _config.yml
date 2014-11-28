@@ -77,3 +77,32 @@ categories-list: ["SBP", "XAP97", "XAP97NET", "XAP97ADM", "XAP100", "XAP101", "X
 10.0-msi-filename:          "GigaSpaces-XAP.NET-Premium-10.0.1.11800-GA-x86.msi"
 10.0-gshome-net-directory:  "XAP.NET 10.0.1 x86"
 
+
+# 10.1 Definitions
+10.1-java-version:         "7"
+
+# Jar versions
+10.1-spring:               "3.9"
+10.1-mongo-java-driver:    "2.11.2"
+10.1-antlr4-runtime:       "4.0"
+10.1-mongo-datasource:     "10.0.0-SNAPSHOT"
+10.1-openjpa:              "2.0.1"
+10.1-cassandra-clientutil: "1.1.6"
+10.1-cassandra-thrift:     "1.1.6"
+10.1-cassandra-jdbc:       "1.1.2"
+10.1-hector-core:          "1.1-2"
+10.1-slf4j-api:            "1.6.6"
+10.1-slf4j-jdk14:          "1.6.6"
+
+# Path and versions
+10.1-maven-version:        "10.0.1-11800-RELEASE"
+10.1-gshome-directory:     "gigaspaces-xap-premium-10.0.1-ga"
+10.1-default-lookup-group: "gigaspaces-10.0.1-XAPPremium-ga"
+10.1-build-filename:       "gigaspaces-xap-premium-10.0.1-ga-b11800.zip"
+10.1-xap-version:          "10.1"
+10.1-xap-release:          "10.1"
+
+# DOT NET
+10.1-msi-filename:          "GigaSpaces-XAP.NET-Premium-10.0.1.11800-GA-x86.msi"
+10.1-gshome-net-directory:  "XAP.NET 10.0.1 x86"
+
