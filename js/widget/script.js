@@ -132,7 +132,7 @@ function msToTime(duration) {
 
 $(function () {
     //  var src = 'http://launch.cloudifysource.org/widget/widget?' +
-    var src = ' http://thewidget.staging.gsdev.info/#/widgets/53b525a32e427e332e32a3d9/blank?timestamp=1404464'; //1404464751615
+    var src = ' http://thewidget.gsdev.info/#/widgets/547ed208ea1bc7600392caa5/blank?timestamp=141759'; //1417597979048
     // 'apiKey=' + WIDGET_ID +
     //  '&title=Launch' +
     //  '&origin_page_url=' + document.location.href;
