@@ -16,6 +16,10 @@ This page lists the main new features in XAP 10.1 (Java and .Net editions). It's
 
 Elastic deployment with command line
 
+
+Matrics    xap101adm/metrics-overview.markdown
+
+
 - [Native Integration with Solid State Drives](#1)
 
 - [Global HTTP Session Sharing](#2)

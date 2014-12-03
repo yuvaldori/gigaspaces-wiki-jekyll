@@ -10,9 +10,9 @@ weight: 400
 
 {%note title=Technology Preview%}This feature is still under development and is subject to breaking changes until 10.1 is released {%endnote%}
 
-# Overview
 
-GigaSpaces XAP provides a framework for collecting and reporting metrics from the distributed runtime environment into a metric repository of your choice, which can then be analysed and used to identity trends in the system behaviour.
+
+ XAP provides a framework for collecting and reporting metrics from the distributed runtime environment into a metric repository of your choice, which can then be analysed and used to identity trends in the system behaviour.
 
 The Metrics framework is composed of **Metrics**, **Metric Samplers** and **Metric Reporters**.
 
@@ -42,7 +42,7 @@ Each process in the service grid reports the metrics listed below. Each metric i
 
 ### Process Operating System Metrics
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
 | `xap.*.*.*.process.cpu.total` | TODO: Document |
@@ -57,7 +57,7 @@ Each process in the service grid reports the metrics listed below. Each metric i
 
 ### JVM Metrics
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
 | `xap.*.*.*.jvm.runtime.uptime` | Uptime of the Java virtual machine (in milliseconds) |
@@ -74,7 +74,7 @@ Each process in the service grid reports the metrics listed below. Each metric i
 
 ### LRMI Metrics
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
 | `xap.*.*.*.lrmi.connections` | Number of LRMI Connections |
@@ -85,7 +85,7 @@ Each process in the service grid reports the metrics listed below. Each metric i
 
 ### Lookup Service Metrics
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
 | `xap.*.*.*.lus.items` | Number of registered services |
@@ -98,7 +98,7 @@ Each space instance reports the metrics listed below. Each metric is prefixed wi
 
 ### Space Operations
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
 | `xap.*.*.*.space.*.*.operations.execute` | Number of task execution operations |

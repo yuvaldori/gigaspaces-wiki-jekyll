@@ -31,6 +31,10 @@ Controlling space attributes and operations using the JMX console.
 
 [Monitoring Tools](./suggested-monitoring-tools.html){%wbr%}
 Suggested list of monitoring tools.
+
+[Metrics](./Metrics-overview.html){%wbr%}
+XAP provides a framework for collecting and reporting metrics from the distributed runtime environment into a metric repository of your choice, which can then be analysed and used to identity trends in the system behaviour.
+
 {%endfpanel%}
 
 
