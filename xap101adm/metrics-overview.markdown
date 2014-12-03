@@ -61,29 +61,29 @@ The following metrics are bundled with the product
 | `xap.*.*.*.jvm.threads.daemon` | Current number of live daemon threads |
 | `xap.*.*.*.jvm.threads.peak` | Peak live thread count since the Java virtual machine started or peak was reset |
 | `xap.*.*.*.jvm.threads.total-started` | Total number of threads created and also started since the Java virtual machine started |
-| `xap.*.*.*.jvm.memory.heap.used` | Amount of used memory in bytes. |
-| `xap.*.*.*.jvm.memory.heap.committed` | Amount of memory in bytes that is committed for the Java virtual machine to use. |
-| `xap.*.*.*.jvm.memory.non-heap.used` | Amount of used memory in bytes. |
-| `xap.*.*.*.jvm.memory.non-heap.committed` | Amount of memory in bytes that is committed for the Java virtual machine to use. |
-| `xap.*.*.*.jvm.memory.gc.count` | Total number of garbage collections that have occurred. |
-| `xap.*.*.*.jvm.memory.gc.time` | Approximate accumulated collection elapsed time in milliseconds. |
+| `xap.*.*.*.jvm.memory.heap.used` | Amount of used memory in bytes |
+| `xap.*.*.*.jvm.memory.heap.committed` | Amount of memory in bytes that is committed for the Java virtual machine to use |
+| `xap.*.*.*.jvm.memory.non-heap.used` | Amount of used memory in bytes |
+| `xap.*.*.*.jvm.memory.non-heap.committed` | Amount of memory in bytes that is committed for the Java virtual machine to use |
+| `xap.*.*.*.jvm.memory.gc.count` | Total number of garbage collections that have occurred |
+| `xap.*.*.*.jvm.memory.gc.time` | Approximate accumulated collection elapsed time in milliseconds |
 
 ### LRMI Metrics
 
 {: .table .table-bordered}
 | Metric | Description |
 |:-------|:------------|
-| `xap.*.*.*.lrmi.connections` | TODO: Document |
-| `xap.*.*.*.lrmi.active-connections` | TODO: Document |
-| `xap.*.*.*.lrmi.generated-traffic` | TODO: Document |
-| `xap.*.*.*.lrmi.received-traffic` | TODO: Document |
-| `xap.*.*.*.lrmi.threads` | TODO: Document |
+| `xap.*.*.*.lrmi.connections` | Number of LRMI Connections |
+| `xap.*.*.*.lrmi.active-connections` | Number of active LRMI Connections |
+| `xap.*.*.*.lrmi.generated-traffic` | Total generated traffic (in bytes) |
+| `xap.*.*.*.lrmi.received-traffic` | Total received traffic (in bytes) |
+| `xap.*.*.*.lrmi.threads` | Number of active LRMI threads |
 
 ### Lookup Service Metrics
 
 {: .table .table-bordered}
 | Metric | Description |
 |:-------|:------------|
-| `xap.*.*.*.lus.items` | TODO: Document |
-| `xap.*.*.*.lus.listeners` | TODO: Document |
-| `xap.*.*.*.lus.pending-events` | TODO: Document |
+| `xap.*.*.*.lus.items` | Number of registered services |
+| `xap.*.*.*.lus.listeners` | Number of event notification listeners |
+| `xap.*.*.*.lus.pending-events` | Size of the pending event notification queue |
