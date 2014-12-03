@@ -34,9 +34,13 @@ TODO: Explain how to configure reporters
 
 # Bundles Metrics
 
-The following metrics are bundled with the product
+The following metrics are bundled with the product:
 
-### Process Metrics
+## Process metrics
+
+Each process in the service grid reports the metrics listed below. Each metric is prefixed with the host name, process id and process role (`gsa` / `lus` / `gsm` / `esm` / `gsc`). For example, the free memory metric of a **GSC** hosted on machine `foo` may look like this: `xap.foo.1234.gsc.process.memory.free`. This prefix is abbreviated in the following tables to `xap.*.*.*.`.
+
+### Process Operating System Metrics
 
 {: .table .table-bordered}
 | Metric | Description |
@@ -87,3 +91,25 @@ The following metrics are bundled with the product
 | `xap.*.*.*.lus.items` | Number of registered services |
 | `xap.*.*.*.lus.listeners` | Number of event notification listeners |
 | `xap.*.*.*.lus.pending-events` | Size of the pending event notification queue |
+
+## Space Metrics
+
+Each space instance reports the metrics listed below. Each metric is prefixed with process prefix described above, along with the space name and instance id. For example, the read operations metric of space `bar` instance 2 on machine `foo` may look like this: `xap.foo.1234.gsc.space.bar.2.operations.read`. This prefix is abbreviated in the following tables to `xap.*.*.*.space.*.*`.
+
+### Space Operations
+
+{: .table .table-bordered}
+| Metric | Description |
+|:-------|:------------|
+| `xap.*.*.*.space.*.*.operations.execute` | Number of task execution operations |
+| `xap.*.*.*.space.*.*.operations.write` | Number of write operations |
+| `xap.*.*.*.space.*.*.operations.update` | Number of update operations |
+| `xap.*.*.*.space.*.*.operations.change` | Number of change operations |
+| `xap.*.*.*.space.*.*.operations.read` | Number of read operations |
+| `xap.*.*.*.space.*.*.operations.read-multiple` | Number of read multiple operations |
+| `xap.*.*.*.space.*.*.operations.take` | Number of take operations |
+| `xap.*.*.*.space.*.*.operations.take-multiple` | Number of take multiple operations |
+| `xap.*.*.*.space.*.*.operations.lease-expired` | Number of entry lease expirations |
+| `xap.*.*.*.space.*.*.operations.register-listener` | Number of event listener registrations |
+| `xap.*.*.*.space.*.*.operations.before-listener-trigger` | Number of triggered events (before trigger) |
+| `xap.*.*.*.space.*.*.operations.after-listener-trigger` | Number of triggered events (after trigger) |
