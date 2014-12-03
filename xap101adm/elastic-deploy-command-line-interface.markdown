@@ -147,6 +147,10 @@ An Elastic Space only Processing Unit can be easily deployed onto the Service Gr
 Deploying an elastic space requires at least one ESM to be running.
 {% endnote %}
 
+{% note %}
+The options' order is important as some overrides others
+{% endnote %}
+
 {% togglecloak id=7 %}**<u>Example</u>**{% endtogglecloak %}
 {% gcloak 7 %}
 
@@ -173,9 +177,10 @@ The following deploys a secured elastic space called mySpace with max-memory-cap
 | `-mcpc`, `-memory-capacity-per-container` {% wbr %}**mandatory** | Specifies the the heap size per container (operating system process). | `-mcpc [number[m/g]]` |
 | `-mmc`, `-max-memory-capacity` {% wbr %}**mandatory**(*) | Specifies an estimate of the maximum memory capacity for this processing unit.{% wbr %}(*)Either `-max-memory-capacity` or `-number-of-partitions` option must be provided. | `-mcc [number[m/g]]` |
 | `-nop`, `-number-of-partitions` {% wbr %}**mandatory**(*) | Defines the number of processing unit partitions.{% wbr %}(*)Either `-max-memory-capacity` or `-number-of-partitions` option must be provided. | `-nop [number]` |
+| `-nobpp`, `-number-of-backups-per-partition` | Specifies the number of backup processing unit instances per partition.{% wbr %}This is an advanced property. | `-nobpp [number]` |
 | `-mnocc`, `-max-number-of-cpu-cores` | Specifies an estimate for the maximum total number of cpu cores used by this processing unit. | `-mnooc [number]` |
 | `-smd`, `-single-machine-deployment` | Allows deployment of the processing unit on a single machine.{% wbr %}Defaults to `false`. | `-smd [true/false]` |
-| `-ha`, `-highly-available` | Specifies if the space should duplicate each information on two different machines.{% wbr %}Defaults to `true`. | `-ha [true/false]` |
+| `-ha`, `-highly-available` | Specifies if the space should duplicate each information on two different machines. | `-ha [true/false]` |
 | `-secured` | Deploys a secured processing unit (implicit when using -user/-password).{% wbr %}Defaults to `false`. | `-secured [true/false]` |
 | `-user` `-password` | Deploys a secured processing unit propagated with the supplied user and password - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| `-user xxx -password yyyy`|
 | `-dmp`, `-dedicated-machine-provisioning` | Configure the server side bean that starts and stops machines automatically. | `-dmp [provisioning properties]` {% wbr %} [provisioning properties](#provisioning-properties) |
@@ -200,6 +205,9 @@ An Elastic PU only Processing Unit can be easily deployed onto the Service Grid.
 Deploying an elastic pu requires at least one ESM to be running.
 {% endnote %}
 
+{% note %}
+The options' order is important as some overrides others
+{% endnote %}
 
 {% togglecloak id=9 %}**<u>Example</u>**{% endtogglecloak %}
 {% gcloak 9 %}
@@ -244,9 +252,10 @@ The following options are supported with a `stateful` elastic PU only
 |:-----|:----------|:-----------|
 | `-mmc`, `-max-memory-capacity` {% wbr %}**mandatory**(*) | Specifies an estimate of the maximum memory capacity for this processing unit.{% wbr %}(*)Either `-max-memory-capacity` or `-number-of-partitions` option must be provided. | `-mcc [number[m/g]]` |
 | `-nop`, `-number-of-partitions` {% wbr %}**mandatory**(*) | Defines the number of processing unit partitions.{% wbr %}(*)Either `-max-memory-capacity` or `-number-of-partitions` option must be provided. | `-nop [number]` |
+| `-nobpp`, `-number-of-backups-per-partition` | Specifies the number of backup processing unit instances per partition.{% wbr %}This is an advanced property, default to 1 | `-nobpp [number]` |
 | `-mnocc`, `-max-number-of-cpu-cores` | Specifies an estimate for the maximum total number of cpu cores used by this processing unit. | `-mnooc [number]` |
 | `-smd`, `-single-machine-deployment` | Allows deployment of the processing unit on a single machine.{% wbr %}Defaults to `false`. | `-smd [true/false]` |
-| `-ha`, `-highly-available` | Specifies if the space should duplicate each information on two different machines.{% wbr %}Defaults to `true`. | `-ha [true/false]` |
+| `-ha`, `-highly-available` | Specifies if the space should duplicate each information on two different machines. | `-ha [true/false]` |
 {% endgcloak %}
 
 

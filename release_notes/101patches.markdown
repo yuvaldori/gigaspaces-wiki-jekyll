@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Patches
-categories: RELEASE_NOTES
+categories:
 parent: xap101.html
 weight: 300
 ---
