@@ -16,7 +16,7 @@ categories:
 			<div class="row">
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="300x200" src="http://lorempixel.com/600/200/people" />
+						<img alt="300x200" src="/attachment_files/tutorial/xap.png" />
 						<div class="caption">
 							<h3>
 								New to XAP ?
@@ -32,7 +32,7 @@ categories:
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="300x200" src="http://lorempixel.com/600/200/city" />
+						<img alt="300x200" src="/attachment_files/tutorial/try.png" />
 						<div class="caption">
 							<h3>
 								Try it online
@@ -48,7 +48,7 @@ categories:
 				</div>
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="300x200" src="http://lorempixel.com/600/200/sports" />
+						<img alt="300x200" src="/attachment_files/tutorial/examples.png" />
 						<div class="caption">
 							<h3>
 								Examples
