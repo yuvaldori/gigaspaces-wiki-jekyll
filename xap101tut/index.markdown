@@ -11,17 +11,6 @@ Here you will find .......
 <br>
 
 
-#### Try XAP online
-
-{%fpanel%}
-
-<a href="./xap_cloud_management.html" target="_blank">XAP in one click</a><br>
-This is a tutorial that will setup a XAP Cluster on a real server on demand. The tutorial includes an interactive shell that will allow you to execute the various XAP APIs for writing and reading data as well as open a groovy shell to write your own code and experience the full XAP API.
-
-{%endfpanel%}
-
-
-#### Download XAP and run the tutorials on your local machine
 
 {%fpanel%}
 
