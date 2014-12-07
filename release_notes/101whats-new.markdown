@@ -12,13 +12,17 @@ This page lists the main new features in XAP 10.1 (Java and .Net editions). It's
 {%panel%}
 
 {%comment%}
-- [Interactive Online Tutorial](#0)
 
 Elastic deployment with command line
 
 
+Sequence Number   http://localhost:4000/xap101/pojo-attribute-annotations.html#sequence-number
+
+
+
 Matrics    xap101adm/metrics-overview.markdown
 
+****************************
 
 - [Native Integration with Solid State Drives](#1)
 

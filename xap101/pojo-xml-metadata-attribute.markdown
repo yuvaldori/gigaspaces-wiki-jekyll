@@ -440,4 +440,26 @@ Example:
 
 
 
+# Space sequence number
+
+{: .table   .table-condensed  .table-bordered}
+|Syntax     | sequence-number|
+|Description|      |
+
+
+
+Example:
+
+{%highlight java%}
+<gigaspaces-mapping>
+	<class name="model.Person">
+		<property name="id" />
+        <property name="firstName" />
+        <sequence-number name="sequenceNumber" />
+	</class>
+</gigaspaces-mapping>
+{%endhighlight%}
+
+
+
 
