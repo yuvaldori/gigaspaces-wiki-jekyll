@@ -8,7 +8,7 @@ module Jekyll
 
     def render(context)
          output = "<a href=\"#{@url}"
-         output << "\"><i class=\"fa fa-cloud-download fa-lg\"></i></a>"
+         output << "\"><i class=\"fa fa-download fa-lg\"></i></a>"
     end
   end
 end
