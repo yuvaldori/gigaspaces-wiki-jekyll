@@ -1,5 +1,5 @@
 ---
-layout: post100
+layout: post101
 title:  Big Data
 categories: XAP101TUT
 weight: 1300

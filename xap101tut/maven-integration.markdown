@@ -1,5 +1,5 @@
 ---
-layout: post100
+layout: post101
 title:  Maven Integration
 categories:  XAP101TUT
 parent: none

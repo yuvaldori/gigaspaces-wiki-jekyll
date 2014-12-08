@@ -1,5 +1,5 @@
 ---
-layout: post100
+layout: post101
 title:  Spring Integration
 categories:  XAP101TUT
 parent: none
