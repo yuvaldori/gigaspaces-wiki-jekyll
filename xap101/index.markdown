@@ -21,9 +21,6 @@ This guide introduces the key concepts for building XAP applications. The topics
 [Installation](./installation.html){%wbr%}
 This guide provides step by step instructions on how to download and install XAP on different operating systems for the supported languages.
 
-[Getting started](./tutorials.html){%wbr%}
-Here you will find a quick start guide that explains how to deploy and use a GigaSpace XAP Data Grid. A full Java tutorial is also provided that will introduce you to the basic capabilities and features of the XAP platform.
-
 [XAP API](./programmers-guide.html){%wbr%}
 The guide provides all the information and tools needed to quickly develop either basic or more complex scaled-out applications
 

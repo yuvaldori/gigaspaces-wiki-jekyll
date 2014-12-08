@@ -454,6 +454,7 @@ Example:
 <gigaspaces-mapping>
 	<class name="model.Person">
 		<property name="id" />
+		<property name="sequenceNumber">
         <property name="firstName" />
         <sequence-number name="sequenceNumber" />
 	</class>
