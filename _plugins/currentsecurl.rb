@@ -13,6 +13,7 @@ module Jekyll
           versionDir = versionDir.sub("net","")
           versionDir = versionDir.sub("adm","")
           versionDir = versionDir.sub("sec","")
+          versionDir = versionDir.sub("tut","")
           "/#{versionDir}sec"
         else 
           context.registers[:site].config["latest_sec_url"]
