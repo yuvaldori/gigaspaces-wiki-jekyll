@@ -2,8 +2,8 @@
 layout: post101
 title:  Indexing
 categories: XAP101
-parent: programmers-guide.html
-weight: 600
+parent: none
+weight: 900
 ---
 
 {%wbr%}

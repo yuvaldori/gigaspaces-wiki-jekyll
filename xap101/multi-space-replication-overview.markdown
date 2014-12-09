@@ -3,7 +3,7 @@ layout: post101
 title:  Multi Site LAN Replication
 categories: XAP101
 parent: none
-weight: 800
+weight: 2300
 ---
 
 <br>

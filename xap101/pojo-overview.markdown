@@ -2,8 +2,8 @@
 layout: post101
 title:  POJO Support
 categories: XAP101
-parent: programmers-guide.html
-weight: 100
+parent: none
+weight: 400
 ---
 
 <br>

@@ -2,8 +2,8 @@
 layout: post101
 title:  Big Data Integration
 categories: XAP101
-parent: programmers-guide.html
-weight: 1600
+parent: none
+weight: 1800
 ---
 
 <br>

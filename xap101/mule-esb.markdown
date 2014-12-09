@@ -2,8 +2,8 @@
 layout: post101
 title:  Mule ESB Integration
 categories: XAP101
-parent: programmers-guide.html
-weight: 1500
+parent: none
+weight: 1700
 ---
 
 <br>

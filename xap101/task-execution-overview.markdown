@@ -2,8 +2,8 @@
 layout: post101
 title:  Task Execution
 categories: XAP101
-parent: programmers-guide.html
-weight: 1100
+parent: none
+weight: 1400
 ---
 
 <br>

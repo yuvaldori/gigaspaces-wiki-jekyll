@@ -2,8 +2,8 @@
 layout: post101
 title:  Modeling your Data
 categories: XAP101
-parent: programmers-guide.html
-weight: 300
+parent: none
+weight: 600
 ---
 
 

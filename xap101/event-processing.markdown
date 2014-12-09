@@ -2,8 +2,8 @@
 layout: post101
 title:  Event Processing
 categories: XAP101
-parent: programmers-guide.html
-weight: 1200
+parent: none
+weight: 1500
 ---
 
 <br>

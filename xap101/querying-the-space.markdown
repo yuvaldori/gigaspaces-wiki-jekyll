@@ -2,8 +2,8 @@
 layout: post101
 title:  Querying the Space
 categories: XAP101
-parent: programmers-guide.html
-weight: 500
+parent: none
+weight: 800
 ---
 
 <br>

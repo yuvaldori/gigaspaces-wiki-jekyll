@@ -2,8 +2,8 @@
 layout: post101
 title:  Admin API
 categories: XAP101
-parent: programmers-guide.html
-weight: 1800
+parent: none
+weight: 1900
 ---
 
 

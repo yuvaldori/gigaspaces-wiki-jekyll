@@ -2,8 +2,8 @@
 layout: post101
 title:  Space Based Remoting
 categories: XAP101
-parent: programmers-guide.html
-weight: 1300
+parent: none
+weight: 1600
 ---
 
 <br>

@@ -2,8 +2,8 @@
 layout: post101
 title:  The Space Interface
 categories: XAP101
-weight: 400
-parent: programmers-guide.html
+weight: 700
+parent: none
 ---
 
 {%wbr%}

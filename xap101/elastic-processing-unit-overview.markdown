@@ -3,7 +3,7 @@ layout: post101
 title:  Elastic Processing Unit
 categories: XAP101
 parent: none
-weight: 420
+weight: 2100
 ---
 
 {%wbr%}

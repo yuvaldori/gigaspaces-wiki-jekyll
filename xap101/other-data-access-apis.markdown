@@ -2,8 +2,8 @@
 layout: post101
 title:  Other Data Access APIs
 categories: XAP101
-parent: programmers-guide.html
-weight: 900
+parent: none
+weight: 1200
 ---
 <br>
 
