@@ -350,10 +350,10 @@ The following example demonstrates how to set the timeout for waiting for distri
       <prop key="space-config.mirror-service.operation-grouping">
         group-by-space-transaction
       </prop>
+      <prop key="space-config.mirror-service.distributed-transaction-processing.wait-timeout">120000</prop>
+      <prop key="space-config.mirror-service.distributed-transaction-processing.wait-for-operations">100</prop>
     </props>
   </os-core:properties>
-  <os-core:tx-support dist-tx-wait-timeout-millis="10000"
-    dist-tx-wait-for-opers="20" />
 </os-core:space>
 {% endhighlight %}
 
