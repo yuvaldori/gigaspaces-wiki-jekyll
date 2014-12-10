@@ -31,7 +31,7 @@ The Polling Container is the equivalent of a point to point paradigm. Unlike the
 # Archive Container
 The archive container is a mechanism built on top of a polling container to transfer historical data into Big-Data storage (for example Cassandra). The typical scenario is when streaming vast number of raw events through the Space, enriching them and then moving them to a Big-Data storage. Typically, there is no intention of keeping them in the space nor querying them in the space.
 
-{%learn%}./archive-container.html{%endlearn%}
+{%learn%}{%currentneturl%}/archive-container.html{%endlearn%}
 {%endcomment%}
 
  
@@ -171,7 +171,7 @@ public void registerPollingListener() {
 {%endhighlight%}
 
 
-{%learn%}./event-processing.html{%endlearn%}
+{%learn%}{%currentneturl%}/event-processing.html{%endlearn%}
 
 # FIFO Support
 Sometimes it is necessary to process events in the order the way they have been created. By default events are not ordered. XAP supports FIFO (First In, First Out) processing of events.  To enable FIFO operations you can turn on FIFO support for classes which will participate in such operations.    
@@ -200,7 +200,7 @@ namespace xaptutorial.model
 }
 {%endhighlight%}
 
-{%learn%}./fifo-support.html{%endlearn%}
+{%learn%}{%currentneturl%}/fifo-support.html{%endlearn%}
 
 
 # Master Worker Pattern
@@ -210,7 +210,7 @@ The Master-Worker Pattern (sometimes called the Master-Slave or the Map-Reduce p
 In GigaSpaces XAP, you can implement the Master-Worker pattern using several methods:
 
 - [Task Executors](/sbp/map-reduce-pattern---executors-example.html) - best for a scenario where the processing activity is collocated with the data (the data is stored within the same space as the tasks being executed).
-- [Polling Containers](./polling-container.html) - in this case the processing activity runs in a separate machine/VM from the space. This approach should be used when the processing activity consumes a relatively large amount of CPU and takes a large amount of time. It might also be relevant if the actual data required for the processing is not stored within the space, or the time it takes to retrieve the required data from the space is much shorter than the time it takes to complete the processing.
+- [Polling Containers]({%currentneturl%}/polling-container.html) - in this case the processing activity runs in a separate machine/VM from the space. This approach should be used when the processing activity consumes a relatively large amount of CPU and takes a large amount of time. It might also be relevant if the actual data required for the processing is not stored within the space, or the time it takes to retrieve the required data from the space is much shorter than the time it takes to complete the processing.
 
 {%endcolumn%}
 {%column width=20% %}

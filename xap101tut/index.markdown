@@ -4,9 +4,17 @@ title:  Tutorials
 categories:  XAP101TUT
 ---
 
-<br>
+{%wbr%}
 
-Here you will find .......
+{%section%}
+{%column width=10% %}
+![data-access.jpg](/attachment_files/subject/data-access.png)
+{%endcolumn%}
+{%column width=90% %}
+This Tutorial provides a high-level overview of the GigaSpaces XAP platform. Hands on examples are provided to demonstrate the core concepts and API’s. The primary people who can benefit from this tutorial, are architects and developers who wish to build scaled-out applications with GigaSpaces XAP.
+{%endcolumn%}
+{%endsection%}
+
 
 <br>
 
@@ -41,9 +49,6 @@ The PU is the fundamental unit of deployment in XAP. The PU itself runs within a
 [Space Transactions](./java-tutorial-part6.html)<br>
 In this part of the tutorial we will introduce you to the transaction processing capabilities of XAP.
 
-[Space Transactions](./java-tutorial-part6.html)<br>
-In this part of the tutorial we will introduce you to the transaction processing capabilities of XAP.
-
 [Space Persistence](./java-tutorial-part7.html)<br>
 There are many situations where space data needs to be persisted to permanent storage and retrieved from it.
 
@@ -59,9 +64,6 @@ In this part of the tutorial we will introduce you to XAP security, where it fit
 [Spring Integration](./spring-integration.html)<br>
 All XAP components can be wired and configured with the application using corresponding [Spring Beans](http://spring.io/).
 
-
-[Maven integration](./maven-integration.html)<br>
-Maven is a tool used to automate and simplify the development cycle of any Java-based project. The XAP plugin for Maven utilizes Maven to simplify the development cycle of XAP-based applications. You can use this plugin to easily create, compile, package, run unit tests, execute and deploy Processing Units.
 
 
 

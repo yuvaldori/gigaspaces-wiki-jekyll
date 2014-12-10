@@ -24,7 +24,7 @@ Three options are presented. The first two options demonstrate the various API c
 # Installation
 
 {%vbar title=Download and Install XAP%}
-- Download and unzip the latest XAP release {%zip http://www.gigaspaces.com/xap-download%}
+- Download and unzip the latest XAP release {%download  http://www.gigaspaces.com/xap-download%}
 - Unzip the distribution into a working directory
 - Set the environment variable `GS_HOME` to `/home/user/xap-distribution` or `C:\xap-distribution` for Linux and Windows respectively.
 - Set the JAVA_HOME environment variable to point to the JDK root directory

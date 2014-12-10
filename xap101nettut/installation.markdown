@@ -1,9 +1,9 @@
 ---
 layout: post101
 title:  Installation
-categories:  XAP101TUT
+categories:  XAP101NETTUT
 parent: none
-weight: 100
+weight: 50
 ---
 
 <br>
@@ -35,13 +35,10 @@ The basic concept of our application;
 
 <br>
 
-You can download all examples presented here from {%git https://github.com/Gigaspaces/xap-tutorial%}. Feel free to clone, fork and contribute to the tutorial code.
+You can download all examples presented here from {%git https://github.com/Gigaspaces/xapnet-tutorial%}. Feel free to clone, fork and contribute to the tutorial code.
+
 
 {%vbar title=Download and Install XAP%}
-- Download and unzip the latest XAP release {%download http://www.gigaspaces.com/xap-download%}
-- Unzip the distribution into a working directory; GS_HOME
-- Set the JAVA_HOME environment variable to point to the JDK root directory
-- Start your favorite Java IDE
-- Create a new project
-- Include all jar files from the GS_HOME/lib/required in the classpath
+GigaSpaces XAP.NET is packaged as a standard Windows Installer package (.msi file). After you have downloaded {%download http://www.gigaspaces.com/xap-download%} the latest version, start the installation by double-clicking the msi file, and the installation wizard will pop up and guide you through the installation process.
+
 {%endvbar%}
