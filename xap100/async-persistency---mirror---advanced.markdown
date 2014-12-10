@@ -164,20 +164,21 @@ To override and extend this behavior, you can implement an exception handler tha
     space-sync-endpoint="exceptionHandlingSpaceSynchronizationEndpoint"/>
 {% endhighlight %}
 
-With the above, we use the `SpaceSynchronizationEndpointExceptionHandler`, and wrap the `DefaultHibernateSpaceSynchronizationEndpoint` with it (and pass that to the space). On the `SpaceSynchronizationEndpointExceptionHandler`, we set our own implementation of the `ExceptionHandler`, to be called when there is an exception. With the `ExceptionHandler` you can decide what to do with the Exception: "swallow it", execute some logic, or rethrow it.
+With the above, we use the `SpaceSynchronizationEndpointExceptionHandler`, and wrap the `DefaultHibernateSpaceSynchronizationEndpoint` with it (and pass that to the space). On the `SpaceSynchronizationEndpointExceptionHandler`, we set our own implementation of the `ExceptionHandler`, to be called when there is an exception. With the `ExceptionHandler` you can decide what to do with the Exception: "swallow it", execute some logic, or re-throw it.
 
 {% warning title=It's critical to _test your persistence in the mirror_.%}
 
-A configured mirror will repeatedly try to store things in the DB. In the case on unrecoverable failure (imagine an invalid mapping or a constraint issue), this can cause the redo log to grow, eventually resulting in overflow of the redo to disk, and then, when the predefined disk capacity is exhausted, leading to a rejection of any non-read space operation (similar to how the memory manager works). The exception that clients will see in this case is RedologCapacityExceededException (which inherits from ResourceCapacityExceededException).
+A configured mirror will repeatedly try to store things in the DB. In the case on unrecoverable failure (imagine an invalid mapping or a constraint issue), this can cause the redo log to grow, eventually resulting in overflow of the redo to disk, and then, when the predefined disk capacity is exhausted, leading to a rejection of any non-read space operation (similar to how the memory manager works). The exception that clients will see in this case is `RedologCapacityExceededException` (which inherits from `ResourceCapacityExceededException`).
 
-The application can handle this by using the ExceptionHandler at the mirror EDS level. It can count the number of consecutive failures returned from the DB and when a certain threshold is reached, log it somewhere and move on, for example.
+The application can handle this by using the `ExceptionHandler` at the mirror EDS level. It can count the number of consecutive failures returned from the DB and when a certain threshold is reached, log it somewhere and move on, for example.
 
 That said, the easiest thing to do is _test your persistence in the mirror_.
 {% endwarning %}
 
-# Mirror behavior with Distributed Transactions
+# Mirror Behavior with Distributed Transactions
 
-When using the Jini Distributed Transaction Manager and persisting data through the mirror service, each partition sends its transaction data to the Mirror on commit. The mirror service receives the replication messages in bulk from each partition that participated in the transaction. In order to keep data consistency when persisting the data, these bulks should to be consolidated at the mirror service.
+When using the Distributed Transaction Manager and persisting data through the mirror service, each partition sends its transaction data to the Mirror on commit. The mirror service receives the replication messages in bulk from each partition that participated in the transaction. In order to keep database data consistent when persisting the data, these bulks should to be consolidated at the mirror service.
+
 This can be achieved by :
 
 1. Setting the following property in the mirror configuration:
@@ -194,23 +195,24 @@ This can be achieved by :
 </os-core:embedded-space>
 {% endhighlight %}
 
-By default this property is set to `group-by-replication-bulk` and executeBulk() groups several transactions and executes them together. The group size is defined by the mirror replication bulk-size.
+By default this property is set to `group-by-replication-bulk` and `executeBulk()` groups several transactions and executes them together. The group size is defined by the mirror replication `bulk-size`.
 
 Setting this property will cause a `SpaceSynchronizationEndpoint.onTransactionSynchronization` invocation for each transaction separately.
 
-##### Example Of Getting The Transaction's Metadata
+##### Getting the Transaction Metadata
+
+The following demonstrates how the transaction metadata can be retrieved:
 
 {% highlight java %}
-    public class MySpaceSynchronizationEndpoint extends SpaceSynchronizationEndpoint {
-        @Override
-        public void onTransactionSynchronization(TransactionData transactionData) {
-            TransactionParticipantMetaData metaData = transactionData.getTransactionParticipantMetaData();
-            int participantId = metaData.getParticipantId();
-            int participantsCount = metaData.getTransactionParticipantsCount();
-            TransactionUniqueId transactionId = metaData.getTransactionUniqueId();
-            // ...
-        }
-    }
+public class MySpaceSynchronizationEndpoint extends SpaceSynchronizationEndpoint {
+	public void onTransactionSynchronization(TransactionData transactionData) {
+	    TransactionParticipantMetaData metaData = transactionData.getTransactionParticipantMetaData();
+	    int participantId = metaData.getParticipantId();
+	    int participantsCount = metaData.getTransactionParticipantsCount();
+	    TransactionUniqueId transactionId = metaData.getTransactionUniqueId();
+	    // ...
+	}
+}
 {% endhighlight %}
 
 Notes:
@@ -219,11 +221,7 @@ Notes:
 2. Non-transactional operations are grouped according to the replication policy (`bulk-size` and `interval-millis`) and sent to the Mirror Service.
 3. Transactional and non-transactional items are not mixed.
 
-
-
-In 9.0.1 a new transaction participant meta data interface is introduced.
-The main change over the old interface is that we've added an interface for describing a transaction's unique id which consists of the transaction's id and the transaction manager id who have created it.
-TransactionParticipantMetaData.java:
+Starting with XAP 9.0.1 a new transaction participant meta data interface has been introduced. The new interface describing the transaction's unique id which consists of the transaction's id and the transaction manager id who have created it:
 
 {% highlight java %}
 /**
@@ -251,8 +249,6 @@ public interface TransactionParticipantMetaData {
 }
 {% endhighlight %}
 
-TransactionUniqueId.java:
-
 {% highlight java %}
 /**
  * Represents a transaction unique id constructed from the transaction manager which created the transaction
@@ -273,14 +269,16 @@ public interface TransactionUniqueId
 }
 {% endhighlight %}
 
-## Built-In Mirror Distributed Transaction Consolidation
+## Mirror Distributed Transaction Consolidation - Atomic Transaction Delegation
 
-Distributed transaction consolidation is configured in the space instances replicating data to the mirror.
+Once a the entire distributed transaction content arriving from each data grid partition participating in the transaction into the mirror to be persist, you may consolidate it to perform one database transaction rather several separate database transactions. This keeps the database data consistent and reduce database overhead.
 
-In the following example we configure a space in pu.xml with transaction consolidation mode enabled:
+Distributed transaction consolidation is configured via the space configuration using the `cluster-config.groups.group.repl-policy.processing-type` property.
+
+In the following example we configure a space using its `pu.xml` to have transaction consolidation mode as enabled:
 
 {% info %}
-Since 9.1.0 - distributed transaction consolidation is enabled by default.
+Since 9.1.0 - Distributed transaction consolidation is enabled by default.
 {% endinfo %}
 
 {% highlight xml %}
@@ -295,9 +293,15 @@ Since 9.1.0 - distributed transaction consolidation is enabled by default.
 </os-core:embedded-space>
 {% endhighlight %}
 
-As specified in the example above, it is required to set the "`cluster-config.groups.group.repl-policy.processing-type`" property to "`multi-source`".
+As specified in the example above, it is required to set the `cluster-config.groups.group.repl-policy.processing-type` property to `multi-source`.
 
-In order to take advantage of this feature, mirror operation grouping should be set to "group-by-space-transaction" in mirror:
+The `cluster-config.groups.group.repl-policy.processing-type` may have the following values: 
+
+- `multi-bucket` - 
+- `global-order` - 
+- `multi-source` - 
+
+In order to take advantage of this feature, mirror operation grouping should be set to `group-by-space-transaction` in mirror `pu.xml`:
 
 {% highlight xml %}
 <os-core:embedded-space id="space" name="mirror-service"
@@ -315,31 +319,33 @@ In order to take advantage of this feature, mirror operation grouping should be 
 ##### Distributed Transaction Consolidation Example:
 
 {% highlight java %}
-    public class MySpaceSynchronizationEndpoint extends SpaceSynchronizationEndpoint {
+public class MySpaceSynchronizationEndpoint extends SpaceSynchronizationEndpoint {
 
-        @Override
-        public void onTransactionSynchronization(TransactionData transactionData) {
-            if (transactionData.isConsolidated()) {
-                // this is a consolidated distributed transaction...
-                ConsolidatedDistributedTransactionMetaData metaData = transactionData.getConsolidatedDistributedTransactionMetaData();
-            }
-        }
-
-        @Override
-        public void onTransactionConsolidationFailure(ConsolidationParticipantData participantData) {
-            // intercept transaction consolidation failure & decide whether to commit or abort this participant data
-            if (sunnyDay)
-                participantData.commit();
-            else
-                participantData.abort();
-        }
-
+@Override
+public void onTransactionSynchronization(TransactionData transactionData) {
+    if (transactionData.isConsolidated()) {
+	// this is a consolidated distributed transaction...
+	ConsolidatedDistributedTransactionMetaData metaData = transactionData.getConsolidatedDistributedTransactionMetaData();
     }
+}
+
+@Override
+public void onTransactionConsolidationFailure(ConsolidationParticipantData participantData) {
+    // intercept transaction consolidation failure & decide whether to commit or abort this participant data
+    if (sunnyDay)
+	participantData.commit();
+    else
+	participantData.abort();
+}
+
+}
 {% endhighlight %}
 
-Distributed transaction consolidation is done by waiting for all the transaction participants' data before processing is done by the mirror.
+With the above example the 'participantData.commit()` call assumes the logic accepting each transaction participant data to be persist separately despite a failure with the transaction consolidation. 'participantData.abort()' indicates the logic must have all transaction participant's data to be fully consolidated. 
 
-In some cases certain distributed transaction participants data might be delayed due to network delay or disconnection and therefore may cause delays in replication. In order to prevent this delay, it is possible to set a timeout parameter which indicates how much time to wait for distributed transactions participants data before processing the data individually for each participant.
+Distributed transaction consolidation is done by waiting for all the transaction participants' data to arrive the mirror from all relevant data grid partitions before processed by the mirror and persisting into the database.
+
+In some cases certain distributed transaction participants data might be delayed due-to network delay or disconnection and therefore may cause delays in replication into the mirror. In order to prevent this delay, you may set a timeout parameter that indicates how much time the mirror will wait the for distributed transactions participants data to arrive before processing the data individually for each participant.
 
 Please note that while waiting for a distributed transaction to entirely arrive the mirror, replication isn't waiting but keeping the data flow and preventing from conflicts to happen.
 
@@ -369,12 +375,11 @@ Distributed transaction participants' data will be processed individually if ten
 |dist-tx-wait-for-opers|unlimited (-1 = unlimited)|
 
 {% info %}
-Note that by setting the "cluster-config.groups.group.repl-policy.processing-type" property to "multi-source" all reliable asynchronous replication targets for that space will work in distributed transaction consolidation mode (For example: Gateway Sink).
+Note that by setting the `cluster-config.groups.group.repl-policy.processing-type` property to `multi-source` all reliable asynchronous replication targets for that space will work in distributed transaction consolidation mode (For example: Gateway Sink).
 {% endinfo %}
 
 {% note %}
-Setting both dist-tx-wait-timeout-millis and dist-tx-wait-for-opers to unlimited (or very high value) is risky and may cause replication backlog accumulation due to a
-packet which is unconsolidated and waits for consolidation which may never occur due to various reasons.
+Setting both `dist-tx-wait-timeout-millis` and `dist-tx-wait-for-opers` to unlimited (or very high value) is risky and may cause replication backlog accumulation due to a packet which is unconsolidated and waits for consolidation which may never occur due to various reasons.
 {%endnote%}
 
 # Usage Scenarios
@@ -433,7 +438,6 @@ Here is a schematic flow of how two partitions (each a primary-backup pair) asyn
 - The Mirror Service is a single space which joins a replication group. The Mirror Service is not a clustered space or part of the replication group declaration.
 - When the Mirror Service is loaded, it does not perform memory recovery. See the [reliability section](#reliability) for more details.
 - [Transient Entries](./transient-entries.html) are not persisted into the data source, just as in any other persistent mode.
-- When using a Jini Entry as your space class, it must have accessors and mutators ("getters" and "setters") for all public fields.
 - You should have one Mirror Service running per Data-Grid cluster.
 - The Mirror Service cannot be clustered. Deploying it as a Processing unit ensures its high-availability.
 - The Mirror does not load data back into the space. The `SpaceDataSource` implementation of the space should be used to initialize the space when started.
