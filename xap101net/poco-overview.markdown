@@ -2,8 +2,8 @@
 layout: post101
 title:  PONO Support
 categories: XAP101NET
-parent: programmers-guide.html
-weight: 100
+parent: none
+weight: 200
 ---
 
 <br>

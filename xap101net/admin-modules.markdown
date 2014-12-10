@@ -2,8 +2,8 @@
 layout: post101
 title:  Admin Modules
 categories: XAP101NET
-parent: programmers-guide.html
-weight: 1300
+parent: none
+weight: 1400
 ---
 
 <br>

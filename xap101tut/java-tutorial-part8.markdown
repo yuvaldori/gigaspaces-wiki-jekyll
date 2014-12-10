@@ -138,7 +138,7 @@ GigaSpace gigaSpace = (GigaSpace) getServletContext().getAttribute("xapTutorialS
 {%endhighlight%}
 
 
-{%learn%}./web-application-support.html{%endlearn%}
+{%learn%}{%currentjavaurl%}/web-application-support.html{%endlearn%}
 
 
 # Jetty Instance
@@ -157,7 +157,7 @@ Jetty itself is configured using Spring, and allows you to control all aspects o
 {%endcolumn%}
 {%endsection%}
 
-{%learn%}./web-application-support.html{%endlearn%}
+{%learn%}{%currentjavaurl%}/web-application-support.html{%endlearn%}
 
 
 
@@ -255,7 +255,7 @@ Inspect session
 {%endsection%}
 
 
-{%learn%}./http-session-management.html{%endlearn%}
+{%learn%}{%currentjavaurl%}/http-session-management.html{%endlearn%}
 
 
 # Global HTTP Session Sharing
@@ -279,7 +279,7 @@ XAP lets you share HTTP session data across multiple data centers, multiple web 
 {%endcolumn%}
 {%endsection%}
 
-{%learn%}./global-http-session-sharing.html{%endlearn%}
+{%learn%}{%currentjavaurl%}/global-http-session-sharing.html{%endlearn%}
 
 
 # Load Balancing
@@ -298,7 +298,7 @@ The integration dynamically creates and updates the mod_proxy_balancer configura
 
  
  
-{%learn%}./apache-load-balancer-agent.html{%endlearn%}
+{%learn%}{%currentjavaurl%}/apache-load-balancer-agent.html{%endlearn%}
 
 
 

@@ -2,8 +2,8 @@
 layout: post101
 title:  Space Persistency
 categories: XAP101NET
-parent: programmers-guide.html
-weight: 800
+parent: none
+weight: 900
 ---
 
 <br>

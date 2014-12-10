@@ -3,7 +3,7 @@ layout: post101
 title:  Deployment and Administration
 categories: XAP101NET
 parent: none
-weight: 500
+weight: 1600
 ---
 
 <br>

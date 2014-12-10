@@ -2,8 +2,8 @@
 layout: post101
 title:  Client Side Caching
 categories: XAP101NET
-parent: programmers-guide.html
-weight: 900
+parent: none
+weight: 1000
 ---
 
 <br>

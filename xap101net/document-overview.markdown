@@ -2,8 +2,8 @@
 layout: post101
 title:  Space Document
 categories: XAP101NET
-weight: 200
-parent: programmers-guide.html
+weight: 300
+parent: none
 ---
 
 <br>

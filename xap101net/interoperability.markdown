@@ -3,7 +3,7 @@ layout: post101
 title:  Platform Interoperability
 categories: XAP101NET
 parent: none
-weight: 600
+weight: 1700
 ---
 
 <br>

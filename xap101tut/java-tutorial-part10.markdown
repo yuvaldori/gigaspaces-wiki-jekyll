@@ -263,7 +263,7 @@ The transport layer can be secured using an SSL communication filter.
 {%learn%}{%currentsecurl%}/securing-the-transport-layer-(using-ssl).html{%endlearn%}
 
 
-{%info%}This concludes this tutorial. For more detailed information of the XAP platform and its API please consult the [Programmers Guide](./programmers-guide.html) {%endinfo%}
+{%info%}This concludes this tutorial. For more detailed information of the XAP platform and its API please consult the [Programmers Guide]({%currentjavaurl%}) {%endinfo%}
 
 
 <ul class="pager">

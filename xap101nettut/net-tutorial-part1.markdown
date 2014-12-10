@@ -39,7 +39,7 @@ ISpaceProxy spaceProxy = new SpaceProxyFactory("xapTutorialSpace").Create();
 
 You can configure the Space URL with several options.
 
-{%learn%}./the-space-configuration.html{%endlearn%}
+{%learn%}{%currentneturl%}/the-space-configuration.html{%endlearn%}
 
 
 When a client connects to a Space, a proxy is created that holds a connection which implements the Space API. All client interaction is performed through this proxy.
@@ -53,7 +53,7 @@ In both cases, updates are performed (objects are added/updated/removed) on the 
 
 These two scenarios are only applicable for remote clients.
 
-{%learn%}./client-side-caching.html{%endlearn%}
+{%learn%}{%currentneturl%}/client-side-caching.html{%endlearn%}
 
 
 
@@ -106,7 +106,7 @@ The Space generates a unique identifier (UID) for every object in one of the fol
 You might need to construct a Space id that will be comprised from a user defined class rather than using a Numeric or String type field. In such a case your user defined class used as the SpaceId data type must implement the ToString , GetHashCode and Equals methods. The compound ID class must implement a ToString method that return a unique String for each ID.
 {%endcomment%}
 
-{%learn%}./poco-object-id.html{%endlearn%}
+{%learn%}{%currentneturl%}/poco-object-id.html{%endlearn%}
 
 
 #### Defining Routing
@@ -180,7 +180,7 @@ Only properties with special roles like ID and Routing are part of the schema de
 
 {%info%}It is possible to write a PONO to the Space and read it back as a document, and vice versa. This scenario is useful when you want to read or modify PONO objects without loading the concrete C# classes.{%endinfo%}
 
-{%learn%}./document-object-interoperability.html{%endlearn%}
+{%learn%}{%currentneturl%}/document-object-interoperability.html{%endlearn%}
 
 
 
@@ -244,7 +244,7 @@ public void writeOnlyWithLease() {
 
 In this example, we are writing an object to the Space with zero delay, 10 seconds to live and write only if the object does not already exist in the Space. If the object already exists, an exception will be thrown.
 
-{%learn%}./the-space-operations.html{%endlearn%}
+{%learn%}{%currentneturl%}/the-space-operations.html{%endlearn%}
 
 
 #### Updating an object in Space
@@ -271,7 +271,7 @@ public void changeSet() {
 
 There are several other change operations available; 'increment', 'decrement', 'addToCollection', 'removeFromCollection' etc.
 
-{%learn%}./change-api.html{%endlearn%}
+{%learn%}{%currentneturl%}/change-api.html{%endlearn%}
 
 
 
@@ -387,7 +387,7 @@ Many times a class has embedded classes as attributes. You can query for attribu
 By default, nested objects are kept in a binary form inside the Space. In order to support nested matching, the relevant property should be stored as document, or as object if it is in an interoperability scenario and it has a corresponding Java class.
 {%endnote%}
 
-{%learn%}./poco-storage-type.html{%endlearn%}
+{%learn%}{%currentneturl%}/poco-storage-type.html{%endlearn%}
 
 Here is an example how you would annotate a class to enable nested queries:
 
@@ -443,7 +443,7 @@ public User[] findUsersByGroup() {
 
 There are several additional query options available. For example you can query Nested Maps by key,query with Regular Expression, Enum attributes and others.
 
-{%learn%}./query-sql.html{%endlearn%}
+{%learn%}{%currentneturl%}/query-sql.html{%endlearn%}
 
 
 #### Query returning partial results
@@ -488,7 +488,7 @@ public SpaceDocument[] readProductsBySQL() {
 }
 {%endhighlight  %}
 
-{%learn%}./document-api.html{%endlearn%}
+{%learn%}{%currentneturl%}/document-api.html{%endlearn%}
 
 #### LINQ Queries
 XAP includes a custom LINQ provider, which enables developers to take advantage of their existing C# skills to query the Space without learning a new language.  Here is an example :
@@ -506,7 +506,7 @@ using GigaSpaces.Core.Linq;
    }
 {% endhighlight %}
 
-{%learn%}./query-linq.html{%endlearn%}
+{%learn%}{%currentneturl%}/query-linq.html{%endlearn%}
 
 
 #### Removing Objects from Space
@@ -590,7 +590,7 @@ Person youngestPersonInSpace = queryable.MinEntry(p => p.Age);
 
 XAP also supports, `Compound` and `Embedded Fields`   Aggregation.
 
-{%learn%}./aggregators.html{%endlearn%}
+{%learn%}{%currentneturl%}/aggregators.html{%endlearn%}
 
 # Indexing
 
@@ -679,7 +679,7 @@ SqlQuery<User> query = new SqlQuery<User>("Name = 'John Dow' AND CreditLimit > 1
 
 There are several additional indexing options available. For example you can index nested attributes, Nested Dictionaries, Collections, nested attributes within a Collection, free text search and others.
 
-{%learn%}./indexing.html{%endlearn%}
+{%learn%}{%currentneturl%}/indexing.html{%endlearn%}
 
 
 # Best Practice
