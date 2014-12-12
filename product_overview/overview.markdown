@@ -44,7 +44,6 @@ To achieve these goals, Open Spaces adds the following components to the Spring 
 - **[Declarative Event Containers]({%latestjavaurl%}/messaging-support.html)** -- for triggering events from the space into POJOs in pull or push mode.
 - **[Remoting]({%latestjavaurl%}/space-based-remoting.html)** -- utilizes the space as the underlying transport for invoking remote methods on the POJO services inside the Processing Unit. This approach allows the client to invoke methods on a service even if it changes physical location, and enables re-routing of requests to available services in case of failover.
 - **[Declarative transaction support]({%latestjavaurl%}/transaction-management.html)** for GigaSpaces In-Memory Data Grid.
-- **[OSGI-like deployment model]({%latestjavaurl%}/the-processing-unit-structure-and-configuration.html)** to enable simple packaging of application bundles, and manage their lifecycle independently of the Processing Unit.
 
 {% refer %} For a list of frequently-asked questions, including licensing model and positioning questions, see the [OpenSpaces FAQ](/faq/openspaces-faq.html).{% endrefer %}
 
