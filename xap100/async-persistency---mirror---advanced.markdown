@@ -352,17 +352,16 @@ Please note that while waiting for a distributed transaction to entirely arrive 
 The following example demonstrates how to set the timeout for waiting for distributed transaction data to arrive, it is also possible to set the amount of new operations to perform before processing data individually for each participant:
 
 {% highlight xml %}
-<os-core:embedded-space id="space" name="mirror-service"  schema="mirror"
-  space-sync-endpoint="spaceSynchronizationEndpoint">
+<os-core:embedded-space id="space" name="mirror-service"  schema="mirror" space-sync-endpoint="spaceSynchronizationEndpoint">
   <os-core:properties>
     <props>
       <prop key="space-config.mirror-service.operation-grouping">
         group-by-space-transaction
       </prop>
+      <prop key="space-config.mirror-service.distributed-transaction-processing.wait-timeout">120000</prop>
+      <prop key="space-config.mirror-service.distributed-transaction-processing.wait-for-operations">100</prop>
     </props>
   </os-core:properties>
-  <os-core:tx-support dist-tx-wait-timeout-millis="10000"
-    dist-tx-wait-for-opers="20" />
 </os-core:embedded-space>
 {% endhighlight %}
 
