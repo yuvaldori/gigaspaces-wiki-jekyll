@@ -73,14 +73,19 @@ OpenSpaces is provided under the [Apache License, Version 2.0](http://www.apache
 
 ### How is OpenSpaces related to JavaSpaces?
 
-OpenSpaces introduces a JavaSpaces abstraction named [GigaSpace]({%latestjavaurl%}/the-gigaspace-interface.html). {% infosign %} We see this interface as a proposal for a new specification that will eventually be driven by the community, and not as a GigaSpaces specification per-se.
+OpenSpaces introduces a JavaSpaces abstraction named [GigaSpace]({%latestjavaurl%}/the-gigaspace-interface.html).
+
+{% info %}
+We see this interface as a proposal for a new specification that will eventually be driven by the community, and not as a GigaSpaces specification per-se.
+{%endinfo%}
 
 The goal behind this abstraction is to provide a simpler interface that will fit into a POJO-driven architecture, such as Spring, with the following principles:
 
-- **POJO Entries** -- the data model in JavaSpaces is an Entry. An Entry has to inherit from a specific interface (Entry). Attributes are public, non-transient Java objects. This model is quite different from the model that was used before the POJO approach that became commonplace in JEE-related frameworks, such as JPA and Hibernate, which are now based on POJOs. A POJO data model is essentially a Java Bean representation with annotations that extend the model with meta-information, such as index definition, a persistence model, and more. The new GigaSpaces model uses POJO Entries and annotations for defining things such as indexes, persistence and replication semantics, and follows the same logic and semantics used today in JEE. This makes the integration of Space-Based Architecture with JEE a more natural fit. {% infosign %} Entries can still be used with the `GigaSpace` interface.
+- **POJO Entries** -- the data model in JavaSpaces is an Entry. An Entry has to inherit from a specific interface (Entry). Attributes are public, non-transient Java objects. This model is quite different from the model that was used before the POJO approach that became commonplace in JEE-related frameworks, such as JPA and Hibernate, which are now based on POJOs. A POJO data model is essentially a Java Bean representation with annotations that extend the model with meta-information, such as index definition, a persistence model, and more. The new GigaSpaces model uses POJO Entries and annotations for defining things such as indexes, persistence and replication semantics, and follows the same logic and semantics used today in JEE. This makes the integration of Space-Based Architecture with JEE a more natural fit. **Entries can still be used with the `GigaSpace` interface.**
 - **Declarative Transactions** -- the JavaSpaces API uses explicit transactional semantics in which a _transactions-handle_ is provided as an argument per method. While this model provides a finer level of granularity, it exposes more complexity to the developer. The transaction and locking semantics provided in the JavaSpaces specification support a limited set of transactional semantics. Spring (and therefore OpenSpaces) uses a declarative transaction model, which is essentially an implicit transaction. Developers can use annotations, or XML, to define specific transaction/locking semantics.
 - **Generics Support** -- developers can use generics to avoid unnecessary casting and make their interaction with the space more type-safe.
 - **Overloaded Methods** -- the `GigaSpace` interface uses overloaded methods that can use defaults to reduce the amount of arguments passed in read/take/write methods.
+
 
 {%anchor 6%}
 
@@ -156,6 +161,10 @@ A Processing Unit is a simple directory structure. It includes a Spring XML conf
 The current version of OpenSpaces enables dynamic reloading of **selected** service beans (business logic) without bringing down the processing unit. Read more [here]({%latestjavaurl%}/reloading-business-logic.html).
 
 
-{% infosign %} This mainly applies when wanting to change business logic of a Processing Unit that also starts a space, without shutting down the space. Any Processing Unit or other services that connect to the space remotely can be replaced easily with the current version.
 
-{% lampon %} Didn't find the answers you were looking for? Feel free to **[write to us](mailto:feedback60@gigaspaces.com?subject=OpenSpaces%20FAQ)** or visit our **[forums](http://ask.gigaspaces.org)**.
+This mainly applies when wanting to change business logic of a Processing Unit that also starts a space, without shutting down the space. Any Processing Unit or other services that connect to the space remotely can be replaced easily with the current version.
+
+{%info%}
+
+Didn't find the answers you were looking for? Feel free to **[write to us](mailto:feedback60@gigaspaces.com?subject=OpenSpaces%20FAQ)** or visit our **[forums](http://ask.gigaspaces.org)**.
+{%endinfo%}
