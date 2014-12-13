@@ -32,9 +32,7 @@ parent: none
 
 - [How do I package my application with OpenSpaces?](#11)
 
-- [Where does OSGi fit into the picture?](#12)
-
-- [How can I change a service within a Processing Unit without shutting down the Processing Unit?](#13)
+- [How can I change a service within a Processing Unit without shutting down the Processing Unit?](#12)
 {%endpanel%}
 
 {%anchor 1%}
@@ -112,7 +110,6 @@ To achieve the above goal, it adds the following components to the Spring develo
 - **Declarative Event Containers** -- for triggering events from the space into POJOs in either pull or push mode.
 - **Remoting** -- utilizes the space as the underlying transport for invoking remote methods on POJO services that "live" within a Processing Unit. With this approach, a client can invoke a method on a service even if it changes its physical location. It can re-route requests to available services in case of failover.
 - **Declarative transaction support** for the GigaSpaces In-Memory Data Grid.
-- **OSGI-Like Deployment Model** -- to enable simple packaging of application bundles and manage their lifecycle independent of the Processing Unit.
 - **Spring Security** -- Spring Security is one of the most mature and widely used Spring projects. Spring Security can be used to secure The Data-Grid and application deployed into the GigaSpaces container.
 
 The GigaSpaces Spring Integration support:
@@ -150,15 +147,9 @@ OpenSpaces was designed to support the SBA model out of the box in a simple and 
 
 One of the main goals of OpenSpaces is simplifying lifecycle management of an application. A typical application starts within the developer IDE and then progresses to a test environment, pre-production and finally production. OpenSpaces allows to run and debug a Processing Unit within the IDE in a simple manner, package it and then simply provide different deployment scenarios.
 
-A Processing Unit is a simple directory structure, compliant with the OSGi-Spring integration directory structure. It includes a Spring XML configuration file (under `META-INF/spring/pu.xml`), the business logic class files, and third-party module `jar` files. A Processing Unit, under the mentioned structure, can then run within the IDE, locally, and deployed on the SLA-driven container without any changes.
+A Processing Unit is a simple directory structure. It includes a Spring XML configuration file (under `META-INF/spring/pu.xml`), the business logic class files, and third-party module `jar` files. A Processing Unit, under the mentioned structure, can then run within the IDE, locally, and deployed on the SLA-driven container without any changes.
 
 {%anchor 12%}
-
-### Where does OSGi fit into the picture?
-
-The current version of OpenSpaces follows the structure of the OSGI-Spring integration `jar` structure. Processing Units are packaged deployments of applications into the SLA-driven container. In the future, OSGi will be used as the component model for managing the lifecycle of services within a Processing Unit. In other words, a Processing Unit can be built from several OSGi bundles, which can maintain their own business logic and lifecycle.
-
-{%anchor 13%}
 
 ### How can I change a service within a Processing Unit without shutting down the Processing Unit?
 
