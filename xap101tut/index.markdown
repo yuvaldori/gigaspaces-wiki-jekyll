@@ -55,6 +55,10 @@ There are many situations where space data needs to be persisted to permanent st
 [Web Deployment](./java-tutorial-part8.html)<br>
 In this part of the tutorial we will show you how you can deploy a standard WAR file onto the Service Grid.
 
+[Global HTTP Session Sharing](./http-session-sharing.html)<br>
+In this part of the tutorial we will show you how you can globaly share HTTP sessions with XAP.
+
+
 [Big Data](./java-tutorial-part9.html)<br>
 In this part of the tutorial will introduce you to XAP’s Big Data interface. Will show you how you can use Cassandra and other Big-Data storage systems to archive data or use them for space persistence.
 

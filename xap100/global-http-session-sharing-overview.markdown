@@ -49,3 +49,8 @@ Configuring Apache load balancer.
 
 
 
+#### Additional resources
+
+{%youtube gRdGWMigJBI | Global HTTP Session sharing%}
+
+

@@ -17,17 +17,6 @@ With XAP you can share HTTP session data across multiple data centers, multiple 
 {% endcolumn %}
 {% endsection %}
 
-
-XAP 10.0 Global HTTP Session Sharing includes the following new features:
-
-- Delta update support – changes identified at the session attribute level.
-- Better serialization (Kryo instead of xstream)
-- Compression support
-- Principle / Session ID based session management. Allows session sharing across different apps with SSO
-- Role based SSO Support
-- Improved logging
-
-
 {% info title=Licensing %}
 This feature requires a separate license in addition to the XAP commercial license. Please contact [GigaSpaces Customer Support](http://www.gigaspaces.com/content/customer-support-services) for more details.
 {% endinfo %}
@@ -49,3 +38,8 @@ Configuring Apache load balancer.
 
 
 
+
+
+#### Additional resources
+
+{%youtube gRdGWMigJBI | Global HTTP Session sharing%}
