@@ -100,7 +100,7 @@ Include the following in your `pom.xml`
 
 {% highlight xml %}
 
-<os-archive:cassandra-archive-handler id="cassandraArchiveHandler"
+<os-archive-cassandra:cassandra-archive-handler id="cassandraArchiveHandler"
   giga-space="gigaSpace"
   hosts="127.0.0.1"
   port="9160"

@@ -146,8 +146,6 @@ Before deploying your Processing Unit, please do the following:
 
 	- `mongo-java-driver-2.11.2.jar` from [mongoDB's website](http://docs.mongodb.org/ecosystem/drivers/java/) .
 
-	- `guava-r08.jar` from [Guava-project's website](https://code.google.com/p/guava-libraries/wiki/Release08) . **NOTE:** you must download Guava's release 08, and extract the `guava-r08.jar` from within the `guava-r08.zip` that you have downloaded
-
 ### `MongoSpaceDataSource` Properties
 
 {: .table .table-bordered}
