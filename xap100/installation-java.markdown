@@ -28,7 +28,9 @@ GigaSpaces XAP Java edition is 100% pure Java based, and therefore can run on an
 - Optional: The network and machines running GigaSpaces are configured to enable multicast (see the [Multicast Configuration]({%currentadmurl%}/network-multicast.html) for more information).
 - Set the `NIC_ADDR` environment variable to the machine's IP address on each machine running XAP.
 
-{%note title=Use a JDK and not JRE - Have a JDK (Java Development Kit) installed and not a JRE (Java Runtime Environment) on each machine running XAP. {%endnote%}
+{%note%}
+Use a JDK and not JRE - Have a JDK (Java Development Kit) installed and not a JRE (Java Runtime Environment) on each machine running XAP.
+{%endnote%}
 
 # Installing on Windows
 
