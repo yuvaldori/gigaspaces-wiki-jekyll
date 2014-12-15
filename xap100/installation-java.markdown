@@ -22,7 +22,7 @@ GigaSpaces XAP Java edition is 100% pure Java based, and therefore can run on an
 **Prior to the XAP installation, make sure**:
 
 - Review the release notes for the (supported platforms](/release_notes).
-- [JDK](http://java.sun.com/javase/downloads/index.jsp) (6 or later) is installed (latest JDK 7 is recomnaded) 
+- [JDK](http://java.sun.com/javase/downloads/index.jsp) (6 or later) is installed (latest JDK 7 is recommended) 
 - Set the `JAVA_HOME` environment variable to the JDK (not JRE) directory (for example, `D:\java\jdk1.7.0_70`).
 - Set the `PATH` environment variable to include `JAVA_HOME\bin` (for example, `%JAVA_HOME%\bin;%SystemRoot%\system32;%SystemRoot%`
 - Optional: The network and machines running GigaSpaces are configured to enable multicast (see the [Multicast Configuration]({%currentadmurl%}/network-multicast.html) for more information).
@@ -32,7 +32,7 @@ GigaSpaces XAP Java edition is 100% pure Java based, and therefore can run on an
 
 # Installing on Windows
 
-Unzip the ZIP file using your favorite unzip tool (e.g., WinZip) to the location of your choice (`c:\` or `d:\` recomnaded - `C:\Program Files` is NOT recomnaded as it include a space as part of the folder name). Unzipping the file creates a `<XAP Root>` directory (e.g. `{%version gshome-directory%}`) with the following files and folders:
+Unzip the ZIP file using your favorite unzip tool (e.g., WinZip) to the location of your choice (`c:\` or `d:\` recommended - `C:\Program Files` is NOT recommended as it include a space as part of the folder name). Unzipping the file creates a `<XAP Root>` directory (e.g. `{%version gshome-directory%}`) with the following files and folders:
 
 ![win_dirtree_XAP95.jpg](/attachment_files/win_dirtree_XAP95.jpg)
 
