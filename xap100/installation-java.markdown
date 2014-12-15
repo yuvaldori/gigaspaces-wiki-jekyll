@@ -1,6 +1,6 @@
 ---
 layout: post100
-title:  Java
+title:  XAP Java Installation
 categories: XAP100
 parent: installation.html
 weight: 200
@@ -11,7 +11,7 @@ weight: 200
 
 
 
-GigaSpaces XAP is 100% pure Java, and therefore can run on any UNIX or Windows machine that supports Java.
+GigaSpaces XAP Java edition is 100% pure Java based, and therefore can run on any UNIX or Windows machine that supports Java.
 
 
 
@@ -22,17 +22,17 @@ GigaSpaces XAP is 100% pure Java, and therefore can run on any UNIX or Windows m
 **Prior to the XAP installation, make sure**:
 
 - Review the release notes for the (supported platforms](/release_notes).
-- [JDK](http://java.sun.com/javase/downloads/index.jsp) (6 or later) is installed (for example, **JDK 6 Update 39**) 
-- Set the `JAVA_HOME` environment variable to the JDK (not JRE) directory (for example, `D:\java\jdk1.6.0_39`).
+- [JDK](http://java.sun.com/javase/downloads/index.jsp) (6 or later) is installed (latest JDK 7 is recommended) 
+- Set the `JAVA_HOME` environment variable to the JDK (not JRE) directory (for example, `D:\java\jdk1.7.0_70`).
 - Set the `PATH` environment variable to include `JAVA_HOME\bin` (for example, `%JAVA_HOME%\bin;%SystemRoot%\system32;%SystemRoot%`
 - Optional: The network and machines running GigaSpaces are configured to enable multicast (see the [Multicast Configuration]({%currentadmurl%}/network-multicast.html) for more information).
-- Set the `NIC_ADDR` environment variable to the machine's IP address.
+- Set the `NIC_ADDR` environment variable to the machine's IP address on each machine running XAP.
 
-{%note title=Using JRE instead of JDK%}It is recommended to use a JDK (Java Development Kit), and not a JRE (Java Runtime Environment). If you do decide to use a JRE, make sure the `JAVA_HOME` environment variable points to the correct JRE directory, and remove JDK-specific command-line arguments, like `-server`, which do not exist in JRE.{%endnote%}
+{%note title=Use a JDK and not JRE - Have a JDK (Java Development Kit) installed and not a JRE (Java Runtime Environment) on each machine running XAP. {%endnote%}
 
 # Installing on Windows
 
-Unzip the ZIP file using your favorite unzip tool (e.g., WinZip) to the location of your choice. Unzipping the file creates a `<XAP Root>` directory (e.g. `{%version gshome-directory%}`) with the following files and folders:
+Unzip the ZIP file using your favorite unzip tool (e.g., WinZip) to the location of your choice (`c:\` or `d:\` recommended - `C:\Program Files` is NOT recommended as it include a space as part of the folder name). Unzipping the file creates a `<XAP Root>` directory (e.g. `{%version gshome-directory%}`) with the following files and folders:
 
 ![win_dirtree_XAP95.jpg](/attachment_files/win_dirtree_XAP95.jpg)
 
@@ -44,7 +44,7 @@ Unzip the ZIP file using your favorite unzip tool (e.g., WinZip) to the location
 
 # Installing on Linux
 
-Step 1. Navigate into the directory where you want to install GigaSpaces XAP, e.g. `opt`, and execute an `unzip` command using the path to the XAP zip file. For example:
+Step 1. Navigate into the directory where you want to install GigaSpaces XAP, e.g. `\opt` directory, and execute an `unzip` command using the path to the XAP zip file. For example:
 
 {% highlight java %}
 unzip {%version build-filename %}
