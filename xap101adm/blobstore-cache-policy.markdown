@@ -82,6 +82,8 @@ The BlobStore settings includes the following options:
 | statistics-interval | Applications can optionally enable periodic dumping of statistics to a specified file (XAP_HOME/logs). This is disabled by default. | | optional |
 | durability-level | `SW_CRASH_SAFE` - Guarantees no data loss in the event of software crashes. But some data might be lost in the event of hardware failure.{%wbr%}`HW_CRASH_SAFE`- Guarantees no data loss if the hardware crashes.Since there are performance implication it is recommended to work with NVRAM device and configure log-flash-dir to a folder on this device. | SW_CRASH_SAFE | optional |
 | log-flush-dir | When `HW_CRASH_SAFE` used , point to a directory in a file system on top of NVRAM backed disk. This directory must be unique per space, you can add ${clusterInfo.runningNumber} as suffix to generate a unique name | as volume-dir | optional |
+| device-mapping-dir | Point to a directory in a file system. This directory contains file which contains a mapping between space name and a flash device | /tmp/blobstore/devices | optional |
+| central-storage | Enable in case you have a centralized. in this case each space is connected to a predefined device| false | optional |
 
 The IMDG BlobStore settings includes the following options:{%wbr%}
 
@@ -172,7 +174,7 @@ Configuring an IMDG (Space) with BlobStore should be done via the `SanDiskBlobSt
     <bean id="propertiesConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"/>
 
     <blob-store:sandisk-blob-store id="myBlobStore" blob-store-capacity-GB="100" blob-store-cache-size-MB="100"
-                                            devices="/dev/sdb1,/dev/sdc1" volume-dir="/tmp/data${clusterInfo.runningNumber}" durability-level="SW_CRASH_SAFE">
+                                            devices="[/dev/sdb1,/dev/sdc1]" volume-dir="/tmp/data${clusterInfo.runningNumber}" durability-level="SW_CRASH_SAFE">
 
     </blob-store:sandisk-blob-store>
 
@@ -200,7 +202,7 @@ Configuring an IMDG (Space) with BlobStore should be done via the `SanDiskBlobSt
     <bean id="blobstoreid" class="com.gigaspaces.blobstore.storagehandler.SanDiskBlobStoreHandler">
         <property name="blobStoreCapacityGB" value="200"/>
         <property name="blobStoreCacheSizeMB" value="50"/>
-        <property name="blobStoreDevices" value="/dev/xvdb,/dev/xvdc"/>
+        <property name="blobStoreDevices" value="[/dev/xvdb,/dev/xvdc]"/>
         <property name="blobStoreVolumeDir" value="/tmp/data${clusterInfo.runningNumber}"/>
         <property name="blobStoreDurabilityLevel" value="SW_CRASH_SAFE"/>
     </bean>
@@ -307,6 +309,27 @@ With the following `sla.xml` we have a partitioned (2 partitions) data grid with
 ## Device Allocation
 
 The device allocation per a machine is managed via the `/tmp/blobstore/devices/device-per-space.properties` file. You can specify this file location using the `com.gs.blobstore-devices` system property when setting the `GSC_JAVA_OPTIONS`. Each time a new blobstore space is deployed an Entry is added to this file listing the data grid instances provisioned on the machine.
+
+# Central Storage Support
+BlobStore supports [`storage area network (SAN)`](http://en.wikipedia.org/wiki/Storage_area_network) which means the disk drive devices are in another machine but appear like locally attached.
+Most storage networks use the iSCSI or Fibre Channel protocol for communication between servers and disk drive devices.
+
+In central storage mode each space is attached to a pre defined device as explained on these examples:
+
+**Example:**
+
+if we deployed a partitioned space with a single backup (2,1) on a single storage array with the following devices devices=[/dev/sda1,/dev/sdb1,/dev/sdc1,/dev/sdd1]
+the first primary will be attached to /dev/sda1, the second primary will be attached to /dev/sdb1, the first backup will be attached to /dev/sdc1
+and the second backup will be attached to /dev/sdd1.
+
+BlobStore also support in deployment with 2 different storage arrays, with this feature you can ensure that a primary and its backup(s)
+cannot be provisioned to the same storage array.
+
+**Example:**
+
+if we deployed a single space with a single backup (1,1) on 2 storage arrays with the following devices devices=[/dev/sda1],[/dev/sdb1]
+the first primary will be attached to /dev/sda1, the second primary will be attached to /dev/sdb1, the first backup will be attached to /dev/sdc1
+and the second backup will be attached to /dev/sdd1.
 
 # BlobStore Space re-deploy
 

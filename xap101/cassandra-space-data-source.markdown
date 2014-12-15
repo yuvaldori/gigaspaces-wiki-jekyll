@@ -160,6 +160,12 @@ GigaSpace gigaSpace = new GigaSpaceConfigurer(new UrlSpaceConfigurer("/./mySpace
 
 For more details about different configurations see [Space Persistency](./space-persistency.html).
 
+###Before you begin###
+
+Before deploying your Processing Unit, please do the following:
+
+Copy the `xap-cassandra.jar` from `lib\optional\datasource\cassandra` to `lib\optional\pu-common`.
+
 ### `CassandraSpaceDataSource` Properties
 
 {: .table .table-bordered}
