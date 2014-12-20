@@ -16,8 +16,6 @@ Service Reloading only works when downloading the processing unit to the GSC is 
 For service reloading to work, common classes have to be copied to the <GigaSpacesRoot>/lib/platform/ext folder
 {%endinfo%}
 
-An example that demonstrates this is provided in the Solutions and Patterns [Refreshable Business Logic Example page](/sbp/refreshable-business-logic-example.html).
-
 # Configuring Reloadable Business Logic
 
 Lets assume we have business logic that we would like to reload at some point in time after our Processing Unit has been deployed. Here is an example of such business logic:

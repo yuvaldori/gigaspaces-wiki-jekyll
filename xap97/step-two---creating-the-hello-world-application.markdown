@@ -174,7 +174,7 @@ Next, let's take a look at the Processor Processing Unit.
 
 The Processor Processing Unit contains two components: a space (cache), which holds objects in memory, and a processor bean that takes, modifies and writes objects back to this space.
 {% comment %}
-----COMMENTED OUT-----
+----  OUT-----
 
 **Processing Unit File Structure**
 
@@ -190,7 +190,7 @@ The Processing Unit is the GigaSpaces unit of deployment. It is packaged as a JA
 ![JustFolder.jpg](/attachment_files/JustFolder.jpg) **shared-lib** - contains JAR files with classes that are shared with other processing units (e.g. our Message class)
 {% endindent %}
 
-----COMMENTED OUT-----
+----  OUT-----
 {% endcomment %}
 
 **Processor Processing Unit Configuration** (META-INF/spring/pu.xml)

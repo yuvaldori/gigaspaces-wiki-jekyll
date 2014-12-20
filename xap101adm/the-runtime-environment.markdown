@@ -179,7 +179,9 @@ Now, to start the agent, we'll use the following command:
 gs-agent gsa.gsc 0 gsa.gsc_small 2 gsa.gsc_large 1
 {% endhighlight %}
 
-{%infosign%} Note that we're setting `gsa.gsc 0` to avoid loading the default `gsc` component.
+{%info%}
+Note that we're setting `gsa.gsc 0` to avoid loading the default `gsc` component.
+{%endinfo%}
 
 {%comment%}
 
