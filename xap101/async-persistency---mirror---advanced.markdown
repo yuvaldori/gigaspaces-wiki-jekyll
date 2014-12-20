@@ -128,6 +128,10 @@ And here is how this can be configured within the mirror configuration:
 
 In order to use the data source as the read mechanism for the cluster Space that connects to the mirror, a `SpaceDataSource` extension needs to be implemented.
 
+{% warning title=Handling Mirror Failures %}
+Throwing `java.lang.RuntimeException` from the `onTransactionSynchronization` or `onOperationsBatchSynchronization` methods of the `SpaceSynchronizationEndpoint` implementation will signal the primary to keep the replicated data within its redo log and retry the replication operation. Your code should support this in case it fails (for example database transaction failure).
+{% endwarning %}
+
 # Multiple Mirrors
 
 In some cases you may need to asynchronously persist data both into a relational database and a file, or persist the data into a relational database and transfer some of the data into some other system.
