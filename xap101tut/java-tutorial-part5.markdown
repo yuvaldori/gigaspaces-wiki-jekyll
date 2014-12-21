@@ -418,9 +418,3 @@ With a stateless PU
 {%learn%}{%currentadmurl%}/deploy-command-line-interface.html{%endlearn%}
 
 
-
-<ul class="pager">
-  <li class="previous"><a href="./java-tutorial-part4.html">&larr; Events and Messaging</a></li>
-  <li class="next"><a href="./java-tutorial-part6.html">Space Transactions &rarr;</a></li>
-</ul>
-

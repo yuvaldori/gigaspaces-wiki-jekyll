@@ -344,9 +344,5 @@ public class RemoteService {
 {%endcomment%}
 
 
-<ul class="pager">
-  <li class="previous"><a href="./net-tutorial-part2.html">&larr; The Data Grid</a></li>
-  <li class="next"><a href="./net-tutorial-part4.html">Events and Messaging &rarr;</a></li>
-</ul>
 
  

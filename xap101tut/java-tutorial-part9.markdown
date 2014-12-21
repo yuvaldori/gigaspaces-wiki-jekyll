@@ -263,8 +263,4 @@ XAP provides out of the box support for the MongoDB.
 
 {%learn%}{%currentjavaurl%}/mongodb.html{%endlearn%}
 
-<ul class="pager">
-  <li class="previous"><a href="./java-tutorial-part8.html">&larr; Web Processing Unit</a></li>
-  <li class="next"><a href="./java-tutorial-part10.html">Security &rarr;</a></li>
-</ul>
 

@@ -243,6 +243,8 @@ public class Person {
 {% endaccord %}
 {%endaccordion%}
 
+
+{%comment%}
 # What's Next?
 
 [The Full XAP Java Tutorial](./java-home.html) will introduce you to the basic concepts and functionalities of XAP. Many ready to run examples are provided.
@@ -254,3 +256,4 @@ Read more about the GigaSpaces runtime environment, how to model your data in a 
 - [Deploying and Interacting with the Space](./deploying-and-interacting-with-the-space.html)
 - [The GigaSpaces Runtime Environment]({%currentadmurl%}/the-runtime-environment.html)
 
+{%endcomment%}
