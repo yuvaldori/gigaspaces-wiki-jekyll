@@ -65,3 +65,4 @@ Below is a list of known issues in GigaSpaces 10.0.X.
 | GS-11844 | Recreation of FDFManager on the same jvm occurs once recovery fails - blobstore |  | 10.0.0 | | Java |
 | GS-11845 | Deploying the Data example with the provided sla does not work properly |  | 10.0.0 | | Java |
 | GS-11936 | Backwards compatibility issue: NPE is thrown when the client version is less then 10.0 and the server version is 10.0 | 9182 | 10.0.0 | | All |
+| GS-10510 | Consistency issues with multisource replication when trinsiant entries are involved (distributed transaction consolidation) | | 9.7.0 | | All | 
