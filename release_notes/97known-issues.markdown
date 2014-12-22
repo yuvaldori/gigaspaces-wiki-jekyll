@@ -54,4 +54,4 @@ Below is a list of known issues in GigaSpaces 9.7.X.
 | GS-11736 | Can't see space in gs-ui when running gsInstance.bat when using jdk 7u55 |  | 9.7.1 | | Java |
 | GS-11776 | Fix Shutdown API to close custom thread pool and client connection | 9052 | 10.0.0 | | All |
 | GS-11836 | Extra backup and zombi instance after split brain in certain conditions | 9119 | 10.0.0 | | Java |
- 
+| GS-10510 | Consistency issues with multisource replication when trinsiant entries are involved (distributed transaction consolidation) | | 9.7.0 | | All | 
