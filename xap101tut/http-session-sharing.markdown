@@ -16,10 +16,6 @@ weight: 1250
 {% endsection %}
 
 
-{%warning%}
-Under construction
-{%endwarning%}
-
 With XAP you can share HTTP session data across multiple data centers, multiple web server instances or different types of web servers.
 
 
@@ -38,10 +34,16 @@ Make sure you have enough disk space to install:
 - Tomcat 7.0.23 - 80MB
 - JBoss 7 - 200MB
 
-{%comment%}
 
-http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.23/bin/apache-tomcat-7.0.23.zip
-http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
+The demo application can be downloaded:
+
+[demo-app.war](/sbp/attachment_files/httpsession/demo-app.war) <br>
+[demo-app2.war](/sbp/attachment_files/httpsession/demo-app2.war)
+
+
+{%comment%}
+[Apache Tomcat](http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.23/bin/apache-tomcat-7.0.23.zip)
+[JBoss](http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip)
 
 Download the demo app:
 https://dl.dropboxusercontent.com/u/7390820/demo-app.war
