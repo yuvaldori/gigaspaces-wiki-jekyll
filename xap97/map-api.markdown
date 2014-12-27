@@ -394,7 +394,7 @@ The Lock API using transactions to ensure isolation and data consistency.
 Here is a simple comparison between the GigaMap API vs. the [GigaSpace API](./the-gigaspace-interface.html):
 
 {: .table .table-bordered .table-condensed}
-|Feature|XAP API|GigaMap API|
+|Feature|GigaSpace  API|GigaMap API|
 |:------|:-----------:|:---------:|
 |Batch Operations|Yes |Limited.|
 | Externalizable Support | Yes | Yes -- The value object should implement Externalizable. |
@@ -411,7 +411,7 @@ Here is a simple comparison between the GigaMap API vs. the [GigaSpace API](./th
 | Pessimistic Locking |Yes | Yes |
 | Administration API |Yes| Yes |
 | Spring Support | Yes| Yes |
-| Timeout (blocking) operations (read/take with timeout > 0) | Yes | Yes |
+| Timeout (blocking) operations (read/take with timeout \> 0) | Yes | Yes |
 | Local Cache | Yes| Yes|
 | Replicated Space | Yes | Yes |
 | Partitioned Space | Yes | Yes |
