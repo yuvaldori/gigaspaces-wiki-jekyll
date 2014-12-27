@@ -394,7 +394,7 @@ Here is a simple comparison between the GigaMap API vs. the [GigaSpace API](./th
 
 
 {: .table .table-bordered .table-condensed}
-|Feature|XAP API|GigaMap API|
+|Feature|GigaSpace API|GigaMap API|
 |:------|:-----------:|:---------:|
 |Batch Operations|Yes |Limited.|
 | Externalizable Support | Yes | Yes -- The value object should implement Externalizable. |
