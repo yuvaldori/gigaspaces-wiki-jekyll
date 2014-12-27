@@ -45,7 +45,7 @@ parent:  none
 | {%lampoff%} This is a Lamp Off icon         | {%raw%} {%lampoff%} This is a Lamp Off icon {%endraw%} |
 | {%download  This is a download   icon %}     | {%raw%} {%download  This is a download   icon %} {%endraw%} |
 | {%pdf%} This is a pdf icon                  | {%raw%} {%pdf}% This is a pdf icon    {%endraw%} |
-| {%zip  This is a zip icon  %}               | {%raw%} {%zip  This is a zip icon  %}  {%endraw%} |
+| {%zip  This is a zip icon%}               | {%raw%} {%zip  This is a zip icon  %}  {%endraw%} |
 | {%folderopen%} This is an open folder icon  | {%raw%}{%folderopen%} This is an open folder icon  {%endraw%} |
 
 

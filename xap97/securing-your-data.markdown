@@ -264,11 +264,11 @@ GigaSpace localView = new GigaSpaceConfigurer(configurer.localView()).gigaSpace(
 
 # Space Filters
 
-{% refer %}[OpenSpaces Space Filter support]./the-space-component.html#SpaceFilters), [Space Filters](./the-space-filters.html){% endrefer %}
+{% refer %}[XAP Space Filter support](./the-space-component.html#SpaceFilters), [Space Filters](./the-space-filters.html){% endrefer %}
 
 Filters are interceptors inside the GigaSpaces Space which allow implementation of user-defined logic based on Space events. Some filters need to perform operations on the embedded Space. If secured, the filter needs to have sufficient privileges for its operations.
 
-The username and password supplied when creating a Space, will be used to _implicitly_ create a **`secured`** Space. The security privileges of the specified user will be propagated to the Filter. If the user has **Read** privileges, then the filter will be able to perform a `space.read(..)` on its embedded Space.
+The username and password supplied when creating a Space, will be used to _implicitly_ create a **secured** Space. The security privileges of the specified user will be propagated to the Filter. If the user has **Read** privileges, then the filter will be able to perform a `space.read(..)` on its embedded Space.
 
 #### Before Authentication operation
 

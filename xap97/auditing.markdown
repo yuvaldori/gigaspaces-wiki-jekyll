@@ -62,13 +62,39 @@ com.gigaspaces.security.audit.AuditHandler.filename-pattern = {homedir}/logs/gig
 | INFO    | Authentication successful |
 | FINE    | Access granted |
 
-## Sample Output
 
-A sample output snapshot with audit level set to `FINE`.
 
-    2009-09-13 17:43:04,609  INFO  - Authentication successful; for user [gs] from host [lab/127.1.1.1]; session-id [-639278424]
-    2009-09-13 17:43:09,453  FINE  - Access granted; user [gs] at host [lab/127.1.1.1] has [Write] privileges for class [com.eg.Pojo]; session-id [-639278424]
-    2009-09-13 17:44:24,937  WARNING  - Access denied; user [gs] at host [lab/127.1.1.1] lacks [Take] privileges for class [com.eg.Pojo]; session-id [-639278424]
+
+# Example
+
+In the example below, there are two users "writer" (only privileges to write), and "reader" (only privileges to read).
+
+
+{%highlight console%}
+
+FINE: Access granted; user [writer] at host [some-pc.gspaces.com/192.168.10.172] has [Write] privileges for class [com.gigaspaces.data.car.CarPojo]; session-id [827282038]
+18/12/2014 12:23:50 com.gigaspaces.security.audit.SecurityAudit accessGranted
+
+If the writer tries to read, you get a denied message:
+WARNING: Access denied; user [writer] at host [some-pc.gspaces.com/192.168.10.172] lacks [Read] privileges for class [com.gigaspaces.data.car.CarPojo]; session-id [827282038]
+18/12/2014 12:23:51 com.gigaspaces.security.audit.SecurityAudit accessDenied
+
+Same goes to the reader
+WARNING: Access denied; user [reader] at host [some-pc.gspaces.com/192.168.10.172] lacks [Write] privileges for class [com.gigaspaces.data.car.CarPojo]; session-id [1003653583]
+18/12/2014 12:23:51 com.gigaspaces.security.audit.SecurityAudit accessDenied
+
+And
+FINE: Access granted; user [reader] at host [some-pc.gspaces.com/192.168.10.172] has [Read] privileges for class [com.gigaspaces.data.car.CarPojo]; session-id [1003653583]
+18/12/2014 12:23:51 com.gigaspaces.security.audit.SecurityAudit accessGranted
+
+{%endhighlight%}
+
+{%refer%}
+
+You can see that for each write operation an audit `FINE` log message is created with the classname. There is no data in the audit details.
+If you need the data to be audited, you can apply a [filter](./securing-your-data.html#space-filters)  to achieve this.
+{%endrefer%}
+
 
 # Custom Auditing
 
