@@ -16,8 +16,24 @@ weight: 1250
 {% endsection %}
 
 
+
 With XAP you can share HTTP session data across multiple data centers, multiple web server instances or different types of web servers.
 
+{%comment%}
+
+#### Additional Resources
+
+{%section%}
+{%column width=30% %}
+{%youtube gRdGWMigJBI | Global HTTP Session sharing%}
+{%endcolumn%}
+{%column width=30% %}
+[{%pdf%}](/attachment_files/httpsession/globalhttpsessionsharing-screencast2014.pdf) HTTP session sharing Screencast.
+{%endcolumn%}
+{%column width=30% %}
+{%endcolumn%}
+{%endsection%}
+{%endcomment%}
 
 
 This tutorial will show you:
@@ -37,8 +53,8 @@ Make sure you have enough disk space to install:
 
 The demo application can be downloaded:
 
-[demo-app.war](/sbp/attachment_files/httpsession/demo-app.war) <br>
-[demo-app2.war](/sbp/attachment_files/httpsession/demo-app2.war)
+[demo-app.war](/attachment_files/httpsession/demo-app.war) <br>
+[demo-app2.war](/attachment_files/httpsession/demo-app2.war)
 
 
 {%comment%}
@@ -69,7 +85,7 @@ https://dl.dropboxusercontent.com/u/7390820/http-session-screencast-part3.wmv
 With this session sharing model, the web user interacting with multiple web servers through a load balancer where each web server running the same web application. In most cases you will have multiple instances of the same web app running in a cluster configuration.  The load balancer rout requests based on the sticky session configuration to the relevant web server instance.
 {%endcolumn%}
 {%column width=20% %}
-{%popup /sbp/attachment_files/httpsession/http-session1.png %}
+{%popup /attachment_files/httpsession/http-session1.png %}
 {%endcolumn%}
 {%endsection%}
 
@@ -111,17 +127,17 @@ http://localhost:8080/demo-app
 The URL above assumes the Tomcat is configured to use port 8080.
 
 {%panel%}
-![http-session](/sbp/attachment_files/httpsession/http-session2.png)
+![http-session](/attachment_files/httpsession/http-session2.png)
 {%endpanel%}
 
 -	Add some attributes using the interface provided
 -	View the session updated within the space via the GS-UI or Web-UI
 
-![http-session](/sbp/attachment_files/httpsession/http-session3.png)
+![http-session](/attachment_files/httpsession/http-session3.png)
 
 -	Identify the Session ID
 
-![http-session](/sbp/attachment_files/httpsession/http-session4.png)
+![http-session](/attachment_files/httpsession/http-session4.png)
 
 -	Terminate Tomcat by terminating its process
 -	Refresh the page (press the `F5` key) – you should get an error. There is no web server to serve the HTTP request.
@@ -148,7 +164,7 @@ With this demo we will simulate session sharing between Tomcat and JBoss web ser
 -	{%download http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip%} JBoss 7.
 -	Install JBoss 7 by unzipping it into `c:\` or `d:\`
 
-![http-session](/sbp/attachment_files/httpsession/http-session5.png)
+![http-session](/attachment_files/httpsession/http-session5.png)
 
 -	Double check the **shiro.ini** within the `demo-app2.war` file located under the `WEB-INF` folder includes the lookup service host name as part of the `connector.url` property. With the example below we are using a lookup service running locally - hence the `localhost` is used:
 {%highlight console%}
@@ -182,13 +198,13 @@ o	user : root
 o	password : secret
 
 {%panel%}
-![http-session](/sbp/attachment_files/httpsession/http-session6.png)
+![http-session](/attachment_files/httpsession/http-session6.png)
 {%endpanel%}
 
 -	Add some attributes using the interface provided
 
 {%panel%}
-![http-session](/sbp/attachment_files/httpsession/http-session7.png)
+![http-session](/attachment_files/httpsession/http-session7.png)
 {%endpanel%}
 
 -	Start your browser and access the web application running in JBoss via the following URL:
@@ -202,19 +218,19 @@ o	user : `root`
 o	password : `secret`
 
 {%panel%}
-![http-session](/sbp/attachment_files/httpsession/http-session8.png)
+![http-session](/attachment_files/httpsession/http-session8.png)
 {%endpanel%}
 
 -	You should see all attributes added into the session via Tomcat are shared with the application running on JBoss.
 
 {%panel%}
-![http-session](/sbp/attachment_files/httpsession/http-session9.png)
+![http-session](/attachment_files/httpsession/http-session9.png)
 {%endpanel%}
 
 -	Add / Modify some attributes
 
 {%panel%}
-![http-session](/sbp/attachment_files/httpsession/http-session10.png)
+![http-session](/attachment_files/httpsession/http-session10.png)
 {%endpanel%}
 
 -	Switch to Tomcat:
@@ -226,7 +242,7 @@ http://localhost:8080/demo-app2
 -	Refresh the page (press the `F5` key) – see all the attributes been updated.
 
 {%panel%}
-![http-session](/sbp/attachment_files/httpsession/http-session11.png)
+![http-session](/attachment_files/httpsession/http-session11.png)
 {%endpanel%}
 
 -	Terminate both Tomcat and JBoss by terminating their process
@@ -247,10 +263,10 @@ http://localhost:8081/demo-app2
 {%panel%}
 {%section%}
 {%column width=50% %}
-![http-session](/sbp/attachment_files/httpsession/http-session12.png)
+![http-session](/attachment_files/httpsession/http-session12.png)
 {%endcolumn%}
 {%column width=50% %}
-![http-session](/sbp/attachment_files/httpsession/http-session13.png)
+![http-session](/attachment_files/httpsession/http-session13.png)
 {%endcolumn%}
 {%endsection%}
 {%endpanel%}

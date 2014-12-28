@@ -264,7 +264,7 @@ GigaSpace localView = new GigaSpaceConfigurer(configurer.localView()).gigaSpace(
 
 # Space Filters
 
-{% refer %}[XAP Space Filter support](./the-space-component.html#SpaceFilters), [Space Filters](./the-space-filters.html){% endrefer %}
+{% refer %}[Space Filters](./the-space-filters.html){% endrefer %}
 
 Filters are interceptors inside the GigaSpaces Space which allow implementation of user-defined logic based on Space events. Some filters need to perform operations on the embedded Space. If secured, the filter needs to have sufficient privileges for its operations.
 

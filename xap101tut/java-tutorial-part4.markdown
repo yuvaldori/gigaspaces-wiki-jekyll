@@ -33,7 +33,7 @@ The Polling Container is the equivalent of a point to point paradigm. Unlike the
 # Archive Container
 The archive container is a mechanism built on top of a polling container to transfer historical data into Big-Data storage (for example Cassandra). The typical scenario is when streaming vast number of raw events through the Space, enriching them and then moving them to a Big-Data storage. Typically, there is no intention of keeping them in the space nor querying them in the space.
 
-{%learn%}{%currentjavaurl%}archive-container.html{%endlearn%}
+{%learn%}{%currentjavaurl%}/archive-container.html{%endlearn%}
 
  
 
@@ -65,7 +65,7 @@ public class PaymentListener {
 
 In this example we define:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Annotation | Description|
 |:----------|:-----------|
 |@EventDriven @Notify| the listener as a notification listener |

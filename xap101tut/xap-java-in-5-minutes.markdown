@@ -76,7 +76,7 @@ Note that the Lite edition is limited to a single partition - if you're using it
 
 ### Connecting to the Grid
 
-Since the Data grid is not located in our client process, we need some sort of address to find it. Data grids are searched using a `Space URL`, for example: `jini://*/*/myGrid`. This roughly translates to: Find a remote space called `myGrid` (for more information see [SpaceURL](./the-space-configuration.html)).
+Since the Data grid is not located in our client process, we need some sort of address to find it. Data grids are searched using a `Space URL`, for example: `jini://*/*/myGrid`. This roughly translates to: Find a remote space called `myGrid` (for more information see [SpaceURL]({%currentjavaurl%}/the-space-configuration.html)).
 
 Now that we have an address, we can connect to the grid:       
 

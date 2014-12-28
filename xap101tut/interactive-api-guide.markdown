@@ -229,8 +229,8 @@ public class EngineerPojo implements Serializable {
 This option will introduce you to some unique XAP features:
 
 {%refer%}
-- [Query Aggregations](./aggregators.html)<br>
-- [Custom Change Operation](./change-api-custom-operation.html)
+- [Query Aggregations]({%currentjavaurl%}/aggregators.html)<br>
+- [Custom Change Operation]({%currentjavaurl%}/change-api-custom-operation.html)
 {%endrefer%}
 
 
@@ -271,7 +271,7 @@ gigaSpace = admin.getProcessingUnits().getProcessingUnit(gridname).getSpace().ge
 {% endhighlight %}
 
 
-{%learn%}./the-gigaspace-interface.html{%endlearn%}
+{%learn%}{%currentjavaurl%}/the-gigaspace-interface.html{%endlearn%}
 
 
 #### Writing and Reading simple POJO objects
@@ -285,7 +285,7 @@ gigaSpace.write(engineerPojo);
 gigaSpace.read(new EngineerPojo());
 {% endhighlight %}
 
-{%learn%}./pojo-overview.html{%endlearn%}
+{%learn%}{%currentjavaurl%}/pojo-overview.html{%endlearn%}
 
 #### Reading multiple POJO's from the Space with a criteria
 
@@ -308,7 +308,7 @@ gigaSpace.write(engineerPojoWithDynamicProperties);
 {% endhighlight %}
 
 
-{%learn%}./dynamic-properties.html{%endlearn%}
+{%learn%}{%currentjavaurl%}/dynamic-properties.html{%endlearn%}
 
 #### Using the Document API
 {% highlight java %}
@@ -322,7 +322,7 @@ gigaSpace.write(engineerPojoDocument);
 {% endhighlight %}
 
 
-{%learn%}./document-overview.html{%endlearn%}
+{%learn%}{%currentjavaurl%}/document-overview.html{%endlearn%}
 
 
 #### Write multiple SpaceDocuments with dynamic properties
@@ -342,14 +342,14 @@ for (int i=0; i<10; i++) {
 gigaSpace.writeMultiple(spaceDocuments);
 {% endhighlight %}
 
-{%learn%}./document-extending.html{%endlearn%}
+{%learn%}{%currentjavaurl%}/document-extending.html{%endlearn%}
 
 #### Read a random POJO from the Space
 {% highlight java %}
 gigaSpace.read(new SpaceDocument("EngineerDocument"));
 {% endhighlight %}
 
-{%learn%}./querying-the-space.html{%endlearn%}
+{%learn%}{%currentjavaurl%}/querying-the-space.html{%endlearn%}
 
 
 

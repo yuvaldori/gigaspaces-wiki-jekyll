@@ -10,7 +10,6 @@ weight: 400
 
 {% section %}
 {% column  width=10% %}
-<br>
 ![flash-imdg.png](/attachment_files/subject/flash-imdg.png)
 {% endcolumn %}
 {%column width=90% %}
