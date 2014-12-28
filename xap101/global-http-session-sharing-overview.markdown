@@ -2,8 +2,8 @@
 layout: post101
 title:  Global HTTP Session Sharing
 categories: XAP101
-parent: web-application-overview.html
-weight: 600
+parent: none
+weight: 2250
 ---
 
 <br>

@@ -198,7 +198,7 @@ Hosts (GSA,GSC,GSM,LUS)
 {%column%}
 Deployed Data Grids
 
-{%popup /attachment_files/qsg/Shot3.png%}
+{%popup /attachment_files/qsg/Shot3.png | Deployed Data Grids%}
 
 {%endcolumn%}
 
