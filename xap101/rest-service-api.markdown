@@ -7,20 +7,19 @@ weight: 400
 ---
 
 
-{%wbr%}
+
 
 {%section%}
 {%column width=10% %}
 ![data-access.jpg](/attachment_files/web-services.jpg)
 {%endcolumn%}
 {%column width=90% %}
-XAP REST interface.
+{% summary  %}{% endsummary %}
 {%endcolumn%}
 {%endsection%}
 
-<hr/>
 
-The REST API exposing HTTP based interface Space. It is leveraging the [GigaSpace API](./the-gigaspace-interface.html). It support the following methods:
+The REST API exposing HTTP based interface Space. It is leveraging the [XAP API](./the-gigaspace-interface.html). It support the following methods:
 
 1. GET - can be used to perform an introduceType, readByID or a readMultiple action by a space query.
 1. POST - can be used to perform a write / writeMultiple or update / updateMultiple actions.
@@ -28,9 +27,29 @@ The REST API exposing HTTP based interface Space. It is leveraging the [GigaSpac
 
 <br/>
 
-## Actions
+
+# Introduce Type
+
+{: .table .table-bordered .table-condensed}
+|Description |Introduce the specific type to space by registering it and setting the SpaceId and RoutingId to `id` unless a query parameter "id" is provided.|
+|Request URL| GET http://localhost:8080/{Type}/_introduce_type  |
+|<nobr>Request Query Parameters</nobr>|spaceid - The [SpaceId](./space-object-id-operations.html) attribute of the type |
+
+Response Schema:
+{% highlight json %}
+{
+   "status":"success"
+}
+{% endhighlight %}
+
+Examples:
+{% highlight bash %}
+http://localhost:8080/MyObject/_introduce_type
+http://localhost:8080/MyObject/_introduce_type?spaceid=id
+{% endhighlight %}
 
 
+{%comment%}
 {% togglecloak id=1 %}- Introduce Type{% endtogglecloak %}
 {% gcloak 1 %}
 {% panel title=Description| borderStyle=solid|borderColor=#3c78b5 %}
@@ -63,6 +82,30 @@ http://localhost:8080/MyObject/_introduce_type?spaceid=id
 {%endpanel%}
 {% endgcloak %}
 
+{%endcomment%}
+
+# Single Write
+
+{: .table .table-bordered .table-condensed}
+|Description | Write single entry to the space.|
+|Request URL | POST http://localhost:8080/{Type}/ |
+|Request Headers|Content-Type: application/json   |
+|Request Body | JSON object representation of a SpaceDocument object.|
+
+Response Schema:
+{% highlight json %}
+{
+   "status":"success"
+}
+{%endhighlight%}
+
+Examples:
+{% highlight bash %}
+curl -XPOST -H "Content-Type: application/json" -d '{"id":"1", "data":"testdata", "data2":"common", "nestedData" : {"nestedKey1":"nestedValue1"}}' http://localhost:8080/MyObject
+{% endhighlight %}
+
+
+{%comment%}
 {% togglecloak id=21 %}- Single Write{% endtogglecloak %}
 {% gcloak 21 %}
 {% panel title=Description| borderStyle=solid|borderColor=#3c78b5 %}
@@ -82,7 +125,6 @@ Content-Type: application/json
 JSON object representation of a SpaceDocument object.
 {%endpanel%}
 
-
 {% panel title=Response Schema| borderStyle=solid|borderColor=#3c78b5 %}
 {% highlight json %}
 {
@@ -97,6 +139,8 @@ curl -XPOST -H "Content-Type: application/json" -d '{"id":"1", "data":"testdata"
 {% endhighlight %}
 {%endpanel%}
 {% endgcloak %}
+
+{%endcomment%}
 
 {% togglecloak id=2 %}- Write Multiple{% endtogglecloak %}
 {% gcloak 2 %}
