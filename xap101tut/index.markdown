@@ -55,15 +55,19 @@ There are many situations where space data needs to be persisted to permanent st
 [Web Deployment](./java-tutorial-part8.html)<br>
 In this part of the tutorial we will show you how you can deploy a standard WAR file onto the Service Grid.
 
-[Global HTTP Session Sharing](./http-session-sharing.html)<br>
-In this part of the tutorial we will show you how you can globaly share HTTP sessions with XAP.
-
 
 [Big Data](./java-tutorial-part9.html)<br>
 In this part of the tutorial will introduce you to XAP’s Big Data interface. Will show you how you can use Cassandra and other Big-Data storage systems to archive data or use them for space persistence.
 
 [Security](./java-tutorial-part10.html)<br>
 In this part of the tutorial we will introduce you to XAP security, where it fits in the XAP architecture, which components can be secured, and how to configure and customize the security depending on your application security requirements. XAP Security provides comprehensive support for securing your data and services.
+
+
+[Global HTTP Session Sharing](./http-session-sharing.html)<br>
+In this part of the tutorial we will show you how you can globaly share HTTP sessions with XAP.
+
+[Flash drive IMDG Storage](./blobstore.html)<br>
+This guide describes the general architecture and functionality of this storage model that is leveraging both on-heap, off-heap and SSD implementation, called `MemoryXtend`.
 
 [Spring Integration](./spring-integration.html)<br>
 All XAP components can be wired and configured with the application using corresponding [Spring Beans](http://spring.io/).

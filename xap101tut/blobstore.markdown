@@ -1,9 +1,9 @@
 ---
 layout: post101
-title:  Flash drive IMDG Storage - MemoryXtend for SSD
-categories: XAP101ADM
+title:  Flash drive IMDG Storage
+categories: XAP101TUT
 parent: none
-weight: 430
+weight: 1600
 ---
 
 <br>
@@ -19,21 +19,6 @@ XAP 10 introduces a new storage model called BlobStore Storage Model, which allo
 
 <br>
 
-{%fpanel%}
-
-[BlobStore Storage Model Overview](./blobstore-cache-policy.html)<br>
-Overview and introduction to MemoryXtend.
-
-[Advanced Tuning Guide](./blobstore-tuning-guide.html)<br>
-Tuning options for MemoryXtend.
-
-[Troubleshooting](./blobstore-trouble-shooting.html)<br>
-How to troubleshoot common problems.
-{%endfpanel%}
-
-<br>
-
-#### Additional Resources
 
 {%section%}
 {%column width=30%  %}
@@ -50,4 +35,7 @@ This MemoryXtend white paper provides a high level overview of the technology an
 The MemoryXtend Tutorial describes how to experiment with MemoryXtend and comparing RAM based Data Grid with SSD based Data Grid.
 {%endcolumn%}
 {%endsection%}
+
+<br>
+{%learn%} {%currentadmurl%}/blobstore-overview.html{%endlearn%}
 

@@ -34,14 +34,4 @@ The ALL-In-Cache Cache policy.
 [LRU cache](./lru-cache-policy.html){%wbr%}
 The LRU Cache policy.
 
-
-[Flash drive Storage](./blobstore-overview.html){%wbr%}
-XAP 10 introduces a new Storage interface allowing Blob/Block/external type storage to act as a natural memory space for the IMDG.
 {%endfpanel%}
-
-<br>
-
-#### Additional Resources
-
-{%youtube kAe-ZxFnIYc | Flash drive Storage %}
-

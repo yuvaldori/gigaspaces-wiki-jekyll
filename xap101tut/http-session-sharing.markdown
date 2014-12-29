@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: post101
 title:  Global HTTP Session Sharing
 categories: XAP101TUT
 parent: none
-weight: 1250
+weight: 1500
 ---
 
 {% section %}
@@ -264,3 +264,6 @@ http://localhost:8081/demo-app2
 {%endcolumn%}
 {%endsection%}
 {%endpanel%}
+
+
+{%learn%} {%currentjavaurl%}/global-http-session-sharing-overview.html{%endlearn%}
