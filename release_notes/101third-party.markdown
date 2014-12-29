@@ -32,6 +32,7 @@ This page list all the 3rd party libraries shipped with GigaSpaces XAP on a per 
 | Groovy | [http://groovy.codehaus.org/](http://groovy.codehaus.org/) | 1.8.6 | Apache2 | [http://svn.codehaus.org/groovy/trunk/groovy/groovy-core/LICENSE.txt](http://svn.codehaus.org/groovy/trunk/groovy/groovy-core/LICENSE.txt) | No | Dynamic Scripting Support |
 | Sigar | [http://support.hyperic.com/display/SIGAR/Home](http://support.hyperic.com/display/SIGAR/Home) | 1.6.5 | Apache2 | [http://support.hyperic.com/display/SIGAR/Home#Home-license](http://support.hyperic.com/display/SIGAR/Home#Home-license) | No | Enhanced OS statistics |
 | OpenJPA | [http://openjpa.apache.org/](http://openjpa.apache.org/) | 2.0.1 | Apache2 | [http://openjpa.apache.org/license.html](http://openjpa.apache.org/license.html) | No | Persistency |
+| Jackson | [http://wiki.fasterxml.com/JacksonHome](http://wiki.fasterxml.com/JacksonHome) | 2.3 | Apache2 | [http://www.apache.org/licenses/LICENSE-2.0.html](http://www.apache.org/licenses/LICENSE-2.0.html) | No | REST |
 
 {% endtabcontent %}
 
