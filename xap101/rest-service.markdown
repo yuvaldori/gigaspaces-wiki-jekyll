@@ -77,7 +77,7 @@ Tasks API were removed, Pojo and Document API were merged with no support for Po
 
 #WAR Deployment and Customization
 
-Another option is to deploy the REST service as [Web Processing Unit](./java-tutorial-part8.html).
+Another option is to deploy the REST service as [Web Processing Unit](./web-application-overview.html).
 
 In order to do so, you will need to do the following:
 
