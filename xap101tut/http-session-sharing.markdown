@@ -17,23 +17,20 @@ weight: 1250
 
 
 
+{%section%}
+{%column width=70% %}
+<br>
 With XAP you can share HTTP session data across multiple data centers, multiple web server instances or different types of web servers.
 
-{%comment%}
-
-#### Additional Resources
-
-{%section%}
+<br>
+[{%pdf%}](/attachment_files/httpsession/globalhttpsessionsharing-screencast2014.pdf) Global HTTP Session Sharing Screencast.
+{%endcolumn%}
 {%column width=30% %}
 {%youtube gRdGWMigJBI | Global HTTP Session sharing%}
 {%endcolumn%}
-{%column width=30% %}
-[{%pdf%}](/attachment_files/httpsession/globalhttpsessionsharing-screencast2014.pdf) HTTP session sharing Screencast.
-{%endcolumn%}
-{%column width=30% %}
-{%endcolumn%}
 {%endsection%}
-{%endcomment%}
+
+
 
 
 This tutorial will show you:
@@ -80,14 +77,11 @@ https://dl.dropboxusercontent.com/u/7390820/http-session-screencast-part3.wmv
 
 # Single Application Session Sharing
 
-{%section%}
-{%column width=80% %}
+
 With this session sharing model, the web user interacting with multiple web servers through a load balancer where each web server running the same web application. In most cases you will have multiple instances of the same web app running in a cluster configuration.  The load balancer rout requests based on the sticky session configuration to the relevant web server instance.
-{%endcolumn%}
-{%column width=20% %}
-{%popup /attachment_files/httpsession/http-session1.png %}
-{%endcolumn%}
-{%endsection%}
+
+![http-session-1](/attachment_files/httpsession/http-session1.png)
+
 
 In this scenario the session is shared via its **ID**. Where there is a web server failure or when a new web server is added to the cluster the session **ID** is used to retrieve the session from the IMDG. Only the updated attributes (delta) are sent to the IMDG when the session is updated. This ensure best application performance and minimal network bandwidth usage.
 
