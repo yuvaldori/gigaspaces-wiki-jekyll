@@ -22,6 +22,11 @@ Sequence Number   http://localhost:4000/xap101/pojo-attribute-annotations.html#s
 
 Matrics    xap101adm/metrics-overview.markdown
 
+
+
+REST API    xap101/rest-service-overview.markdown
+Deploy REST API via CLI xap101adm/rest-deploy-command-line-interface.markdown
+
 ****************************
 
 - [Native Integration with Solid State Drives](#1)
