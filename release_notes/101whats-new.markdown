@@ -27,32 +27,8 @@ Matrics    xap101adm/metrics-overview.markdown
 REST API    xap101/rest-service-overview.markdown
 Deploy REST API via CLI xap101adm/rest-deploy-command-line-interface.markdown
 
-****************************
-
-- [Native Integration with Solid State Drives](#1)
-
-- [Global HTTP Session Sharing](#2)
-
-- [Query Aggregations](#3)
-
-- [Optimized Initial Data Load](#4)
 
 
-- [Custom Change Operation](#6)
-
-- [Performance improvement for reg ex query](#7)
-
-- [Jetty 9 support](#8)
-
-- [Web UI Enhancements](#9)
-
-- [Create & configure a Space without a url](#10)
-
-- [Support for Mule 3.5](#11)
-
-- [Compressed Storage Mode in .NET](#12)
-
-- [Externalizable End of Life](#13)
 
 {%endcomment%}
 
