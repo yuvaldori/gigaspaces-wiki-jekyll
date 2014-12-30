@@ -17,26 +17,25 @@ The REST service is not supported with embedded space thus we recommend using it
 {%endnote%}
 
 
-#Deploment Options
+# Deploment Options
 
 <br/>
 
-###Deploy via CLI
+### Deploy via CLI
 {%refer%} See full instructions [here]({%currentadmurl%}/rest-deploy-command-line-interface.html) {%endrefer%}
 
 <br/>
 
-###Deploy using a template
+### Deploy using a template
 A pre-configured processing unit template is provided and can be found at `{XAP_HOME}/deploy/templates/rest`
 
 <br/>
 
-###Deploy REST Service as part of a custom Processing Unit
+### Deploy REST Service as part of a custom Processing Unit
 A REST Service can be started as part of a custom processing unit by specifying the `<os-core:rest >` annotation as following:
 
 {% highlight xml %}
-<os-core:space id="theSpace" url="jini://*/*/mySpace" />
-<os-core:giga-space id="theGigaSpace" space="theSpace" />
+<os-core:space-proxy id="theSpace" name="theGigaSpace">
 <os-core:rest id="mySpaceRestService" giga-space="theGigaSpace" port="8081" />
 {% endhighlight %}
 
@@ -60,14 +59,14 @@ or
 
 *giga-space and space-name attributes can not be used together.
 
-#Limitations
+# Limitations
 
 *   In case that the ports were in use, the deployment will fail.
 *   Not supported with embedded space thus we recommend using it as a separate processing unit.
 *   The API support writing for Document objects only.
 *   Currently there is no support for connecting to a secured space
 
-#Removed APIs
+# Removed APIs
 
 The REST service was a dependant project until version 10.1.0.
 Since then, it is an official part of the product.
@@ -75,7 +74,7 @@ Since then, it is an official part of the product.
 Tasks API were removed, Pojo and Document API were merged with no support for Pojo writing.
 
 
-#WAR Deployment and Customization
+# WAR Deployment and Customization
 
 Another option is to deploy the REST service as [Web Processing Unit](./web-application-overview.html).
 
