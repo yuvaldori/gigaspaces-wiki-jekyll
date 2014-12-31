@@ -92,6 +92,10 @@ parent: none
 {%youtube P0rTANBRuWE | GigaSpaces XAP In-Memory Computing Platform %}
 {%endcolumn%}
 
+{%column width=20% %}
+{%youtube Pip012u958M | XAP + JEE Deployment & Management Automation%}
+{%endcolumn%}
+
 {%endsection%}
 
 <br>
