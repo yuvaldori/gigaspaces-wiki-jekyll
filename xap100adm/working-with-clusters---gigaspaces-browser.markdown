@@ -18,8 +18,6 @@ Creating a cluster, replication options, load-balancing options, failover option
 [Cluster view](./cluster-view---gigaspaces-browser.html){%wbr%}
 Using Cluster View areas: Cluster Tree, visual display, legend, and information panel.
 
-[Creating custom cluster](./creating-custom-cluster---gigaspaces-browser.html){%wbr%}
-Building a custom cluster from a standard cluster schema.
 
 [Failover group](./failover-group---gigaspaces-browser.html){%wbr%}
 A failover group defines failover between spaces in the cluster.
