@@ -26,16 +26,25 @@ The EPU deployment requires two important properties:
 
 - `memoryCapacityPerContainer` defines the Java Heap size of the Java Virtual Machine and is the most granular memory allocation deployment property. It is internally translated to:
 
-{% highlight java %}
-commandLineArgument("-Xmx"+memory).commandLineArgument("-Xms"+memory)
-{% endhighlight %}
-
-.
+{% inittab %}
+{% tabcontent Java %}
+    {% highlight java %}
+    commandLineArgument("-Xmx"+memory).commandLineArgument("-Xms"+memory)
+    {% endhighlight %}
+{% endtabcontent %}
+{% tabcontent CLI %}
+    {% highlight bash %}
+    deploy-elastic-space -cmdargs "-Xms2g,-Xmx10g" -max-memory-capacity 20g mySpace
+    {% endhighlight %}
+{% endtabcontent %}
+{% endinittab %}
 
 - `maxMemoryCapacity` provides an estimate for the maximum total Processing Unit memory.
 
 Here is a typical example for a memory capacity Processing Unit deployment. The example also includes a scale trigger that is explained in the following sections of this page.
 
+{% inittab %}
+{% tabcontent Java %}
 {% highlight java %}
 // Deploy the Elastic Stateful Processing Unit
 ProcessingUnit pu = gsm.deploy(
@@ -48,9 +57,18 @@ ProcessingUnit pu = gsm.deploy(
                   .create()));
 );
 {% endhighlight %}
+{% endtabcontent %}
+{% tabcontent CLI %}
+    {% highlight bash %}
+    gs> deploy-elastic-pu -type stateful -file myPU.jar -memory-capacity-per-container 16g -max-memory-capacity 512g -scale strategy=manual memory-capacity=128g
+    {% endhighlight %}
+{% endtabcontent %}
+{% endinittab %}
 
 Here is again the same example, this time the deployed Processing Unit is a pure Space (no jar files):
 
+{% inittab %}
+{% tabcontent Java %}
 {% highlight java %}
 // Deploy the Elastic Space
 ProcessingUnit pu = gsm.deploy(
@@ -64,6 +82,13 @@ ProcessingUnit pu = gsm.deploy(
          	.create())
 		);
 {% endhighlight %}
+{% endtabcontent %}
+{% tabcontent CLI %}
+    {% highlight bash %}
+    gs> deploy-elastic-space -memory-capacity-per-container 16g -max-memory-capacity 512g -scale strategy=manual memory-capacity=128g mySpace
+    {% endhighlight %}
+{% endtabcontent %}
+{% endinittab %}
 
 The memoryCapacityPerContainer and maxMemoryCapacity properties are used to calculate the number of partitions for the Processing Unit as follows:
 
@@ -87,6 +112,8 @@ The number of Processing Unit partitions cannot be changed without re-deployment
 
 In many cases when you should take the number of space operations per second into consideration when scaling the system. The memory utilization will be a secondary factor when calculating the required scale. For example, if the system performs mostly data updates (as opposed to reading data), the CPU resources could be a limiting factor more than the total memory capacity. In these cases use the `maxNumberOfCpuCores` deployment property. Here is a typical deployment example that includes CPU capacity planning:
 
+{% inittab %}
+{% tabcontent Java %}
 {% highlight java %}
 // Deploy the EPU
 ProcessingUnit pu = gsm.deploy(
@@ -99,6 +126,13 @@ ProcessingUnit pu = gsm.deploy(
            .scale(new EagerScaleConfig())
 );
 {% endhighlight %}
+{% endtabcontent %}
+{% tabcontent CLI %}
+    {% highlight bash %}
+    gs> deploy-elastic-pu -type stateful -file myPU.jar -memory-capacity-per-container 16g -max-memory-capacity 512g -max-number-of-cpu-cores 32
+    {% endhighlight %}
+{% endtabcontent %}
+{% endinittab %}
 
 The `maxNumberOfCpuCores` property provides an estimate for the maximum total number of **CPU cores** on machines that have one or more primary processing unit instances deployed (instances that are not in backup state). Internally the number of partitions is calculated as follows:
 
@@ -125,6 +159,8 @@ In order to evaluate the `minNumberOfCpuCoresPerMachine`, the deployment communi
 
 The `numberOfPartitions` property allows explicit definition of the number of space partitions. When the `numberOfPartitions` property is defined then `maxMemoryCapacity` and `maxNumberOfCpuCores` should not be defined.
 
+{% inittab %}
+{% tabcontent Java %}
 {% highlight java %}
 // Deploy the EPU
 ProcessingUnit pu = gsm.deploy(
@@ -134,9 +170,18 @@ ProcessingUnit pu = gsm.deploy(
            .scale(new EagerScaleConfig())
 );
 {% endhighlight %}
+{% endtabcontent %}
+{% tabcontent CLI %}
+    {% highlight bash %}
+    gs> deploy-elastic-pu -type stateful -file myPU.jar -memory-capacity-per-container 16g -number-of-partitions 12
+    {% endhighlight %}
+{% endtabcontent %}
+{% endinittab %}
 
 Here is another example, deployment with explicit number of partitions and memory capacity scale trigger:
 
+{% inittab %}
+{% tabcontent Java %}
 {% highlight java %}
 // Deploy the EPU
 ProcessingUnit pu = gsm.deploy(
@@ -159,6 +204,15 @@ pu.scale(new ManualCapacityScaleConfigurer()
          .create()
 );
 {% endhighlight %}
+{% endtabcontent %}
+{% tabcontent CLI %}
+    {% highlight bash %}
+gs> deploy-elastic-pu -type stateful -file myPU.jar -memory-capacity-per-container 16g -number-of-partitions 12 -scale strategy=manual memory-capacity=16g
+
+gs> scale -name myPU -memory-capacity 32g
+    {% endhighlight %}
+{% endtabcontent %}
+{% endinittab %}
 
 {% comment %}
 
@@ -227,6 +281,8 @@ A deployment of 12 instances per container may incur some memory and thread cont
 
 For development and demonstration purposes, it is very convenient to deploy the EPU on a single machine. By default, the minimum number of machines is two (for high availability concerns). This could be changed using the `singleMachineDeployment` property.
 
+{% inittab %}
+{% tabcontent Java %}
 {% highlight java %}
 // Deploy the EPU
 ProcessingUnit pu = gsm.deploy(
@@ -247,11 +303,22 @@ ProcessingUnit pu = gsm.deploy(
                   .create())
 );
 {% endhighlight %}
+{% endtabcontent %}
+{% tabcontent CLI %}
+    {% highlight bash %}
+gs> deploy-elastic-pu -type stateful -file myPU.jar -memory-capacity-per-container 256m -max-memory-capacity 1024m -single-machine-deployment true -dedicated-machine-provisioning reserved-memory-capacity-per-machine=2g -scale strategy=manual memory-capacity=512m
+//Using shortcuts:
+gs> deploy-elastoc-pu -type stateful -file myPU.jar -mcpc 256m -mmc 1024m -smd -dmp rmcpm 2g -scale strategy=manual mc=512m
+    {% endhighlight %}
+{% endtabcontent %}
+{% endinittab %}
 
 # Stateless / Web Elastic Processing Units
 
 Stateless Processing Units do not include an embedded space, and therefore are not partitioned. Deployment of stateless processing unit is performed by specifying the required total number of CPU cores. This ensures 1 container per machine.
 
+{% inittab %}
+{% tabcontent Java %}
 {% highlight java %}
 // Deploy the Elastic Stateless Processing Unit
 ProcessingUnit pu = gsm.deploy(
@@ -264,6 +331,13 @@ ProcessingUnit pu = gsm.deploy(
          	.create())
 );
 {% endhighlight %}
+{% endtabcontent %}
+{% tabcontent CLI %}
+    {% highlight bash %}
+    gs> deploy-elastic-pu -type stateless -file myPU.jar -memory-capacity-per-container 4g -scale strategy=manual number-of-cpu-cores=10
+    {% endhighlight %}
+{% endtabcontent %}
+{% endinittab %}
 
 # Command Line Deploy
 
