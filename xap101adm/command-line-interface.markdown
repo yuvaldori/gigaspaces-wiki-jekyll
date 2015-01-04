@@ -189,27 +189,36 @@ Each option adds to (or subtracts from) the default information listed. You can 
 ## List All Services in the Network
 
     gs> list
-    total services 4
-    [1] Lookup gs-grid, gigaspaces-13 11.0.0.3
-    [2] Grid Service Container gs-grid pc-nati@11.0.0.3
-    [3] Lookup gigaspaces-1365 11.0.0.5
-    [4] Grid Service Manager gs-grid pc-nati@11.0.0.3
+    total services 9
+    [1]  27882  myDataGrid.1                 myLookupgroups  my-pc@192.168.10.199
+    [2]  27898  myDataGrid.1                 myLookupgroups  my-pc@192.168.10.199
+    [3]         Lookup                       myLookupgroups  192.168.10.199
+    [4]  27882  GSC                          myLookupgroups  my-pc@192.168.10.199
+    [5]  28307  GSM                          myLookupgroups  my-pc@192.168.10.199
+    [6]  27898  GSC                          myLookupgroups  my-pc@192.168.10.199
+    [7]  27898  myDataGrid          Backup   myLookupgroups  192.168.10.199
+    [8]  27780  Grid Service Agent           myLookupgroups  my-pc@192.168.10.199
+    [9]  27882  myDataGrid          Primary  myLookupgroups  192.168.10.199
 
 ## List all Service Containers
 
     gs> list gsc
-    total 1
-    [1] Grid Service Container gs-grid pc-nati@11.0.0.3
-    No contained services
+    total 2
+    [1]  27898  GSC    myLookupgroups  my-pc@192.168.10.199
+        myDataGrid.1		myLookupgroups		26 seconds
+    [2]  27882  GSC    myLookupgroups  my-pc@192.168.10.199
+        myDataGrid.1		myLookupgroups		30 seconds
 
 ## List Grid Service Managers
 
     gs> list gsm
-    total 1
-    [1] Grid Service Manager gs-grid pc-nati@11.0.0.3
-    GigaSpace Service Deployment role=primary
-    GigaSpace planned=1 actual=1 pending=0
-    id=1 11.0.0.3
+    Found 1 GSMs
+    [1]  28307  GSM    myLookupgroups  my-pc@192.168.10.199
+        myDataGrid	role=primary
+            myDataGrid.1	planned=2	actual=2	pending=0
+                id=1		192.168.10.199
+                id=2		192.168.10.199
+
 
 ## List all Active Jini Lookup Service Instances and their Attributes
 
@@ -217,37 +226,38 @@ Each option adds to (or subtracts from) the default information listed. You can 
     Searching for available Jini Lookup Services...
 
     -----------------------------------------------------------------------
-    -- Discovered Lookup Service at host [ 192.168.10.133:4160 ].
+    -- Discovered Lookup Service at host [ 192.168.10.199:4174 ].
     -- Lookup Service registered to the following jini groups:
-                     Group [ gigaspaces-6.0XAP-DOTNET-PC ]
-    -- Lookup Service has [3] services, lookup took [1828] millis, [1] seconds:
-                     Service Class: com.j_spaces.core.client.JSpaceProxy | 0ab4e4e1-ca5e-4be3-bc00-ac4648108012
-                     Service Attributes Set: [net.jini.lookup.entry.Name(name=myExcelDemoSpace), com.j_spaces.lookup.entry.C
-    lusterName(name=NONE), com.j_spaces.lookup.entry.ClusterGroup(electionGroup=null,replicationGroup=NONE,loadBalancingGrou
-    p=null), com.j_spaces.lookup.entry.Persistent(type=MEMORY), com.j_spaces.lookup.entry.ContainerName(name=myExcelDemoSpac
-    e_container), net.jini.lookup.entry.ServiceInfo(name=JavaSpace,manufacturer=GigaSpaces Technologies Ltd.,vendor=GigaSpac
-    es,version=GigaSpaces Platform(TM) 6.0 XAP edition (build 2001-6),model=,serialNumber=), com.j_spaces.lookup.entry.HostN
-    ame(name=dotnet-pc), com.j_spaces.lookup.entry.State(state=started,electable=null,replicable=null)]
+             Group [ myLookupgroups ]
+    -- Lookup Service has [9] services, lookup took [39] millis, [0] seconds:
+             Service Class: com.gigaspaces.grid.gsm.GSMProxy | ac759574-48a8-4c3c-aed1-6ed04abec326
+             Service Attributes Set: [org.jini.rio.entry.OperationalStringEntry(name=Service Grid Infrastructure), org.jini.rio.entry.ApplianceInfo(osName=Linux,osVersion=3.16.0-28-generic,arch=amd64,jvmVendor=Sun Microsystems Inc.,jvmVersion=1.6.0_45,hostName=my-pc,hostAddress=192.168.10.199), net.jini.lookup.entry.Name(name=GSM), org.jini.rio.entry.StandardServiceType(name=GSM,description=,iconURL=null), org.jini.rio.entry.ComputeResourceUtilization(description=my-pc Linux, amd64, 3.16.0-28-generic,hostName=my-pc,address=192.168.10.199,utilization=NaN,utilizationMap={}), Class: org.jini.rio.qos.SLAThresholdEvent, eventID: 1000000001, Class: org.jini.rio.monitor.ProvisionMonitorEvent, eventID: 2764185076071141340, Class: org.jini.rio.monitor.ProvisionFailureEvent, eventID: -7832310585750966248, net.jini.lookup.entry.ServiceInfo(name=GSM,manufacturer=GigaSpaces Technologies, Inc.,vendor=,version=v10.1.0-XAPPremium-m6 Build 12586-1806,model=,serialNumber=), com.gigaspaces.management.entry.JMXConnection(jmxServiceURL=service:jmx:rmi:///jndi/rmi://192.168.10.199:10101/jmxrmi,name=GSM_192.168.10.199_10101)]
 
-                     Service Class: com.j_spaces.core.JSpaceContainerProxy | c8bd6d9d-0e79-4541-b7e4-1f3427279e5a
-                     Service Attributes Set: [net.jini.lookup.entry.Name(name=myExcelDemoSpace_container), com.j_spaces.look
-    up.entry.ContainerName(name=myExcelDemoSpace_container), net.jini.lookup.entry.ServiceInfo(name=JSpaceContainer,manufact
-    urer=GigaSpaces Technologies Ltd.,vendor=GigaSpaces,version=GigaSpaces Platform(TM) 6.0 XAP edition (build 2001-6),model
-    =,serialNumber=), com.j_spaces.lookup.entry.HostName(name=dotnet-pc)]
+             Service Class: com.gigaspaces.internal.client.spaceproxy.SpaceProxyImpl | 4de7900f-aa02-44ba-81b4-098317c23a14
+             Service Attributes Set: [net.jini.lookup.entry.Name(name=myDataGrid), com.j_spaces.lookup.entry.ClusterName(name=myDataGrid), com.j_spaces.lookup.entry.ClusterGroup(electionGroup=myDataGrid_container1:myDataGrid,replicationGroup=replGroupmyDataGrid_0,loadBalancingGroup=LB_FO_Backup), com.j_spaces.lookup.entry.ContainerName(name=myDataGrid_container1), net.jini.lookup.entry.ServiceInfo(name=JavaSpace,manufacturer=GigaSpaces Technologies Ltd.,vendor=GigaSpaces,version=GigaSpaces XAP Premium 10.1.0 M6 (build 12586-1806),model=,serialNumber=), com.j_spaces.lookup.entry.HostName(name=192.168.10.199), com.j_spaces.lookup.entry.State(state=started,electable=true,replicable=true), com.gigaspaces.cluster.activeelection.core.ActiveElectionState(state=ACTIVE)]
 
-                     Service Class: com.sun.jini.reggie.RegistrarProxy | e375ba99-4b1f-4c13-9cf0-4b5b76eb2327
-                     Service Attributes Set: [net.jini.lookup.entry.ServiceInfo(name=Lookup,manufacturer=Sun Microsystems, I
-    nc.,vendor=Sun Microsystems, Inc.,version=2.1,model=,serialNumber=), com.sun.jini.lookup.entry.BasicServiceType(type=Loo
-    kup), net.jini.lookup.entry.Name(name=Lookup), org.jini.rio.entry.OperationalStringEntry(name=Service Grid Infrastructur
-    e)]
+             Service Class: com.gigaspaces.grid.gsa.GSAProxy | ae38ef3b-35a2-4c2a-9ad6-0a19755034b2
+             Service Attributes Set: [org.jini.rio.entry.OperationalStringEntry(name=Service Grid Infrastructure), org.jini.rio.entry.ApplianceInfo(osName=Linux,osVersion=3.16.0-28-generic,arch=amd64,jvmVendor=Sun Microsystems Inc.,jvmVersion=1.6.0_45,hostName=my-pc,hostAddress=192.168.10.199), net.jini.lookup.entry.Name(name=Grid Service Agent), org.jini.rio.entry.StandardServiceType(name=Grid Service Agent,description=,iconURL=null), org.jini.rio.entry.ComputeResourceUtilization(description=my-pc Linux, amd64, 3.16.0-28-generic,hostName=my-pc,address=192.168.10.199,utilization=NaN,utilizationMap={}), Class: org.jini.rio.qos.SLAThresholdEvent, eventID: 1000000001, com.gigaspaces.management.entry.JMXConnection(jmxServiceURL=service:jmx:rmi:///jndi/rmi://192.168.10.199:10098/jmxrmi,name=Grid Service Agent_192.168.10.199_10098)]
 
-    -----------------------------------------------------------------------
-    -- Discovered Lookup Service at host [ 192.168.10.36:4160 ].
-    -- Lookup Service registered to the following jini groups:
-                     Group [ gigaspaces-6.0XAP-mishak ]
-    -- Lookup Service has [9] services, lookup took [1203] millis, [1] seconds:
-                     Service Class: $Proxy18 | 2edbae56-79d6-43bb-abb0-182c5b11a6d0
-                     Service Attributes Set: [org.jini.rio.entry.OperationalStringEntry(name=Compute Grid), org.jini.rio.ent
+             Service Class: com.gigaspaces.grid.gsc.GSCProxy | f267cf24-984f-4373-95c6-11b906601b11
+             Service Attributes Set: [org.jini.rio.entry.OperationalStringEntry(name=Service Grid Infrastructure), org.jini.rio.entry.ApplianceInfo(osName=Linux,osVersion=3.16.0-28-generic,arch=amd64,jvmVendor=Sun Microsystems Inc.,jvmVersion=1.6.0_45,hostName=my-pc,hostAddress=192.168.10.199), net.jini.lookup.entry.Name(name=GSC), org.jini.rio.entry.StandardServiceType(name=GSC,description=,iconURL=null), org.jini.rio.entry.ComputeResourceUtilization(description=my-pc Linux, amd64, 3.16.0-28-generic,hostName=my-pc,address=192.168.10.199,utilization=0.11943122836384142,utilizationMap={Memory=0.04842780075764728, CPU=0.19043465597003556}), Class: org.jini.rio.qos.SLAThresholdEvent, eventID: 1000000001, net.jini.lookup.entry.ServiceInfo(name=GSC,manufacturer=GigaSpaces Technologies, Inc.,vendor=,version=v10.1.0-XAPPremium-m6 Build 12586-1806,model=,serialNumber=), org.jini.rio.entry.BasicStatus(severity=StatusType.NORMAL), com.gigaspaces.management.entry.JMXConnection(jmxServiceURL=service:jmx:rmi:///jndi/rmi://192.168.10.199:10100/jmxrmi,name=GSC_192.168.10.199_10100)]
+
+             Service Class: com.sun.jini.reggie.RegistrarProxy | 806c30e8-a8e1-48b3-91dd-4cccd1cf084b
+             Service Attributes Set: [net.jini.lookup.entry.ServiceInfo(name=Lookup,manufacturer=Sun Microsystems, Inc.,vendor=Sun Microsystems, Inc.,version=2.1,model=,serialNumber=), com.sun.jini.lookup.entry.BasicServiceType(type=Lookup), net.jini.lookup.entry.Name(name=Lookup), org.jini.rio.entry.OperationalStringEntry(name=Service Grid Infrastructure), com.gigaspaces.management.entry.JMXConnection(jmxServiceURL=service:jmx:rmi:///jndi/rmi://192.168.10.199:10102/jmxrmi,name=LUS_192.168.10.199_10102)]
+
+             Service Class: org.openspaces.pu.container.servicegrid.PUServiceBeanProxy | ab0b9572-b51c-46ff-9ce2-31d92e9d8435
+             Service Attributes Set: [org.jini.rio.entry.OperationalStringEntry(name=myDataGrid), org.jini.rio.entry.ApplianceInfo(osName=Linux,osVersion=3.16.0-28-generic,arch=amd64,jvmVendor=Sun Microsystems Inc.,jvmVersion=1.6.0_45,hostName=my-pc,hostAddress=192.168.10.199), net.jini.lookup.entry.Name(name=myDataGrid.1), org.jini.rio.entry.StandardServiceType(name=myDataGrid.1,description=,iconURL=null), org.jini.rio.entry.ComputeResourceUtilization(description=my-pc Linux, amd64, 3.16.0-28-generic,hostName=my-pc,address=192.168.10.199,utilization=0.11943122836384142,utilizationMap={Memory=0.04842780075764728, CPU=0.19043465597003556}), Class: org.jini.rio.qos.SLAThresholdEvent, eventID: 1000000001, com.gigaspaces.management.entry.JMXConnection(jmxServiceURL=service:jmx:rmi:///jndi/rmi://192.168.10.199:10100/jmxrmi,name=myDataGrid.1_192.168.10.199_10100)]
+
+             Service Class: com.gigaspaces.grid.gsc.GSCProxy | 055212a0-0d63-4255-b03c-0105ea645259
+             Service Attributes Set: [org.jini.rio.entry.OperationalStringEntry(name=Service Grid Infrastructure), org.jini.rio.entry.ApplianceInfo(osName=Linux,osVersion=3.16.0-28-generic,arch=amd64,jvmVendor=Sun Microsystems Inc.,jvmVersion=1.6.0_45,hostName=my-pc,hostAddress=192.168.10.199), net.jini.lookup.entry.Name(name=GSC), org.jini.rio.entry.StandardServiceType(name=GSC,description=,iconURL=null), org.jini.rio.entry.ComputeResourceUtilization(description=my-pc Linux, amd64, 3.16.0-28-generic,hostName=my-pc,address=192.168.10.199,utilization=0.12554125717516085,utilizationMap={Memory=0.06121865565617705, CPU=0.18986385869414463}), Class: org.jini.rio.qos.SLAThresholdEvent, eventID: 1000000001, net.jini.lookup.entry.ServiceInfo(name=GSC,manufacturer=GigaSpaces Technologies, Inc.,vendor=,version=v10.1.0-XAPPremium-m6 Build 12586-1806,model=,serialNumber=), org.jini.rio.entry.BasicStatus(severity=StatusType.NORMAL), com.gigaspaces.management.entry.JMXConnection(jmxServiceURL=service:jmx:rmi:///jndi/rmi://192.168.10.199:10099/jmxrmi,name=GSC_192.168.10.199_10099)]
+
+             Service Class: com.gigaspaces.internal.client.spaceproxy.SpaceProxyImpl | 0a579e41-6114-43b0-817f-7b201a354b38
+             Service Attributes Set: [net.jini.lookup.entry.Name(name=myDataGrid), com.j_spaces.lookup.entry.ClusterName(name=myDataGrid), com.j_spaces.lookup.entry.ClusterGroup(electionGroup=myDataGrid_container1:myDataGrid,replicationGroup=replGroupmyDataGrid_0,loadBalancingGroup=LB_FO_Backup), com.j_spaces.lookup.entry.ContainerName(name=myDataGrid_container1_1), net.jini.lookup.entry.ServiceInfo(name=JavaSpace,manufacturer=GigaSpaces Technologies Ltd.,vendor=GigaSpaces,version=GigaSpaces XAP Premium 10.1.0 M6 (build 12586-1806),model=,serialNumber=), com.j_spaces.lookup.entry.HostName(name=192.168.10.199), com.j_spaces.lookup.entry.State(state=started,electable=true,replicable=true), com.gigaspaces.cluster.activeelection.core.ActiveElectionState(state=PENDING)]
+
+             Service Class: org.openspaces.pu.container.servicegrid.PUServiceBeanProxy | 02379c7e-8779-41c3-b409-451222c04d1b
+             Service Attributes Set: [org.jini.rio.entry.OperationalStringEntry(name=myDataGrid), org.jini.rio.entry.ApplianceInfo(osName=Linux,osVersion=3.16.0-28-generic,arch=amd64,jvmVendor=Sun Microsystems Inc.,jvmVersion=1.6.0_45,hostName=my-pc,hostAddress=192.168.10.199), net.jini.lookup.entry.Name(name=myDataGrid.1), org.jini.rio.entry.StandardServiceType(name=myDataGrid.1,description=,iconURL=null), org.jini.rio.entry.ComputeResourceUtilization(description=my-pc Linux, amd64, 3.16.0-28-generic,hostName=my-pc,address=192.168.10.199,utilization=0.12554125717516085,utilizationMap={Memory=0.06121865565617705, CPU=0.18986385869414463}), Class: org.jini.rio.qos.SLAThresholdEvent, eventID: 1000000001, com.gigaspaces.management.entry.JMXConnection(jmxServiceURL=service:jmx:rmi:///jndi/rmi://192.168.10.199:10099/jmxrmi,name=myDataGrid.1_192.168.10.199_10099)]
+
+
 
 {% endgcloak %}
 
