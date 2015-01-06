@@ -28,7 +28,7 @@ This is the simplest way to run the management console web application. Simply c
 
 The web container in the standalone mode listens by default on port 8099, so in order to view the management console application you will need to point your browser to `http://<standalone server host>:8099`, where `<standalone server host>` is the host on which you launched the `gs-webui` script. Note that in this mode, the default context path for the management console web application is the root context path ("/").
 
-To override the default port, you can either use the `com.gs.webui.port` system property, or specify `-port <listen port>` as an argument to the `gs-webui` script. Here is an example on how it's done (starting to listen on port 80):
+To override the default port, you can either use the `org.openspaces.launcher.port` system property (by defining WEBUI_PORT variable), or specify `-port <listen port>` as an argument to the `gs-webui` script. Here is an example on how it's done (starting to listen on port 80):
 
 {% inittab starting-stanalone|top %}
 {% tabcontent Linux %}
@@ -56,6 +56,36 @@ gs-webui.bat
 
 {% endtabcontent %}
 {% endinittab %}
+
+To override the default host, you can either use the `org.openspaces.launcher.host` system property (by defining WEBUI_HOST variable), or specify `-host <myhost>` as an argument to the `gs-webui` script. Here is an example on how it's done (starting on host 111.22.33.4):
+
+{% inittab starting-stanalone|top %}
+{% tabcontent Linux %}
+
+{% highlight console %}
+#Specify host via a command line argument
+./gs-webui.sh -host 111.22.33.4
+
+#Specify host with a system property
+export WEBUI_HOST=111.22.33.4
+./gs-webui.sh
+{% endhighlight %}
+
+{% endtabcontent %}
+{% tabcontent Windows %}
+
+{% highlight console %}
+#Specify host via a command line argument
+gs-webui.bat -host 111.22.33.4
+
+#Specify host with a system property
+set WEBUI_HOST=111.22.33.4
+gs-webui.bat
+{% endhighlight %}
+
+{% endtabcontent %}
+{% endinittab %}
+
 
 Note that you can also use the `WEBUI_JAVA_OPTIONS` environment variable to set any JVM parameter, such as heap size (defaults to `-Xmx512m`) and other JVM settings.
 
