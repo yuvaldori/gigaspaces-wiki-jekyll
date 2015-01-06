@@ -57,19 +57,19 @@ gs-webui.bat
 {% endtabcontent %}
 {% endinittab %}
 
-To bind to specific host, you can either use the `org.openspaces.launcher.bind-address` system property (by defining BIND_ADDRESS variable), or specify `-bind-address<myhost>` as an argument to the `gs-webui` script.
+To bind to specific host, you can either use the `org.openspaces.launcher.bind-address` system property (by defining BIND_ADDRESS variable), or specify `-bind-address <myhost>` as an argument to the `gs-webui` script.
 Default used bind address is 0.0.0.0 .
-Here is an example on how it's done (starting on host 192.100.100.1):
+Here is an example on how it's done (starting on host 192.168.10.1):
 
 {% inittab starting-stanalone|top %}
 {% tabcontent Linux %}
 
 {% highlight console %}
 #Specify bind address via a command line argument
-./gs-webui.sh -bind-address 192.100.100.1
+./gs-webui.sh -bind-address 192.168.10.1
 
 #Specify bind address with a system property
-export BIND_ADDRESS=192.100.100.1
+export BIND_ADDRESS=192.168.10.1
 ./gs-webui.sh
 {% endhighlight %}
 
@@ -78,10 +78,10 @@ export BIND_ADDRESS=192.100.100.1
 
 {% highlight console %}
 #Specify bind address via a command line argument
-gs-webui.bat -bind-address 192.100.100.1
+gs-webui.bat -bind-address 192.168.10.1
 
 #Specify bind address with a system property
-set BIND_ADDRESS=192.100.100.1
+set BIND_ADDRESS=192.168.10.1
 gs-webui.bat
 {% endhighlight %}
 
