@@ -57,17 +57,19 @@ gs-webui.bat
 {% endtabcontent %}
 {% endinittab %}
 
-To override the default host, you can either use the `org.openspaces.launcher.host` system property (by defining WEBUI_HOST variable), or specify `-host <myhost>` as an argument to the `gs-webui` script. Here is an example on how it's done (starting on host 111.22.33.4):
+To bind to specific host, you can either use the `org.openspaces.launcher.bind-address` system property (by defining BIND_ADDRESS variable), or specify `-bind-address<myhost>` as an argument to the `gs-webui` script.
+Default used bind address is 0.0.0.0 .
+Here is an example on how it's done (starting on host 192.100.100.1):
 
 {% inittab starting-stanalone|top %}
 {% tabcontent Linux %}
 
 {% highlight console %}
-#Specify host via a command line argument
-./gs-webui.sh -host 111.22.33.4
+#Specify bind address via a command line argument
+./gs-webui.sh -bind-address 192.100.100.1
 
-#Specify host with a system property
-export WEBUI_HOST=111.22.33.4
+#Specify bind address with a system property
+export BIND_ADDRESS=192.100.100.1
 ./gs-webui.sh
 {% endhighlight %}
 
@@ -75,11 +77,11 @@ export WEBUI_HOST=111.22.33.4
 {% tabcontent Windows %}
 
 {% highlight console %}
-#Specify host via a command line argument
-gs-webui.bat -host 111.22.33.4
+#Specify bind address via a command line argument
+gs-webui.bat -bind-address 192.100.100.1
 
-#Specify host with a system property
-set WEBUI_HOST=111.22.33.4
+#Specify bind address with a system property
+set BIND_ADDRESS=192.100.100.1
 gs-webui.bat
 {% endhighlight %}
 
