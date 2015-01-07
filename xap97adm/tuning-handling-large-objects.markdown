@@ -73,9 +73,7 @@ public static void main(String[] args) {
 
 	//reading Space File from space
 	SpaceFile spaceFile2 = gigaspace.readById(SpaceFile.class, "test.pdf");
-	bytesTofile(spaceFile2.getContent(), "d:
-  temp
-  test_.pdf");
+	bytesTofile(spaceFile2.getContent(), "d:/temp/test_.pdf");
 }
 
 public static byte[] fileToBytes(String fileName) {
