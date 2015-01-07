@@ -301,9 +301,9 @@ As specified in the example above, it is required to set the `cluster-config.gro
 
 The `cluster-config.groups.group.repl-policy.processing-type` may have the following values: 
 
-- `multi-bucket` - 
-- `global-order` - 
-- `multi-source` - 
+- `global-order`  - Do not maintain any ordering. Mirror consolidation is not executed.
+- `multi-source` - Maintain ordering per partition. Transaction consolidation is executed.
+
 
 In order to take advantage of this feature, mirror operation grouping should be set to `group-by-space-transaction` in mirror `pu.xml`:
 

@@ -6,8 +6,10 @@ weight: 950
 parent: none
 ---
 
+{%summary%}{%endsummary%}
 
-#### gs.xml mapping schema
+
+# gs.xml mapping schema
 
 {%panel%}
 
@@ -16,7 +18,7 @@ parent: none
 {%endpanel%}
 
 
-#### Java
+# Java
 
 {%panel%}
 
@@ -31,28 +33,28 @@ parent: none
 
 {%endpanel%}
 
+# MongoDB
+{%panel%}
+[Mongo-Datasource API Documentation](http://www.gigaspaces.com/docs/mongoeds-docs10.0/apidocs/)
+{%endpanel%}
 
 
 
-#### .NET
+# .NET
 {%panel%}
 [.Net Documentation](http://www.gigaspaces.com/docs/dotnetdocs10.0/) -- _GigaSpaces XAP.NET classes_
 {%endpanel%}
 
-#### Scala
+# Scala
 {%panel%}
 [Scala API Documentation](http://www.gigaspaces.com/docs/scaladocs10.0)
 {%endpanel%}
 
-#### C++
+# C++
 {%panel%}
 [C+\+ API Documentation](http://www.gigaspaces.com/docs/cppdocs10.0/annotated.html) -- _GigaSpaces C+\+ classes_
 {%endpanel%}
 
-#### MongoDB
-{%panel%}
-[Mongo-Datasource API Documentation](http://www.gigaspaces.com/docs/mongoeds-docs10.0/apidocs/)
-{%endpanel%}
 
 
 
