@@ -359,11 +359,12 @@ The following example demonstrates how to set the timeout for waiting for distri
 
 Distributed transaction participants' data will be processed individually if ten seconds have passed and all of the participants data has **not** arrived or if 20 new operations were executed after the distributed transaction.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Attribute|Default Value|
 |:--------|:------------|
-|dist-tx-wait-timeout-millis|60000 milliseconds|
-|dist-tx-wait-for-opers|unlimited (-1 = unlimited)|
+|space-config.mirror-service.distributed-transaction-processing.wait-timeout|60000 milliseconds|
+|space-config.mirror-service.distributed-transaction-processing.wait-for-operations|unlimited (-1 = unlimited)|
+
 
 {% info %}
 Note that by setting the "cluster-config.groups.group.repl-policy.processing-type" property to "multi-source" all reliable asynchronous replication targets for that space will work in distributed transaction consolidation mode (For example: Gateway Sink).
