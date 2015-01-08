@@ -341,10 +341,13 @@ for (GroupByValue group : groupByResult) {
 
 # Custom Aggregation
 
-
 You may extend the [SpaceEntriesAggregator](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/com/gigaspaces/query/aggregators/SpaceEntriesAggregator.html) to execute user defined aggregation logic on a given field (path) and a given entries set based on a query.
 
-Below example of a `String` field concatenation aggregator - for each entry extracts the field (path) value and concatenates with the previous values extracted.
+The example below shows a `String` field concatenation aggregator - for each entry extracts the field (path) value and concatenates with the previous values extracted.
+
+The `aggregate` method is called within each partition. Here we keep the `ConcatAggregator` object (and its `transient StringBuilder sb`) alive for the duration of the scan so it can be reused to concatenate the values.
+
+The `aggregateIntermediateResult` method is called at the client side (only once). In this case this will be called with a brand new object created on the client side.
 
 Executing the Aggregation logic:
 
@@ -401,3 +404,10 @@ public class ConcatAggregator extends SpaceEntriesAggregator<String> {
 }
 
 {%endhighlight%}
+
+
+Detailed Flow:
+
+The `aggregate(SpaceEntriesAggregatorContext context)` is called within each partition for each matching space object. The actual Aggregation is done within the instance members (in this case the `transient StringBuilder sb`). When all matching space objects have been scanned, the `getIntermediateResult` method is called to return the aggregation result of that partition (in this case – a string) back to the client (that is holding the clustered space proxy).
+
+The proxy holds a different instance of the `ConcatAggregator` custom aggregator, whenever it receives an intermediate result from each partition it calls `aggregateIntermediateResult(String partitionResult)`. Once all partitions have returned their results, the proxy invokes the `getFinalResult` method to retrieve the final aggregation result. This method is not shown in the example above since it’s default implementation is to call `getIntermediateResult` method, which yields the correct value in most aggregation implementations. There might be some special cases where you will need to implement the `getFinalResult` method.
