@@ -98,15 +98,6 @@ This page list all the 3rd party libraries shipped with GigaSpaces XAP on a per 
 
 {% endtabcontent %}
 
-{% tabcontent REST %}
-
-{: .table .table-bordered}
-| Product | Product Page | Version | License | License Page | Required | Component |
-|:--------|:-------------|:--------|:--------|:-------------|:---------|:----------|
-| JSONDoc | [http://jsondoc.org/](http://jsondoc.org/) | 1.0.9 | MIT | [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php) | Yes | REST Web App |
-
-{% endtabcontent %}
-
 {% endinittab %}
 
 
