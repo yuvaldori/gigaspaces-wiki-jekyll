@@ -59,12 +59,32 @@ or
 
 *giga-space and space-name attributes can not be used together.
 
+
+#Nested SpaceDocument
+
+The REST API supports writing nested SpaceDocument.
+
+The JSON representation is:
+{% highlight json %}
+{
+  "typeName": "theTypeOfTheNestedObject-SpaceDocument",
+  "version": 0, //optional
+  "transient": true/false, //optional
+  "properties": {
+    "prop1": "val1",
+    "prop2": "val2"
+  }
+}
+{% endhighlight %}
+
+
 # Limitations
 
 *   In case that the ports were in use, the deployment will fail.
 *   Not supported with embedded space thus we recommend using it as a separate processing unit.
 *   The API support writing for Document objects only.
-*   Currently there is no support for connecting to a secured space
+*   Supported collections: Arrays and Lists of SpaceDocument.
+*   Currently there is no support for connecting to a secured space.
 
 # Removed APIs
 
