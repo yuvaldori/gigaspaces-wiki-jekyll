@@ -311,25 +311,44 @@ With the following `sla.xml` we have a partitioned (2 partitions) data grid with
 The device allocation per a machine is managed via the `/tmp/blobstore/devices/device-per-space.properties` file. You can specify this file location using the `com.gs.blobstore-devices` system property when setting the `GSC_JAVA_OPTIONS`. Each time a new blobstore space is deployed an Entry is added to this file listing the data grid instances provisioned on the machine.
 
 # Central Storage Support
+
 BlobStore supports [`storage area network (SAN)`](http://en.wikipedia.org/wiki/Storage_area_network) which means the disk drive devices are in another machine but appear like locally attached.
 Most storage networks use the iSCSI or Fibre Channel protocol for communication between servers and disk drive devices.
 
+
 In central storage mode each space is attached to a pre defined device as explained on these examples:
 
+{%section%}
+{%column width=80% %}
+
 **Example:**
 
-if we deployed a partitioned space with a single backup (2,1) on a single storage array with the following devices devices=[/dev/sda1,/dev/sdb1,/dev/sdc1,/dev/sdd1]
-the first primary will be attached to /dev/sda1, the second primary will be attached to /dev/sdb1, the first backup will be attached to /dev/sdc1
-and the second backup will be attached to /dev/sdd1.
+We deployed a partitioned Space with a single backup (2,1) on a single storage array with the following devices `devices=[/dev/sda1,/dev/sdb1,/dev/sdc1,/dev/sdd1]`
+the first primary will be attached to `/dev/sda1`, the second primary will be attached to `/dev/sdb1`, the first backup will be attached to `/dev/sdc1`
+and the second backup will be attached to `/dev/sdd1`.
+{%endcolumn%}
+{%column width=20% %}
+{%popup /attachment_files/ssd/ssd-single-device.png%}
+{%endcolumn%}
+{%endsection%}
 
-BlobStore also support in deployment with 2 different storage arrays, with this feature you can ensure that a primary and its backup(s)
+<br>
+
+The BlobStore also supports deployment with 2 different storage arrays. With this feature you can ensure that a primary and its backup(s)
 cannot be provisioned to the same storage array.
 
+{%section%}
+{%column width=80% %}
 **Example:**
 
-if we deployed a single space with a single backup (1,1) on 2 storage arrays with the following devices devices=[/dev/sda1],[/dev/sdb1]
-the first primary will be attached to /dev/sda1, the second primary will be attached to /dev/sdb1, the first backup will be attached to /dev/sdc1
-and the second backup will be attached to /dev/sdd1.
+We deployed a single space with a single backup (1,1) on 2 storage arrays with the following devices `devices=[/dev/sda1],[/dev/sdb1]`
+the first primary will be attached to `/dev/sda1`, the second primary will be attached to `/dev/sdb1`, the first backup will be attached to `/dev/sdc1`
+and the second backup will be attached to `/dev/sdd1`.
+{%endcolumn%}
+{%column width=20% %}
+{%popup /attachment_files/ssd/ssd-multiple-device.png%}
+{%endcolumn%}
+{%endsection%}
 
 # BlobStore Space re-deploy
 
