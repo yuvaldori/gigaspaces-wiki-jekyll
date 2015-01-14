@@ -28,7 +28,8 @@ REST API    xap101/rest-service-overview.markdown
 Deploy REST API via CLI xap101adm/rest-deploy-command-line-interface.markdown
 
 
-
+upgrade to hibernate 4.1.8
+upgrading to Spring 4.1
 
 {%endcomment%}
 
