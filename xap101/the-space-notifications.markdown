@@ -248,12 +248,14 @@ class MyBean {
     @Resource(name="gigaSpace")
     private GigaSpace gigaSpace;
 
-	boolean isPrimary;
+	static AtomicBoolean isPostPrimaryCalled = new AtomicBoolean(false);
 
 	@PostPrimary
 	public void afterChangeModeToPrimary(AfterSpaceModeChangeEvent event) {
-		if (SpaceUtils.isSameSpace(gigaSpace.getSpace(), event.getSpace()))
-			isPrimary = true;
+		if (isPostPrimaryCalled.compareAndSet(false, true)
+        {
+            initialize();
+        }
 	}
 
 	@PostBackup
@@ -264,6 +266,13 @@ class MyBean {
 
 }
 {% endhighlight %}
+
+{%note%}
+The method compareAndSet() allows you to compare the current value of the AtomicBoolean to an expected value.
+If the current value is equal to the expected value, a new value can be set on the AtomicBoolean.
+The compareAndSet() method is atomic, so only a single thread can execute it at the same time.
+Thus, the compareAndSet() method can be used to implement a simple synchronization like lock.
+{%endnote%}
 
 # Listening for Space Mode Changed Events
 
