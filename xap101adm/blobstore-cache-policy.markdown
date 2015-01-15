@@ -318,44 +318,67 @@ Most storage networks use the iSCSI or Fibre Channel protocol for communication 
 
 In central storage mode each space is attached to a pre defined device as explained on these examples:
 
+#### Single storage array
+
 {%section%}
 {%column width=80% %}
+If we deploy a partitioned Space with a single backup (2,1), the first primary will be attached to `/dev/sda1`, the second primary will be attached to `/dev/sdb1`, the first backup will be attached to `/dev/sda2` and the second backup will be attached to `/dev/sdb2`.
 
-**Example:**
-
-We deployed a partitioned Space with a single backup (2,1) on a single storage array with the following devices `devices=[/dev/sda1,/dev/sdb1,/dev/sdc1,/dev/sdd1]`
-the first primary will be attached to `/dev/sda1`, the second primary will be attached to `/dev/sdb1`, the first backup will be attached to `/dev/sdc1`
-and the second backup will be attached to `/dev/sdd1`.
 {%endcolumn%}
 {%column width=20% %}
 {%popup /attachment_files/ssd/ssd-single-device.png%}
 {%endcolumn%}
 {%endsection%}
 
-<br>
+Configuration :
+
+{%highlight xml%}
+<blob-store:sandisk-blob-store id="myBlobStore" blob-store-capacity-GB="100"
+    blob-store-cache-size-MB="100"
+    devices="[/dev/sda1,/dev/sdb1,/dev/sda2,/dev/sdb2]"
+    volume-dir="/tmp/data${clusterInfo.runningNumber}"
+    central-storage="true">
+</blob-store:sandisk-blob-store>
+{%endhighlight%}
+
+
+
 
 The BlobStore also supports deployment with 2 different storage arrays. With this feature you can ensure that a primary and its backup(s)
 cannot be provisioned to the same storage array.
 
+#### Two storage arrays:
+
 {%section%}
 {%column width=80% %}
-**Example:**
-
-We deployed a single space with a single backup (1,1) on 2 storage arrays with the following devices `devices=[/dev/sda1],[/dev/sdb1]`
-the first primary will be attached to `/dev/sda1`, the second primary will be attached to `/dev/sdb1`, the first backup will be attached to `/dev/sdc1`
-and the second backup will be attached to `/dev/sdd1`.
+If we deploy a partitioned Space with a single backup (2,1), the first primary will be attached to `/dev/sda1`, the second primary will be attached to `/dev/sdb1`, the first backup will be attached to `/dev/sdc1` and the second backup will be attached to `/dev/sdc2`.
 {%endcolumn%}
 {%column width=20% %}
 {%popup /attachment_files/ssd/ssd-multiple-device.png%}
 {%endcolumn%}
 {%endsection%}
 
+Configuration :
+
+{%highlight xml%}
+<blob-store:sandisk-blob-store id="myBlobStore"
+    blob-store-capacity-GB="100"
+    blob-store-cache-size-MB="100"
+    devices="[/dev/sda1,/dev/sdb1],[/dev/sdc1,/dev/sdd1]"
+    volume-dir="/tmp/data${clusterInfo.runningNumber}"
+    central-storage="true">
+</blob-store:sandisk-blob-store>
+
+{%endhighlight%}
+
+
+
 # BlobStore Space re-deploy
 
 When you undeploy a blobstore space use the `XAP_HOM/bin/undeploy-grid.groovy` comes with the RPM. It undeploys the blobstore space and restart all its GSCs.
 {% highlight bash %}
 export PATH:/gigaspaces-xap-premium-{%currentversion%}.0/bin/tools/groovy/bin/
-cd /gigaspaces-xap-premium-%currentversion%}/bin/tools/groovy/bin
+cd /gigaspaces-xap-premium-{%currentversion%}/bin/tools/groovy/bin
 $ groovy undeploy-grid.groovy <LUS HostName> <BlobStore-Space-Name>
 {% endhighlight %}
 
@@ -373,7 +396,7 @@ public class Person {
 {% endhighlight %}
 
 Here is a sample xml decoration for a POJO class disabling `blobStore` mode:
-{% highlight java %}
+{% highlight xml %}
 <gigaspaces-mapping>
     <class name="com.test.Person" "blobstoreEnabled"="false" >
      .....
