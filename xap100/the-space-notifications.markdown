@@ -218,6 +218,7 @@ class MyBean {
 }
 {% endhighlight %}
 
+
 In order to enable this feature, the following should be placed within the application context configuration:
 
 {% inittab os_simple_space|top %}
@@ -231,6 +232,7 @@ In order to enable this feature, the following should be placed within the appli
 {% endtabcontent %}
 {% tabcontent Plain XML %}
 
+
 {% highlight xml %}
 
 <bean id="coreAnntoationSupport" class="org.openspaces.core.config.AnnotationSupportBeanDefinitionParser" />
@@ -239,6 +241,35 @@ In order to enable this feature, the following should be placed within the appli
 {% endtabcontent %}
 {% endinittab %}
 
+When there is more than one Proxy (e.g: embedded, remote, ...), the following should be done in order to be sure that the Primary Backup Notifications arrived from the current Space instance:
+
+{% highlight java %}
+class MyBean {
+
+    @Resource(name="gigaSpace")
+    private GigaSpace gigaSpace;
+
+	boolean isPrimary;
+
+	@PostPrimary
+	public void afterChangeModeToPrimary(AfterSpaceModeChangeEvent event) {
+		if (SpaceUtils.isSameSpace(gigaSpace.getSpace(), event.getSpace()))
+			isPrimary = true;
+	}
+
+	@PostBackup
+	public void afterChangeModeToBackup(AfterSpaceModeChangeEvent event) {
+		if (SpaceUtils.isSameSpace(gigaSpace.getSpace(), event.getSpace()))
+			isPrimary = false;
+	}
+
+}
+{% endhighlight %}
+
+The method compareAndSet() allows you to compare the current value of the AtomicBoolean to an expected value.
+If the current value is equal to the expected value, a new value can be set on the AtomicBoolean.
+The compareAndSet() method is atomic, so only a single thread can execute it at the same time.
+Thus, the compareAndSet() method can be used to implement a simple synchronization like lock.
 
 {% highlight java %}
 class MyBean {
@@ -264,13 +295,6 @@ class MyBean {
 
 }
 {% endhighlight %}
-
-{%note%}
-The method compareAndSet() allows you to compare the current value of the AtomicBoolean to an expected value.
-If the current value is equal to the expected value, a new value can be set on the AtomicBoolean.
-The compareAndSet() method is atomic, so only a single thread can execute it at the same time.
-Thus, the compareAndSet() method can be used to implement a simple synchronization like lock.
-{%endnote%}
 
 
 # Listening for Space Mode Changed Events
