@@ -99,6 +99,13 @@ Where has the Service Class Loader gone? The Service Class Loader is still used 
 The JEE Class Loader is created lazily when the first web application deployed into the GSC. This avoids the overhead involved when creating none-web processing units. There can also be several JEE class loaders per web container type, allowing to support both jetty and tomcat (for example) in the future quite easily.
 {% endnote %}
 
+
+### Sharing Libraries Between Multiple Processing Units
+
+{%refer%}
+In some cases, multiple Processing Units use the same JAR files.In such cases it makes sense to place these JAR files in a central location accessible by all the Processing Units rather than packaging them individually with each of the Processing Units. [Read more](./the-processing-unit-structure-and-configuration.html#sharing-libraries-between-multiple-processing-units)
+{%endrefer%}
+
 # Bootstrap Context Listener
 
 When deploying a web application onto GigaSpaces Service Grid the `web.xml` of the web application will be automatically changed to include a `BootstrapWebApplicationContextListener`. The Bootstrap Context Listener provides the following services:
