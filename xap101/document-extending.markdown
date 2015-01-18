@@ -230,7 +230,7 @@ public static void main(String[] args) {
 		EmployeeDoc doc2 = new EmployeeDoc();
 		doc2.setId("2");
 		doc2.setFirstNme("John");
-		doc2.setLastNme("");
+		doc2.setLastNme("Walters");
 		doc2.setEmployeNumber("1234");
 
 		space.write(doc2);
