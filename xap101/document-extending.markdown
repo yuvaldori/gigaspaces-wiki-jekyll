@@ -12,13 +12,7 @@ weight: 200
 
 While documents provide us with a dynamic schema, they force us to give up Java's type-safety for working with type less key-value pairs. GigaSpaces supports extending the SpaceDocument class to provide a type-safe wrapper for documents which is much easier to code with, while maintaining the dynamic schema.
 
-{% comment %}
-![document_arch.jpg](/attachment_files/document_arch.jpg)
-{% endcomment %}
 
-{%comment%}
-{% plus %} Do not confuse this with [Document-POJO interoperability](./document-pojo-interoperability.html), which is a different feature.
-{%endcomment%}
 
 # Definition
 
@@ -121,7 +115,7 @@ the the sub classes in the following way:
 
 {%highlight java%}
 SpaceTypeDescriptor employeeDescriptor = new SpaceTypeDescriptorBuilder(
-				"subclass document", parent type descriptor).create();
+				"Subclass Document Type Name", parentSpaceTypeDescriptor).create();
 {%endhighlight%}
 
 Here is an example:

@@ -6,21 +6,12 @@ parent: document-overview.html
 weight: 200
 ---
 
-{%comment%}
-{% summary %}Extending the SpaceDocument class{% endsummary %}
 
-# Overview
-{%endcomment%}
+{% summary %} {% endsummary %}
 
 While documents provide us with a dynamic schema, they force us to give up Java's type-safety for working with type less key-value pairs. GigaSpaces supports extending the SpaceDocument class to provide a type-safe wrapper for documents which is much easier to code with, while maintaining the dynamic schema.
 
-{% comment %}
-![document_arch.jpg](/attachment_files/document_arch.jpg)
-{% endcomment %}
 
-{%comment%}
-{% plus %} Do not confuse this with [Document-POJO interoperability](./document-pojo-interoperability.html), which is a different feature.
-{%endcomment%}
 
 # Definition
 
@@ -114,3 +105,146 @@ public void example(GigaSpace gigaSpace) {
     ProductDocument result3 = gigaSpace.readById(new IdQuery<ProductDocument>("Product", "hw-1234"));
 }
 {% endhighlight %}
+
+
+# Inheritance  Support
+
+SpaceDocument query supports inheritance relationships so that entries of a sub-class are visible in the context of the super class, but not the other way around. For example, suppose class EmployeeDoc extends class PersonDoc and PersonDoc extends from `SpaceDocument`, you can register
+the the sub classes in the following way:
+
+{%highlight java%}
+SpaceTypeDescriptor employeeDescriptor = new SpaceTypeDescriptorBuilder(
+				"Subclass Document Type Name", parentSpaceTypeDescriptor).create();
+{%endhighlight%}
+
+Here is an example:
+
+{%inittab%}
+{%tabcontent PersonDoc%}
+{%highlight java%}
+public class PersonDoc extends SpaceDocument {
+
+	public static final String TYPE_ID = "ID";
+	public static final String TYPE_NAME = "PersonDoc";
+	public static final String FIRST_NAME = "FirstName";
+	public static final String LAST_NAME = "LastName";
+
+	public PersonDoc() {
+		super(TYPE_NAME);
+	}
+
+	public PersonDoc(String type) {
+		super(type);
+	}
+	public void setId(String id) {
+		super.setProperty(TYPE_ID, id);
+	}
+
+	public String getId() {
+		return super.getProperty(TYPE_ID);
+	}
+
+	public String getFirstName() {
+		return super.getProperty(FIRST_NAME);
+	}
+
+	public String getLastName() {
+		return super.getProperty(FIRST_NAME);
+	}
+
+	public void setFirstNme(String name) {
+		super.setProperty(FIRST_NAME, name);
+	}
+
+	public void setLastNme(String name) {
+		super.setProperty(LAST_NAME, name);
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent EmployeeDoc%}
+{%highlight java%}
+public class EmployeeDoc extends PersonDoc {
+
+	public static final String TYPE_NAME = "EmployeeDoc";
+	public static final String EMPLOYE_NUMBER = "EMPLOYE_NUMBER";
+
+	public EmployeeDoc() {
+		super(TYPE_NAME);
+	}
+
+	public String getEmployeNumber() {
+		return super.getProperty(EMPLOYE_NUMBER);
+	}
+
+	public void setEmployeNumber(String number)
+	{
+		super.setProperty(EMPLOYE_NUMBER, number);
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent RegisterDocument%}
+{%highlight java%}
+	static public void registerDocument(GigaSpace space) {
+		SpaceTypeDescriptor personDescriptor = new SpaceTypeDescriptorBuilder(
+				PersonDoc.TYPE_NAME).idProperty(PersonDoc.TYPE_ID).create();
+		// Register type:
+		space.getTypeManager().registerTypeDescriptor(personDescriptor);
+
+		SpaceTypeDescriptor employeeDescriptor = new SpaceTypeDescriptorBuilder(
+				EmployeeDoc.TYPE_NAME, personDescriptor).create();
+		// Register type:
+		space.getTypeManager().registerTypeDescriptor(employeeDescriptor);
+	}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent Program%}
+{%highlight java%}
+public static void main(String[] args) {
+
+		// Create the Space
+		GigaSpace space = new GigaSpaceConfigurer(new EmbeddedSpaceConfigurer(
+				"mySpace")).gigaSpace();
+
+
+		registerDocument(space);
+
+		PersonDoc doc1 = new PersonDoc();
+		doc1.setId("1");
+		doc1.setFirstNme("John");
+		doc1.setLastNme("Fellner");
+
+		space.write(doc1);
+
+		EmployeeDoc doc2 = new EmployeeDoc();
+		doc2.setId("2");
+		doc2.setFirstNme("John");
+		doc2.setLastNme("Walters");
+		doc2.setEmployeNumber("1234");
+
+		space.write(doc2);
+
+		SQLQuery<SpaceDocument> query1 = new SQLQuery<SpaceDocument>(
+				PersonDoc.TYPE_NAME, "");
+
+		SpaceDocument[] result = space.readMultiple(query1);
+
+        // You should see two objects
+		System.out.println(result.length);
+
+		SQLQuery<SpaceDocument> query2 = new SQLQuery<SpaceDocument>(
+				EmployeeDoc.TYPE_NAME, "");
+
+		SpaceDocument[] result2 = space.readMultiple(query2);
+
+        // You should see 1 object
+		System.out.println(result2.length);
+	}
+
+{%endhighlight%}
+{%endtabcontent%}
+{%endinittab%}
