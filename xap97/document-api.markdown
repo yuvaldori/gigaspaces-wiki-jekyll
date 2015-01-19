@@ -309,6 +309,86 @@ The `Document` properties values can be either scalars (integers, strings, enumu
 - Changing nested properties in an embedded space is not safe.
 {%endnote%}
 
+# Document Hierarchy
+
+SpaceDocument query supports hierarchical relationships so that entries of a child are visible in the context of the parent document, but not the other way around. For example, a document with name `Employee`   can register its parent document `Person` in the following way:
+
+{%highlight java%}
+SpaceTypeDescriptor employeeDescriptor = new SpaceTypeDescriptorBuilder(
+				"Child Document Type Name", parentSpaceTypeDescriptor).create();
+{%endhighlight%}
+
+Here is an example:
+
+{%inittab%}
+{%tabcontent Program%}
+{%highlight java%}
+	public static void main(String[] args) {
+
+		// Create the Space
+		GigaSpace space = new GigaSpaceConfigurer(new EmbeddedSpaceConfigurer(
+				"mySpace")).gigaSpace();
+
+		registerDocument(space);
+
+		Map<String, Object> properties = new HashMap<String, Object>();
+		properties.put("Id", "1234");
+		properties.put("FirstName", "John");
+		properties.put("LastName", "Fellner");
+
+		SpaceDocument document1 = new SpaceDocument("Person", properties);
+
+		space.write(document1);
+
+		properties = new HashMap<String, Object>();
+		properties.put("Id", "12345");
+		properties.put("FirstName", "John");
+		properties.put("LastName", "Walters");
+		properties.put("employeeId", "1234");
+
+		SpaceDocument document2 = new SpaceDocument("Employee", properties);
+
+		space.write(document2);
+
+		SQLQuery<SpaceDocument> query1 = new SQLQuery<SpaceDocument>(
+				"Person", "");
+
+		SpaceDocument[] result = space.readMultiple(query1);
+
+		// You should see two documents
+		System.out.println(result.length);
+
+		SQLQuery<SpaceDocument> query2 = new SQLQuery<SpaceDocument>(
+				"Employee", "");
+
+		SpaceDocument[] result2 = space.readMultiple(query2);
+
+		// You should see one document
+		System.out.println(result2.length);
+
+		System.exit(1);
+
+	}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent RegisterDocument%}
+{%highlight java%}
+	static public void registerDocument(GigaSpace space) {
+		SpaceTypeDescriptor personDescriptor = new SpaceTypeDescriptorBuilder(
+				"Person").idProperty("Id").create();
+		// Register type:
+		space.getTypeManager().registerTypeDescriptor(personDescriptor);
+
+		SpaceTypeDescriptor employeeDescriptor = new SpaceTypeDescriptorBuilder(
+				"Employee", personDescriptor).create();
+		// Register type:
+		space.getTypeManager().registerTypeDescriptor(employeeDescriptor);
+	}
+{%endhighlight%}
+{%endtabcontent%}
+{%endinittab%}
+
 # Indexing
 
 Properties and nested paths can be [indexed](./indexing.html) to boost queries performance. In the type registration sample above the **Name** and **Price** properties are indexed.

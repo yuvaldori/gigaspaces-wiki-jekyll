@@ -296,7 +296,7 @@ The `Document` properties values can be either scalars (integers, strings, enumu
 
 # Document Hierarchy
 
-SpaceDocument query supports hierarchical relationships so that entries of a child are visible in the context of the parent SpaceDocument, but not the other way around. For example, a SpaceDocument with name `Employee`   can register its parent SpaceDocument `Person` in the following way:
+SpaceDocument query supports hierarchical relationships so that entries of a child are visible in the context of the parent document, but not the other way around. For example, a document with name `Employee`   can register its parent document `Person` in the following way:
 
 {%highlight java%}
 SpaceTypeDescriptor employeeDescriptor = new SpaceTypeDescriptorBuilder(
