@@ -190,12 +190,13 @@ public class EmployeeDoc extends PersonDoc {
 {%highlight java%}
 	static public void registerDocument(GigaSpace space) {
 		SpaceTypeDescriptor personDescriptor = new SpaceTypeDescriptorBuilder(
-				PersonDoc.TYPE_NAME).idProperty(PersonDoc.TYPE_ID).create();
+				PersonDoc.TYPE_NAME).documentWrapperClass(PersonDoc.class).
+				idProperty(PersonDoc.TYPE_ID).create();
 		// Register type:
 		space.getTypeManager().registerTypeDescriptor(personDescriptor);
 
 		SpaceTypeDescriptor employeeDescriptor = new SpaceTypeDescriptorBuilder(
-				EmployeeDoc.TYPE_NAME, personDescriptor).create();
+				EmployeeDoc.TYPE_NAME, personDescriptor).documentWrapperClass(EmployeeDoc.class).create();
 		// Register type:
 		space.getTypeManager().registerTypeDescriptor(employeeDescriptor);
 	}
@@ -223,7 +224,7 @@ public static void main(String[] args) {
 		EmployeeDoc doc2 = new EmployeeDoc();
 		doc2.setId("2");
 		doc2.setFirstNme("John");
-		doc2.setLastNme("Walters");
+		doc2.setLastNme("Fellner");
 		doc2.setEmployeNumber("1234");
 
 		space.write(doc2);
@@ -231,7 +232,7 @@ public static void main(String[] args) {
 		SQLQuery<SpaceDocument> query1 = new SQLQuery<SpaceDocument>(
 				PersonDoc.TYPE_NAME, "");
 
-		SpaceDocument[] result = space.readMultiple(query1);
+		PersonDoc[] result = (PersonDoc[]) space.readMultiple(query1);
 
         // You should see two objects
 		System.out.println(result.length);
@@ -239,11 +240,11 @@ public static void main(String[] args) {
 		SQLQuery<SpaceDocument> query2 = new SQLQuery<SpaceDocument>(
 				EmployeeDoc.TYPE_NAME, "");
 
-		SpaceDocument[] result2 = space.readMultiple(query2);
+		EmployeeDoc[] result2 = (EmployeeDoc[]) space.readMultiple(query2);
 
-        // You should see 1 object
+        // You should see one object
 		System.out.println(result2.length);
-	}
+}
 
 {%endhighlight%}
 {%endtabcontent%}
