@@ -11,6 +11,27 @@ This page lists the main new features in XAP 10.1 (Java and .Net editions). It's
 
 {%panel%}
 
+- [Mertics](#metrics)
+
+- [Sequence Number](#snumber)
+
+REST
+
+- [REST API](#rest1)
+
+- [Deploy REST API via CLI](#rest2)
+
+
+<br>
+
+Third Party library upgrades
+
+- [Hibernate  4.1 support](#hibernate)
+
+- [Spring  4.1 support](#spring)
+
+{%endpanel%}
+
 {%comment%}
 
 Elastic deployment with command line
@@ -33,6 +54,26 @@ upgrading to Spring 4.1
 
 {%endcomment%}
 
-{%endpanel%}
+
+{%anchor hibernate%}
 
 
+{%anchor metric%}
+
+# Metrics
+
+XAP provides a framework for collecting and reporting metrics from the distributed runtime environment into a metric repository of your choice, which can then be analysed and used to identity trends in the system behaviour.
+
+{%learn%}/xap101adm/metrics-overview.html{%endlearn%}
+
+# Third Party library updates
+
+### Hibernate 4.1 support
+
+This release supports the Hibernate framework 4.1
+
+{%anchor spring%}
+
+### Spring 4.1 support
+
+This release supports the Spring framework 4.1
