@@ -97,3 +97,153 @@ public void example(ISpaceProxy spaceProxy)
     ProductDocument result3 = spaceProxy.ReadById(new IdQuery<ProductDocument>("Product", "hw-1234"));
 }
 {% endhighlight %}
+
+
+# Inheritance  Support
+
+SpaceDocument query supports inheritance relationships so that entries of a sub-class are visible in the context of the super class, but not the other way around. For example, suppose class EmployeeDoc extends class PersonDoc and PersonDoc extends from `SpaceDocument`, you can register
+the the sub classes in the following way:
+
+{%highlight csharp%}
+SpaceTypeDescriptorBuilder spaceTypeDescriptorBuilder = new SpaceTypeDescriptorBuilder(
+				"Subclass Document Type Name", parentSpaceTypeDescriptor);
+{%endhighlight%}
+
+Here is an example:
+
+{%inittab%}
+{%tabcontent PersonDoc%}
+{%highlight csharp%}
+namespace document
+{
+	public class PersonDoc:SpaceDocument
+	{
+		public const   String DocName = "PersonDoc";
+		public const   String PropertyTypeId = "ID";
+		public const   String PropertyFirstName = "FirstName";
+		public const   String PropertyLastName = "LastName";
+
+		public PersonDoc () : base (DocName)
+		{
+		}
+
+		public PersonDoc (String type) : base (type)
+		{
+		}
+
+		public String Id {
+			get { return (String)this [PropertyTypeId]; }
+			set { this [PropertyTypeId] = value; }
+		}
+
+		public String FirstName {
+			get { return (String)this [PropertyFirstName]; }
+			set { this [PropertyFirstName] = value; }
+		}
+
+		public String LastName {
+			get { return (String)this [PropertyLastName]; }
+			set { this [PropertyLastName] = value; }
+		}
+
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent EmployeeDoc%}
+{%highlight csharp%}
+namespace document
+{
+	public class EmployeeDoc : PersonDoc
+	{
+		public const   String DocName = "PersonDoc";
+		public const   String PropertyEmployeeNumber = "EmployeeNumber";
+
+		public EmployeeDoc () : base (EmployeeDoc.DocName)
+		{
+		}
+
+		public String EmployeeNumber {
+			get { return (String)this [EmployeeNumber]; }
+			set { this [EmployeeNumber] = value; }
+		}
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent RegisterDocument%}
+{%highlight csharp%}
+		public void  registerDocument (ISpaceProxy spaceProxy)
+		{
+			// Create the Person descriptor
+			SpaceTypeDescriptorBuilder personDescriptor = new SpaceTypeDescriptorBuilder (PersonDoc.DocName);
+			personDescriptor.DocumentWrapperType = typeof(PersonDoc);
+			personDescriptor.SetIdProperty (PersonDoc.PropertyTypeId);
+			ISpaceTypeDescriptor personTypeDescriptor = personDescriptor.Create ();
+
+			// Register type:
+			spaceProxy.TypeManager.RegisterTypeDescriptor (personTypeDescriptor);
+
+			// Create the Employee descriptor
+			SpaceTypeDescriptorBuilder employeeDescriptor = new SpaceTypeDescriptorBuilder (EmployeeDoc.DocName,
+				                                                personTypeDescriptor);
+			employeeDescriptor.DocumentWrapperType = typeof(EmployeeDoc);
+			ISpaceTypeDescriptor employeeTypeDescriptor = employeeDescriptor.Create ();
+
+			// Register type:
+			spaceProxy.TypeManager.RegisterTypeDescriptor (employeeTypeDescriptor);
+		}
+	}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent Program%}
+{%highlight java%}
+namespace document
+{
+	public class Program
+	{
+		public Program ()
+		{
+			// Create the Space
+			ISpaceProxy spaceProxy = new EmbeddedSpaceFactory ("mySpace").Create ();
+
+			registerDocument (spaceProxy);
+
+			PersonDoc doc1 = new PersonDoc ();
+			doc1 [PersonDoc.PropertyTypeId] = "1";
+			doc1 [PersonDoc.PropertyFirstName] = "John";
+			doc1 [PersonDoc.PropertyLastName] = "Fellner";
+
+			spaceProxy.Write (doc1);
+
+			EmployeeDoc doc2 = new EmployeeDoc ();
+			doc2 [PersonDoc.PropertyTypeId] = "2";
+			doc2 [PersonDoc.PropertyFirstName] = "John";
+			doc2 [PersonDoc.PropertyLastName] = "Walters";
+			doc2 [EmployeeDoc.PropertyEmployeeNumber] = "1234";
+
+			spaceProxy.Write (doc2);
+
+			SqlQuery<PersonDoc> query1 = new SqlQuery<PersonDoc> (
+				                             PersonDoc.DocName, "");
+
+			PersonDoc[] result1 = spaceProxy.ReadMultiple<PersonDoc> (query1);
+
+			// You should see two objects
+			Console.WriteLine (result1.Length);
+
+			SqlQuery<EmployeeDoc> query2 = new SqlQuery<EmployeeDoc> (
+				                               EmployeeDoc.DocName, "");
+
+			EmployeeDoc[] result2 = spaceProxy.ReadMultiple<EmployeeDoc> (query2);
+
+			// You should see one object
+			Console.WriteLine (result2.Length);
+		}
+}
+{%endhighlight%}
+{%endtabcontent%}
+{%endinittab%}
