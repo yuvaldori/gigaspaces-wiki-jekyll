@@ -66,6 +66,28 @@ XAP provides a framework for collecting and reporting metrics from the distribut
 
 {%learn%}/xap101adm/metrics-overview.html{%endlearn%}
 
+
+{%anchor snumber%}
+
+# Sequence number
+
+{%learn%}/xap101/pojo-attribute-annotations.html#space-sequence-number{%endlearn%}
+
+
+{%anchor rest1%}
+
+# REST API
+
+{%learn%}/xap101/rest-service-overview.html{%endlearn%}
+
+
+{%anchor rest2%}
+
+# Deploy REST API via CLI
+
+{%learn%}/xap101adm/rest-deploy-command-line-interface.html{%endlearn%}
+
+
 # Third Party library updates
 
 ### Hibernate 4.1 support
