@@ -181,7 +181,7 @@ public class ExpiredTweetsFilter implements DynamicEventTemplateProvider{
 {% highlight java %}
 
 TransactionManager txManager = new DistributedJiniTxManagerConfigurer().transactionManager();
-UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("/./mySpace");
+EmbeddedSpaceConfigurer configurer = new EmbeddedSpaceConfigurer("mySpace");
 GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).transactionManager(txManager).create();
 
 ArchiveOperationHandler cassandraArchiveHandler =

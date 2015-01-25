@@ -130,7 +130,7 @@ To create a `GigaMap` for a co-located (embedded) space the space URL should use
 {% tabcontent Code %}
 
 {% highlight java %}
-IMap map = new MapConfigurer(new UrlSpaceConfigurer("/./space").space()).createMap();
+IMap map = new MapConfigurer(new EmbeddedSpaceConfigurer("space").space()).createMap();
 GigaMap gigaMap = new GigaMapConfigurer(map).gigaMap();
 {% endhighlight %}
 

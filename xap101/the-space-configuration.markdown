@@ -158,13 +158,13 @@ Here is an example of a space working in FIFO mode, using specific lookup groups
 {% highlight java %}
 
    // Create the url
-   UrlSpaceConfigurer spaceConfigurer = new UrlSpaceConfigurer("/./space").lookupGroups("test").lookupTimeout(20000);
+   EmbeddedSpaceConfigurer spaceConfigurer = new EmbeddedSpaceConfigurer("space").lookupGroups("test").lookupTimeout(20000);
 
    // Create the url with arguments
-   UrlSpaceConfigurer spaceConfigurer = new UrlSpaceConfigurer("/./space?groups=test&timeout=20000");
+   EmbeddedSpaceConfigurer spaceConfigurer = new EmbeddedSpaceConfigurer("space?groups=test&timeout=20000");
 
    // Create the url with properties
-   UrlSpaceConfigurer spaceConfigurer = new UrlSpaceConfigurer("/./space")
+   EmbeddedSpaceConfigurer spaceConfigurer = new EmbeddedSpaceConfigurer("space")
        .addProperty("fifo","true")
        .addProperty("lookupGroups","test");
    // .....
@@ -219,8 +219,7 @@ The general properties are used to override various components such as the space
 
 {% highlight java %}
 
-   UrlSpaceConfigurer spaceConfigurer =
-    new UrlSpaceConfigurer("/./space").addProperty("space-config.engine.cache_policy", "0");
+   EmbeddedSpaceConfigurer spaceConfigurer = new EmbeddedSpaceConfigurer("space").addProperty("space-config.engine.cache_policy", "0");
 
    // Create the proxy
    GigaSpace gigaSpace = new GigaSpaceConfigurer(spaceConfigurer).gigaSpace();
@@ -273,7 +272,7 @@ Here is an example on how to create the proxy:
 {% highlight java %}
 
    // Create the URL
-   UrlSpaceConfigurer spaceConfigurer = new UrlSpaceConfigurer("/./mySpace");
+   EmbeddedSpaceConfigurer spaceConfigurer = new EmbeddedSpaceConfigurer("mySpace");
 
    // Create the Proxy
    GigaSpace gigaSpace = new GigaSpaceConfigurer(spaceConfigurer).gigaSpace();
@@ -476,7 +475,7 @@ You may configure default modifiers for the different operations in the `GigaSpa
 
 {% highlight java %}
 
-  UrlSpaceConfigurer spaceConfigurer = new UrlSpaceConfigurer("/./space");
+  EmbeddedSpaceConfigurer spaceConfigurer = new EmbeddedSpaceConfigurer("space");
 
   GigaSpace gigaSpace = new GigaSpaceConfigurer(spaceConfigurer)
   .defaultWriteModifiers(WriteModifiers.PARTIAL_UPDATE.add(WriteModifiers.UPDATE_ONLY))

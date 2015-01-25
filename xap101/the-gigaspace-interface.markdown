@@ -22,11 +22,7 @@ The space is accessed via a programmatic interface which supports the following 
 
 {%learn%}./the-space-operations.html{%endlearn%}
 
-{%comment%}
-The space proxy is created through the `UrlSpaceConfigurer`. Several configuration parameters are available.
 
-{%learn%}./the-space-configuration.html{%endlearn%}
-{%endcomment%}
 
 
 # Embedded Space
@@ -37,13 +33,13 @@ A client communicating with a an embedded space performs all its operation via l
 ![embedded-space.jpg](/attachment_files/embedded-space.jpg)
 
 
-Here is an example how to create an embedded space. The `UrlSpaceConfigurer` is used to configure the space url:
+Here is an example how to create an embedded space. The `EmbeddedSpaceConfigurer` is used to configure the space url:
 
 {% inittab os_space_emb|top %}
 {% tabcontent Code %}
 
 {% highlight java %}
-GigaSpace gigaSpace = new GigaSpaceConfigurer(new UrlSpaceConfigurer("/./mySpace")).gigaSpace();
+GigaSpace gigaSpace = new GigaSpaceConfigurer(new EmbeddedSpaceConfigurer("mySpace")).gigaSpace();
 {% endhighlight %}
 
 {% endtabcontent %}

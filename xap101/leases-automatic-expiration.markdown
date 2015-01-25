@@ -56,7 +56,7 @@ LeaseContext<MyMessage> lease3 = gigaSpace.write(message3, Lease.FOREVER);
 You may use the `Lease.getExpiration` to retrieve the time where the space object will expire. See below simple example - It writes a space into the space with 10 seconds lease and later prints how much time is left for the space object to remain in space before it will expire:
 
 {% highlight java %}
-GigaSpace space = new GigaSpaceConfigurer(new UrlSpaceConfigurer("/./space")).gigaSpace();
+GigaSpace space = new GigaSpaceConfigurer(new EmbeddedSpaceConfigurer("space")).gigaSpace();
 
 // Writing object into the space with 10 seconds lease time
 LeaseContext<MyClass> o = space.write(new MyClass(),10000);
@@ -230,7 +230,7 @@ public class LeaseManagerClient {
     public LeaseManagerClient(String url) {
 
 	// use gigaspace wrapper to for simpler API
-	this.gigaSpace = new GigaSpaceConfigurer(new UrlSpaceConfigurer("/./space")).gigaSpace();
+	this.gigaSpace = new GigaSpaceConfigurer(new EmbeddedSpaceConfigurer("space")).gigaSpace();
 
 	createOrder();
 

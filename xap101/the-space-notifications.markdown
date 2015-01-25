@@ -144,8 +144,8 @@ Space mode registration can be overridden and explicitly set within the space fa
 
 {% highlight java %}
 
-UrlSpaceConfigurer spaceConfigurer =
-              new UrlSpaceConfigurer("/./space").registerForSpaceModeNotifications(false);
+EmbeddedSpaceConfigurer spaceConfigurer =
+              new EmbeddedSpaceConfigurer("space").registerForSpaceModeNotifications(false);
 IJSpace space = spaceConfigurer.space();
 
 // ...
