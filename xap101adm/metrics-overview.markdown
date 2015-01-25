@@ -45,27 +45,27 @@ Each `gs-agent` monitors common operating system metrics. Each metric is prefixe
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| xap.*.os.memory.free.bytes | Free memory (bytes) |
-| xap.*.os.memory.actual-free.bytes | Actual free memory (bytes) |
-| xap.*.os.memory.used.bytes | Used memory (bytes) |
-| xap.*.os.memory.actual-used.bytes | Actual used memory (bytes) |
-| xap.*.os.memory.used.percent | Used memory (%) |
+| `xap.*.os.memory.free.bytes` | Free memory (bytes) |
+| `xap.*.os.memory.actual-free.bytes` | Actual free memory (bytes) |
+| `xap.*.os.memory.used.bytes` | Used memory (bytes) |
+| `xap.*.os.memory.actual-used.bytes` | Actual used memory (bytes) |
+| `xap.*.os.memory.used.percent` | Used memory (%) |
 
 ### Swap Metrics
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| xap.*.os.swap.free.bytes | Free swap (bytes) |
-| xap.*.os.swap.used.bytes | Used swap (bytes) |
-| xap.*.os.swap.used.percent | Used swap (%) |
+| `xap.*.os.swap.free.bytes` | Free swap (bytes) |
+| `xap.*.os.swap.used.bytes` | Used swap (bytes) |
+| `xap.*.os.swap.used.percent` | Used swap (%) |
 
 ### CPU Metrics
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| xap.*.os.cpu.used.percent | CPU Usage (%) |
+| `xap.*.os.cpu.used.percent` | CPU Usage (%) |
 
 ### Network Metrics
 
@@ -74,14 +74,14 @@ For each network interface card, the following metrics are registered:
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| xap.*.os.network.*.rx-bytes | Total bytes received |
-| xap.*.os.network.*.tx-bytes | Total bytes transmitted |
-| xap.*.os.network.*.rx-packets | Total packets received |
-| xap.*.os.network.*.tx-packets | Total packets transmitted |
-| xap.*.os.network.*.rx-errors | Receive errors |
-| xap.*.os.network.*.tx-errors | Transmit errors |
-| xap.*.os.network.*.rx-dropped | Receive dropped |
-| xap.*.os.network.*.tx-dropped | Transmit dropped |
+| `xap.*.os.network.*.rx-bytes` | Total bytes received |
+| `xap.*.os.network.*.tx-bytes` | Total bytes transmitted |
+| `xap.*.os.network.*.rx-packets` | Total packets received |
+| `xap.*.os.network.*.tx-packets` | Total packets transmitted |
+| `xap.*.os.network.*.rx-errors` | Receive errors |
+| `xap.*.os.network.*.tx-errors` | Transmit errors |
+| `xap.*.os.network.*.rx-dropped` | Receive dropped |
+| `xap.*.os.network.*.tx-dropped` | Transmit dropped |
 
 ## Process metrics
 
@@ -92,36 +92,36 @@ Each process in the service grid reports the metrics listed below. Each metric i
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| xap.*.*.*.process.cpu.time.total | Process CPU total time |
-| xap.*.*.*.process.cpu.used.percent | Process CPU Usage (%) |
+| `xap.*.*.*.process.cpu.time.total` | Process CPU total time |
+| `xap.*.*.*.process.cpu.used.percent` | Process CPU Usage (%) |
 
 ### JVM Metrics
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| xap.*.*.*.jvm.runtime.uptime | Uptime of the Java virtual machine (in milliseconds) |
-| xap.*.*.*.jvm.threads.count | Current number of live threads including both daemon and non-daemon threads |
-| xap.*.*.*.jvm.threads.daemon | Current number of live daemon threads |
-| xap.*.*.*.jvm.threads.peak | Peak live thread count since the Java virtual machine started or peak was reset |
-| xap.*.*.*.jvm.threads.total-started | Total number of threads created and also started since the Java virtual machine started |
-| xap.*.*.*.jvm.memory.heap.used.bytes | Amount of used memory in bytes |
-| xap.*.*.*.jvm.memory.heap.committed.bytes | Amount of memory in bytes that is committed for the Java virtual machine to use |
-| xap.*.*.*.jvm.memory.non-heap.used.bytes | Amount of used memory in bytes |
-| xap.*.*.*.jvm.memory.non-heap.committed.bytes | Amount of memory in bytes that is committed for the Java virtual machine to use |
-| xap.*.*.*.jvm.memory.gc.count | Total number of garbage collections that have occurred |
-| xap.*.*.*.jvm.memory.gc.time | Approximate accumulated collection elapsed time in milliseconds |
+| `xap.*.*.*.jvm.runtime.uptime` | Uptime of the Java virtual machine (in milliseconds) |
+| `xap.*.*.*.jvm.threads.count` | Current number of live threads including both daemon and non-daemon threads |
+| `xap.*.*.*.jvm.threads.daemon` | Current number of live daemon threads |
+| `xap.*.*.*.jvm.threads.peak` | Peak live thread count since the Java virtual machine started or peak was reset |
+| `xap.*.*.*.jvm.threads.total-started` | Total number of threads created and also started since the Java virtual machine started |
+| `xap.*.*.*.jvm.memory.heap.used.bytes` | Amount of used memory in bytes |
+| `xap.*.*.*.jvm.memory.heap.committed.bytes` | Amount of memory in bytes that is committed for the Java virtual machine to use |
+| `xap.*.*.*.jvm.memory.non-heap.used.bytes` | Amount of used memory in bytes |
+| `xap.*.*.*.jvm.memory.non-heap.committed.bytes` | Amount of memory in bytes that is committed for the Java virtual machine to use |
+| `xap.*.*.*.jvm.memory.gc.count` | Total number of garbage collections that have occurred |
+| `xap.*.*.*.jvm.memory.gc.time` | Approximate accumulated collection elapsed time in milliseconds |
 
 ### LRMI Metrics
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-|  xap.*.*.*.lrmi.connections | Number of LRMI Connections |
-|  xap.*.*.*.lrmi.active-connections  | Number of active LRMI Connections |
-|  xap.*.*.*.lrmi.generated-traffic  | Total generated traffic (in bytes) |
-|  xap.*.*.*.lrmi.received-traffic  | Total received traffic (in bytes) |
-|  xap.*.*.*.lrmi.threads  | Number of active LRMI threads |
+| `xap.*.*.*.lrmi.connections` | Number of LRMI Connections |
+| `xap.*.*.*.lrmi.active-connections` | Number of active LRMI Connections |
+| `xap.*.*.*.lrmi.generated-traffic` | Total generated traffic (in bytes) |
+| `xap.*.*.*.lrmi.received-traffic` | Total received traffic (in bytes) |
+| `xap.*.*.*.lrmi.threads` | Number of active LRMI threads |
 
 ## Lookup Service Metrics
 
@@ -130,9 +130,9 @@ The following metrics are registered for each lookup service
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-|  xap.*.*.*.lus.items  | Number of registered services |
-|  xap.*.*.*.lus.listeners  | Number of event notification listeners |
-|  xap.*.*.*.lus.pending-events  | Size of the pending event notification queue |
+| `xap.*.*.*.lus.items` | Number of registered services |
+| `xap.*.*.*.lus.listeners` | Number of event notification listeners |
+| `xap.*.*.*.lus.pending-events` | Size of the pending event notification queue |
 
 ## Space Metrics
 
@@ -143,15 +143,15 @@ Each space instance reports the metrics listed below. Each metric is prefixed wi
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-|  xap.*.*.*.space.*.*.operations.execute  | Number of task execution operations |
-|  xap.*.*.*.space.*.*.operations.write  | Number of write operations |
-|  xap.*.*.*.space.*.*.operations.update   | Number of update operations |
-|  xap.*.*.*.space.*.*.operations.change  | Number of change operations |
-|  xap.*.*.*.space.*.*.operations.read  | Number of read operations |
-|  xap.*.*.*.space.*.*.operations.read-multiple  | Number of read multiple operations |
-|  xap.*.*.*.space.*.*.operations.take  | Number of take operations |
-|  xap.*.*.*.space.*.*.operations.take-multiple  | Number of take multiple operations |
-|  xap.*.*.*.space.*.*.operations.lease-expired  | Number of entry lease expirations |
-|  xap.*.*.*.space.*.*.operations.register-listener  | Number of event listener registrations |
-|  xap.*.*.*.space.*.*.operations.before-listener-trigger  | Number of triggered events (before trigger) |
-|  xap.*.*.*.space.*.*.operations.after-listener-trigger  | Number of triggered events (after trigger) |
+| `xap.*.*.*.space.*.*.operations.execute` | Number of task execution operations |
+| `xap.*.*.*.space.*.*.operations.write` | Number of write operations |
+| `xap.*.*.*.space.*.*.operations.update`  | Number of update operations |
+| `xap.*.*.*.space.*.*.operations.change` | Number of change operations |
+| `xap.*.*.*.space.*.*.operations.read` | Number of read operations |
+| `xap.*.*.*.space.*.*.operations.read-multiple` | Number of read multiple operations |
+| `xap.*.*.*.space.*.*.operations.take` | Number of take operations |
+| `xap.*.*.*.space.*.*.operations.take-multiple` | Number of take multiple operations |
+| `xap.*.*.*.space.*.*.operations.lease-expired` | Number of entry lease expirations |
+| `xap.*.*.*.space.*.*.operations.register-listener` | Number of event listener registrations |
+| `xap.*.*.*.space.*.*.operations.before-listener-trigger` | Number of triggered events (before trigger) |
+| `xap.*.*.*.space.*.*.operations.after-listener-trigger` | Number of triggered events (after trigger) |
