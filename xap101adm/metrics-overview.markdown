@@ -36,24 +36,64 @@ TODO: Explain how to configure reporters
 
 The following metrics are bundled with the product:
 
-## Process metrics
+## Operating System metrics
 
-Each process in the service grid reports the metrics listed below. Each metric is prefixed with the host name, process id and process role (`gsa` / `lus` / `gsm` / `esm` / `gsc`). For example, the free memory metric of a **GSC** hosted on machine `foo` may look like this: `xap.foo.1234.gsc.process.memory.free`. This prefix is abbreviated in the following tables to `xap.*.*.*.`.
+Each `gs-agent` monitors common operating system metrics. Each metric is prefixed with the host name. For example, the %used memory metric on machine `foo` would be `xap.foo.os.memory.used.percent`. This prefix is abbreviated in the following tables to `xap.*.`.
 
-### Process Operating System Metrics
+### Memory Metrics
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| xap.*.*.*.process.cpu.total | TODO: Document |
-| xap.*.*.*.process.cpu.percent | TODO: Document |
-| xap.*.*.*.process.memory.total | TODO: Document |
-| xap.*.*.*.process.memory.used | TODO: Document |
-| xap.*.*.*.process.memory.free | TODO: Document |
-| xap.*.*.*.process.swap.total | TODO: Document |
-| xap.*.*.*.process.swap.used | TODO: Document |
-| xap.*.*.*.process.swap.free | TODO: Document |
+| xap.*.os.memory.free.bytes | Free memory (bytes) |
+| xap.*.os.memory.actual-free.bytes | Actual free memory (bytes) |
+| xap.*.os.memory.used.bytes | Used memory (bytes) |
+| xap.*.os.memory.actual-used.bytes | Actual used memory (bytes) |
+| xap.*.os.memory.used.percent | Used memory (%) |
 
+### Swap Metrics
+
+{: .table .table-bordered .table-condensed}
+| Metric | Description |
+|:-------|:------------|
+| xap.*.os.swap.free.bytes | Free swap (bytes) |
+| xap.*.os.swap.used.bytes | Used swap (bytes) |
+| xap.*.os.swap.used.percent | Used swap (%) |
+
+### CPU Metrics
+
+{: .table .table-bordered .table-condensed}
+| Metric | Description |
+|:-------|:------------|
+| xap.*.os.cpu.used.percent | CPU Usage (%) |
+
+### Network Metrics
+
+For each network interface card, the following metrics are registered:
+
+{: .table .table-bordered .table-condensed}
+| Metric | Description |
+|:-------|:------------|
+| xap.*.os.network.*.rx-bytes | Total bytes received |
+| xap.*.os.network.*.tx-bytes | Total bytes transmitted |
+| xap.*.os.network.*.rx-packets | Total packets received |
+| xap.*.os.network.*.tx-packets | Total packets transmitted |
+| xap.*.os.network.*.rx-errors | Receive errors |
+| xap.*.os.network.*.tx-errors | Transmit errors |
+| xap.*.os.network.*.rx-dropped | Receive dropped |
+| xap.*.os.network.*.tx-dropped | Transmit dropped |
+
+## Process metrics
+
+Each process in the service grid reports the metrics listed below. Each metric is prefixed with the host name, process id and process role (`gsa` / `lus` / `gsm` / `esm` / `gsc`). For example, the total CPU time metric of a **GSC** hosted on machine `foo` may look like this: `xap.foo.1234.gsc.process.cpu.time.total`. This prefix is abbreviated in the following tables to `xap.*.*.*.`.
+
+### Process CPU Metrics
+
+{: .table .table-bordered .table-condensed}
+| Metric | Description |
+|:-------|:------------|
+| xap.*.*.*.process.cpu.time.total | Process CPU total time |
+| xap.*.*.*.process.cpu.used.percent | Process CPU Usage (%) |
 
 ### JVM Metrics
 
@@ -65,10 +105,10 @@ Each process in the service grid reports the metrics listed below. Each metric i
 | xap.*.*.*.jvm.threads.daemon | Current number of live daemon threads |
 | xap.*.*.*.jvm.threads.peak | Peak live thread count since the Java virtual machine started or peak was reset |
 | xap.*.*.*.jvm.threads.total-started | Total number of threads created and also started since the Java virtual machine started |
-| xap.*.*.*.jvm.memory.heap.used | Amount of used memory in bytes |
-| xap.*.*.*.jvm.memory.heap.committed | Amount of memory in bytes that is committed for the Java virtual machine to use |
-| xap.*.*.*.jvm.memory.non-heap.used | Amount of used memory in bytes |
-| xap.*.*.*.jvm.memory.non-heap.committed | Amount of memory in bytes that is committed for the Java virtual machine to use |
+| xap.*.*.*.jvm.memory.heap.used.bytes | Amount of used memory in bytes |
+| xap.*.*.*.jvm.memory.heap.committed.bytes | Amount of memory in bytes that is committed for the Java virtual machine to use |
+| xap.*.*.*.jvm.memory.non-heap.used.bytes | Amount of used memory in bytes |
+| xap.*.*.*.jvm.memory.non-heap.committed.bytes | Amount of memory in bytes that is committed for the Java virtual machine to use |
 | xap.*.*.*.jvm.memory.gc.count | Total number of garbage collections that have occurred |
 | xap.*.*.*.jvm.memory.gc.time | Approximate accumulated collection elapsed time in milliseconds |
 
@@ -83,7 +123,9 @@ Each process in the service grid reports the metrics listed below. Each metric i
 |  xap.*.*.*.lrmi.received-traffic  | Total received traffic (in bytes) |
 |  xap.*.*.*.lrmi.threads  | Number of active LRMI threads |
 
-### Lookup Service Metrics
+## Lookup Service Metrics
+
+The following metrics are registered for each lookup service
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
