@@ -374,6 +374,8 @@ Here is an example:
 {%endhighlight%}
 {%endtabcontent%}
 {%endinittab%}
+
+
 # Indexing
 
 Properties and nested paths can be [indexed](./indexing.html) to boost queries performance. In the type registration sample above the **Name** and **Price** properties are indexed.

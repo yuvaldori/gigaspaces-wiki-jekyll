@@ -241,6 +241,87 @@ It's highly recommended to use `DocumentProperties` for nested documents since i
 While it's possible to use  `SpaceDocument` as a property, it is probably a mistake, since it contains extra information which is not relevant for nested properties (type name, version, etc.).
 {%endwarning%}
 
+
+# Document Hierarchy
+
+SpaceDocument query supports hierarchical relationships so that entries of a child are visible in the context of the parent document, but not the other way around. For example, a document with name Employee can register its parent document Person in the following way:
+
+{%highlight csharp%}
+SpaceTypeDescriptor employeeDescriptor = new SpaceTypeDescriptorBuilder(
+				"Child Document Type Name", parentSpaceTypeDescriptor).Create();
+{%endhighlight%}
+
+Here is an example:
+
+{%inittab%}
+{%tabcontent Program%}
+{%highlight csharp%}
+public SimpleDocumentQuery ()
+{
+	// Create the Space
+	ISpaceProxy spaceProxy = new EmbeddedSpaceFactory ("mySpace").Create ();
+
+	registerDocument (spaceProxy);
+
+	SpaceDocument document1 = new SpaceDocument ("Person");
+	document1 ["ID"] = "1234";
+	document1 ["FirstName"] = "John";
+	document1 ["LastName"] = "Fellner";
+
+	spaceProxy.Write (document1);
+
+	SpaceDocument document2 = new SpaceDocument ("Employee");
+	document2 ["ID"] = "12345";
+	document2 ["FirstName"] = "John";
+	document2 ["LastName"] = "Walters";
+	document2 ["EmployeeId"] = "12345";
+
+	spaceProxy.Write (document2);
+
+	SqlQuery<SpaceDocument> query1 = new SqlQuery<SpaceDocument> (
+			                                  "Person", "");
+
+	SpaceDocument[] result1 = spaceProxy.ReadMultiple<SpaceDocument> (query1);
+
+	// You should see two documents
+	Console.WriteLine (result1.Length);
+
+	SqlQuery<SpaceDocument> query2 = new SqlQuery<SpaceDocument> (
+			                                  "Employee", "");
+
+	SpaceDocument[] result2 = spaceProxy.ReadMultiple<SpaceDocument> (query2);
+
+	// You should see one document
+	Console.WriteLine (result2.Length);
+}
+
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent RegisterDocument%}
+{%highlight csharp%}
+public  void  registerDocument (ISpaceProxy spaceProxy)
+{
+	// Create the Person descriptor
+	SpaceTypeDescriptorBuilder personDescriptor = new SpaceTypeDescriptorBuilder ("Person");
+	personDescriptor.SetIdProperty ("ID");
+	ISpaceTypeDescriptor personTypeDescriptor = personDescriptor.Create ();
+
+	// Register type:
+	spaceProxy.TypeManager.RegisterTypeDescriptor (personTypeDescriptor);
+
+	// Create the Employee descriptor
+	SpaceTypeDescriptorBuilder employeeDescriptor = new SpaceTypeDescriptorBuilder ("Employee",
+			                                                 personTypeDescriptor);
+	ISpaceTypeDescriptor employeeTypeDescriptor = employeeDescriptor.Create ();
+
+	// Register type:
+	spaceProxy.TypeManager.RegisterTypeDescriptor (employeeTypeDescriptor);
+}
+{%endhighlight%}
+{%endtabcontent%}
+{%endinittab%}
+
 # Indexing
 
 Properties and nested paths can be [indexed](./indexing.html) to boost queries performance. In the type registration sample above, the **Name** and **Price** properties are indexed.
