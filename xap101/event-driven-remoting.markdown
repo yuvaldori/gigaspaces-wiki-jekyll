@@ -255,7 +255,7 @@ Configuring the `IDataProcessor` proxy can be done in the following manner:
 {% tabcontent Code %}
 
 {% highlight java %}
-UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/space");
+SpaceProxyConfigurer configurer = new SpaceProxyConfigurer("space");
 
 GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).gigaSpace();
 
@@ -390,7 +390,7 @@ Finally, the wiring is done in the following manner:
 {% tabcontent Code %}
 
 {% highlight java %}
-UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/space");
+SpaceProxyConfigurer configurer = new SpaceProxyConfigurer("space");
 
 GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).gigaSpace();
 
@@ -545,7 +545,7 @@ An implementation of such an aspect can be configured as follows:
 {% tabcontent Code %}
 
 {% highlight java %}
-UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/space");
+SpaceProxyConfigurer configurer = new SpaceProxyConfigurer("space");
 
 GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).gigaSpace();
 
@@ -721,7 +721,7 @@ The following snippets show how to plug a custom meta arguments handler to the c
 {% tabcontent Code %}
 
 {% highlight java %}
-UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/space");
+SpaceProxyConfigurer configurer = new SpaceProxyConfigurer("space");
 
 GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).gigaSpace();
 

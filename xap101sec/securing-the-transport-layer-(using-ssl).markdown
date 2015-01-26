@@ -72,7 +72,7 @@ Code snippet of the space server.
 {% highlight java %}
 public class SSLServer {
 	public static void main(String [] args) throws Exception{
-		UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("/./SSLSpace").
+		EmbeddedSpaceConfigurer configurer = new EmbeddedSpaceConfigurer("SSLSpace").
                 lookupGroups("ssl_example_group");
 		GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).gigaSpace();
 	}

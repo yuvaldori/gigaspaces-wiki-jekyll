@@ -93,7 +93,7 @@ Here is an example how a client application can create a proxy to interacting wi
 
 {% highlight java %}
 
-GigaSpace gigaSpace = new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*/mySpace")).gigaSpace();
+GigaSpace gigaSpace = new GigaSpaceConfigurer(new SpaceProxyConfigurer("mySpace")).gigaSpace();
 {% endhighlight %}
 
 {% endtabcontent %}
@@ -148,7 +148,7 @@ Here is an example for a `GigaSpace` construct with a local cache:
 
 {% highlight java %}
 // Initialize remote space configurer:
-UrlSpaceConfigurer urlConfigurer = new UrlSpaceConfigurer("jini://*/*/space");
+SpaceProxyConfigurer urlConfigurer = new SpaceProxyConfigurer("space");
 // Initialize local cache configurer
 LocalCacheSpaceConfigurer localCacheConfigurer = new LocalCacheSpaceConfigurer(urlConfigurer);
 
@@ -201,7 +201,7 @@ Here is an example for a `GigaSpace` construct with a local cache:
 
 {% highlight java %}
 // Initialize remote space configurer:
-UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/space");
+SpaceProxyConfigurer configurer = new SpaceProxyConfigurer("space");
 
 // Initialize local view configurer
 LocalViewSpaceConfigurer localViewConfigurer = new LocalViewSpaceConfigurer(configurer)
@@ -268,7 +268,7 @@ Example:
 
 {% highlight java %}
 
-UrlSpaceConfigurer urlConfigurer = new UrlSpaceConfigurer("jini://*/*/space");
+SpaceProxyConfigurer urlConfigurer = new SpaceProxyConfigurer("space");
  //....
 urlConfigurer.destroy();
 
@@ -299,7 +299,7 @@ Example:
 
 {% highlight java %}
 
-UrlSpaceConfigurer urlConfigurer = new UrlSpaceConfigurer("jini://*/*/space");
+SpaceProxyConfigurer urlConfigurer = new SpaceProxyConfigurer("space");
  //....
 urlConfigurer.destroy();
 

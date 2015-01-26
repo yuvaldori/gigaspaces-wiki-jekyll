@@ -139,7 +139,7 @@ GigaSpace gigaSpace = pu.waitForSpace().getGigaSpace();
 Here is an example how you can connect to the grid from your application:
 {%highlight java%}
 // Create the Space
-GigaSpace gigaSpace = new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*/xapTutorialSpace")).gigaSpace();
+GigaSpace gigaSpace = new GigaSpaceConfigurer(new SpaceProxyConfigurer("xapTutorialSpace")).gigaSpace();
 {%endhighlight%}
 
 

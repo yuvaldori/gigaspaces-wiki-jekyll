@@ -199,7 +199,7 @@ A secured embedded Space protects access (to data) which is granted only to user
 {% inittab d2|top %}
 {% tabcontent Java %}
 {%highlight java%}
-UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("/./xapTutorialSpace").secured(true);
+EmbeddedSpaceConfigurer configurer = new EmbeddedSpaceConfigurer("xapTutorialSpace").secured(true);
 GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).gigaSpace();
 {%endhighlight %}
 {% endtabcontent  %}
@@ -221,7 +221,7 @@ When a remote Space proxy connects to a secured Space, it must provide security 
 {%highlight java%}
 public void setupSpace()
 {
-   UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/xapTutorialSpace").credentials("student", "password");
+   SpaceProxyConfigurer configurer = new SpaceProxyConfigurer("xapTutorialSpace").credentials("student", "password");
    GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).gigaSpace();
 }
 {%endhighlight %}

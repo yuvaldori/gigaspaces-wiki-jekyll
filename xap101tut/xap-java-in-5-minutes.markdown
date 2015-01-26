@@ -81,7 +81,7 @@ Since the Data grid is not located in our client process, we need some sort of a
 Now that we have an address, we can connect to the grid:       
 
 {% highlight java %}
-UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/myGrid");
+SpaceProxyConfigurer configurer = new SpaceProxyConfigurer("myGrid");
 GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).create();
 {% endhighlight %}
 
@@ -154,14 +154,14 @@ package com.gigaspaces.demo;
 import com.j_spaces.core.client.SQLQuery;
 import org.openspaces.core.GigaSpace;
 import org.openspaces.core.GigaSpaceConfigurer;
-import org.openspaces.core.space.UrlSpaceConfigurer;
+import org.openspaces.core.space.SpaceProxyConfigurer;
 
 public class Program {
 
     public static void main(String[] args) {
 
         System.out.println("Connecting to data grid");
-        UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/myGrid");
+        SpaceProxyConfigurer configurer = new SpaceProxyConfigurer("myGrid");
         configurer.lookupGroups("{%version default-lookup-group %}");
         GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).create();
 

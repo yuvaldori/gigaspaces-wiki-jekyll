@@ -143,7 +143,7 @@ A typical usage pattern is connecting remotely to a Space. Here is an example (e
 
 {% highlight java %}
 
-UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/mySpace");
+SpaceProxyConfigurer configurer = new SpaceProxyConfigurer("mySpace");
 
 GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).gigaSpace();
 

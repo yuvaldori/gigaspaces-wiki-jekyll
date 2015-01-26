@@ -41,7 +41,7 @@ A secured embedded Space protects access (to data) which is granted only to user
 {% tabcontent Code %}
 
 {% highlight java %}
-UrlSpaceConfigurer urlSpaceConfigurer = new UrlSpaceConfigurer("jini://*/*/space").userDetails("sa", "adaw@##$");
+SpaceProxyConfigurer urlSpaceConfigurer = new SpaceProxyConfigurer("space").userDetails("sa", "adaw@##$");
 GigaSpace gigaSpace = new GigaSpaceConfigurer(urlSpaceConfigurer).gigaSpace();
 {% endhighlight %}
 
@@ -80,7 +80,7 @@ The security credentials can be either be supplied as an `UserDetails` object or
 These will be used to _implicitly_ create a **`secured`** Space, with security privileges being propagated to internal services.
 
 {% highlight java %}
-UrlSpaceConfigurer urlSpaceConfigurer = new UrlSpaceConfigurer("/./space").userDetails("user", "password");
+EmbeddedSpaceConfigurer urlSpaceConfigurer = new EmbeddedSpaceConfigurer("space").userDetails("user", "password");
 GigaSpace gigaSpace = new GigaSpaceConfigurer(urlSpaceConfigurer).gigaSpace();
 {% endhighlight %}
 
@@ -113,14 +113,14 @@ An embedded Space with no internal services, can be simply configured as secured
 The **`secured`** Space URL property indicates that the Space being created should be secured.
 
 {% highlight java %}
-UrlSpaceConfigurer urlSpaceConfigurer = new UrlSpaceConfigurer("/./space?secured");
+EmbeddedSpaceConfigurer urlSpaceConfigurer = new EmbeddedSpaceConfigurer("space?secured");
 GigaSpace gigaSpace = new GigaSpaceConfigurer(urlSpaceConfigurer).gigaSpace();
 {% endhighlight %}
 
 The **`secured`** URL property is also exposed as a convenient `.secured(true)` method call.
 
 {% highlight java %}
-UrlSpaceConfigurer urlSpaceConfigurer = new UrlSpaceConfigurer("/./space").secured(true);
+EmbeddedSpaceConfigurer urlSpaceConfigurer = new EmbeddedSpaceConfigurer("space").secured(true);
 GigaSpace gigaSpace = new GigaSpaceConfigurer(urlSpaceConfigurer).gigaSpace();
 {% endhighlight %}
 
@@ -193,7 +193,7 @@ Security is enforced by the remote Space, and the proxy should be acquired by su
 {% tabcontent  Local Cache Configurer %}
 
 {% highlight java %}
-UrlSpaceConfigurer urlSpaceConfigurer = new UrlSpaceConfigurer("jini://*/*/space").userDetails("user", "password");
+SpaceProxyConfigurer urlSpaceConfigurer = new SpaceProxyConfigurer("space").userDetails("user", "password");
 GigaSpace remoteSpace = new GigaSpaceConfigurer(urlSpaceConfigurer).gigaSpace();
 
 LocalCacheSpaceConfigurer configurer = new LocalCacheSpaceConfigurer(remoteSpace.getSpace()).updateMode(UpdateMode.PULL);
@@ -229,7 +229,7 @@ Similar to a Local Cache, the Local View {%currentjavanet local-view.html%} is a
 {% tabcontent  Local View Configurer %}
 
 {% highlight java %}
-UrlSpaceConfigurer urlSpaceConfigurer = new UrlSpaceConfigurer("jini://*/*/space").userDetails("user", "password");
+SpaceProxyConfigurer urlSpaceConfigurer = new SpaceProxyConfigurer("space").userDetails("user", "password");
 GigaSpace remoteSpace = new GigaSpaceConfigurer(urlSpaceConfigurer).gigaSpace();
 
 LocalViewSpaceConfigurer configurer = new LocalViewSpaceConfigurer(remoteSpace.getSpace())

@@ -264,7 +264,7 @@ Asynchronous scripting executor:
 
 {% highlight java %}
 
-GigaSpace gigaSpace = new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*/mySpace")).gigaSpace();
+GigaSpace gigaSpace = new GigaSpaceConfigurer(new SpaceProxyConfigurer("mySpace")).gigaSpace();
 ScriptingExecutor  executor = new EventDrivenScriptingProxyConfigurer (gigaSpace).scriptingExecutor();
 {% endhighlight %}
 
@@ -272,7 +272,7 @@ Executor based scripting executor:
 
 {% highlight java %}
 
-GigaSpace gigaSpace = new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*/mySpace")).gigaSpace();
+GigaSpace gigaSpace = new GigaSpaceConfigurer(new SpaceProxyConfigurer("mySpace")).gigaSpace();
 ScriptingExecutor  executor = new ExecutorScriptingProxyConfigurer (gigaSpace).scriptingExecutor();
 {% endhighlight %}
 

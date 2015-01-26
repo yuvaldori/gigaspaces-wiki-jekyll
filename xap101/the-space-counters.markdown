@@ -135,7 +135,7 @@ public class CounterTest {
 		if (space == null)
 		{
 			spaceEmb= new GigaSpaceConfigurer(new EmbeddedSpaceConfigurer("mySpace")).gigaSpace();
-			space = new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*/mySpace")).gigaSpace();
+			space = new GigaSpaceConfigurer(new SpaceProxyConfigurer("mySpace")).gigaSpace();
 			space.clear(null);
 			counter = new Counter(space, "id", "counter1", 10);
 		}

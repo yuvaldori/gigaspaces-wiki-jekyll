@@ -147,7 +147,7 @@ Custom `CredentialsProvider` can be provided in several ways, as follows:
 {% highlight xml %}
 CredentialsProvider myCredentialsProvider = new CustomCredentialsProvider("user1", "123456", "myServer");
 // Looking up a remote space
-UrlSpaceConfigurer urlSpaceConfigurer = new UrlSpaceConfigurer("jini://*/*/mySpace").credentialsProvider(myCredentialsProvider);
+SpaceProxyConfigurer urlSpaceConfigurer = new SpaceProxyConfigurer("mySpace").credentialsProvider(myCredentialsProvider);
 GigaSpace gigaSpace = new GigaSpaceConfigurer(urlSpaceConfigurer).gigaSpace();
 // Constructing an Admin instance
 Admin admin = new AdminFactory().credentialsProvider(myCredentialsProvider).createAdmin();
@@ -269,7 +269,7 @@ Custom `SecurityManager` can be provided in several ways, as follows:
 
 {% highlight java %}
 // Creating a secured space using custom properties:
-UrlSpaceConfigurer urlSpaceConfigurer = new UrlSpaceConfigurer("/./mySpace")
+EmbeddedSpaceConfigurer urlSpaceConfigurer = new EmbeddedSpaceConfigurer("mySpace")
     .secured(true)
     .addProperty("com.gs.security.security-manager.class", CustomSecurityManager.class.getName())
     .addProperty("custom-security.server-address", "myServer");
@@ -279,7 +279,7 @@ GigaSpace gigaSpace = new GigaSpaceConfigurer(urlSpaceConfigurer).create();
 CustomSecurityManager securityManager = new CustomSecurityManager();
 Properties securityProperties = new Properties();
 securityProperties.put(CustomSecurityManager.SECURITY_MANAGER_CLASS_PROPERTY_KEY, securityManager);
-UrlSpaceConfigurer urlSpaceConfigurer = new UrlSpaceConfigurer("/./mySpace")
+EmbeddedSpaceConfigurer urlSpaceConfigurer = new EmbeddedSpaceConfigurer("mySpace")
     .secured(true)
     .addProperties(securityProperties);
 GigaSpace gigaSpace = new GigaSpaceConfigurer(urlSpaceConfigurer).create();

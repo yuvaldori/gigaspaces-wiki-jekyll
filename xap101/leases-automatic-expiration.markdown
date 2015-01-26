@@ -33,7 +33,7 @@ Few other ways Lease can be managed include,
 Leases can be used for objects written to GigaSpaces cluster. All the write operations in [GigaSpace](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/org/openspaces/core/GigaSpace.html) interface support Lease. Lease duration is an argument that is passed to the write operations and they return a Lease Context which can be used to manage the Leases.
 
 {% highlight java %}
-GigaSpace gigaSpace = new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*/space")).gigaSpace();
+GigaSpace gigaSpace = new GigaSpaceConfigurer(new SpaceProxyConfigurer("space")).gigaSpace();
 
 MyMessage message1 = new MyMessage();
 

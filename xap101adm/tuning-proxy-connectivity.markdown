@@ -76,7 +76,7 @@ Example : To increase the lookup duration timeout to 5 minutes you should have t
 {% tabcontent Code %}
 {% highlight java %}
 
- 	 UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/space").
+ 	 SpaceProxyConfigurer configurer = new SpaceProxyConfigurer("space").
  	 addProperty("space-config.proxy.router.active-server-lookup-timeout", String.valueOf(1000*60*5));
 
  	GigaSpace space = new GigaSpaceConfigurer(configurer).gigaSpace();
