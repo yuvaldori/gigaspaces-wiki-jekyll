@@ -76,7 +76,8 @@ Note that the Lite edition is limited to a single partition - if you're using it
 
 ### Connecting to the Grid
 
-Since the Data grid is not located in our client process, we need some sort of address to find it. Data grids are searched using a `Space URL`, for example: `jini://*/*/myGrid`. This roughly translates to: Find a remote space called `myGrid` (for more information see [SpaceURL]({%currentjavaurl%}/the-space-configuration.html)).
+Since the Data grid is not located in our client process, we need some sort of address to find it. Data grids are searched using a `SpaceProxyConfigurer("spaceName")`. This roughly translates to: find a remote Space called `spaceName`.
+
 
 Now that we have an address, we can connect to the grid:       
 
@@ -87,7 +88,11 @@ GigaSpace gigaSpace = new GigaSpaceConfigurer(configurer).create();
 
 The result is a `GigaSpace` instance, which is a proxy to the `myGrid` data grid. 
 
-{%info%} The `UrlSpaceConfigurer` and `GigaSpaceConfigurer` provide additional options which are not covered in this tutorial.{%endinfo%}
+
+{%refer%}
+For more information on the `SpaceProxyConfigurer` and `GigaSpaceConfigurer` see [SpaceURL]({%currentjavaurl%}/the-space-configuration.html)
+{%endrefer%}
+
 
 ### Implementing a POJO
 
@@ -144,10 +149,12 @@ Person[] results = gigaSpace.readMultiple(new Person());
 
 If you're using the web console mentioned above to see what's going on, you'll see two entries stored in the grid, one in each partition.
 
-### {% anchor source %} Full Source Code
+{% anchor source %}
 
-{% accordion id=acc1 %}
-{% accord title=Program.java | parent=acc1 %}
+### Full Source Code
+
+{%inittab%}
+{%tabcontent Program.java   %}
 {% highlight java %}
 package com.gigaspaces.demo;
 
@@ -185,9 +192,9 @@ public class Program {
     }
 }
 {% endhighlight %}
-{% endaccord %}
+{% endtabcontent %}
 
-{% accord title=Person.java | parent=acc1 %}
+{% tabcontent Person.java %}
 
 {% highlight java %}
 package com.gigaspaces.demo;
@@ -240,8 +247,8 @@ public class Person {
     }
 }
 {% endhighlight %}
-{% endaccord %}
-{%endaccordion%}
+{% endtabcontent %}
+{%endinittab%}
 
 
 {%comment%}

@@ -33,7 +33,9 @@ This space we just created can also be accessed remotely from another JVM by con
 GigaSpace gigaSpace = new GigaSpaceConfigurer(new SpaceProxyConfigurer("xapTutorialSpace")).gigaSpace();
 {%endhighlight%}
 
-You can configure the Space URL  with several options. {%learn%} {%currentjavaurl%}/the-space-configuration.html{%endlearn%}
+You can configure the Space connection with several options.
+
+{%learn%} {%currentjavaurl%}/the-space-configuration.html{%endlearn%}
 
 
 When a client connects to a space, a proxy is created that holds a connection which implements the space API. All client interaction is performed through this proxy.
@@ -45,7 +47,9 @@ With XAP you can also create a Local Cache and a Local View.
 - Local View  : This client side cache maintains a specific subset of the data. The subset is predefined by the user. The cache is populated when the client application is started.
 In both cases, updates are performed (objects are added/updated/removed) on the master space, the master space then propagates the changes to all relevant local views and caches.
 
-These two scenarios are only applicable for remote clients. {%learn%} {%currentjavaurl%}/client-side-caching.html{%endlearn%}
+These two scenarios are only applicable for remote clients.
+
+{%learn%} {%currentjavaurl%}/client-side-caching.html{%endlearn%}
 
 
 
@@ -94,6 +98,7 @@ The space generates a unique identifier (UID) for every object in one of the fol
 
 #### Compound SpaceId
 You might need to construct a space id that will be comprised from a user defined class rather than using a Numeric or String type field. In such a case your user defined class used as the SpaceId data type must implement the toString , hashCode and equals methods. The compound ID class must implement a toString method that return a unique String for each ID.
+
 {%learn%} {%currentjavaurl%}/space-object-id-operations.html{%endlearn%}
 
 
@@ -214,6 +219,7 @@ public void writeOnlyWithLease() {
 {%endhighlight%}
 
 In this example, we are writing an object to the space with zero delay, 10 seconds to live and write only if the object does not already exist in the space. If the object already exists, an exception will be thrown.
+
 {%learn%}{%currentjavaurl%}/the-space-operations.html{%endlearn%}
 
 
@@ -239,6 +245,7 @@ public void ChangeSet() {
 {%endhighlight%}
 
 There are several other change operations available; 'increment', 'decrement', 'addToCollection', 'removeFromCollection' etc.
+
 {%learn%} {%currentjavaurl%}/change-api.html{%endlearn%}
 
 # Querying the Space
@@ -358,6 +365,7 @@ public User[] findUsersByGroup() {
 {%endhighlight%}
 
 There are several additional query options available. For example you can query Nested Maps by key,query with Regular Expression, Enum attributes and others.
+
 {%learn%} {%currentjavaurl%}/query-nested-properties.html{%endlearn%}
 
 
@@ -490,6 +498,7 @@ Person youngestPersonInSpace = minEntry(space, personSQLQuery, "age");
 {% endhighlight %}
 
 XAP also supports, `Compound`, `Embedded Fields` and `Group` Aggregation.
+
 {%learn%} {%currentjavaurl%}/aggregators.html{%endlearn%}
 
 
@@ -563,6 +572,7 @@ SQLQuery<User> query = new SQLQuery<User>(User.class,"name = 'John Doe' AND cred
 {%endhighlight%}
 
 There are several additional indexing options available. For example you can index nested attributes, Nested Maps, Collections, nested attributes within a Collection, free text search and others.
+
 {%learn%}{%currentjavaurl%}/indexing-overview.html{%endlearn%}
 
 
@@ -598,6 +608,7 @@ use change api instead of update , especially if collections are used.
 
 # Other Data Access API's
 XAP provides a JDBC Driver, JPA API, MAP and Memcached API's.
+
 {%learn%} {%currentjavaurl%}/other-data-access-apis.html{%endlearn%}
 
 
