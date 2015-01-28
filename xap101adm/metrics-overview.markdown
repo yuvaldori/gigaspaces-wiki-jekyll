@@ -138,20 +138,26 @@ The following metrics are registered for each lookup service
 
 Each space instance reports the metrics listed below. Each metric is prefixed with process prefix described above, along with the space name and instance id. For example, the read operations metric of space `bar` instance 2 on machine `foo` may look like this: `xap.foo.1234.gsc.space.bar.2.operations.read`. This prefix is abbreviated in the following tables to `xap.*.*.*.space.*.*`.
 
+{: .table .table-bordered .table-condensed}
+| Metric | Description |
+|:-------|:------------|
+| `xap.*.*.*.pu.*.*.space.*.*.connections.incoming.active` | Number of active incoming connections |
+| `xap.*.*.*.pu.*.*.space.*.*.transactions.active` | Number of active transactions |
+
 ### Space Operations
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| `xap.*.*.*.space.*.*.operations.execute` | Number of task execution operations |
-| `xap.*.*.*.space.*.*.operations.write` | Number of write operations |
-| `xap.*.*.*.space.*.*.operations.update`  | Number of update operations |
-| `xap.*.*.*.space.*.*.operations.change` | Number of change operations |
-| `xap.*.*.*.space.*.*.operations.read` | Number of read operations |
-| `xap.*.*.*.space.*.*.operations.read-multiple` | Number of read multiple operations |
-| `xap.*.*.*.space.*.*.operations.take` | Number of take operations |
-| `xap.*.*.*.space.*.*.operations.take-multiple` | Number of take multiple operations |
-| `xap.*.*.*.space.*.*.operations.lease-expired` | Number of entry lease expirations |
-| `xap.*.*.*.space.*.*.operations.register-listener` | Number of event listener registrations |
-| `xap.*.*.*.space.*.*.operations.before-listener-trigger` | Number of triggered events (before trigger) |
-| `xap.*.*.*.space.*.*.operations.after-listener-trigger` | Number of triggered events (after trigger) |
+| `xap.*.*.*.pu.*.*.space.*.*.operations.execute` | Number of task execution operations |
+| `xap.*.*.*.pu.*.*.space.*.*.operations.write` | Number of write operations |
+| `xap.*.*.*.pu.*.*.space.*.*.operations.update`  | Number of update operations |
+| `xap.*.*.*.pu.*.*.space.*.*.operations.change` | Number of change operations |
+| `xap.*.*.*.pu.*.*.space.*.*.operations.read` | Number of read operations |
+| `xap.*.*.*.pu.*.*.space.*.*.operations.read-multiple` | Number of read multiple operations |
+| `xap.*.*.*.pu.*.*.space.*.*.operations.take` | Number of take operations |
+| `xap.*.*.*.pu.*.*.space.*.*.operations.take-multiple` | Number of take multiple operations |
+| `xap.*.*.*.pu.*.*.space.*.*.operations.lease-expired` | Number of entry lease expirations |
+| `xap.*.*.*.pu.*.*.space.*.*.operations.register-listener` | Number of event listener registrations |
+| `xap.*.*.*.pu.*.*.space.*.*.operations.before-listener-trigger` | Number of triggered events (before trigger) |
+| `xap.*.*.*.pu.*.*.space.*.*.operations.after-listener-trigger` | Number of triggered events (after trigger) |
