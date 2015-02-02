@@ -425,6 +425,20 @@ com.gigaspaces.jmx.level = INFO
 Loggers corresponding to XAPs Management Console/UI. Additional information regarding UI can be found [here]({%currentadmurl%}/gigaspaces-management-center.html).
 {%endpanel%}
 {% endtabcontent %}
+
+{%tabcontent Persistence%}
+
+{%panel%}
+For Persistence:
+
+{% highlight console %}
+com.gigaspaces.persistent.level = INFO
+com.gigaspaces.persistent.shared_iterator.level = INFO
+{% endhighlight %}
+{%endpanel%}
+{% endtabcontent %}
+
+
 {% endinittab %}
 
 # Overriding the Default Configuration
