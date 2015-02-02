@@ -43,9 +43,9 @@ You can always add more CPUs and more memory to the same machine to be able to p
 
 The concept of OpenSpaces processing unit was designed around this fact.  Your unit of scale is the processing unit.  In order to scale, you need to run more processing units.  You can scale your application by:
 
-- running multiple threads concurrently within the same process
-- running multiple processes concurrently within the same machine
-- deploying multiple processes across multiple machines that are running concurrently and utilizing in an optimized manner your networked computer resources (aka grid)
+- Running multiple threads concurrently within the same process
+- Running multiple processes concurrently within the same machine
+- Deploying multiple processes across multiple machines that are running concurrently and utilizing in an optimized manner your networked computer resources (aka grid)
 
 Nevertheless, often we cannot fully take advantage of the available horsepower, because we get stuck at the data access layer; i.e. we cannot feed the processes with the relevant data fast enough, for these to fully leverage their full CPU, network, and memory resources and complete a given job in the quickest manner, moving to the next one efficiently.
 
@@ -66,9 +66,10 @@ To help you make the right decision when deploying your application below are so
 1. The c++ business logic may access only its collocated space or the entire cluster members.
     - If the collocated space can store both the data required for the processing and the consumed data there is a good chance you can use the collocated mode.
     - If the business logic needs data stored within other partitions you might have 2 space proxies used - one that access only the collocated space and consumes the incoming "tasks" that need to be processed, and one that accesses all cluster members and fetches data using space SQL queries needed for the processing.
-    - Advanced implementations would use the Map Reduce technique (at GigaSpaces, we call this the "Service Virtualization Framework" or "Remoting").  This popular technique invokes business logic at the relevant partitions that produce intermediate results.  These results are then delivered to the client that aggregates these and returns the final result to the original caller.
+    - Advanced implementations would use the Map-Reduce technique (at GigaSpaces, we call this the "Service Virtualization Framework" or "Remoting").  This popular technique invokes business logic at the relevant partitions that produce intermediate results.  These results are then delivered to the client that aggregates these and returns the final result to the original caller.
 
 2. In order that incoming data will land at the correct partition, associated objects should have the same routing field value.  A client accessing a clustered space has, by default, a proxy running a simple algorithm that calculates the target partition for each space operation.  The calculation uses by default the hash code value of a field declared as the routing field.  Each POCO class should have one routing field declared where the actual field value can be assigned by getting data from possibly several other fields.
+
 Here is an example for the POCO decoration xml config:
 
 {% highlight xml %}
@@ -81,13 +82,13 @@ Here is an example for the POCO decoration xml config:
   </class>
 {% endhighlight %}
 
-The **routingField** value hash code will be used to rout write/read operations to the correct partition.
+The `routingField` value hash code will be used to rout write/read operations to the correct partition.
 
 Note: for fail-safe operations, a partition may have one or more dedicated backup spaces running in standby mode and holding identical data.
 
 3. With the SBA model business logic state must be stored within the space; i.e. the space is a shared memory resource at the application level.  To ensure data consistency and coherency you should conduct destructive operations using a transaction - i.e. have these as one atomic operation.  Since a primary space may have in-memory backup space(s) running in different machine(s) you would never lose your required state.  Once a primary fails, the existing backup spaces conduct an election voting process where only one of them becomes the primary one.  As a result, the collocated c++ business logic associated with the space also moves into active mode.  At the same time, the GigaSpaces Grid Service Manager (GSM) looks for an available grid container to launch the "missing" backup to, obeying and maintaining the defined SLA for that service.  This constructs a self-healing system allowing your application to continue and function as long as you have machines running the GigaSpaces-provided SLA driven containers.When a processing unit hosts your c++ business logic but accesses a remote space running as a separate process within the same machine as the c++ business logic or in a different remote machine, there is some cost involved which varies depending on the topology.  The remote call overhead depends on the network speed, network bandwidth, data complexity (serialization involved) and its size.  The larger the size of serialized and transported data is, the longer it takes for the remote operation to be completed.  This applies both to write and read operations.
 
-4. When a processing unit hosting your c++ business logic has the space collocated as well, no remote calls are involved when the c++ business logic accessing the space.  Some memory allocation is conducted - this is a result of the c++ runtime passing data into the space crossing the JNI boundary\- this is done via a very efficient protocol (I will have a separate post on this).  If the time spent performing the business logic (worker calculation time) is much longer than the time it takes for the worker to: retrieve the task from the space, write back the result or read required data from the space, it might be logical to run the c++ worker as a stand-alone processing unit, separately from the space.  As a rule of thumb, a good ratio for using remote stand alone workers would be 1:10 or more - i.e. if the average time of performing the 3 basic space remote calls (take, read, write) is 1ms and the time it takes to perform relevant worker calculation (unrelated to the space) is 10 ms, it would be wise to run the c++ worker as a stand alone processing unit.  If the ratio is less than 1:10, go for the embedded space deployment topology.
+4. When a processing unit hosting your c++ business logic has the space collocated as well, no remote calls are involved when the c++ business logic accessing the space.  Some memory allocation is conducted - this is a result of the c++ runtime passing data into the space crossing the `JNI` boundary - this is done via a very efficient protocol.  If the time spent performing the business logic (worker calculation time) is much longer than the time it takes for the worker to: retrieve the task from the space, write back the result or read required data from the space, it might be logical to run the c++ worker as a stand-alone processing unit, separately from the space.  As a rule of thumb, a good ratio for using remote stand alone workers would be 1:10 or more - i.e. if the average time of performing the 3 basic space remote calls (take, read, write) is 1ms and the time it takes to perform relevant worker calculation (unrelated to the space) is 10 ms, it would be wise to run the c++ worker as a stand alone processing unit.  If the ratio is less than 1:10, go for the embedded space deployment topology.
 
 # c++ Processing Unit Interface
 
@@ -150,11 +151,12 @@ public:
 };
 {% endhighlight %}
 
-The Initialize will be called once the object is instantiated by the SLA container.
+The `Initialize` method will be called once the object is instantiated by the SLA container.
 
-The Destroy method will be called once the SLA-driven container is shutdown.
+The `Destroy` method will be called once the SLA-driven container is shutdown.
 
-The most important method is the run method.  This is where you place the code that will be running in a continuous manner.  This code would have very simple flow:
+The most important method is the `run` method.  This is where you place the code that will be running in a continuous manner. 
+This code would have very simple flow:
 
 1. Getting some data from the space
 2. Performing some work - might involve reading additional data from the space
@@ -162,11 +164,11 @@ The most important method is the run method.  This is where you place the code t
 
 Here is what each phase should include:
 
-1. The first phase would call the take or takeMultiple operations.  In some cases these would be transactional operations.  FIFO take mode might be very relevant here.
-2. The second phase might include some calculations.  You might call here the read or readMultiple (in some cases space iterator) to feed into the calculations' required data.  These can read data from the same space the data retrieved from in phase one, or from another space(s).
-3. The third phase might include write or writeMutiple calls writing calculated results back into the space. These will be collected by another worker responsible for aggregating results and delegating these to the end clients.  The write or writeMutiple would use the same transaction as used with the first phase.  This phase would commit the transaction.
+1. The first phase would call the `read` , `readMultiple` ,`take` or `takeMultiple` operations.  In some cases these would be transactional operations.  FIFO `take` mode might be very relevant here.
+2. The second phase might include some calculations.  You might call here the `read` or `readMultiple` (in some cases space `iterator`) to feed into the calculations' required data.  These can read data from the same space the data retrieved from in phase one, or from another space(s).
+3. The third phase might include `write` or `writeMutiple` calls writing calculated results back into the space. These will be consumed by another worker responsible for aggregating results and delegating these to the end clients.  The `write` or `writeMutiple` would use the same transaction as used with the first phase.  This phase would `commit` the transaction.
 
-Here is a simple example:
+Here is a simple example - The `MyRequest` class represents the space class that stores the data and also includes to logic to be executed. The `MyResult` class represents the space class that stores the outcome of the executed logic:
 
 {% highlight java %}
 CommandObjectPtr CppService::run(CommandObjectPtr Object)
@@ -176,18 +178,20 @@ CommandObjectPtr CppService::run(CommandObjectPtr Object)
       SpaceFinder       finder;
       long long proxyId = any_cast<long long>(replyParams[0]);
       proxy = finder.attach( proxyId, false, m_callback);
-      Task taskTemplate;
+      MyRequest requestTemplate;
 
       while(true)
       {
-            Task task = proxy->take(&taskTemplate, NULL_TX, Lease::FOREVER);
-            Result result = task->execute();
+            MyRequest request = proxy->take(&requestTemplate, NULL_TX, Lease::FOREVER);
+            MyResult result = request->executeLogic();
             proxy->write(result, NULL_TX, Lease::FOREVER);
        }
 }
 {% endhighlight %}
 
-The above code injects the space proxy (the proxy could be remote or embedded, single or clustered), performs blocking take using the taskTemplate object, executes the Task::execute() method, and returns back into the space the Result object of the execution.  Once this cycle is completed, another one starts all over again.
+Advanced implementations might use the `takeMultiple` operation instead of the `take` operation to consume and execute several requests in one logical processing cycle/transaction. `MyRequest` and `MyResult` typically will include some `ID` and application specific items. Their implementation is not described here.
+
+The above code injects the space proxy (the proxy could be remote or embedded, single or clustered), performs blocking `take` using the `requestTemplate` object, executes the `MyRequest::execute()` method, and returns back into the space the `MyResult` object of the execution.  Once this cycle is completed, another one starts all over again.
 
 # The Processing Unit Declaration
 
@@ -209,11 +213,9 @@ See below an example:
 </beans>
 {% endhighlight %}
 
-The url="/./space" instructs the GigaSpaces runtime to start the c++ worker with a collocated space instance running within the same process.  This will allow the c++ worker to perform space operations in-memory without any remote calls involved.  If a cluster SLA declared, accessing other remote cluster members will involve remote calls.
+The `url="/./space"` instructs the GigaSpaces runtime to start the c++ worker with a collocated space instance running within the same process.  This will allow the c++ worker to perform space operations in-memory without any remote calls involved.  If a cluster SLA declared, accessing other remote cluster members will involve remote calls.
 
-Having
-    url="jini://*/*/space"
-means the c++ worker will access remote space(s).  These spaces may span multiple machines and may have any clustered topology (replicated or partitioned).
+Having `url="jini://*/*/space"` means the c++ worker will access remote space(s).  These spaces may span multiple machines and may have any clustered topology (replicated or partitioned).
 See more details about the [Space URL](./the-space-configuration.html).
 
 Optional settings you may include as part of the processing unit declaration:
