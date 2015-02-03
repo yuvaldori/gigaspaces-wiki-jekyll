@@ -21,7 +21,7 @@ GigaSpaces XAP is 100% pure Java, and therefore can run on any UNIX or Windows m
 
 **Prior to the GigaSpaces installation, make sure**:
 
-- Review the release notes for the (supported platforms](/release_notes).
+- Review the release notes for the [supported platforms](/release_notes).
 - [JDK](http://java.sun.com/javase/downloads/index.jsp) (6 or later) is installed (for example, **JDK 6 Update 39**) 
 - Set the `JAVA_HOME` environment variable to the JDK (not JRE) directory (for example, `D:\java\jdk1.6.0_39`).
 - Set the `PATH` environment variable to include `JAVA_HOME\bin` (for example, `%JAVA_HOME%\bin;%SystemRoot%\system32;%SystemRoot%`
