@@ -117,6 +117,12 @@ However, when you wish to run this code with SSL encryption, you should run it w
 -Dcom.gs.lrmi.filter.security.password=password
 {% endhighlight %}
 
+Alternatively if you do not need authentication and just wish to encrypt the data you can omit the keystore and the password and the server will generate the ssl keys on the fly.
+{% highlight console %}
+-Dcom.gs.lrmi.filter.factory=com.gigaspaces.lrmi.nio.filters.SSLFilterFactory
+{% endhighlight %}
+
+
 {% tip %}
 With production environment you should have the SSLFilterFactory password (or any other secured user access information) protected by passing its value at the deploy time into the pu.xml (where the actual property using a variable) or at the start-up time as an argument to a wrapper script starting the GigaSpaces agent and not place such secured data on file.
 {% endtip %}
