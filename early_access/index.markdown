@@ -22,6 +22,8 @@ At this point in time there is no early access version available. The latest rel
 [XAP Premium](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m10/gigaspaces-xap-premium-10.1.0-m10-b12592-with-license.zip)
 
 [XAP Caching](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m10/gigaspaces-xap-caching-10.1.0-m10-b12592.zip)
+
+[Memory Extend](http://www.gigaspaces.com/tempfiles/downloads/EarlyAccess/xap/10.1.0/m10/blobstore-10.1.0-12592_M10_1.noarch.rpm)
 {%endpanel%}
 
 
