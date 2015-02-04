@@ -251,6 +251,10 @@ The XAP IMDG should be deployed using one of the [topologies](/product_overview/
 {% refer %}See the [deploy-space]({%currentadmurl%}/deploy-command-line-interface.html) command for details.
 {% endrefer %}
 
+### Classpath
+
+The `gs-session-manager-xxx.jar` located within the `\gigaspaces-xap-root\lib\optional\httpsession` folder should be copied into the `\gigaspaces-xap-root\lib\platform\ext` folder. 
+
 ### Deploying the WAN Gateway
 
 The [WAN Gateway]({%currentjavaurl%}/multi-site-replication-over-the-wan.html) should be deployed using your preferred replication topography, such as multi-master or master-slave. See the [WAN Replication Gateway](/sbp/wan-replication-gateway.html) best practice for an example of how a multi-master Gateway architecture can be deployed.
