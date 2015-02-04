@@ -253,7 +253,7 @@ The XAP IMDG should be deployed using one of the [topologies](/product_overview/
 
 ### Classpath
 
-The `gs-session-manager-xxx.jar` located within the `\gigaspaces-xap-proot\lib\optional\httpsession` folder should be copied into the `\gigaspaces-xap-root\lib\platform\ext` folder. 
+The `gs-session-manager-xxx.jar` located within the `\gigaspaces-xap-root\lib\optional\httpsession` folder should be copied into the `\gigaspaces-xap-root\lib\platform\ext` folder. 
 
 ### Deploying the WAN Gateway
 
