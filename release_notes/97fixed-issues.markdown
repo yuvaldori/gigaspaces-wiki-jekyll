@@ -14,7 +14,9 @@ Below is a list of issues that have been fixed in GigaSpaces 9.7.X.
 {: .table .table-bordered .table-condensed}
 | Key | Summary | Fixed in Version | SalesForce ID | Platform/s |
 |:----|:--------|:----------------|:---------------|:------------------|
-| <nobr>GS-11069</nobr> | Add the ability to set OpenSpacesMuleMessageReceiver max batch size on os-queue:connector | 9.5.2 patch3, 9.6.2, 9.7.0 | 7943 | Java |
+| <nobr>GS-10510</nobr> | Consistency issues with multisource replication when transient entries are involved (distributed transaction consolidation) | 9.1.0 Whole Version, 9.1.0_m5, 9.7.2, 10.0.1patch2 |  | All |
+| GS-10903 | Repeatable SQLQuery with a slight difference per each SQL (changing the value is enough) for long time causes memory leak in client | 9.7.2, 10.1.0 | 7791 | All |
+| GS-11069 | Add the ability to set OpenSpacesMuleMessageReceiver max batch size on os-queue:connector | 9.5.2 patch3, 9.6.2, 9.7.0 | 7943 | Java |
 | GS-11108 | Error in startGroovy.bat file when trying to use Java 6 style wildcard for jars to be added to classpath |  9.6.1, 9.7.0 | 8007 | Java |
 | GS-11139 | GigaSpaces was holding file handlers to deleted files | 9.5.2 patch3, 9.6.2, 9.7.0 | 7944 | All |
 | GS-11142 | ChangeException in .Net is not marked as serializable | 9.7.0 | 8046 | .Net |
@@ -68,7 +70,7 @@ Below is a list of issues that have been fixed in GigaSpaces 9.7.X.
 | GS-11442 | ClassCastException may occur in reliable async target if replication backlog is over flown | 9.7.0 | | All |
 | GS-11445 | ESM failing to shutdown after the GSA has been stopped | 9.7.0 | 8406 | Java |
 | GS-11451 | ESM mistakenly kills containers not registered with LUS, when it failed to start a container on that machine | 9.7.0 | | Java |
-| GS-11452 | NPE replicating change operation in rare conditions | 9.7.0 | 8439 | Java, .NEet|
+| GS-11452 | NPE replicating change operation in rare conditions | 9.7.0 | 8439 | Java, .Net|
 | GS-11462 | Restart the ESM if it cannot detect any lookup service | 9.7.0 | 8448 | Java |
 | GS-11469 | Change operation and central data base, causes a problem when sending a durable notifications | 9.6.2 patch1, 9.7.0 | | All |
 | GS-11486 | Fix GigaMap id registration | 9.7.0 |  | Java |
@@ -83,7 +85,7 @@ Below is a list of issues that have been fixed in GigaSpaces 9.7.X.
 | GS-11536 | LRMI threads cause JVM-wide slowdown with parallel reads | 9.7.1, 10.0.0 | 8527 | Java |
 | GS-11559 | ESM - Scale undeployment is in progress, stuck in a loop caused by ExpectedMachineWithMoreMemoryException | 9.7.0 | 8586 | Java |
 | GS-11561 | Reading a POJO which contains a document using mongo EDS fails | 9.7.1, 10.0.0 |  | Java |
-| GS-11599 | Limit number of LookupKeepaliveTask's per lookup service | 9.7.1, 10.0.0 |  | Java |
+| GS-11599 | Limit number of LookupKeepaliveTask's per lookup service | 9.7.1patch7, 9.7.2, 10.0.0 | 9204 | Java |
 | GS-11606 | Deterministic Deployment is not working on secured grid | 9.7.1, 10.0.0 | 8642 | All |
 | GS-11615 | SpaceDataSourceSplitter#initialMetadataLoad might causes NPE | 9.7.1, 10.0.0 | 8655 | All |
 | GS-11616 | ReadModifiers  missing default constructor  | 9.7.1, 10.0.0 | 8657 | Java |
@@ -91,16 +93,46 @@ Below is a list of issues that have been fixed in GigaSpaces 9.7.X.
 | GS-11631 | PrimaryZoneController.afterPropertiesSet() throws NullPointerException | 9.7.1, 10.0.0 |  | Java |
 | GS-11633 | Add Multi thread support to XAResourceImpl | 9.7.1, 10.0.0 | 8698 | Java |
 | GS-11640 | Installmavenrep.bat fails because POMGenerator doesn't generate mongo-datasource pom | 9.7.1, 10.0.0 |  | Java |
+| GS-11641 | Default Notifications may not consume all concurrent resources when it could have | 10.0.0, 9.7.0patch3, 9.7.2 | 8635 | All |
 | GS-11651 | Web-ui: NumberFormatException thrown while parsing cpu values for specific Local values | 9.7.1, 10.0.0 |  | Java |
 | GS-11652 | Calendar instance is not formatted nicely in GS-ui query results | 9.7.1, 10.0.0 |  | Java |
 | GS-11661 | Using enums with Linq throws an exception | 9.7.1, 10.0.0 |  | .Net |
 | GS-11664 | AccessDeniedException in write only operation  - when using role including WRITE permission | 9.7.1, 10.0.0 | 8757 | All |
+| GS-11665 | Ability to add GS services JAVA_OPTIONS within setenv.sh | 9.7.2, 10.1.0 | 8768 | Java |
 | GS-11681 | Ping cli command does not work | 9.7.1, 10.0.0 |  | Java |
 | GS-11689 | Protective mode primitiveWithoutNullValue is thrown from replication | 9.7.1, 10.0.0 | 8808 | All |
 | GS-11690 | Linq expressions without where cause throw exception | 9.7.1, 10.0.0 |  | .Net |
 | GS-11704 | Queries with empty ranges IndexOutOfBoundsException | 9.7.1, 10.0.0 | 8894 | All |
 | GS-11717 | XAP benchmark fails on primitiveWithoutNullValue protective mode | 9.7.1, 10.0.0 |  | All |
+| GS-11732 | Disributed transaction over multiple clusters might cause consolidations problems | 9.7.0_patch7, 9.7.2, 10.0.0 | 8935 | All |
+| GS-11736 | Can't see space in gs-ui when running XAP 9.7.1 gsInstance.bat when using jdk 7u55 | 9.7.2, 10.0.0 |  | Java |
 | GS-11739 | Benchmark Write using batches writes actually only part of expected objects | 9.7.1, 10.0.0 |  | Java |
+| GS-11740 | Duplicate lease renewal in MapCache | 8.0.5patch1, 9.7.1patch3, 9.7.2, 10.1.0 | 8815 | Java |
+| GS-11748 | LRU space with no EDS partitioned-sync2backup might face version conflict that will lead to replication error and increase redolog  | 9.1.0 patch3, 9.7.2, 10.0.0 | 8962 | All |
+| GS-11775 | NPE - when trying to resolve certain split brain scenario  | 9.7.2, 10.1.0 | 9032 | All |
+| GS-11825 | SpaceMetadataException logged In loop when adding index to a type that doesn’t exists in the mirror | 9.7.2, 10.1.0 | 9044 | Java |
+| GS-11832 | NPE in getCachedBuffer in rare condition | 9.7.2, 10.1.0 | 9128 | All |
+| GS-11833 | Missing parttition after reboot of node due to ESM negative capacity exception | exception
+	9.7.0patch5, 9.7.2, 10.1.0 | 9017 | All |
+| GS-11834 | GSC that is supposed to be terminated due to rebalancing does not terminate | 9.7.2, 10.1.0 | 9047 | All |
+| GS-11972 | Client failed to connect to space when the disconnected machine appears first in jini url | 9.7.2, 10.1.0 | 9200, 9529 | Java |
+| GS-11978 | Memory Leak in FIfo Groups in certain condition | 9.7.2, 9.7.0patch5, 10.1.0 | 9218 | All |
+| GS-11979 | IllegalArgumentException When Using SQLQuery and one of properties is compressed or binary | 9.7.2, 10.1.0 | 9220,9275,9325,9376 | Java |
+| GS-11991 | Add support of lrmi port range and wan gateway | 9.7.1patch4, 9.7.2, 10.1.0 |  | Java |
+| GS-12043 | Impossible to override NIC_ADDR at environment without dns like openstack | 9.7.2, 10.1.0 |  | Java |
+| GS-12045 | .Net - IndexOutOfBoundsException when iterating over IOutgoingReplication | 9.7.2, 10.1.0, 9.7.1patch5, 10.0.2 |  | .Net |
+| GS-12047 | Limit the query results by a system property to avoid crashing the space with large queries | 9.7.1patch7, 9.7.2, 10.1.0 | 9198 | All |
+| GS-11978 | Memory Leak in FIfo Groups in certain condition | 9.7.0patch5, 9.7.2, 10.1.0 | 9218 | All |
+| GS-12054 | Pending provision of processing unit instance after failover of machine with GSM and ESM due to GSM not in sync | 9.7.2, 10.1.0 | 9274 | Java |
+| GS-12074 | Deploy Application with dependencies hang in case of more then 2 instances per service | 9.6.2patch3, 9.7.1patch8, 9.7.2, 10.1.0 | 9279 | All |
+| GS-12077 | LUS OOM in rare condition of plenty registration and unregistration of services due to disconnections | 9.7.2, 10.1.0 | 9316 | All |
+| GS-12085 | Instance missing after GSM failover due to "clustered space member must be defined in at least in one partition" | 9.7.2, 10.1.0 | 9018 | Java |
+| GS-12101 | XA transaction with suspend resume fails | 9.7.2, 10.1.0 | 9373 | Java |
+| GS-12104 | After split brain resolution a .NET backup Space may remain inactive |  9.6.2patch5, 9.7.2, 10.1.0 | 9368 | Java |
+| GS-12122 | notify update bug may result getting wrong value in rapid updates of entry | 9.7.2, 10.1.0 |  | Java |
+| GS-12137 | Out of memory during lrmi client handshake | 9.7.2, 10.1.0 |  | Java |
+| GS-12141 | Transaction consolidation fails when one of the participants has only transient objects  | 9.7.1patch9, 9.7.2, 10.1.0 | 9432 | All |
+
 
 
 
