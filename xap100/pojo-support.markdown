@@ -105,7 +105,7 @@ When using a POJO as a space domain class, follow these guidelines:
 - A POJO class must implement a default (zero argument) constructor.
 - Getter/setter methods for fields that you want to be persisted in the space.
 
-- Non-primitive fields must implement `Serializable` or `Externalizable`. For example, if you are using a POJO class that contains a nested class.
+- Non-primitive fields must implement `Serializable`. For example, if you are using a POJO class that contains a nested class.
 - Primitive `boolean` should not be used as a POJO field as this could lead to problems when using template based matching. `Boolean` should be used instead.
 
 
@@ -122,7 +122,7 @@ When using a POJO as a space domain class, follow these guidelines:
 - When using `SpaceId(autoGenerate=true)`, the UID is stored inside the `SpaceId` field, causing an overhead when indexed.
 {%endcomment%}
 
-- A POJO class must implement the `Serializable` or `Externalizable` interface if used as a parameter for a remote call ([Space Based Remoting](./space-based-remoting.html)).
+- A POJO class must implement the `Serializable` interface if used as a parameter for a remote call ([Space Based Remoting](./space-based-remoting.html)).
 
 
 {%comment%}
