@@ -77,6 +77,8 @@ Below is a list of new features and improvements in GigaSpaces 9.7.X.
 |GS-11596 | Log severe messages when warning persists | 9.7.1 | 8622 | | All |
 |GS-11612 | Deploy process optimization | 9.7.1 | | | Java, .NET |
 |GS-11621 | Bad linux scripts for the benchmark cli tool | 9.7.1 | | | Java |
+|GS-11639 | Web-UI uses large amounts of memory for statistics | 9.7.0 | 8741 | | Java |
+|GS-11656 | Notification event triggering is moved to a custom LRMI thread pool (together with space tasks) | 9.7.0 | | | All |
 |GS-11666 | Pojo to Document Conversion should not convert Class,URI,Locale types | 9.7.1 | | | Java |
 |GS-11691 | Create a setting to skip authentication for transaction commit/abort | 9.7.1 | 8765 | | All |
 |GS-11693 | Enhance nHibernate EDS to support overriding initial load | 9.7.1 | | | .Net |
@@ -86,3 +88,5 @@ Below is a list of new features and improvements in GigaSpaces 9.7.X.
 |GS-11710 | Simplify processing unit configuration in XAP.NET | 9.7.1 | | | .Net |
 |GS-11731 | Simplify mirror configuration in XAP.NET | 9.7.1 | | | .Net |
 |GS-11737 | Enhance XAP.NET processing unit to support properties replacement | 9.7.1 | | | .Net |
+|GS-11771 | Allow to define zones during deployment in GS-UI | 9.7.1 | | | Java |
+|GS-11772 | Allow to define zones during deployment in WEB-UI | 9.7.1 | | | Java |
