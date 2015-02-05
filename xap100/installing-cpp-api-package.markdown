@@ -125,3 +125,13 @@ Result files can be found in `<XAP Root>\cpp`:
 `testResult*.xml` -- Functional tests results
 
 
+# Server installation
+
+When installing XAP on a server the following  package needs to be installed according to your version:
+
+[Microsoft Visual C++ 2008 SP1 Redistributable Package (x86)](http://www.microsoft.com/en-us/download/details.aspx?id=5582) <br>
+[Microsoft Visual C++ 2008 SP1 Redistributable Package (x64)](http://www.microsoft.com/en-us/download/details.aspx?id=2092)
+
+[Microsoft Visual C++ 2010 SP1 Redistributable Package (x86)](http://www.microsoft.com/en-us/download/details.aspx?id=8328)<br>
+[Microsoft Visual C++ 2010 SP1 Redistributable Package (x64)](http://www.microsoft.com/en-us/download/details.aspx?id=13523)
+
