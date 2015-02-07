@@ -10,11 +10,11 @@ parent: the-gigaspace-interface-overview.html
 
 Some of the space operations can generate notifications when they are executed. Notifications are also generated when working in clustered mode (schema) that includes a primary/backup schema. A listener can be defined to receive these notifications.
 
-The following Space operations create notifications:
+The following Space operations my trigger notifications:
 
 - write(), writeMultiple()
-- take(), takeMultiple()
-- change(), changeMultiple()
+- asyncTake() , take() , takeById(), takeByIds() , takeIfExists() ,takeIfExistsById(), takeMultiple() , clear()
+- AsyncChange , change()
 
 
 # Notify Example
