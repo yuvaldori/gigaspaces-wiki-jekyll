@@ -68,8 +68,3 @@ ReadById is intended to objects with meaningful ids,if used with auto-generate="
 {% endrefer %}
 
 
-
-<ul class="pager">
-  <li class="previous"><a href="./querying-the-space.html">&larr; Querying the Space</a></li>
-  <li class="next"><a href="./query-template-matching.html">Template Matching &rarr;</a></li>
-</ul>

@@ -409,7 +409,3 @@ new SQLQuery<MyData>(MyData.class, "`count` = 5")
 {% endvbar %}
 
 
-<ul class="pager">
-  <li class="previous"><a href="./query-template-matching.html">&larr; Template Matching</a></li>
-  <li class="next"><a href="./query-free-text-search.html">Free Text Search &rarr;</a></li>
-</ul>

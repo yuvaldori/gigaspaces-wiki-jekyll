@@ -55,7 +55,3 @@ Iterating through the matched set does not lock the object. Objects that are und
 
 The space iterator only supports simple SQL queries. For more information about the differences between simple and complex queries see [simple SQL queries](./query-sql.html#SimpleQueries).
 
-<ul class="pager">
-  <li class="previous"><a href="./query-user-defined-classes.html">&larr; User Defined Class</a></li>
-  <li class="next"><a href="./query-partial-results.html">Partial Results &rarr;</a></li>
-</ul>

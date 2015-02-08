@@ -15,6 +15,10 @@ This page lists the main new features in XAP 10.1 (Java and .Net editions). It's
 
 - [Sequence Number](#snumber)
 
+- [Support for Java 8](#java8)
+
+- [New Space Iterator](#paging)
+
 REST
 
 - [REST API](#rest1)
@@ -79,6 +83,25 @@ XAP provides a framework for collecting and reporting metrics from the distribut
 # REST API
 
 {%learn%}/xap101/rest-service-overview.html{%endlearn%}
+
+
+{%anchor java8%}
+
+# Support for Java 8
+
+The Space API supports the following new Java classes
+
+- java.time.LocalDate;
+- java.time.LocalDateTime;
+- java.time.LocalTime;
+
+{%anchor paging%}
+
+# New Space Iterator
+
+The new Space iterator which is intended to replace the old GSIterator starting 10.1.
+
+{%learn%}/xap101/query-paging-support.html{%endlearn%}
 
 
 {%anchor rest2%}
