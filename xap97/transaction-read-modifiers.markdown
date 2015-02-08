@@ -50,9 +50,9 @@ The following table describes the mapping between the [Spring TransactionDefinit
 |ISOLATION_READ_COMMITTED|READ_COMMITTED|
 |ISOLATION_REPEATABLE_READ|REPEATABLE_READ|
 
-{% comment %}
-|ISOLATION_SERIALIZABLE|EXCLUSIVE_READ_LOCK|
-{% endcomment %}
+{% warning %}
+`SERIALIZABLE`isolation is not supported.No exception is currently thrown when used.
+{% endwarning %}
 
 # Repeatable Read
 
