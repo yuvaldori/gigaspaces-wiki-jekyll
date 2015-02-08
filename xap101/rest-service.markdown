@@ -100,7 +100,7 @@ Another option is to deploy the REST service as [Web Processing Unit](./web-appl
 
 In order to do so, you will need to do the following:
 
-1. Clone the project from Github: `git clone https://github.com/OpenSpaces/RESTData.git`
+1. Clone the project from Github: `git clone https://github.com/GigaSpaces/RESTData.git`
 
 2. Edit the file that is located under src/main/webapp/WEB-INF/config.properties to include your space's properties
 
@@ -114,4 +114,5 @@ For example:
 spaceName=mySpace
 lookupGroups=myGroups
 #lookupLocators=
+#datetime_format=
 {% endhighlight %}

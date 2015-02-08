@@ -46,8 +46,8 @@ Response Schema:
 
 Examples:
 {% highlight bash %}
-http://localhost:8080/MyObject/_introduce_type
-http://localhost:8080/MyObject/_introduce_type?spaceid=id
+curl -XGET http://localhost:8080/MyObject/_introduce_type
+curl -XGET http://localhost:8080/MyObject/_introduce_type?spaceid=id
 {% endhighlight %}
 
 
@@ -96,7 +96,6 @@ Request Schema:
     ],
     "unique": true // optional
   },
-  "spaceIndex": "Still not supported",
   "fifoSupport": "DEFAULT", // SEE com.gigaspaces.annotation.pojo.FifoSupport
   "blobStoreEnabled": true,
   "storageType": "DEFAULT", // SEE com.gigaspaces.metadata.StorageType
@@ -368,3 +367,6 @@ See that Item3 does not exists:
 
 curl -XGET http://localhost:8080/MyObject/?query=id=%271%27%20or%20id=%272%27%20or%20id=%273%27
 {% endhighlight %}
+
+
+#Date support
