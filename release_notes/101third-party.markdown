@@ -103,7 +103,11 @@ This page list all the 3rd party libraries shipped with GigaSpaces XAP on a per 
 {: .table .table-bordered}
 | Product | Product Page | Version | License | License Page | Required | Component |
 |:--------|:-------------|:--------|:--------|:-------------|:---------|:----------|
-| JSONDoc | [http://jsondoc.org/](http://jsondoc.org/) | 1.0.9 | MIT | [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php) | Yes | REST API - Web App |
+| JSONDoc | [http://jsondoc.org/](http://jsondoc.org/) | 1.0.9 | MIT | [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php) | Yes | RESTData |
+| Guava | [https://code.google.com/p/guava-libraries/](https://code.google.com/p/guava-libraries/) | 15.0 | Apache 2 | [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php) | Yes | RESTData |
+| Javassist | [http://www.csg.ci.i.u-tokyo.ac.jp/~chiba/javassist/](http://www.csg.ci.i.u-tokyo.ac.jp/~chiba/javassist/) | 3.18.2 | Apache 2 | [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php) | Yes | RESTData |
+| log4j | [https://logging.apache.org/](https://logging.apache.org/) | 1.2.17 | Apache 2 | [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php) | Yes | RESTData |
+| Reflections | [https://code.google.com/p/reflections/](https://code.google.com/p/reflections/) | 0.9.9 | WTFPL | [http://www.wtfpl.net/about/](hhttp://www.wtfpl.net/about/) | Yes | RESTData |
 
 {% endtabcontent %}
 
