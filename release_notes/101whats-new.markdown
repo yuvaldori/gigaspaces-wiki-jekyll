@@ -11,7 +11,7 @@ This page lists the main new features in XAP 10.1 (Java and .Net editions). It's
 
 {%panel%}
 
-- [Mertics](#metrics)
+- [Metrics](#metrics)
 
 - [Sequence Number](#snumber)
 
