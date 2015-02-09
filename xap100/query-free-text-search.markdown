@@ -127,6 +127,15 @@ Querying the space using the Java Regular Expression provides more options than 
 SQLQuery<MyClass> query = new SQLQuery<MyClass>(MyClass.class,"name rlike '(a|c).*'");
 {% endhighlight %}
 
+When you seach for space objects with String fields that includes a **single quote** your query should use Parameterized Query - with the following we are searching for all `Data` objects that include the value `today's` with their `myTextField`:
+
+{% highlight java %}
+String queryStr = "myTextField rlike ?";
+SQLQuery<Data> query = new SQLQuery<Data>(Data.class, queryStr);
+query.setParameter(1, "(today\u0027s)");
+Data ret[] = space.readMultiple(query);
+{% endhighlight %}
+
 All the supported methods and options above are relevant also for using `rlike` with `SQLQuery`.
 
 {%comment%}
