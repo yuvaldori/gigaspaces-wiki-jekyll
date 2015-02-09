@@ -443,6 +443,12 @@ Notifications for expired space objects are delivered both from the primary and 
 
 When Objects are written to a Persistent Space (backed by a permanent store using ExternalDataSource), objects are written to the permanent store and removed from the space once lease expires. To avoid reloading the expired data into space objects should use @SpaceLeaseExpiration annotation.
 
+Once an object's lease expires the underlying persistence store:
+
+- will not be updated when running in `LRU` <br>
+- will be updated when running in `All in cache`. In this case the `syncEndPoint.remove` method (direct or mirror) will be called.
+- when running with `blobstore` (SSD or local file implementation) expired space objects are removed from the `blobstore`.
+
 # Lease Manager
 
 You can control how often this thread invokes the invalidation process. This involves iterating through all the expired space objects since the last invalidation cycle, and allowing the JVM garbage collector to release the memory consumed for the object. To configure the Lease Manager interval use the following:
