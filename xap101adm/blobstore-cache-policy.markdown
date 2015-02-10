@@ -210,7 +210,7 @@ Configuring an IMDG (Space) with BlobStore should be done via the `SanDiskBlobSt
     <os-core:embedded-space id="space" name="mySpace">
         <os-core:blob-store-data-policy blob-store-handler="blobstoreid" cache-entries-percentage="10"
             avg-object-size-KB="5" recover-from-blob-store="true"/>
-    </s-core:embedded-space>
+    </os-core:embedded-space>
 
     <os-core:giga-space id="gigaSpace" space="space"/>
 </beans>
@@ -224,7 +224,7 @@ Configuring an IMDG (Space) with BlobStore should be done via the `SanDiskBlobSt
 Programmatic approach to start a BlobStore space:
 {% highlight java %}
 SanDiskBlobStoreConfigurer configurer = new SanDiskBlobStoreConfigurer();
-configurer.addDevices("/dev/xvdb,/dev/xvdc");
+configurer.addDevices("[/dev/xvdb,/dev/xvdc]");
 configurer.addVolumeDir("/tmp");
 configurer.setBlobStoreCapacityGB(200);
 configurer.setBlobStoreCacheSizeMB(50);
@@ -250,6 +250,50 @@ The above example:
 
 - Configures the SanDisk BlobStore bean.
 - Configures the Space bean (Data Grid) to use the blobStore implementation. 
+
+### Consistency Level
+In case you are deploying a high available data grid (space with backups) make sure you configure [consistency-level](consistency-level.html)  to all.
+
+{% inittab os_simple_space|top %}
+{% tabcontent Namespace %}
+
+{% highlight xml %}
+    ...	
+    <os-core:embedded-space id="space" name="mySpace" >
+        <os-core:blob-store-data-policy blob-store-handler="blobstoreid" cache-entries-percentage="10" avg-object-size-KB="5" recover-from-blob-store="true"/>
+	 <os-core:properties>
+            <props>
+                <prop key="cluster-config.groups.group.repl-policy.sync-replication.consistency-level">all</prop>
+            </props>
+        </os-core:properties>
+    </os-core:embedded-space>
+   ...
+{% endhighlight %}
+{% endtabcontent %}
+
+{% tabcontent Code %}
+
+
+## Programmatic API
+Programmatic approach to start a BlobStore space:
+{% highlight java %}
+...
+ SanDiskBlobStoreHandler sanDiskBlobStoreHandler = configurer.create();
+ BlobStoreDataCachePolicy cachePolicy = new BlobStoreDataCachePolicy();
+ cachePolicy.setAvgObjectSizeKB(10l);
+ cachePolicy.setCacheEntriesPercentage(0);
+ cachePolicy.setRecoverFromBlobStore(true);
+ cachePolicy.setBlobStoreHandler(sanDiskBlobStoreHandler);
+
+ UrlSpaceConfigurer urlConfig = new UrlSpaceConfigurer(spaceURL);
+ urlConfig.cachePolicy(cachePolicy);
+ urlConfig.addProperty("cluster-config.groups.group.repl-policy.sync-replication.consistency-level", "all");
+ gigaSpace = new GigaSpaceConfigurer(urlConfig.space()).gigaSpace();
+...
+{% endhighlight %}
+
+{% endtabcontent %}
+{% endinittab %}
 
 # Automatic Data Recovery and ReIndexing
 
