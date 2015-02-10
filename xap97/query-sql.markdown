@@ -299,6 +299,15 @@ Querying the space using the Java Regular Expression provides more options than 
 SQLQuery<MyClass> query = new SQLQuery<MyClass>(MyClass.class,"name rlike '(a|c).*'");
 {% endhighlight %}
 
+When you search for space objects with String fields that includes a **single quote** your query should use Parameterized Query - with the following we are searching for all `Data` objects that include the value `today's` with their `myTextField`:
+
+{% highlight java %}
+String queryStr = "myTextField rlike ?";
+SQLQuery<Data> query = new SQLQuery<Data>(Data.class, queryStr);
+query.setParameter(1, "(today\u0027s)");
+Data ret[] = space.readMultiple(query);
+{% endhighlight %}
+
 All the supported methods and options above are relevant also for using `rlike` with `SQLQuery`.
 
 {% note %} `like` and `rlike` queries are not using indexed data, hence executing such may be relatively time consuming compared to other queries that do leverage indexed data. This means the space engine iterate the potential candidate list to find matching object using the Java regular expression utilizes. A machine using 3GHz CPU may iterate 100,000-200,000 objects per second when executing regular expression query. To speed up `like` and `rlike` queries make sure your query leveraging also at least one indexed field to minimize the candidate list. Running multiple partitions will also speed up the query execution since this will allow the system to iterate over the potential matching objects in a parallel manner across the different partitions.

@@ -213,7 +213,7 @@ ArchivePollingContainer archiveContainer =
 
 archiveContainer.destroy();
 cassandraArchiveHandler.destroy();
-urlSpaceConfigurer.destroy();
+configurer.destroy();
 {% endhighlight %}
 
 {% endtabcontent %}
