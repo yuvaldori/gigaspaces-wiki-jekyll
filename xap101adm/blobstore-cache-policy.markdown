@@ -252,7 +252,8 @@ The above example:
 - Configures the Space bean (Data Grid) to use the blobStore implementation. 
 
 ### Consistency Level
-In case you are deploying a high available data grid (space with backups) make sure you configure [consistency-level](consistency-level.html)  to all.
+
+In case you are deploying a highly available data grid (Space with backups) make sure you configure the [consistency-level](./consistency-level.html)  to all.
 
 {% inittab os_simple_space|top %}
 {% tabcontent Namespace %}
