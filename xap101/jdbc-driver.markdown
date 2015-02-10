@@ -239,7 +239,7 @@ public class JDBCTask implements DistributedTask<String[], String[]>{
 {% endhighlight %}
 
 {% highlight java %}
-GigaSpace gigapace =new GigaSpaceConfigurer(new SpaceProxyConfigurer("mySpace")).gigaSpace();
+GigaSpace gigapace =new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*/mySpace")).gigaSpace();
 AsyncFuture<String[]> result= gigapace.execute(new JDBCTask("select str from " +MyClass.class.getName() + " group by str"));
 String[] result_str = result.get();
 System.out.println("The Result:" + Arrays.asList(result_str));
@@ -346,29 +346,27 @@ Field incrementing is only supported for `Integer` fields using a '+' operator.
 - Connection pool.
 - All JDBC basic types including Blob and Clob.
 
-# Unsupported Features
+# Regular Expression
 
-**GigaSpaces JDBC does not support the following**:
+GigaSpaces XAP support query using regular expression. You may use `like` or `rlike` expressions with your JDBC queries.
 
-- The SQL statements: `HAVING`, `VIEW`, `TRIGGERS`, `EXISTS`, `BETWEEN` in collections, `NOT`, `CREATE USER`, `GRANT`, `REVOKE`, `SET PASSWORD`,  `CONNECT USER`, `ON`.
-- `CREATE` Database.
-- `CREATE` Index, `DROP` Index.
-- Constraints: `NOT NULL`, `IDENTITY`, `UNIQUE`, `PRIMARY KEY`, Foreign Key `REFERENCES`, `NO ACTION`, `CASCADE`, `SET NULL`, `SET DEFAULT`, `CHECK`.
-- Set operations: `Union, Minus, Union All`.
-- Aggregate Functions: `STDEV`, `STDEVP`, `VAR`, `VARP`, `FIRST`, `LAST`.
-- The `UPDATE` statement does not allow the use of an expression or a `null` value in the `SET` clause.
-- Using a constant instead of the column name.
-- The `INSERT` statement does not allow the use of an expression in the `VALUES` clause.
-- "." used to indicate a double data type.
-- Using mathematical expressions in the `WHERE` clause.
-- `LEFT [OUTER] JOIN`
-- `RIGHT [OUTER] JOIN`
-- `[INNER] JOIN`
+{% note %}
+It is important you index `String` type fields used with regular expression queries. Not indexing such fields may result slow query execution and garbage creation.
+{% endnote %}
 
-{% tip %}
-When having `SELECT count (*) FROM myClass` JDBC query -- `myClass` sub classes object count are not taken into consideration when processing the query result. The `SELECT count (*) FROM myClass WHERE X=Y` and `SELECT (*) from myClass` do take into consideration `myClass` sub classes objects when processing the result. Future versions will resolve this inconsistency.
-As a workaround, construct a JDBC query that includes a relevant `WHERE` part.
-{% endtip %}
+When using the SQL `like` operator you may use the following:
+`%` - match any string of any length (including zero length)
+`_` - match on a single character
+
+Querying the space using the [Java Regular Expression](http://docs.oracle.com/javase/{%version java-version%}/docs/api/java/util/regex/Pattern.html) provides more options than the SQL `like` operator. The Query syntax is done using the `rlike` operator.
+
+When you search for space objects with String fields that includes a **single quote** your query should use Parameterized Query - with the following we are searching for all `Data` objects that include the value `today's` with their `myTextField`:
+
+{% highlight java %}
+PreparedStatement st = con.prepareStatement("select id,text,text2 from MyData WHERE text rlike ?");
+st.setString(1, "today\u0027s.*");
+ResultSet rs = st.executeQuery();
+{% endhighlight %}
 
 # Partitioning Support
 
@@ -471,6 +469,31 @@ while (rs.next()) {
 }
 {% endhighlight %}
 
+
+# Unsupported Features
+
+GigaSpaces JDBC Driver does not support the following:
+
+- The SQL statements: `HAVING`, `VIEW`, `TRIGGERS`, `EXISTS`, `BETWEEN` in collections, `NOT`, `CREATE USER`, `GRANT`, `REVOKE`, `SET PASSWORD`,  `CONNECT USER`, `ON`.
+- `CREATE` Database.
+- `CREATE` Index, `DROP` Index.
+- Constraints: `NOT NULL`, `IDENTITY`, `UNIQUE`, `PRIMARY KEY`, Foreign Key `REFERENCES`, `NO ACTION`, `CASCADE`, `SET NULL`, `SET DEFAULT`, `CHECK`.
+- Set operations: `Union, Minus, Union All`.
+- Aggregate Functions: `STDEV`, `STDEVP`, `VAR`, `VARP`, `FIRST`, `LAST`.
+- The `UPDATE` statement does not allow the use of an expression or a `null` value in the `SET` clause.
+- Using a constant instead of the column name.
+- The `INSERT` statement does not allow the use of an expression in the `VALUES` clause.
+- "." used to indicate a double data type.
+- Using mathematical expressions in the `WHERE` clause.
+- `LEFT [OUTER] JOIN`
+- `RIGHT [OUTER] JOIN`
+- `[INNER] JOIN`
+
+{% tip %}
+When having `SELECT count (*) FROM myClass` JDBC query -- `myClass` sub classes object count are not taken into consideration when processing the query result. The `SELECT count (*) FROM myClass WHERE X=Y` and `SELECT (*) from myClass` do take into consideration `myClass` sub classes objects when processing the result. Future versions will resolve this inconsistency.
+As a workaround, construct a JDBC query that includes a relevant `WHERE` part.
+{% endtip %}
+
 # JDBC Reserved Words
 
 Here is a list of JDBC reserved keywords, data types, separators and operators:
@@ -479,7 +502,7 @@ Here is a list of JDBC reserved keywords, data types, separators and operators:
 
 {% highlight java %}
 ALTER ADD AND ASC BETWEEN BY CREATE CALL DROP DEFAULT_NULL DESC DISTINCT
-END FROM GROUP IN IS LIKE MAX MIN NOT NULL OR ORDER SELECT SUBSTR SUM SYSDATE
+END FROM GROUP IN IS LIKE RLIKE MAX MIN NOT NULL OR ORDER SELECT SUBSTR SUM SYSDATE
 UPPER WHERE COUNT DELETE EXCEPTION ROWNUM INDEX INSERT INTO SET TABLE TO_CHAR
 TO_NUMBER FOR_UPDATE UPDATE UNION VALUES COMMIT ROLLBACK PRIMARY_KEY UID USING
 {% endhighlight %}
