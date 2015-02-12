@@ -75,7 +75,9 @@ public class ConsoleReporterFactory extends MetricReporterFactory<ConsoleReporte
 }
 {% endhighlight %}
 
-The `load(Properties properties)` method is overridden to load the title from the configuration, and the `create()` method is implemented to instantiate a `ConsoleReporter` using this factory to delegate the loaded configuration.
+The `create()` method is implemented to instantiate the `ConsoleReporter` we've just implemented.
+
+If your factory includes properties which you wish to load from the configuration file (in this case, the `title` property), you can override the `load(Properties properties)` method and extract it from the `properties` argument by its name. The metrics configuration automatically populates the `properties` from the xml configuration file (see below).
 
 # Usage
 
