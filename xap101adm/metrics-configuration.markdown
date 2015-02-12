@@ -24,7 +24,7 @@ A **Metric Reporter** receives a snapshot of metrics values from the sampler and
 
 # Configuration
 
-By default, Metrics configuration is loaded from `XAP_HOME/config/metrics/metrics.xml`. This location can be overridden using the `com.gigaspaces.metrics.config` system property. The configuration determines 
+By default, Metrics configuration is loaded from `XAP_HOME/config/metrics/metrics.xml`. This location can be overridden using the `com.gigaspaces.metrics.config` system property.
 
 ## Samplers
 
