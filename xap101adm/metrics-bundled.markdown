@@ -3,7 +3,7 @@ layout: post101
 title:  Predefined Metrics
 categories: XAP101ADM
 parent: metrics-overview.html
-weight: 400
+weight: 500
 ---
 
 {% summary %}{% endsummary %}
