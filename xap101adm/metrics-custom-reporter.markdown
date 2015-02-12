@@ -32,15 +32,8 @@ public class ConsoleReporter extends MetricReporter {
     public void report(List<MetricRegistrySnapshot> snapshots) {
         for (MetricRegistrySnapshot snapshot : snapshots) {
             System.out.println(title + " [taken at " + snapshot.getTimestamp() + "]");
-
-            System.out.println("-- Gauges ---");
-            Map<String, Object> gauges = snapshot.getGauges();
-            for (Map.Entry<String, Object> entry : gauges.entrySet())
-                System.out.println(entry.getKey() + " => " + entry.getValue());
-
-            Map<String, Long> counters = snapshot.getCounters();
-            System.out.println("-- Counters ---");
-            for (Map.Entry<String, Long> entry : counters.entrySet())
+            Map<String, Object> metricsValues = snapshot.getMetricsValues();
+            for (Map.Entry<String, Object> entry : metricsValues.entrySet())
                 System.out.println(entry.getKey() + " => " + entry.getValue());
         }
     }
