@@ -52,3 +52,25 @@ InfluxDB allows you to [write data through UDP](http://influxdb.com/docs/v0.8/ap
 {% endhighlight %}
 
 Note we're setting the `host` to the location of the InfluxDB installation, and the database is not configured here at all. The default port is `4444`. `logOnError` prints the JSON to the log when there's an error, which can be useful for troubleshooting problems.
+
+# Overriding metrics names
+
+A user may wish to use a different naming scheme for the metrics. This can be accomplished by extending the relevant InfluxDB reporter and overriding the `getMetricNameForReport(String metricName)` method. 
+
+For example, Processing unit metrics are prefixed by `xap.host.pid.gsc.pu.`. The following implementation shortens that prefix to `pu.`:
+
+{% highlight java %}
+public class MyInfluxDBHttpReporter extends InfluxDBHttpReporter {
+    public MyInfluxDBHttpReporter(InfluxDBHttpReporterFactory factory) {
+        super(factory);
+    }
+
+    @Override
+    protected String getMetricNameForReport(String metricName) {
+        final int pos = metricName.indexOf("pu.");
+        return pos != -1 ? metricName.substring(pos) : metricName;
+    }
+}
+{% endhighlight %}
+
+To learn how to configure and install this custom reporter, refer to [Custom Reporter](./metrics-custom-reporter.html).
