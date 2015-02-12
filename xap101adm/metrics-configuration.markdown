@@ -24,7 +24,7 @@ A **Metric Reporter** receives a snapshot of metrics values from the sampler and
 
 # Configuration
 
-Metrics configuration is located in the `metrics.xml` file, which resides in `XAP_HOME/config/metrics`.
+By default, Metrics configuration is loaded from `XAP_HOME/config/metrics/metrics.xml`. This location can be overridden using the `com.gigaspaces.metrics.config` system property. The configuration determines 
 
 ## Samplers
 
@@ -51,6 +51,49 @@ The default configuration contains the following samplers. Users may modify thei
 </metrics-configuration>
 {% endhighlight %}
 
-## Rules
+## Assigning Metrics to Samplers
 
-TODO: Explain how to write rules which assign metrics to samplers
+By default, metrics are assigned to the `default` sampler. A metric can be configured to use a different sampler. For example, to assign the 'free memory' metric to the `high` sampler:
+
+{% highlight xml %}
+<metrics-configuration>
+    <metrics>
+        <metric prefix="xap.*.os.memory.free.bytes" sampler="high"/>
+    </metrics>
+</metrics-configuration>
+{% endhighlight %}
+
+In fact, a more common user story is to assign a group of metrics to a sampler rather than a specific one. For example, to assign all memory metrics to the `high` sampler:
+
+{% highlight xml %}
+<metrics-configuration>
+    <metrics>
+        <metric prefix="xap.*.os.memory" sampler="high"/>
+    </metrics>
+</metrics-configuration>
+{% endhighlight %}
+
+Now, suppose that you want to turn off memory metrics on machine `foo` for some reason:
+
+{% highlight xml %}
+<metrics-configuration>
+    <metrics>
+        <metric prefix="xap.*.os.memory"   sampler="high"/>
+        <metric prefix="xap.foo.os.memory" sampler="off"/>
+    </metrics>
+</metrics-configuration>
+{% endhighlight %}
+
+And finally, suppose you want all other `os` metrics to use the `low` sampler:
+
+{% highlight xml %}
+<metrics-configuration>
+    <metrics>
+        <metric prefix="xap.*.os"          sampler="low"/>
+        <metric prefix="xap.*.os.memory"   sampler="high"/>
+        <metric prefix="xap.foo.os.memory" sampler="off"/>
+    </metrics>
+</metrics-configuration>
+{% endhighlight %}
+
+As you can see, detailed prefix takes precedence over less detailed ones.
