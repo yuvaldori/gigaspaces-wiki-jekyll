@@ -39,4 +39,4 @@ To activate the metric the service needs to be acknowledged as a bean, for examp
 </beans>
 {% endhighlight %}
 
-The metric name provided in the annotation is automatically prefixed to include information about the processing unit instance which hosts this service (for example: `xap.{host}.{pid}.gsc.pu.{pu-name}.{pu-instance}.requests.pending`).
+The metric name provided in the annotation is automatically prefixed to include information about the processing unit instance which hosts this service (for example: `xap.{host}.{pid}.gsc.pu.{pu-name}.{pu-instance}.requests.processed`).
