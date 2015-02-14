@@ -12,7 +12,7 @@ weight: 500
 
 The following metrics are bundled with the product:
 
-## Operating System metrics
+# Operating System
 
 Each `gs-agent` monitors common operating system metrics. Each metric is prefixed with the host name. For example, the %used memory metric on machine `foo` would be `xap.foo.os.memory.used.percent`. This prefix is abbreviated in the following tables to `xap.*.`.
 
@@ -59,7 +59,7 @@ For each network interface card, the following metrics are registered:
 | `xap.*.os.network.*.rx-dropped` | Receive dropped |
 | `xap.*.os.network.*.tx-dropped` | Transmit dropped |
 
-## Process metrics
+# Process
 
 Each process in the service grid reports the metrics listed below. Each metric is prefixed with the host name, process id and process role (`gsa` / `lus` / `gsm` / `esm` / `gsc`). For example, the total CPU time metric of a **GSC** hosted on machine `foo` may look like this: `xap.foo.1234.gsc.process.cpu.time.total`. This prefix is abbreviated in the following tables to `xap.*.*.*.`.
 
@@ -99,7 +99,7 @@ Each process in the service grid reports the metrics listed below. Each metric i
 | `xap.*.*.*.lrmi.received-traffic` | Total received traffic (in bytes) |
 | `xap.*.*.*.lrmi.threads` | Number of active LRMI threads |
 
-## Lookup Service Metrics
+# Lookup Service
 
 The following metrics are registered for each lookup service
 
@@ -110,7 +110,7 @@ The following metrics are registered for each lookup service
 | `xap.*.*.*.lus.listeners` | Number of event notification listeners |
 | `xap.*.*.*.lus.pending-events` | Size of the pending event notification queue |
 
-## Space Metrics
+# Space
 
 Each space instance reports the metrics listed below. Each metric is prefixed with process prefix described above, along with the space name and instance id. For example, the read operations metric of space `bar` instance 2 on machine `foo` may look like this: `xap.foo.1234.gsc.space.bar.2.operations.read`. This prefix is abbreviated in the following tables to `xap.*.*.*.space.*.*`.
 
