@@ -987,7 +987,7 @@ Durable notifications are based on the replication mechanism and as such have so
 For further details see [Durable Notifications](./durable-notifications.html).
 
 {%warning%}
-Durable Notification does not support an embedded Space, it can only be used with a remote proxy.
+Durable Notification does not support an embedded Space, it can only be used with a remote proxy. Use a [Polling container](./polling-container.html) as an alternative.
 {%endwarning%}
 
 # Take on Notify
