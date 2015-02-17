@@ -1000,8 +1000,12 @@ public class SimpleListener {
 {% endtabcontent %}
 {% endinittab %}
 
+
+
+
+
 {%warning%}
-Durable Notification does not support an embedded Space, it can only be used with a remote proxy. Use a [Polling container](./polling-container.html) as an alternative.
+Durable Notification does not support an embedded Space, it can only be used with a remote proxy.  The alternative is to use a `Polling Container` using [SingleReadReceiveOperationHandler](./polling-container.html#trigger-receive-operation).
 {%endwarning%}
 
 Durable notifications are based on the replication mechanism and as such have some different semantics regarding other notify container configuration parameters.

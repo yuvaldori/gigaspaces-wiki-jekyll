@@ -508,7 +508,7 @@ public interface ReceiveOperationHandler {
 }
 {% endhighlight %}
 
-OpenSpaces comes with several built-in receive operation-handler implementations:
+XAP comes with several built-in receive operation-handler implementations:
 
 {: .table .table-bordered}
 |Receive Operation Handler|Description|

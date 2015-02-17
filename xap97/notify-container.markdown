@@ -986,9 +986,11 @@ public class SimpleListener {
 Durable notifications are based on the replication mechanism and as such have some different semantics regarding other notify container configuration parameters.
 For further details see [Durable Notifications](./durable-notifications.html).
 
+
 {%warning%}
-Durable Notification does not support an embedded Space, it can only be used with a remote proxy. Use a [Polling container](./polling-container.html) as an alternative.
+Durable Notification does not support an embedded Space, it can only be used with a remote proxy.  The alternative is to use a `Polling Container` using [SingleReadReceiveOperationHandler](./polling-container.html#trigger-receive-operation).
 {%endwarning%}
+
 
 # Take on Notify
 
