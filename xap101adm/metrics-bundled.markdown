@@ -12,131 +12,189 @@ weight: 500
 
 The following metrics are bundled with the product:
 
-## Operating System metrics
+# Operating System
 
-Each `gs-agent` monitors common operating system metrics. Each metric is prefixed with the host name. For example, the %used memory metric on machine `foo` would be `xap.foo.os.memory.used.percent`. This prefix is abbreviated in the following tables to `xap.*.`.
+Operating system metrics are reported with the following tags:
+
+* `host` - The host name.
+* `pid` - The process ID of the `gs-agent` which reported this metric.
 
 ### Memory Metrics
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| `xap.*.os.memory.free.bytes` | Free memory (bytes) |
-| `xap.*.os.memory.actual-free.bytes` | Actual free memory (bytes) |
-| `xap.*.os.memory.used.bytes` | Used memory (bytes) |
-| `xap.*.os.memory.actual-used.bytes` | Actual used memory (bytes) |
-| `xap.*.os.memory.used.percent` | Used memory (%) |
+| `os_memory_free-bytes` | Free memory (bytes) |
+| `os_memory_actual-free-bytes` | Actual free memory (bytes) |
+| `os_memory_used-bytes` | Used memory (bytes) |
+| `os_memory_actual-used-bytes` | Actual used memory (bytes) |
+| `os_memory_used-percent` | Used memory (%) |
 
 ### Swap Metrics
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| `xap.*.os.swap.free.bytes` | Free swap (bytes) |
-| `xap.*.os.swap.used.bytes` | Used swap (bytes) |
-| `xap.*.os.swap.used.percent` | Used swap (%) |
+| `os_swap_free-bytes` | Free swap (bytes) |
+| `os_swap_used-bytes` | Used swap (bytes) |
+| `os_swap_used-percent` | Used swap (%) |
 
 ### CPU Metrics
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| `xap.*.os.cpu.used.percent` | CPU Usage (%) |
+| `os_cpu_used-percent` | CPU Usage (%) |
 
 ### Network Metrics
 
-For each network interface card, the following metrics are registered:
+Network metrics are reported for each network interface card with an IP address. In addition to the tags listed above, the `nic` tag is also reported to indicate which network interface card the metric was sampled from.
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| `xap.*.os.network.*.rx-bytes` | Total bytes received |
-| `xap.*.os.network.*.tx-bytes` | Total bytes transmitted |
-| `xap.*.os.network.*.rx-packets` | Total packets received |
-| `xap.*.os.network.*.tx-packets` | Total packets transmitted |
-| `xap.*.os.network.*.rx-errors` | Receive errors |
-| `xap.*.os.network.*.tx-errors` | Transmit errors |
-| `xap.*.os.network.*.rx-dropped` | Receive dropped |
-| `xap.*.os.network.*.tx-dropped` | Transmit dropped |
+| `os_network_rx-bytes` | Total bytes received |
+| `os_network_tx-bytes` | Total bytes transmitted |
+| `os_network_rx-packets` | Total packets received |
+| `os_network_tx-packets` | Total packets transmitted |
+| `os_network_rx-errors` | Receive errors |
+| `os_network_tx-errors` | Transmit errors |
+| `os_network_rx-dropped` | Receive dropped |
+| `os_network_tx-dropped` | Transmit dropped |
 
-## Process metrics
+# Process
 
-Each process in the service grid reports the metrics listed below. Each metric is prefixed with the host name, process id and process role (`gsa` / `lus` / `gsm` / `esm` / `gsc`). For example, the total CPU time metric of a **GSC** hosted on machine `foo` may look like this: `xap.foo.1234.gsc.process.cpu.time.total`. This prefix is abbreviated in the following tables to `xap.*.*.*.`.
+Process metrics are reported with the following tags:
+
+* `host` - The host name.
+* `pid` - The process ID.
+* `process-name` - The process name (`gsa` \| `lus` \| `gsm` \| `esm` \| `gsc`).
 
 ### Process CPU Metrics
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| `xap.*.*.*.process.cpu.time.total` | Process CPU total time |
-| `xap.*.*.*.process.cpu.used.percent` | Process CPU Usage (%) |
+| `process_cpu_time-total` | Process CPU total time |
+| `process_cpu_used-percent` | Process CPU Usage (%) |
 
-### JVM Metrics
+# JVM 
 
-{: .table .table-bordered .table-condensed}
-| Metric | Description |
-|:-------|:------------|
-| `xap.*.*.*.jvm.runtime.uptime` | Uptime of the Java virtual machine (in milliseconds) |
-| `xap.*.*.*.jvm.threads.count` | Current number of live threads including both daemon and non-daemon threads |
-| `xap.*.*.*.jvm.threads.daemon` | Current number of live daemon threads |
-| `xap.*.*.*.jvm.threads.peak` | Peak live thread count since the Java virtual machine started or peak was reset |
-| `xap.*.*.*.jvm.threads.total-started` | Total number of threads created and also started since the Java virtual machine started |
-| `xap.*.*.*.jvm.memory.heap.used.bytes` | Amount of used memory in bytes |
-| `xap.*.*.*.jvm.memory.heap.committed.bytes` | Amount of memory in bytes that is committed for the Java virtual machine to use |
-| `xap.*.*.*.jvm.memory.non-heap.used.bytes` | Amount of used memory in bytes |
-| `xap.*.*.*.jvm.memory.non-heap.committed.bytes` | Amount of memory in bytes that is committed for the Java virtual machine to use |
-| `xap.*.*.*.jvm.memory.gc.count` | Total number of garbage collections that have occurred |
-| `xap.*.*.*.jvm.memory.gc.time` | Approximate accumulated collection elapsed time in milliseconds |
+JVM metrics are reported with the following tags:
 
-### LRMI Metrics
+* `host` - The host name.
+* `pid` - The process ID.
+* `process-name` - The process name (`gsa` \| `lus` \| `gsm` \| `esm` \| `gsc`).
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| `xap.*.*.*.lrmi.connections` | Number of LRMI Connections |
-| `xap.*.*.*.lrmi.active-connections` | Number of active LRMI Connections |
-| `xap.*.*.*.lrmi.generated-traffic` | Total generated traffic (in bytes) |
-| `xap.*.*.*.lrmi.received-traffic` | Total received traffic (in bytes) |
-| `xap.*.*.*.lrmi.threads` | Number of active LRMI threads |
+| `jvm_uptime` | Uptime of the Java virtual machine (in milliseconds) |
+| `jvm_threads-count` | Current number of live threads including both daemon and non-daemon threads |
+| `jvm_threads-daemon` | Current number of live daemon threads |
+| `jvm_threads-peak` | Peak live thread count since the Java virtual machine started or peak was reset |
+| `jvm_threads-total-started` | Total number of threads created and also started since the Java virtual machine started |
+| `jvm_memory_heap_used-bytes` | Amount of used memory in bytes |
+| `jvm_memory_heap_committed-bytes` | Amount of memory in bytes that is committed for the Java virtual machine to use |
+| `jvm_memory_non-heap_used-bytes` | Amount of used memory in bytes |
+| `jvm_memory_non-heap_committed-bytes` | Amount of memory in bytes that is committed for the Java virtual machine to use |
+| `jvm_memory_gc_count` | Total number of garbage collections that have occurred |
+| `jvm_memory_gc_time` | Approximate accumulated collection elapsed time in milliseconds |
 
-## Lookup Service Metrics
+# LRMI
 
-The following metrics are registered for each lookup service
+LRMI metrics are reported with the following tags:
 
-{: .table .table-bordered .table-condensed}
-| Metric | Description |
-|:-------|:------------|
-| `xap.*.*.*.lus.items` | Number of registered services |
-| `xap.*.*.*.lus.listeners` | Number of event notification listeners |
-| `xap.*.*.*.lus.pending-events` | Size of the pending event notification queue |
-
-## Space Metrics
-
-Each space instance reports the metrics listed below. Each metric is prefixed with process prefix described above, along with the space name and instance id. For example, the read operations metric of space `bar` instance 2 on machine `foo` may look like this: `xap.foo.1234.gsc.space.bar.2.operations.read`. This prefix is abbreviated in the following tables to `xap.*.*.*.space.*.*`.
-
-{: .table .table-bordered .table-condensed}
-| Metric | Description |
-|:-------|:------------|
-| `xap.*.*.*.pu.*.*.space.*.*.connections.incoming.active` | Number of active incoming connections |
-| `xap.*.*.*.pu.*.*.space.*.*.transactions.active` | Number of active transactions |
-
-### Space Operations
+* `host` - The host name.
+* `pid` - The process ID.
+* `process-name` - The process name (`gsa` \| `lus` \| `gsm` \| `esm` \| `gsc`).
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| `xap.*.*.*.pu.*.*.space.*.*.operations.execute` | Number of task execution operations |
-| `xap.*.*.*.pu.*.*.space.*.*.operations.write` | Number of write operations |
-| `xap.*.*.*.pu.*.*.space.*.*.operations.update`  | Number of update operations |
-| `xap.*.*.*.pu.*.*.space.*.*.operations.change` | Number of change operations |
-| `xap.*.*.*.pu.*.*.space.*.*.operations.read` | Number of read operations |
-| `xap.*.*.*.pu.*.*.space.*.*.operations.read-multiple` | Number of read multiple operations |
-| `xap.*.*.*.pu.*.*.space.*.*.operations.take` | Number of take operations |
-| `xap.*.*.*.pu.*.*.space.*.*.operations.take-multiple` | Number of take multiple operations |
-| `xap.*.*.*.pu.*.*.space.*.*.operations.lease-expired` | Number of entry lease expirations |
-| `xap.*.*.*.pu.*.*.space.*.*.operations.register-listener` | Number of event listener registrations |
-| `xap.*.*.*.pu.*.*.space.*.*.operations.before-listener-trigger` | Number of triggered events (before trigger) |
-| `xap.*.*.*.pu.*.*.space.*.*.operations.after-listener-trigger` | Number of triggered events (after trigger) |
+| `lrmi_connections` | Number of LRMI Connections |
+| `lrmi_active-connections` | Number of active LRMI Connections |
+| `lrmi_generated-traffic` | Total generated traffic (in bytes) |
+| `lrmi_received-traffic` | Total received traffic (in bytes) |
+| `lrmi_threads` | Number of active LRMI threads |
+
+# Lookup Service
+
+Lookup Service metrics are reported with the following tags:
+
+* `host` - The host name.
+* `pid` - The process ID.
+
+{: .table .table-bordered .table-condensed}
+| Metric | Description |
+|:-------|:------------|
+| `lus_items` | Number of registered services |
+| `lus_listeners` | Number of event notification listeners |
+| `lus_pending-events` | Size of the pending event notification queue |
+
+# Processing Unit
+
+Processing Unit metrics are reported with the following tags:
+
+* `host` - The host name.
+* `pid` - The process ID of the process (`GSC`) hosting the processing unit.
+* `pu-name` - Processing Unit name.
+* `pu-instance-id` - Processing Unit instance id.
+
+Under construction
+
+# Space 
+
+Processing Unit metrics are reported with the following tags:
+
+* `host` - The host name.
+* `pid` - The process ID of the process (`GSC`) hosting the space.
+* `pu-name` - Name of processing unit hosing this space.
+* `pu-instance-id` - Instance id of processing unit instance hosting this space instance.
+* `space-name` - Space name.
+* `space-instance-id` - Space instance id.
+
+### Data
+
+{: .table .table-bordered .table-condensed}
+| Metric | Description |
+|:-------|:------------|
+| `space_data_entries_total` | Total number of entries in the space. |
+| `space_data_entries_type` | Total number of entries in the space of type `type`. |
+| `space_data_notify-templates_total` | Total number of notify templates in the space. |
+| `space_data_notify-templates_type` | Total number of notify templates in the space of type `type`. |
+
+### Operations
+
+{: .table .table-bordered .table-condensed}
+| Metric | Description |
+|:-------|:------------|
+| `space_operations_execute` | Number of task execution operations |
+| `space_operations_write` | Number of write operations |
+| `space_operations_update`  | Number of update operations |
+| `space_operations_change` | Number of change operations |
+| `space_operations_read` | Number of read operations |
+| `space_operations_read-multiple` | Number of read multiple operations |
+| `space_operations_take` | Number of take operations |
+| `space_operations_take-multiple` | Number of take multiple operations |
+| `space_operations_lease-expired` | Number of entry lease expirations |
+| `space_operations_register-listener` | Number of event listener registrations |
+| `space_operations_before-listener-trigger` | Number of triggered events (before trigger) |
+| `space_operations_after-listener-trigger` | Number of triggered events (after trigger) |
+
+### Connections
+
+{: .table .table-bordered .table-condensed}
+| Metric | Description |
+|:-------|:------------|
+| `space_connections_incoming_active` | Number of active incoming connections |
+
+### Transactions
+
+{: .table .table-bordered .table-condensed}
+| Metric | Description |
+|:-------|:------------|
+| `space_transactions_active` | Number of active transactions |
 
 ### Replication
 
@@ -145,19 +203,19 @@ Each space instance reports the metrics listed below. Each metric is prefixed wi
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| `xap.*.*.*.pu.*.*.space.*.*.replication.redo-log.size.packets` | The number of replication packets held in the file |
-| `xap.*.*.*.pu.*.*.space.*.*.replication.redo-log.memory.packets` | The number of packets held in memory |
-| `xap.*.*.*.pu.*.*.space.*.*.replication.redo-log.external-storage.packets` | Number of packets held in storage |
-| `xap.*.*.*.pu.*.*.space.*.*.replication.redo-log.external-storage.bytes` | Used space in bytes which is external to the JVM |
-| `xap.*.*.*.pu.*.*.space.*.*.replication.redo-log.first-key-in-backlog` | First key in the backlog (-1 if empty) |
-| `xap.*.*.*.pu.*.*.space.*.*.replication.redo-log.last-key-in-backlog` | Last key in the backlog (-1 if empty) |
+| `space_replication_redo-log_size` | The number of replication packets held in the file |
+| `space_replication_redo-log_memory-packets` | The number of packets held in memory |
+| `space_replication_redo-log_external-storage-packets` | Number of packets held in storage |
+| `space_replication_redo-log_external-storage-bytes` | Used space in bytes which is external to the JVM |
+| `space_replication_redo-log_first-key-in-backlog` | First key in the backlog (-1 if empty) |
+| `space_replication_redo-log_last-key-in-backlog` | Last key in the backlog (-1 if empty) |
 
 #### Replication Channels
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
 |:-------|:------------|
-| `xap.*.*.*.pu.*.*.space.*.*.replication.{channel}.replicated-packets.total` | Total number of packets replicated by this channel |
-| `xap.*.*.*.pu.*.*.space.*.*.replication.{channel}.generated-traffic.bytes` | Traffic generated by this channel in bytes |
-| `xap.*.*.*.pu.*.*.space.*.*.replication.{channel}.received-traffic.bytes` | Traffic received by this channel in bytes |
-| `xap.*.*.*.pu.*.*.space.*.*.replication.{channel}.retained-size.packets` | Number of packets retained by this channel |
+| `space_replication_channel_total-replicated-packets` | Total number of packets replicated by channel `channel` |
+| `space_replication_channel_generated-traffic-bytes` | Traffic generated by channel `channel` in bytes |
+| `space_replication_channel_received-traffic-bytes` | Traffic received by channel `channel` in bytes |
+| `space_replication_channel_retained-size-packets` | Number of packets retained by channel `channel`|
