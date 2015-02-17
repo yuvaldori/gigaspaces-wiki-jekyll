@@ -37,12 +37,15 @@ parent: none
 [Mongo-Datasource API Documentation](http://www.gigaspaces.com/docs/mongoeds-docs10.1/apidocs/)
 {%endpanel%}
 
-
+# Cassandra
+{%panel%}
+[Cassandra-Datasource API Documentation](http://www.gigaspaces.com/docs/cassandra-docs10.1/apidocs/)
+{%endpanel%}
 
 
 # .NET
 {%panel%}
-[.Net Documentation](http://www.gigaspaces.com/docs/dotnetdocs10.1/) -- _GigaSpaces XAP.NET classes_
+[.Net Documentation](http://www.gigaspaces.com/docs/dotnetdocs10.1/)
 {%endpanel%}
 
 # Scala
@@ -52,7 +55,7 @@ parent: none
 
 # C++
 {%panel%}
-[C+\+ API Documentation](http://www.gigaspaces.com/docs/cppdocs10.1/annotated.html) -- _GigaSpaces C+\+ classes_
+[C+\+ API Documentation](http://www.gigaspaces.com/docs/cppdocs10.1/annotated.html)
 {%endpanel%}
 
 

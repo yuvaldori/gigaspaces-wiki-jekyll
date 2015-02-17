@@ -145,7 +145,7 @@ Under construction
 
 # Space 
 
-Processing Unit metrics are reported with the following tags:
+Space metrics are reported with the following tags:
 
 * `host` - The host name.
 * `pid` - The process ID of the process (`GSC`) hosting the space.

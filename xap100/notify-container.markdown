@@ -1003,6 +1003,10 @@ public class SimpleListener {
 Durable notifications are based on the replication mechanism and as such have some different semantics regarding other notify container configuration parameters.
 For further details see [Durable Notifications](./durable-notifications.html).
 
+{%warning%}
+Durable Notification does not support an embedded Space, it can only be used with a remote proxy. Use a [Polling container](./polling-container.html) as an alternative.
+{%endwarning%}
+
 # Take on Notify
 
 The notify event container can be configured to automatically perform a take on the notification data event. It can also be further configured to filter out events if the take operation returned `null`. (This usually happens when several clients receive this event, and only one succeeds with the take.)
