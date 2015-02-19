@@ -437,6 +437,26 @@ public class SimpleListener implements SpaceDataEventListener<MyData> {
 }
 {% endhighlight %}
 
+And with Java8 lambda syntax:
+
+{% highlight java %}
+SimpleNotifyEventListenerContainer notifyEventListenerContainer = new SimpleNotifyContainerConfigurer(space)
+	.template(new MyData())
+    .eventListener((data, gigaSpace, txStatus, source) -> {
+        System.out.println("Got matching event! - " + (MyData)data);
+    })
+    .notifyContainer();
+
+or
+
+SimpleNotifyEventListenerContainer notifyEventListenerContainer = new SimpleNotifyContainerConfigurer(space)
+	.template(new MyData())
+    .eventListener((SpaceDataEventListener<TradePojo>)(TradePojo data, GigaSpace gigaSpace1, TransactionStatus txStatus, Object source) -> {
+        System.out.println("Got matching event! - " + data);
+    })
+    .notifyContainer();
+{% endhighlight %}
+
 Notifications for expired space objects are delivered both from the primary and backup space instances. In some cases you may want to handle notifications sent only from the primary instances. The [lease expiration notification example](/download_files/LeaseExpirationNotificationExample.zip) show how you can identify from which instance (primary or a backup) the lease expiration notifications has been sent.
 
 # Space Object Lease with a Persistent Space

@@ -172,6 +172,29 @@ Alternatively, asyncTake also accept an implementation of [AsyncFutureListener](
  	}
 {% endhighlight %}
 
+##### Passing an AsyncFutureListener with Java 8 lambda syntax:
+
+{% highlight java %}
+    Employee employee = new Employee("Last Name", new Integer(32));
+    employee.setFirstName("first name");
+ 	space.write(employee);
+
+ 	Integer[] ids = new Integer[] { 31, 32 };
+ 	IdsQuery<Employee> query = new IdsQuery<Employee>(Employee.class, ids);
+ 	AsyncFuture<Employee> result = space.asyncTake(query, (result) -> {
+ 	    System.out.println("Got result: " + result.getResult());
+ 	});
+
+ 	try {
+ 	    Employee e = result.get();
+ 	} catch (InterruptedException e) {
+ 		e.printStackTrace();
+ 	} catch (ExecutionException e) {
+ 		e.printStackTrace();
+ 	}
+{% endhighlight %}
+
+
 #### Modifiers
 
 The take operations can be configured with different modifiers.

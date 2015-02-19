@@ -59,12 +59,58 @@ or
 
 *giga-space and space-name attributes can not be used together.
 
+
+#Date Support
+
+Date string is parsed with a different parser from XAP's parser. Therefore, a date format must be defined.
+
+We provide a default format `yyyy-MM-dd HH:mm:ss` but you can override it by providing the `rest.datetime_format` property in the deployment step or by specify it in the pu.xml:
+
+{% highlight xml %}
+<os-core:rest id="mySpaceRestService" space-name="mySpace" port="8081" lookup-groups="myGroups">
+  <os-core:properties>
+    <props>
+      <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+    </props>
+  </os-core:properties>
+</os-core:rest>
+{% endhighlight %}
+
+#Nested SpaceDocument
+
+The REST API supports writing nested SpaceDocument.
+
+The JSON representation is:
+{% highlight json %}
+{
+  "typeName": "theTypeOfTheNestedObject-SpaceDocument",
+  "version": 0, //optional
+  "transient": true/false, //optional
+  "properties": {
+    "prop1": "val1",
+    "prop2": "val2"
+  }
+}
+{% endhighlight %}
+
+
+# API and Playground
+
+Once the REST Processing Unit is deployed, you can browse the API and test its methods by accessing the main page at: `http://<rest-instance-host-address>:<rest-port>/`.
+
+The page should look like:
+
+![rest-api-jsondoc.png](/attachment_files/rest-api-jsondoc.png)
+
+{%refer%} Browse the offline API documentation [here](./rest-service-api.html) {%endrefer%}
+
 # Limitations
 
 *   In case that the ports were in use, the deployment will fail.
 *   Not supported with embedded space thus we recommend using it as a separate processing unit.
 *   The API support writing for Document objects only.
-*   Currently there is no support for connecting to a secured space
+*   Supported collections: Arrays and Lists of SpaceDocument.
+*   Currently there is no support for connecting to a secured space.
 
 # Removed APIs
 
@@ -80,7 +126,7 @@ Another option is to deploy the REST service as [Web Processing Unit](./web-appl
 
 In order to do so, you will need to do the following:
 
-1. Clone the project from Github: `git clone https://github.com/OpenSpaces/RESTData.git`
+1. Clone the project from Github: `git clone https://github.com/GigaSpaces/RESTData.git`
 
 2. Edit the file that is located under src/main/webapp/WEB-INF/config.properties to include your space's properties
 
@@ -94,4 +140,5 @@ For example:
 spaceName=mySpace
 lookupGroups=myGroups
 #lookupLocators=
+#datetime_format=
 {% endhighlight %}

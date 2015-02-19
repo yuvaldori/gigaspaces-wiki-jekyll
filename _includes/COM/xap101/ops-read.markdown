@@ -158,6 +158,30 @@ Alternatively, asyncRead also accept an implementation of [AsyncFutureListener](
  	}
 {% endhighlight %}
 
+##### Passing an AsyncFutureListener with Java 8 lambda syntax:
+
+{% highlight java %}
+    Employee employee = new Employee("Last Name", new Integer(32));
+    employee.setFirstName("first name");
+ 	space.write(employee);
+
+ 	Integer[] ids = new Integer[] { 31, 32 };
+ 	IdsQuery<Employee> query = new IdsQuery<Employee>(Employee.class, ids);
+ 	AsyncFuture<Employee> result = space.asyncRead(query, (result) -> {
+ 	    System.out.println("Got a result: " + result.getResult());
+ 	});
+
+    // This part of the code could be executed in a different Thread
+ 	try {
+ 	    Employee e = result.get();
+ 	} catch (InterruptedException e) {
+ 		e.printStackTrace();
+ 	} catch (ExecutionException e) {
+ 		e.printStackTrace();
+ 	}
+{% endhighlight %}
+
+
 #### Modifiers
 
 The read operations can be configured with different modifiers.
