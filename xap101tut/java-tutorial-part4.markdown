@@ -101,6 +101,24 @@ public void registerNotifierListener() {
 }
 {% endhighlight %}
 
+And with Java8 lambda syntax:
+
+{%highlight java %}
+public void registerNotifierListener() {
+    Payment template = new Payment();
+    template.setStatus(ETransactionStatus.CANCELLED);
+
+	SimpleNotifyEventListenerContainer notifyEventListenerContainer = new SimpleNotifyContainerConfigurer(space)
+		.template(template)
+		.eventListener((data, gigaSpace, txStatus, source) -> {
+			System.out.println("Got matching event! - " + (Payment)data);
+			// process Payment
+		})
+		.notifyContainer();
+     notifyEventListenerContainer.start();
+}
+{% endhighlight %}
+
 You can now execute a simple test that writes a Payment object into the space that will trigger the notification event:
 
 
@@ -141,9 +159,27 @@ And now we register the polling listener:
 
 {%highlight java%}
 	public void registerPollingListener() {
-		SimplePollingEventListenerContainer pollingEventListenerContainer = new SimplePollingContainerConfigurer(
-				space).eventListenerAnnotation(new AuditListener())
-				.pollingContainer();
+		SimplePollingEventListenerContainer pollingEventListenerContainer = new SimplePollingContainerConfigurer(space)
+			.eventListenerAnnotation(new AuditListener())
+			.pollingContainer();
+		pollingEventListenerContainer.start();
+	}
+{%endhighlight%}
+
+The same can be accomplished with Java8 lambda syntax:
+
+{%highlight java%}
+	public void registerPollingListener() {
+		Payment template = new Payment();
+   		template.setStatus(ETransactionStatus.AUDITED);
+
+		SimplePollingEventListenerContainer pollingEventListenerContainer = new SimplePollingContainerConfigurer(space)
+			.template(template)
+			.eventListener((data, gigaSpace, txStatus, source) -> {
+				System.out.println("Got matching event! - " + (Payment)data);
+				// process Payment
+			}
+			.pollingContainer();
 		pollingEventListenerContainer.start();
 	}
 {%endhighlight%}

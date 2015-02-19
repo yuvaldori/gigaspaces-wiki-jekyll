@@ -278,6 +278,14 @@ SimpleNotifyEventListenerContainer notifyEventListenerContainer =
         System.out.println("Got matching event! - " + data);
     }
 }).notifyContainer();
+
+//With Java8 lambda syntax
+SimpleNotifyEventListenerContainer notifyEventListenerContainer =
+	new SimpleNotifyContainerConfigurer(space).template(query)
+    .eventListener((data, gigaSpace, txStatus, source) -> {
+        System.out.println("Got matching event! - " + (MyData)data);
+    })
+    .notifyContainer();
 {% endhighlight %}
 
 # Free Notify Container Resources

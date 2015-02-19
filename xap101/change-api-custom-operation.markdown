@@ -58,6 +58,19 @@ Using it will be like any other change operation, while providing this custom im
 gigaSpace.change(query, new ChangeSet().custom(new MultiplyIntegerChangeOperation("votes", 2)));
 {% endhighlight %}
 
+With Java 8 lambda syntax the above can be done in a simpler way and without extending the `CustomChangeOperation` interface:
+{% highlight java %}
+gigaSpace.change(query, new ChangeSet().custom("multiplyInt", (entry) -> {
+        //Assume this is an integer property, if this is not true an exception will be thrown 
+        //and the change operation will fail
+        int oldValue = (Integer)entry.getPathValue("votes");
+        int newValue = oldValue * 2;
+        entry.setPathValue("votes", newValue);
+        return newValue;
+    }));
+{% endhighlight %}
+
+
 # The Name of a Custom Change Operation 
 
 The custom operation is treated like the built-in change operations (in fact the build in implementations are using the same mechanism), therefore the operation should have a unique name which is used in all the relevant places as described in the [Change API Advanced Page](./change-api-advanced.html), such as configuring which operations are supported by a `SpaceSynchronizationEndpoint` implementation, using it inside space and replication filters to identify which custom change operation is executed, etc.
