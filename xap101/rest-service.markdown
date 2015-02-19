@@ -60,6 +60,22 @@ or
 *giga-space and space-name attributes can not be used together.
 
 
+#Date Support
+
+Date string is parsed with a different parser from XAP's parser. Therefore, a date format must be defined.
+
+We provide a default format `yyyy-MM-dd HH:mm:ss` but you can override it by providing the `rest.datetime_format` property in the deployment step or by specify it in the pu.xml:
+
+{% highlight xml %}
+<os-core:rest id="mySpaceRestService" space-name="mySpace" port="8081" lookup-groups="myGroups">
+  <os-core:properties>
+    <props>
+      <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+    </props>
+  </os-core:properties>
+</os-core:rest>
+{% endhighlight %}
+
 #Nested SpaceDocument
 
 The REST API supports writing nested SpaceDocument.
@@ -77,6 +93,16 @@ The JSON representation is:
 }
 {% endhighlight %}
 
+
+# API and Playground
+
+Once the REST Processing Unit is deployed, you can browse the API and test its methods by accessing the main page at: `http://<rest-instance-host-address>:<rest-port>/`.
+
+The page should look like:
+
+![rest-api-jsondoc.png](/attachment_files/rest-api-jsondoc.png)
+
+{%refer%} Browse the offline API documentation [here](./rest-service-api.html) {%endrefer%}
 
 # Limitations
 

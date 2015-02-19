@@ -28,7 +28,7 @@ The REST API exposing HTTP based interface Space. It is leveraging the [XAP API]
 <br/>
 
 
-# Introduce Type
+# Introduce Type (Deprecated)
 
 
 
@@ -87,6 +87,12 @@ Request Schema:
       "propertyType": "java.util.Map", // predefined types or full Java class path*
       "documentSupport": "DEFAULT", // optional. SEE com.gigaspaces.metadata.SpaceDocumentSupport
       "storageType": "DEFAULT" // optional, use with documentSupport. SEE com.gigaspaces.metadata.StorageType
+    },
+    {
+      "propertyName": "indexedProp",
+      "propertyType": "string", // predefined types or full Java class path*
+      "indexType": "BASIC", // optional. SEE com.gigaspaces.metadata.index.SpaceIndexType
+      "uniqueIndex": true // optional, must be used with indexType field only. Default to false.
     }
   ],
   "compoundIndex": {
@@ -367,6 +373,3 @@ See that Item3 does not exists:
 
 curl -XGET http://localhost:8080/MyObject/?query=id=%271%27%20or%20id=%272%27%20or%20id=%273%27
 {% endhighlight %}
-
-
-#Date support
