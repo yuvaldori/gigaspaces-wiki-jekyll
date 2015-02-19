@@ -41,6 +41,8 @@ nohup ${JSHOMEDIR}/bin/gs-agent.sh gsa.global.esm 1 gsa.gsc 0 gsa.global.gsm 2 g
 {% endtabcontent %}
 {% endinittab %}
 
+{%note%} Basic assumption: When using the ESM component, each machine must have exactly one Grid Service Agent{%endnote%}
+
 # Dedicated Management Machines
 
 In case you prefer having dedicated management machines, start GigaSpaces agents with the above settings on two machines, and start the rest of the GigaSpaces agents with the settings below. The command line parameters instruct the GigaSpaces agents not to start managers. It does not start any containers automatically. The EPU starts containers on demand:
