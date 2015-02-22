@@ -17,6 +17,7 @@ The following metrics are bundled with the product:
 Operating system metrics are reported with the following tags:
 
 * `host` - The host name.
+* `ip` - The IP address.
 * `pid` - The process ID of the `gs-agent` which reported this metric.
 
 ### Memory Metrics
@@ -67,8 +68,9 @@ Network metrics are reported for each network interface card with an IP address.
 Process metrics are reported with the following tags:
 
 * `host` - The host name.
+* `ip` - The IP address.
 * `pid` - The process ID.
-* `process-name` - The process name (`gsa` \| `lus` \| `gsm` \| `esm` \| `gsc`).
+* `process_name` - The process name (`gsa` \| `lus` \| `gsm` \| `esm` \| `gsc`).
 
 ### Process CPU Metrics
 
@@ -83,8 +85,9 @@ Process metrics are reported with the following tags:
 JVM metrics are reported with the following tags:
 
 * `host` - The host name.
+* `ip` - The IP address.
 * `pid` - The process ID.
-* `process-name` - The process name (`gsa` \| `lus` \| `gsm` \| `esm` \| `gsc`).
+* `process_name` - The process name (`gsa` \| `lus` \| `gsm` \| `esm` \| `gsc`).
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
@@ -106,8 +109,9 @@ JVM metrics are reported with the following tags:
 LRMI metrics are reported with the following tags:
 
 * `host` - The host name.
+* `ip` - The IP address.
 * `pid` - The process ID.
-* `process-name` - The process name (`gsa` \| `lus` \| `gsm` \| `esm` \| `gsc`).
+* `process_name` - The process name (`gsa` \| `lus` \| `gsm` \| `esm` \| `gsc`).
 
 {: .table .table-bordered .table-condensed}
 | Metric | Description |
@@ -123,6 +127,7 @@ LRMI metrics are reported with the following tags:
 Lookup Service metrics are reported with the following tags:
 
 * `host` - The host name.
+* `ip` - The IP address.
 * `pid` - The process ID.
 
 {: .table .table-bordered .table-condensed}
@@ -137,9 +142,10 @@ Lookup Service metrics are reported with the following tags:
 Processing Unit metrics are reported with the following tags:
 
 * `host` - The host name.
+* `ip` - The IP address.
 * `pid` - The process ID of the process (`GSC`) hosting the processing unit.
-* `pu-name` - Processing Unit name.
-* `pu-instance-id` - Processing Unit instance id.
+* `pu_name` - Processing Unit name.
+* `pu_instance_id` - Processing Unit instance id.
 
 Under construction
 
@@ -148,11 +154,12 @@ Under construction
 Space metrics are reported with the following tags:
 
 * `host` - The host name.
+* `ip` - The IP address.
 * `pid` - The process ID of the process (`GSC`) hosting the space.
-* `pu-name` - Name of processing unit hosing this space.
-* `pu-instance-id` - Instance id of processing unit instance hosting this space instance.
-* `space-name` - Space name.
-* `space-instance-id` - Space instance id.
+* `pu_name` - Name of processing unit hosing this space.
+* `pu_instance_id` - Instance id of processing unit instance hosting this space instance.
+* `space_name` - Space name.
+* `space_instance_id` - Space instance id.
 
 ### Data
 
