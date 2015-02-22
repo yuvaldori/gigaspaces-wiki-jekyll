@@ -70,6 +70,7 @@ public class MyInfluxDBHttpReporter extends InfluxDBHttpReporter {
 
     @Override
     protected String getMetricNameForReport(String metricName) {
+        final String prefix = "pu_";
         return metricName.startsWith(prefix) ? "foo_" + metricName.substring(prefix.length()) : metricName;
     }
 }
