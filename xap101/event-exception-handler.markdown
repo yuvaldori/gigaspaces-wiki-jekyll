@@ -366,7 +366,7 @@ public enum EPurchaseOrderState {
 {%endinittab%}
 
 
-When you run the above example you will so the following output:
+When you run the above example you will see the following output:
 
 {%highlight console%}
 18:56:58.968 [GS-SimplePollingEventListenerContainer-1] DEBUG x.s.e.e.NewOrderProcessor - handling the exception for the: 1 time
