@@ -58,7 +58,7 @@ By default, metrics are assigned to the `default` sampler. A metric can be confi
 {% highlight xml %}
 <metrics-configuration>
     <metrics>
-        <metric prefix="xap.*.os.memory.free.bytes" sampler="high"/>
+        <metric prefix="os_memory_free-bytes" sampler="high"/>
     </metrics>
 </metrics-configuration>
 {% endhighlight %}
@@ -68,18 +68,18 @@ In fact, a more common user story is to assign a group of metrics to a sampler r
 {% highlight xml %}
 <metrics-configuration>
     <metrics>
-        <metric prefix="xap.*.os.memory" sampler="high"/>
+        <metric prefix="os_memory" sampler="high"/>
     </metrics>
 </metrics-configuration>
 {% endhighlight %}
 
-Now, suppose that you want to turn off memory metrics on machine `foo` for some reason:
+Now, suppose that you also want to turn off CPU metrics because you're not interested in them:
 
 {% highlight xml %}
 <metrics-configuration>
     <metrics>
-        <metric prefix="xap.*.os.memory"   sampler="high"/>
-        <metric prefix="xap.foo.os.memory" sampler="off"/>
+        <metric prefix="os_memory" sampler="high"/>
+        <metric prefix="os_cpu"    sampler="off"/>
     </metrics>
 </metrics-configuration>
 {% endhighlight %}
@@ -89,9 +89,9 @@ And finally, suppose you want all other `os` metrics to use the `low` sampler:
 {% highlight xml %}
 <metrics-configuration>
     <metrics>
-        <metric prefix="xap.*.os"          sampler="low"/>
-        <metric prefix="xap.*.os.memory"   sampler="high"/>
-        <metric prefix="xap.foo.os.memory" sampler="off"/>
+        <metric prefix="os"        sampler="low"/>
+        <metric prefix="os_memory" sampler="high"/>
+        <metric prefix="os_cpu"    sampler="off"/>
     </metrics>
 </metrics-configuration>
 {% endhighlight %}
