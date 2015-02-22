@@ -22,7 +22,7 @@ public class FooService {
         processedRequests.incrementAndGet();
     }
 
-    @ServiceMetric(name="requests.processed")
+    @ServiceMetric(name="requests_processed")
     public int getPendingRequests() {
         return processedRequests.get();
     }
@@ -39,4 +39,4 @@ To activate the metric the service needs to be acknowledged as a bean, for examp
 </beans>
 {% endhighlight %}
 
-The metric name provided in the annotation is automatically prefixed to include information about the processing unit instance which hosts this service (for example: `xap.{host}.{pid}.gsc.pu.{pu-name}.{pu-instance}.requests.processed`).
+The metric name provided in the annotation is automatically prefixed with `pu_` and reported with the processing unit tags, as explained [here](./metrics-bundled.html#processing-unit).
