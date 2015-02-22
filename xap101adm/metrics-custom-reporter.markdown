@@ -32,15 +32,17 @@ public class ConsoleReporter extends MetricReporter {
     public void report(List<MetricRegistrySnapshot> snapshots) {
         for (MetricRegistrySnapshot snapshot : snapshots) {
             System.out.println(title + " [taken at " + snapshot.getTimestamp() + "]");
-            Map<String, Object> metricsValues = snapshot.getMetricsValues();
-            for (Map.Entry<String, Object> entry : metricsValues.entrySet())
-                System.out.println(entry.getKey() + " => " + entry.getValue());
+            for (Map.Entry<MetricTags, MetricGroupSnapshot> groupEntry : snapshot.getGroups().entrySet()) {
+                System.out.println("Tags: " + groupEntry.getKey());
+                for (Map.Entry<String, Object> metricEntry : groupEntry.getValue().getMetricsValues().entrySet())
+                    System.out.println(metricEntry.getKey() + " => " + metricEntry.getValue());
+            }
         }
     }
 }
 {% endhighlight %}
 
-Most of the work is done at the `report(List<MetricRegistrySnapshot> snapshots)` method: For each metric snapshot we simply iterate all the gauges and counters, and print the names and respective values.
+Most of the work is done at the `report(List<MetricRegistrySnapshot> snapshots)` method: Each snapshot is composed of one or more groups, and each group contains a set of one or more tags and the metrics associated with them. In this reporter we simply iterate all the metrics name-value pairs and print them.
 
 In addition, note the constructor which receives the factory which can be used to configure the reporter (in this case, the report title).
 
@@ -88,4 +90,4 @@ Now that we have a custom reporter implementation we need to configure the syste
 
 Basically we're telling the metrics manager which class should be used to instantiate the reporter and which parameters to provide along.
 
-Finally, we'll need to put the compiled `ConsoleReporter` and `ConsoleReporterFactory` classes in the product's class path. The easiest way to accomplish this is under `XAP_HOME/lib/platform/ext`, which is automatically included in the class path.
+Finally, we'll need to put the compiled `ConsoleReporter` and `ConsoleReporterFactory` classes in the product's class path. The easiest way to accomplish this is under `XAP_HOME/lib/optional/metrics`, which is automatically included in the class path.
