@@ -93,6 +93,11 @@ In order to enable monitoring and management from remote systems using JMX jcons
 REMOTE_JMX=-Dcom.sun.management.jmxremote.port=5001 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false
 {%endhighlight%}
 
+{%note%}
+For secure JConsole use -Dcom.gigaspaces.system.registryRetries=1 and -Dcom.gigaspaces.system.registryPort=5001 (same as the -Dcom.sun.management.jmxremote.port)
+{%endnote%}
+
+
 # Viewing Thread CPU Usage with JDK 1.6
 
 JConsole includes a [new tab](http://blog.luminis.nl/luminis/entry/top_threads_plugin_for_jconsole) that displays CPU usage for each JVM thread. This tab is displayed using the [-pluginpath](http://java.sun.com/javase/{%version java-version%}/docs/technotes/guides/management/jconsole.html) JConsole parameter (already implemented in GigaSpaces).
