@@ -78,6 +78,19 @@ application.xml file describes the application dependencies:
 	</os-admin:application>
 </beans>
 {% endhighlight %}
+
+A dedicated machine provisioning config can be provided to elastic space/pu element:
+
+{% highlight xml %}
+<os-admin:elastic-space name="elasticSpace" max-memory-capacity-in-mb="32" memory-capacity-per-container-in-mb="32" highly-available="false">
+    <os-admin:dedicated-machine-provisioning grid-service-agents-zones="somezone" reserved-memory-capacity-per-machine-in-mb="1024" reserved-memory-capacity-per-management-machine-in-mb="1024" />
+</os-admin:elastic-space>
+{% endhighlight %}
+
+{% note %}
+Shared machine provisioning is not supported in the current version.
+{% endnote %}
+
 {% endgcloak %}
 
 {% togglecloak id=2 %}**<u>Options</u>**{% endtogglecloak %}
