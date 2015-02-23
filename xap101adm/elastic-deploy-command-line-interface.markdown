@@ -78,6 +78,19 @@ application.xml file describes the application dependencies:
 	</os-admin:application>
 </beans>
 {% endhighlight %}
+
+A dedicated machine provisioning config can be provided to elastic space/pu element:
+
+{% highlight xml %}
+<os-admin:elastic-space name="elasticSpace" max-memory-capacity-in-mb="32" memory-capacity-per-container-in-mb="32" highly-available="false">
+    <os-admin:dedicated-machine-provisioning grid-service-agents-zones="somezone" reserved-memory-capacity-per-machine-in-mb="1024" reserved-memory-capacity-per-management-machine-in-mb="1024" />
+</os-admin:elastic-space>
+{% endhighlight %}
+
+{% note %}
+Shared machine provisioning is not supported in the current version.
+{% endnote %}
+
 {% endgcloak %}
 
 {% togglecloak id=2 %}**<u>Options</u>**{% endtogglecloak %}
@@ -188,11 +201,13 @@ The following specifies command line arguments.
 | `-ha`, `-highly-available` | Specifies if each space partition has a backup instance.{%wbr%}True by default. | `-ha [true/false]` |
 | `-secured` | Deploys a secured processing unit (implicit when using -user/-password).{% wbr %}Defaults to `false`. | `-secured [true/false]` |
 | `-user` `-password` | Deploys a secured processing unit propagated with the supplied user and password - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| `-user xxx -password yyyy`|
-| `-dmp`, `-dedicated-machine-provisioning` | Configure the server side bean that starts and stops machines automatically. | `-dmp [provisioning properties]` {% wbr %} [provisioning properties](#provisioning-properties) |
+| `-dmp`, `-dedicated-machine-provisioning` | Configure the server side bean that starts and stops machines automatically. | `-dmp [dedicated machine provisioning properties]` {% wbr %} [dedicated machine provisioning properties](#dedicated-machine-provisioning-properties) |
+| `-smp`, `-shared-machine-provisioning` | Configure the server side bean that starts and stops machines automatically.{% wbr %}The machines returned by the machine provisioner will be shared by other processing unit instances with the same sharingId. | `-smd [shared machine provisioning properties]` {% wbr %} [shared machine provisioning properties](#shared-machine-provisioning-properties) |
 | `-scale` | Enables the specified scale strategy, and disables all other scale strategies.{% wbr %}Defaults to `eager` scale strategy. | `-scale [scale properties]` {% wbr %} [scale properties](#scale-properties) |
 | `-timeout` | Timeout for deploy operation.{% wbr %}Defaults to `120` seconds. | `-timeout [timeout in seconds]` |
 | `-uof`, `-undeploy-on-failure` | Undeploy the processing unit if the deploy process is not completed within the timeout frame.{% wbr %}Defaults to `false`. | `-uof [true/false]` |
 | `-cmdargs`, `-command-line-args` | Adds the arguments as JVM level arguments when the process is executed using pure JVM. {%wbr%}Note the quotes in the value. | `-cmdargs ["comma separated list of args"]` |
+| `-ctxp`, `-context-properties` | Defines a context deploy time property overriding any ${...} | `-ctxp key1=value1 key2=value2` |
 {% endgcloak %}
 
 
@@ -242,14 +257,17 @@ The following deploys a secured stateful pu with -puname option.
 | `-type` {% wbr %}**mandatory** | Specifies the processing unit type.{% wbr %}Options are: `stateful`, `stateless`. | `-type [stateful/stateless]` |
 | `-file` {% wbr %}**mandatory**(*)  | Processing unit file path (processing unit jar/zip file or a directory).{% wbr %}(*)Either `-file` or `-puname` option must be provided. | `-file /home/user/myprocessingunit.jar` |
 | `-puname` {% wbr %}**mandatory**(*) | Processing unit name (should exists under the [GS ROOT]/deploy directory).{% wbr %}(*)Either`-file` or `-puname` option must be provided. | `-puname processor` |
+| `-name` | Overrides the Processing Unit's name | `-name myProcessingUnitName` |
 | `-mcpc`, `-memory-capacity-per-container` {% wbr %}**mandatory** | Specifies the the heap size per GSC. | `-mcpc [number[m/g]]` |
 | `-secured` | Deploys a secured processing unit (implicit when using -user/-password).{% wbr %}Defaults to `false`. | `-secured [true/false]` |
 | `-user` `-password` | Deploys a secured processing unit propagated with the supplied user and password - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| `-user xxx -password yyyy`|
-| `-dmp`, `-dedicated-machine-provisioning` | Configure the server side bean that starts and stops machines automatically. | `-dmp [provisioning properties]` {% wbr %} [provisioning properties](#provisioning-properties) |
+| `-dmp`, `-dedicated-machine-provisioning` | Configure the server side bean that starts and stops machines automatically. | `-dmp [dedicated machine provisioning properties]` {% wbr %} [dedicated machine provisioning properties](#dedicated-machine-provisioning-properties) |
+| `-smp`, `-shared-machine-provisioning` | Configure the server side bean that starts and stops machines automatically.{% wbr %}The machines returned by the machine provisioner will be shared by other processing unit instances with the same sharingId. | `-smd [shared machine provisioning properties]` {% wbr %} [shared machine provisioning properties](#shared-machine-provisioning-properties) |
 | `-scale` | Enables the specified scale strategy, and disables all other scale strategies.{% wbr %}Defaults to `eager` scale strategy. | `-scale [scale properties]` {% wbr %} [scale properties](#scale-properties) |
 | `-timeout` | Timeout for deploy operation.{% wbr %}Defaults to `120` seconds. | `-timeout [timeout in seconds]` |
 | `-uof`, `-undeploy-on-failure` | Undeploy the processing unit if the deploy process is not completed within the timeout frame.{% wbr %}Defaults to `false`. | `-uof [true/false]` |
 | `-cmdargs`, `-command-line-args` | Adds the arguments as JVM level arguments when the process is executed using pure JVM. {%wbr%}Note the quotes in the value. | `-cmdargs ["comma separated list of args"]` |
+| `-ctxp`, `-context-properties` | Defines a context deploy time property overriding any ${...} | `-ctxp key1=value1 key2=value2` |
 |:-----|:----------|:-----------|
 
 The following options are supported with a `stateful` elastic PU only
@@ -266,7 +284,7 @@ The following options are supported with a `stateful` elastic PU only
 {% endgcloak %}
 
 
-# provisioning properties
+# dedicated machine provisioning properties
 
 ### Description
 
@@ -288,10 +306,39 @@ The following deploys an elastic space named mySpace with zones [zone1,zone2] wh
 {: .table .table-bordered .table-condensed}
 |Syntax|Description|
 |:-----|:----------|
-| `grid-service-agents-zones=zone1,zone2` | Specifies the processing unit name. |
-| `reserved-memory-capacity-per-machine=1g` | Sets the expected amount of memory per machine that is reserved for processes other than grid containers. |
-| `reserved-memory-capacity-per-management-machine=1g` | Sets the expected amount of memory per management machine that is reserved for processes other than grid containers. |
+| `gsaz, grid-service-agents-zones=zone1,zone2` | Specifies the processing unit name. |
+| `rmcpm, reserved-memory-capacity-per-machine=1g` | Sets the expected amount of memory per machine that is reserved for processes other than grid containers. |
+| `rmcpmm, reserved-memory-capacity-per-management-machine=1g` | Sets the expected amount of memory per management machine that is reserved for processes other than grid containers. |
 {% endgcloak %}
+
+# shared machine provisioning properties
+
+### Description
+
+The following provisioning properties may be used with the `-shared-machine-provisioning [provisioning properties]` option in `deploy-elastic-space` and `deploy-elastic-pu` commands.
+
+
+{% togglecloak id=13 %}**<u>Example</u>**{% endtogglecloak %}
+{% gcloak 13 %}
+
+The following deploys an elastic space named mySpace with zones [zone1,zone2] while taking into consideration a reserved 1536m memory per machine.
+
+    gs> deploy-elastic-space -shared-machine-provisioning sharing-id=myid grid-service-agents-zones=zone1,zone2 reserved-memory-capacity-per-machine=1536m mySpace
+
+{% endgcloak %}
+
+{% togglecloak id=14 %}**<u>Options</u>**{% endtogglecloak %}
+{% gcloak 14 %}
+
+{: .table .table-bordered .table-condensed}
+|Syntax|Description|
+|:-----|:----------|
+| `sid, sharing-id=value` | Specifies the processing unit name. |
+| `gsaz, grid-service-agents-zones=zone1,zone2` | Specifies the processing unit name. |
+| `rmcpm, reserved-memory-capacity-per-machine=1g` | Sets the expected amount of memory per machine that is reserved for processes other than grid containers. |
+| `rmcpmm, reserved-memory-capacity-per-management-machine=1g` | Sets the expected amount of memory per management machine that is reserved for processes other than grid containers. |
+{% endgcloak %}
+
 
 # scale properties
 
@@ -299,8 +346,8 @@ The following deploys an elastic space named mySpace with zones [zone1,zone2] wh
 
 The following scale properties may be used with the `-scale [scale properties]` option in `deploy-elastic-space` and `deploy-elastic-pu` commands.
 
-{% togglecloak id=13 %}**<u>Example</u>**{% endtogglecloak %}
-{% gcloak 13 %}
+{% togglecloak id=15 %}**<u>Example</u>**{% endtogglecloak %}
+{% gcloak 15 %}
 
 The following deploys an elastic stateful pu from file with `manual` scale strategy and `memory-capacity=128m`.
 
@@ -313,8 +360,8 @@ The following deploys an elastic space named `mySpace` with `manual` scale strat
 {% endgcloak %}
 
 
-{% togglecloak id=14 %}**<u>Options</u>**{% endtogglecloak %}
-{% gcloak 14 %}
+{% togglecloak id=16 %}**<u>Options</u>**{% endtogglecloak %}
+{% gcloak 16 %}
 
 {: .table .table-bordered .table-condensed}
 |Syntax|Description|
@@ -344,8 +391,8 @@ gs> scale [options] -name [processing unit name]
 
 Easily scale an already deployed elastic processing unit.
 
-{% togglecloak id=15 %}**<u>Example</u>**{% endtogglecloak %}
-{% gcloak 15 %}
+{% togglecloak id=17 %}**<u>Example</u>**{% endtogglecloak %}
+{% gcloak 17 %}
 
     gs> scale -name myspace -number-of-cpu-cores 2
 
@@ -353,8 +400,8 @@ Easily scale an already deployed elastic processing unit.
 
 {% endgcloak %}
 
-{% togglecloak id=16 %}**<u>Options</u>**{% endtogglecloak %}
-{% gcloak 16 %}
+{% togglecloak id=18 %}**<u>Options</u>**{% endtogglecloak %}
+{% gcloak 18 %}
 
 {: .table .table-bordered .table-condensed}
 |Option|Description|Value Format|
