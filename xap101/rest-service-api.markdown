@@ -11,6 +11,7 @@ weight: 400
 
 {%section%}
 {%column width=10% %}
+<br>
 ![data-access.jpg](/attachment_files/web-services.jpg)
 {%endcolumn%}
 {%column width=90% %}
@@ -28,31 +29,7 @@ The REST API exposing HTTP based interface Space. It is leveraging the [XAP API]
 <br/>
 
 
-# Introduce Type (Deprecated)
-
-
-
-{: .table .table-bordered .table-condensed}
-|Description |Introduce the specific type to space by registering it and setting the SpaceId and RoutingId to `id` unless a query parameter "id" is provided.|
-|Request URL| GET http://localhost:8080/{Type}/_introduce_type  |
-|<nobr>Request Query Parameters</nobr>|spaceid - The [SpaceId](./space-object-id-operations.html) attribute of the type |
-
-Response Schema:
-{% highlight json %}
-{
-   "status":"success"
-}
-{% endhighlight %}
-
-Examples:
-{% highlight bash %}
-curl -XGET http://localhost:8080/MyObject/_introduce_type
-curl -XGET http://localhost:8080/MyObject/_introduce_type?spaceid=id
-{% endhighlight %}
-
-
-
-# Introduce Type - Advanced
+# Introduce Type
 
 
 
