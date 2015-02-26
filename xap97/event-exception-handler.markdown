@@ -145,3 +145,237 @@ When an exception occurs, the retry counter will be incremented. If its under a 
 If the threshold has been breached, the same poising message handling described above can be applied.
 
 Its important to note that the exception handler `onException` and `onSuccess` operate under the existing on going transaction started by the polling container. Doing something outside of a transaction can be done by using a `GigaSpace` instance that is not associated with a transaction manager.
+
+
+# Example
+
+Here is an example where we create Purchase Orders that need to be processed. The `NewOrderProcessor` will try to process the Purchase Order. If the processing fails it will retry two times. If it can't process the order a `PoProcessException` is thrown that will be handled by the `PoEventExceptionHandler`.
+The PoEventExceptionHandler will update the `state` of the PurchaseOrder to `UNPROCESSABLE` and write it back into the Space. The order will not be seen by the `NewOrderProcessor` again since its template specified the status to be `NEW`.
+
+{%inittab%}
+{%tabcontent Program %}
+{%highlight java%}
+public class Program {
+
+	private static Logger logger = LoggerFactory
+			.getLogger(Program.class);
+
+	public static void main(String[] args) throws InterruptedException {
+
+		GigaSpace space = new GigaSpaceConfigurer(new EmbeddedSpaceConfigurer(
+				"sandboxSpace")).gigaSpace();
+
+        // Register the Processor
+		registerListener(space);
+
+		Thread.sleep(1000);
+
+        // Create a Purchase Order
+		PurchaseOrder po = new PurchaseOrder();
+		//po.setNumber("12345");
+		po.setId(UUID.randomUUID());
+		po.setState(EPurchaseOrderState.NEW);
+
+        // Write it into the Space
+		space.write(po);
+
+		Thread.sleep(1000);
+
+        // Read all not processable PO's
+		SQLQuery<PurchaseOrder> query = new SQLQuery<PurchaseOrder>(
+				PurchaseOrder.class, "state = ?");
+		query.setParameter(1, EPurchaseOrderState.UNPROCESSABLE);
+
+		for (PurchaseOrder pu : space.readMultiple(query)) {
+			logger.debug("PurchaseOrder in Space "+ pu);
+		}
+
+		System.exit(1);
+	}
+
+	private static void registerListener(GigaSpace space) {
+		SimplePollingEventListenerContainer pollingEventListenerContainer = new SimplePollingContainerConfigurer(
+				space).eventListenerAnnotation(new NewOrderProcessor())
+				.pollingContainer();
+
+		pollingEventListenerContainer.start();
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent PurchaseOrder %}
+{%highlight java%}
+@SpaceClass
+public class PurchaseOrder {
+
+	private int retryCounter = 0;
+
+	private UUID id;
+
+	private String number;
+
+	private EPurchaseOrderState state;
+
+	@SpaceId
+	public UUID getId() {
+		return id;
+	}
+
+	public int getRetryCounter() {
+		return retryCounter;
+	}
+
+	public void setRetryCounter(int retryCounter) {
+		this.retryCounter = retryCounter;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
+	public EPurchaseOrderState getState() {
+		return state;
+	}
+
+	public void setState(EPurchaseOrderState state) {
+		this.state = state;
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "PurchaseOrder [retryCounter=" + retryCounter + ", id=" + id
+				+ ", number=" + number + ", state=" + state + "]";
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent NewOrderProcessor %}
+{%highlight java%}
+@EventDriven
+@Polling(gigaSpace = "sandboxSpace")
+@TransactionalEvent
+public class NewOrderProcessor {
+
+	private static Logger logger = LoggerFactory
+			.getLogger(NewOrderProcessor.class);
+
+	@ExceptionHandler
+	public EventExceptionHandler<PurchaseOrder> exceptionHandler() {
+		return new PoEventExceptionHandler();
+	}
+
+	@EventTemplate
+	SQLQuery<PurchaseOrder> unprocessedData() {
+		SQLQuery<PurchaseOrder> template = new SQLQuery<PurchaseOrder>(
+				PurchaseOrder.class, "state = ?");
+		template.setParameter(1, EPurchaseOrderState.NEW);
+		return template;
+	}
+
+	@SpaceDataEvent
+	public PurchaseOrder eventListener(PurchaseOrder po)
+			throws PoProcessingException {
+
+		try {
+			if (po.getNumber() == null) {
+				throw new Exception("PO Number can't be null");
+			}
+
+			logger.debug("Processing PO ");
+			// do some processing
+			// change the state
+			po.setState(EPurchaseOrderState.PROCESSED);
+			// write back the PO to the space
+			return po;
+
+		} catch (Exception ex) {
+			logger.debug("handling the exception for the: "
+					+ (po.getRetryCounter() + 1) + " time");
+
+			if (po.getRetryCounter() < 2) {
+				logger.debug("Max retry count reached throwing exception");
+				throw new PoProcessingException(
+						"Unable to process PO after three tries");
+			} else {
+				po.setRetryCounter(po.getRetryCounter() + 1);
+				return po;
+			}
+		}
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent PoEventExceptionHandler %}
+{%highlight java%}
+public class PoEventExceptionHandler implements
+		EventExceptionHandler<PurchaseOrder> {
+
+	private static Logger logger = LoggerFactory
+			.getLogger(PoEventExceptionHandler.class);
+
+	public void onSuccess(PurchaseOrder po, GigaSpace space,
+			TransactionStatus txStatus, Object obj) throws RuntimeException {
+	}
+
+	public void onException(ListenerExecutionFailedException exception,
+			PurchaseOrder po, GigaSpace space, TransactionStatus txStatus,
+			Object obj) throws RuntimeException {
+
+		if (exception.getCause() instanceof PoProcessingException) {
+			logger.debug("Dealing with the exception, change the status to UNPROCESSABLE and write it back into the space");
+			po.setState(EPurchaseOrderState.UNPROCESSABLE);
+			space.write(po);
+		}
+		else
+		{
+		    // Handle other exceptions
+		}
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent PoProcessingException %}
+{%highlight java%}
+public class PoProcessingException extends Exception{
+
+	public PoProcessingException(String string) {
+		super(string);
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent EPurchaseOrderState %}
+{%highlight java%}
+public enum EPurchaseOrderState {
+  NEW, PROCESSED, UNPROCESSABLE
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+
+{%endinittab%}
+
+
+When you run the above example you will see the following output:
+
+{%highlight console%}
+18:56:58.968 [GS-SimplePollingEventListenerContainer-1] DEBUG x.s.e.e.NewOrderProcessor - handling the exception for the  1 time
+18:56:58.971 [GS-SimplePollingEventListenerContainer-1] DEBUG x.s.e.e.NewOrderProcessor - handling the exception for the 2 time
+18:56:58.971 [GS-SimplePollingEventListenerContainer-1] DEBUG x.s.e.e.NewOrderProcessor - handling the exception for the 3 time
+18:56:58.971 [GS-SimplePollingEventListenerContainer-1] DEBUG x.s.e.e.NewOrderProcessor - Max retry count reached throwing exception
+18:56:58.972 [GS-SimplePollingEventListenerContainer-1] DEBUG x.s.e.e.PoEventExceptionHandler - Dealing with the exception, change the status to UPROCESSABLE and write it back into the space
+18:56:59.968 [main] DEBUG x.s.e.e.Program - PurchaseOrder in Space PurchaseOrder [retryCounter=2, id=c47e2879-ca6a-4531-b073-3f5c09f658cd, number=null, state=UNPROCESSABLE]
+{%endhighlight%}
