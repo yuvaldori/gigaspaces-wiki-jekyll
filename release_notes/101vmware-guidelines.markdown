@@ -34,9 +34,7 @@ SUSE-10 sp3 is not recommended, due to the instability of its network support la
 
 - Do not over-commit virtual memory
 - Reserve memory at the virtual machine level
-- When using asynchronous persistency with replication, use anti-affinity rules to ensure that primary and backup nodes
-do not share the same virtual machine host. For maximum reliability, ensure that no primary/backup pair is hosted on the
-same physical host machine.
+- When using replication, use anti-affinity rules to ensure that primary and backup nodes do not share the same virtual machine and physical host.
 - Reserve sufficient memory for the operating system (~2GB per VM)
 
 # References
