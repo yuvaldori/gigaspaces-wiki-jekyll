@@ -2,8 +2,8 @@
 layout: post101
 title:  Advanced Tuning Guide
 categories: XAP101ADM
-parent: blobstore-overview.html
-weight: 200
+parent: memoryxtend-ssd.html
+weight: 300
 ---
 
 

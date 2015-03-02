@@ -2,8 +2,8 @@
 layout: post101
 title:  Troubleshooting
 categories: XAP101ADM
-parent: blobstore-overview.html
-weight: 300
+parent: memoryxtend-ssd.html
+weight: 400
 ---
 
 {% summary %}  {% endsummary %}
