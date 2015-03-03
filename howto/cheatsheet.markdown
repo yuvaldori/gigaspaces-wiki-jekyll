@@ -28,6 +28,8 @@ parent:  none
 | Link to page in latest `xapnet` folder | \[SQL Query\]\({%raw%}{%latestneturl%}{%endraw%}/sqlquery.html\) | [SQL Query]({%latestneturl%}/sqlquery.html) |
 | Java doc of `org.openspaces.core.GigaSpace` | \[GigaSpace\]\({%raw%}{%javadoc org.openspaces.core.GigaSpace %}{%endraw%}\) | [GigaSpace]({%javadoc org.openspaces.core.GigaSpace %}) |
 | .NET doc of `GigaSpaces.Core.ISpaceProxy` | \[ISpaceProxy\]\({%raw%}{%dotnetdoc GigaSpaces.Core.ISpaceProxy %}{%endraw%}\) | [ISpaceProxy]({%dotnetdoc GigaSpaces.Core.ISpaceProxy %}) |
+| Link to latest Java Tutorial page | \[Getting started\]\({%raw%}{%latestjavatuturl%}/java-tutorial-part1.html){%endraw%}\) | [Getting Started]({%latestjavatuturl%}/java-tutorial-part1.html) |
+| Link to latest .NET Tutorial page | \[Getting started\]\({%raw%}{%latestnettuturl%}/net-tutorial-part1.html){%endraw%}\) | [Getting Started]({%latestnettuturl%}/net-tutorial-part1.html) |
 
 
 # Icons

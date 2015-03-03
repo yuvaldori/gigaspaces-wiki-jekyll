@@ -26,6 +26,8 @@ latest_java_url: "/xap100"
 latest_net_url: "/xap100net"
 latest_adm_url: "/xap100adm"
 latest_sec_url: "/xap100sec"
+latest_net_tut_url: "/xap101nettut"
+latest_java_tut_url: "/xap101tut"
 
 
 latest_cloudify_release: "2.7"
