@@ -162,6 +162,7 @@ Property files and other resources should be jared and placed within any of the 
 | `-max-instances-per-vm` | Allows you to set the SLA number of instances per VM | |
 | `-max-instances-per-machine` | Allows you to set the SLA number of instances per machine | |
 | `-max-instances-per-zone` | Allows you to set the SLA number of instances per zone in the format of `zoneX/number,zoneY/number` | |
+| `-requires-isolation` | Allows to set the SLA requires isolation, if set to true only a single processing unit instance will deployed on a given GSC| `-requires-isolation [true/false]`|
 | `h` / `help`  | Prints help | |
 | `-secured` | Deploys a secured processing unit (implicit when using -user/-password) - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| `-secured [true/false]`|
 | `-user` `-password` | Deploys a secured processing unit propagated with the supplied user and password - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| `-user xxx -password yyyy`|
@@ -287,6 +288,7 @@ Deploys a [memcached-enabled space]({%currentjavaurl%}/memcached-api.html), whic
 | `-max-instances-per-vm` | Allows you to set the SLA number of instances per VM | |
 | `-max-instances-per-machine` | Allows you to set the SLA number of instances per machine | |
 | `-max-instances-per-zone` | Allows you to set the SLA number of instances per zone in the format of `zoneX/number,zoneY/number` | |
+| `-requires-isolation` | Allows to set the SLA requires isolation, if set to true only a single processing unit instance will deployed on a given GSC| `-requires-isolation [true/false]`|
 | `h` / `help`  | Prints help | |
 | `-secured` | Deploys a secured processing unit (implicit when using -user/-password) - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| `-secured [true/false]`|
 | `-user` `-password` | Deploys a secured processing unit propagated with the supplied user and password - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| `-user xxx -password yyyy`|
@@ -332,6 +334,7 @@ A Space only Processing Unit can be easily deployed onto the Service Grid.
 | `-max-instances-per-vm` | Allows you to set the SLA number of instances per VM | |
 | `-max-instances-per-machine` | Allows you to set the SLA number of instances per machine | |
 | `-max-instances-per-zone` | Allows you to set the SLA number of instances per zone in the format of `zoneX/number,zoneY/number` | |
+| `-requires-isolation` | Allows to set the SLA requires isolation, if set to true only a single processing unit instance will deployed on a given GSC| `-requires-isolation [true/false]`|
 | `h` / `help`  | Prints help | |
 | `-secured` | Deploys a secured processing unit (implicit when using -user/-password) - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| `-secured [true/false]`|
 | `-user` `-password` | Deploys a secured processing unit propagated with the supplied user and password - [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html)| `-user xxx -password yyyy`|

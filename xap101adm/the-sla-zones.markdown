@@ -185,6 +185,39 @@ In the above case, the primary and the backup will not run on the same zone. If 
 You may use the [Primary-Backup Zone Controller](/sbp/primary-backup-zone-controller.html) to deploy primary and backup instances on specific different zones.
 {% endrefer %}
 
+# Requires Isolation
+
+If requires isolation is true a single processing unit instance takes exclusivity on a given GSC and only it can be deployed ont this GSC, (like GSC -Dcom.gigaspaces.grid.gsc.serviceLimit=1)
+
+The following example shows the requires islation configuration:
+
+{% inittab os_simple_space|top %}
+
+{% tabcontent Namespace %}
+{% highlight xml %}
+<os-core:embedded-space id="space" name="${dataGridName}"/>
+
+<os-sla:sla cluster-schema="partitioned-sync2backup"
+           number-of-instances="2" number-of-backups="0" requires-isolation="true">
+</os-sla:sla>
+{% endhighlight %}
+{% endtabcontent %}
+
+{% tabcontent AdminApi %}
+{% highlight java linenos %}
+gsm.deploy(new SpaceDeployment("mySpace").numberOfInstances(2).numberOfBackups(0).requiresIsolation(true));
+gsm.deploy((new ProcessingUnitDeployment("myPU").numberOfInstances(2).numberOfBackups(0).requiresIsolation(true)));
+{% endhighlight %}
+{% endtabcontent %}
+
+{% tabcontent Command Line Interface %}
+{% highlight xml %}
+gs> deploy-space -requires-isolation true mySpace
+gs> deploy -requires-isolation true myPU
+{% endhighlight %}
+{% endtabcontent %}
+
+{% endinittab %}
 
 # Instance Level Requirements
 
