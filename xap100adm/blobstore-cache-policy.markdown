@@ -251,7 +251,7 @@ The above example:
 
 # Automatic Data Recovery and ReIndexing
 
-Once the Data grid is shutdown and redeployed it may reload its entire data from its flash drive store. Loading data from a local drive may provide fast data recovery - much faster than loading data from a central database. The data reload process iterate the data on the flash drive and generate the indexed data based on the indexed data list per space class. As each data grid partition perform this reload and reindexing process in parallel across multiple servers it may complete this indexing process relatively fast. With with a single machine 8 cores, running 4 partitions data grid with four SSD drives , 100,000 items / second (1K payload) may be scanned and re-indexed. To enable the Data Recovery and ReIndexing activity the `recover-from-blob-store` should be set to `true`.
+Once the Data grid is shutdown and redeployed it may reload its entire data from its flash drive store. Loading data from a local drive may provide fast data recovery - much faster than loading data from a central database. The data reload process iterate the data on the flash drive and generate the indexed data based on the indexed data list per space class. As each data grid partition perform this reload and reindexing process in parallel across multiple servers it may complete this indexing process relatively fast. With a single machine with 8 cores, running 4 partitions data grid with four SSD drives , 100,000 items / second (1K payload) may be scanned and re-indexed. To enable the Data Recovery and ReIndexing activity the `recover-from-blob-store` should be set to `true`.
 
 To allow the data grid to perform an automatic data recovery from the right flash device on startup you should use [Instance level SLA](./the-sla-overview.html) .
 
@@ -310,7 +310,7 @@ The device allocation per a machine is managed via the `/tmp/blobstore/devices/d
 
 # BlobStore Space re-deploy
 
-When you undeploy a blobstore space use the `XAP_HOM/bin/undeploy-grid.groovy` comes with the RPM. It undeploys the blobstore space and restart all its GSCs.
+When you undeploy a blobstore space use the `XAP_HOM/bin/undeploy-grid.groovy` that comes with the RPM. It undeploys the blobstore space and restarts all its GSCs.
 {% highlight bash %}
 export PATH:/gigaspaces-xap-premium-{%currentversion%}.0/bin/tools/groovy/bin/
 cd /gigaspaces-xap-premium-%currentversion%}/bin/tools/groovy/bin
