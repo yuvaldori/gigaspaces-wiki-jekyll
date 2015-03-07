@@ -79,6 +79,8 @@ Related Topics
 - [Big Data Integration]({%latestjavaurl%}/big-data.html)
 - [Time Series](/sbp/time-series.html)
 - [Storm Integration](/sbp/storm-integration.html)
+- [Kafka Integration](/sbp/kafka-integration.html)
+- [Spark Integration](/sbp/spark-integration.html)
 - [Drools Rule Engine Integration](/sbp/xap-drools-integration.html)
 
 {%endrefer%}
