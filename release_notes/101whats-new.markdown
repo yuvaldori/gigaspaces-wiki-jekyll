@@ -19,6 +19,8 @@ This page lists the main new features in XAP 10.1 (Java and .Net editions). It's
 
 - [New Space Iterator](#paging)
 
+- [Off Heap BlobStore](#blobstore)
+
 REST
 
 - [REST API](#rest1)
@@ -102,6 +104,12 @@ The Space API supports the following new Java classes
 The new Space iterator which is intended to replace the old GSIterator starting 10.1.
 
 {%learn%}/xap101/query-paging-support.html{%endlearn%}
+
+{%anchor blobstore%}
+
+# Off Heap Blobstore
+
+{%learn%}/xap101adm/memoryxtend-ohr.html{%endlearn%}
 
 
 {%anchor rest2%}
