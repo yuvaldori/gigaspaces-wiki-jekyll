@@ -45,6 +45,10 @@ Command line tool for  deploying REST services.
 
 [Space command line interface](./space---gigaspaces-cli.html){%wbr%}
 Space command line interface
+
+[Quiesce Command Line](./quiesce-command-line-interface.html){%wbr%}
+XAP allows putting a processing unit in quiesce mode (a.k.a maintenance mode). The quiesce mode can be invoked via the CLI. This page explains the usage of the CLI commands.
+
 {%endfpanel%}
 
 
