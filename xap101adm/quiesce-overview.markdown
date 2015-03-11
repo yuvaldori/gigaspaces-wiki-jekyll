@@ -23,23 +23,26 @@ Quiesce mode can be also triggered using CLI (see [Quiesce CLI](./administration
 
 # Motivation
 
-There are several user stories which can benefit from quiesce state such as: <br>
-{%info title=Safe shutdown%}
--  Shutdown an application which contains a data grid and a mirror in a safe manner - make sure all operations completed on the grid are flushed to the mirror before undeploy: <br>
-&nbsp;&nbsp;&nbsp;&nbsp; a. Enter quiesce mode. <br>
-&nbsp;&nbsp;&nbsp;&nbsp; b. Wait for replication between the space and the mirror to complete (by monitoring the redolog). <br>
-&nbsp;&nbsp;&nbsp;&nbsp; c. Undeploy the space and mirror. <br>
-{%endinfo%}
+There are several user stories which can benefit from quiesce state such as:
 
-{%info title=Rolling system upgrade%}
-- Perform a rolling system upgrade on a live system (typically a processing unit code upgrade) and avoid inconsistencies related to processing of requests during the upgrade process: <br>
-&nbsp;&nbsp;&nbsp;&nbsp;a. Enter quiesce mode <br>
-&nbsp;&nbsp;&nbsp;&nbsp;b. Perform the hot-upgrade pattern: <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.   Update the pu in the GSM <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ii.  Restart the backups <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iii. Restart the primaries <br>
-&nbsp;&nbsp;&nbsp;&nbsp;c. Exit quiesce mode - the upgraded system resumes and works as expected <br>
-{%endinfo%}
+### Safe shutdown
+
+Shutdown an application which contains a data grid and a mirror in a safe manner - make sure all operations completed on the grid are flushed to the mirror before undeploy:
+  
+1. Enter quiesce mode.
+1. Wait for replication between the space and the mirror to complete (by monitoring the redolog).
+1. Undeploy the space and mirror.
+
+### Rolling system upgrade
+
+Perform a rolling system upgrade on a live system (typically a processing unit code upgrade) and avoid inconsistencies related to processing of requests during the upgrade process:
+
+1. Enter quiesce mode
+2. Perform the hot-upgrade pattern:
+2.1.   Update the pu in the GSM
+2.2.  Restart the backups
+2.3. Restart the primaries
+3. Exit quiesce mode - the upgraded system resumes and works as expected
 
 {% note %}
 For use cases implementation samples check these [use cases examples](./quiesce-pu-api.html#use-cases-examples)
