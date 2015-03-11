@@ -16,7 +16,7 @@ As well as XAP event containers mentioned above, a user defined bean can also ha
 Quiesce is mostly triggered using ProcessingUnit API and propagated to all space instances and quiesce state changed listeners in the processing unit. <br>
 
 {%refer %}
-Quiesce mode can be also triggered using CLI (see [Quiesce CLI](./administration-tools.html))
+Quiesce mode can be also triggered using CLI (see [Quiesce CLI](./quiesce-command-line-interface.html))
 {%endrefer%}
 
 

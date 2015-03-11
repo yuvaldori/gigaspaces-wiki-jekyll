@@ -79,17 +79,29 @@ application.xml file describes the application dependencies:
 </beans>
 {% endhighlight %}
 
-A dedicated machine provisioning config can be provided to elastic space/pu element:
+A [dedicated machine provisioning]({%currentjavaurl%}/elastic-processing-unit-provisioning.html) config can be provided to elastic space/pu element:
 
 {% highlight xml %}
+<os-admin:discovered-machine-provisioning-config id="myConfig" grid-service-agents-zones="zone1,zone2" reserved-memory-capacity-per-machine-in-mb="1024"/>
+
 <os-admin:elastic-space name="elasticSpace" max-memory-capacity-in-mb="32" memory-capacity-per-container-in-mb="32" highly-available="false">
-    <os-admin:dedicated-machine-provisioning grid-service-agents-zones="somezone" reserved-memory-capacity-per-machine-in-mb="1024" reserved-memory-capacity-per-management-machine-in-mb="1024" />
+    <os-admin:dedicated-machine-provisioning elastic-machine-provisioning-config="myConfig"/>
 </os-admin:elastic-space>
 {% endhighlight %}
 
-{% note %}
-Shared machine provisioning is not supported in the current version.
-{% endnote %}
+You can also use the [shared machine provisioning]({%currentjavaurl%}/elastic-processing-unit-provisioning.html#shared-machine-provisioning) config that allows two processing units to share the same machine:
+
+{% highlight xml %}
+<os-admin:discovered-machine-provisioning-config id="myConfig" grid-service-agents-zones="zone1,zone2" reserved-memory-capacity-per-machine-in-mb="1024"/>
+
+<os-admin:elastic-space name="firstElasticSpace" max-memory-capacity-in-mb="32" memory-capacity-per-container-in-mb="32" highly-available="false">
+    <os-admin:shared-machine-provisioning sharing-id="sId" elastic-machine-provisioning-config="myConfig"/>
+</os-admin:elastic-space>
+
+<os-admin:elastic-space name="secondElasticSpace" max-memory-capacity-in-mb="32" memory-capacity-per-container-in-mb="32" highly-available="false">
+    <os-admin:shared-machine-provisioning sharing-id="sId" elastic-machine-provisioning-config="myConfig"/>
+</os-admin:elastic-space>
+{% endhighlight %}
 
 {% endgcloak %}
 
