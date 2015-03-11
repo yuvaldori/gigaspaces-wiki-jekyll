@@ -11,9 +11,9 @@ weight: 100
 # Introduction
 
 The purpose of this feature is to add support for "Quiesce state" (a.k.a maintenance mode) for a processing unit.<br> If a space is **Quiesced**, it rejects all data-related operations with an exception, allowing the user to perform maintenance operations. <br>
-Regardless to the space, XAP [Polling Container]({%currentjavaurl%}/polling-container.html) and [Notify Container]({%currentjavaurl%}/notify-container.html) are also aware of quiesce state and will handle quiesce state changed events by implementing [`QuiesceStateChangedListener`](./quiesce-pu-api.html#quiesce-state-changed-listener). <br>
-As well as XAP event containers mentioned above, a user defined bean can also handle quiesce state changed events by implementing [`QuiesceStateChangedListener`](./quiesce-pu-api.html#quiesce-state-changed-listener). <br>
-Quiesce is mostly triggered using ProcessingUnit API and propogated to all space instances and quiesce state changed listeners in the processing unit. <br>
+Regardless to the space, XAP [Polling Container]({%currentjavaurl%}/polling-container.html) and [Notify Container]({%currentjavaurl%}/notify-container.html) are also aware of quiesce state and will handle quiesce state changed events by implementing [QuiesceStateChangedListener](./quiesce-pu-api.html#quiesce-state-changed-listener). <br>
+As well as XAP event containers mentioned above, a user defined bean can also handle quiesce state changed events by implementing [QuiesceStateChangedListener](./quiesce-pu-api.html#quiesce-state-changed-listener). <br>
+Quiesce is mostly triggered using ProcessingUnit API and propagated to all space instances and quiesce state changed listeners in the processing unit. <br>
 
 {%refer %}
 Quiesce mode can be also triggered using CLI (see [Quiesce CLI](./administration-tools.html))
@@ -37,16 +37,16 @@ Shutdown an application which contains a data grid and a mirror in a safe manner
 
 Perform a rolling system upgrade on a live system (typically a processing unit code upgrade) and avoid inconsistencies related to processing of requests during the upgrade process:
 
-1. Enter quiesce mode
-2. Perform the hot-upgrade pattern:
-2.1.   Update the pu in the GSM
-2.2.  Restart the backups
-2.3. Restart the primaries
+1. Enter quiesce mode  <br>
+2. Perform the hot-upgrade pattern: <br>
+2.1.   Update the pu in the GSM<br>
+2.2.  Restart the backups<br>
+2.3. Restart the primaries<br>
 3. Exit quiesce mode - the upgraded system resumes and works as expected
 
-{% note %}
-For use cases implementation samples check these [use cases examples](./quiesce-pu-api.html#use-cases-examples)
-{%endnote%}
+{% refer %}
+Here you can find [use cases examples](./quiesce-pu-api.html#use-cases-examples)
+{%endrefer%}
 
 # Space Behavior During Quiesce Mode
 - The space will reject all user data-related new operations by throwing QuiesceException back to the user, replication of previous on going operations continues.

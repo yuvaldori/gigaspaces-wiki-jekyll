@@ -62,6 +62,10 @@ In this guide you will find information on how to tune your XAP application. Amo
 [Benchmarking](./benchmarking.html){%wbr%}
 Performance benchmarks with XAP's In-Memory Data Grid mainly involve testing latency and throughput.
 
+[Quiesce Mode](./quiescemode.html){%wbr%}
+Processing Units can be configured to be put into maintenance mode. Once a processing unit has entered into maintenance mode, it will reject all data-related operations with an exception. This is useful when performing a safe shutdown or for a rolling system upgrade.
+
+
 [Troubleshooting](./troubleshooting.html){%wbr%}
 In this guide you will find useful information on how to troubleshoot your XAP application.
 {%endfpanel%}

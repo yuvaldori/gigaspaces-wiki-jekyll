@@ -21,6 +21,8 @@ This page lists the main new features in XAP 10.1 (Java and .Net editions). It's
 
 - [Off Heap BlobStore](#blobstore)
 
+- [Quiesce Mode](#quiesce)
+
 REST
 
 - [REST API](#rest1)
@@ -110,6 +112,15 @@ The new Space iterator which is intended to replace the old GSIterator starting 
 # Off Heap Blobstore
 
 {%learn%}/xap101adm/memoryxtend-ohr.html{%endlearn%}
+
+
+{% anchor quiesce%}
+
+# Quiesce Mode
+
+Provides an ability set XAP processing unit into quiesce mode (a.k.a maintenance mode).
+
+{%learn%}/xap101adm/quiescemode.html{%endlearn%}
 
 
 {%anchor rest2%}
