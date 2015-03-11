@@ -379,7 +379,7 @@ Configuration :
 
 # BlobStore Space re-deploy
 
-When you undeploy a blobstore space use the `XAP_HOM/bin/undeploy-grid.groovy` comes with the RPM. It undeploys the blobstore space and restart all its GSCs.
+When you undeploy a blobstore space use the `XAP_HOM/bin/undeploy-grid.groovy` that comes with the RPM. It undeploys the blobstore space and restarts all its GSCs.
 {% highlight bash %}
 export PATH:/gigaspaces-xap-premium-{%currentversion%}.0/bin/tools/groovy/bin/
 cd /gigaspaces-xap-premium-{%currentversion%}/bin/tools/groovy/bin
