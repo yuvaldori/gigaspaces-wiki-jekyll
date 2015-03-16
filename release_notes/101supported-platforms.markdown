@@ -56,6 +56,7 @@ Supported Operating Systems: Any operating system supported by .NET Framework 3.
 For more information see [XAP.NET](../xap101net/)
 
 # XAP C++
+
 GigaSpaces C++ source code can be built on Linux and Windows 32bit or 64bit machines.
 The current supported platforms and compilers are:
 
@@ -63,10 +64,9 @@ The current supported platforms and compilers are:
    * 64bit – gcc.4.1.2
    * 32bit – gcc.4.1.2
 - Windows
-   * 32/64bit C++ for VisualStudio 2008/2010 (VS9.0/VS10.0)
-
+   * 32/64bit C++ for Visual Studio 2008/2010 (VS9.0/VS10.0)
 
 # Integrations with 3rd Party Products
 
-Please refer to [Integrations with 3rd Party Products](/release_notes/97third-party.html)
+Please refer to [Integrations with 3rd Party Products](/release_notes/101third-party.html)
 
