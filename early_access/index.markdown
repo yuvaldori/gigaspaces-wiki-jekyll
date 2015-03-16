@@ -64,9 +64,9 @@ At this point in time there is no early access version available. The latest rel
 
 # Current Release
 
-[The current XAP release is 10.0](/xap101)
+[The current XAP release is 10.0](/xap100)
 
-[The current XAP .NET release is 10.0](/xap101net)
+[The current XAP .NET release is 10.0](/xap100net)
 
 
 
