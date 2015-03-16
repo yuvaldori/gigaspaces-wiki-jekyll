@@ -18,7 +18,7 @@ The following table describes backwards compatibility support in XAP 10.1.x:
 |Delivery|XAP API/Configuration|XAP Binaries|Client-Server|Server-Server|
 |:-------------------------------|:-------------------------------------------|:----|:----|:----|
 | Service Pack / Patch (10.1.x)  | YES                                        | YES | YES | YES |
-| Major Version (8.0.x or later) | YES (see note on deprecation policy below) | YES | YES | NO  |
+| Major Version (8.0.x or later) | YES (see note on deprecation policy below) | NO  | YES | NO  |
 
 ### Supported
 
@@ -33,4 +33,4 @@ Please refer to the [Deprecation and End-of-Life policy](http://www.gigaspaces.c
 ### Unsupported
 
 * Servers running on pre-10.1.x cannot be mixed (i.e. part of the same cluster) with 10.1.x servers.
-* Deploying a space from a pre-10.0 client to a 10.1.x Service Grid is not supported.
+* UI and CLI running on pre-10.1.x is not guaranteed to work with 10.1.x servers.
