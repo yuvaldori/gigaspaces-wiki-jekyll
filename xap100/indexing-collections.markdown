@@ -31,7 +31,7 @@ The following query shows how to use the index:
 {% highlight java %}
 SQLQuery<CollectionIndexingExample> sqlQuery = new SQLQuery<CollectionIndexingExample>(
     CollectionIndexingExample.class, "numbers[*] = 30");
-CollectionIndexingExample[] result = gigaspace.readMultiple(sqlQuery, Integer.MAX_VALUE);
+CollectionIndexingExample[] result = gigaspace.readMultiple(sqlQuery);
 {% endhighlight %}
 
 {% note %}

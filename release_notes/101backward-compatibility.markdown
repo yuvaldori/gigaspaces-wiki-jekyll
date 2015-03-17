@@ -6,7 +6,7 @@ parent: xap101.html
 weight: 600
 ---
 
-XAP 10.1 is a major release which includes [new features and improvements.](./xap101whats-new.html)
+XAP 10.1 is a major release which includes [new features and improvements.](./101whats-new.html)
 
 {%tip title=Upgrading from previous versions%}
 As a best practice, when upgrading to XAP 10.1, unzip the latest version of XAP 10.1 and port the necessary changes from your previous environment into your new 10.1 environment. It is recommended to use the XAP 10.1 distribution as-is. For more details please refer to the [Upgrade Guide](./101upgrading.html).
