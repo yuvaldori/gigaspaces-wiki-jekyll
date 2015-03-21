@@ -37,7 +37,7 @@ Using `-c` (or `-cluster`) with a URL of a clustered space clears **all** cluste
 {: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
-| `url` | The URL of the space you want to clear, or of the container -- clears the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}`rmi://localhost:10098/my_container`{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}`rmi://localhost:10098/my_container` |
+| `url` | The URL of the space you want to clear, or of the container -- clears the spaces under that container. | Container URL: `jini://localhost/my_container` {% wbr %}Space URL: `jini://localhost/my_container/mySpace`  |
 | `cluster` / `c` | Clears all spaces in the cluster. | |
 | `template` | The template for the class of objects you want to remove from the space. | `com.j_spaces.examples.benchmark.messages.MessageSerializable` |
 | `help` / `h` | Prints help -- the command's usage and options. | |
@@ -84,7 +84,7 @@ Using `-c` (or `-cluster`) with a URL of a clustered space clears **all** cluste
 {: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
-| `url` | The URL of the space you want to clear, or of the container -- clears the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}`rmi://localhost:10098/my_container`{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}`rmi://localhost:10098/my_container` |
+| `url` | The URL of the space you want to clear, or of the container -- clears the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %} Space URL: `jini://localhost/my_container/mySpace`  |
 | `cluster` / `c` | Clears all spaces in the cluster. | |
 | `template` | The template for the class of objects you want to remove from the space. | `com.j_spaces.examples.benchmark.messages.MessageSerializable` |
 | `help` / `h` | Prints help -- the command's usage and options. | |
@@ -162,7 +162,7 @@ Using `-c` (or `-cluster`) with a URL of a clustered space displays configuratio
 {: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
-| `url` | The URL of the space you want to view, or of the container -- shows the configuration details of spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container`{% wbr %}{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container` |
+| `url` | The URL of the space you want to view, or of the container -- shows the configuration details of spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}{% wbr %}  Space URL: `jini://localhost/my_container/mySpace`  |
 | `cluster` \ `c` | Displays the configuration details of all cluster members. | |
 | `help` \ `h` | Prints help -- the command's usage and options. | |
 
@@ -201,7 +201,7 @@ Using `-c` (or `-cluster`) with a URL of a clustered space displays live connect
 {: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
-| `url` | The URL of the space you want to view, or of the container -- displays live connections of the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container`{% wbr %}{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container` |
+| `url` | The URL of the space you want to view, or of the container -- displays live connections of the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %} Space URL: `jini://localhost/my_container/mySpace`  |
 | `c` \ `cluster` | Displays the live connections of all cluster members. | |
 | `help` \ `h` | Prints help -- the command's usage and options. | |
 
@@ -266,7 +266,7 @@ Using `\-c` (or `\-cluster`) with a URL of a clustered space lists **all** clust
 {: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
-| `url` | The URL of the space you want to see, or of the container -- lists the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}`    rmi://localhost:10098/my_container`{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}`    rmi://localhost:10098/my_container` |
+| `url` | The URL of the space you want to see, or of the container -- lists the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %} Space URL: `jini://localhost/my_container/mySpace`  |
 | `cluster` / `c` | Lists all spaces in the cluster. | |
 | `stats` | Displays the number of times different operations are performed in the space. | |
 | `noRTI` / `noCount` | Instructs the system not to display the number of objects and templates in the space as part of the list. | |
@@ -318,7 +318,7 @@ Using `-c` (or `-cluster`) with a URL of a clustered space pings **all** cluster
 {: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|:-------------|
-| `url` | The URL of the space you want to restart, or of the container -- pings the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container`{% wbr %}{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container` |
+| `url` | The URL of the space you want to restart, or of the container -- pings the spaces under that container. | Container URL: `jini://localhost/my_container`{% wbr %}  Space URL: `jini://localhost/my_container/mySpace`  |
 | `cluster` / `c` | Pings all cluster members. | |
 | `t` |  Sets the message objects' lease timeout (in `[ms]`). Default is `FOREVER`. | `1000` |
 | `ft` | Sets a a timeout (in `[ms]`) for the Jini protocol. | `1000` |
@@ -357,7 +357,7 @@ You can query spaces in a specific container (see the options below) -- specifyi
 {: .table .table-bordered .table-condensed}
 | Option | Description | Value Format |
 |:-------|:------------|--------------|
-| `url` | The URL of the space you want to restart, or of the container -- restarts the spaces under that container -- **mandatory option**. | Container URL: `jini://localhost/my_container`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container`{% wbr %}{% wbr %}Space URL: `jini://localhost/my_container/mySpace`{% wbr %}{% wbr %}`rmi://localhost:10098/my_container` |
+| `url` | The URL of the space you want to restart, or of the container -- restarts the spaces under that container -- **mandatory option**. | Container URL: `jini://localhost/my_container`{% wbr %} Space URL: `jini://localhost/my_container/mySpace`  |
 | `query` | The query that is run on the space -- **mandatory option**. | `select uid,* from com.j_spaces.examples.benchmark.messages.Message  `{% wbr %}` WHERE rownum<10` |
 | `multispace` | Indicates if this query is multi space, default is single space. | |
 | `help` \ `h` | Prints help -- the command's usage and options. | |
@@ -365,7 +365,7 @@ You can query spaces in a specific container (see the options below) -- specifyi
 {% togglecloak id=7 %}**Example**{% endtogglecloak %}
 {% gcloak 7 %}
 
-    space sql -url rmi://localhost:10098/mySpace_container/mySpace -query select uid,* from com.j_spaces.examples.benchmark.messages.Message
+    space sql -url jini://mySpace_container/mySpace -query select uid,* from com.j_spaces.examples.benchmark.messages.Message
     WHERE rownum<10
 {%endgcloak%}
 
