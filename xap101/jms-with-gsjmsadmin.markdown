@@ -29,15 +29,13 @@ For example, to get a connection factory to `mySpace`:
 
 {% highlight java %}
 GSJMSAdmin admin = GSJMSAdmin.getInstance();
-String url="rmi://myhost:myport/mySpace_container/mySpace;jini://myhost/./mySpace";
+String url="jini://myhost:myport/mySpace_container/mySpace;jini://myhost/./mySpace";
 ConnectionFactory factory = admin.getConnectionfactory(url); // or a proxy
 {% endhighlight %}
 
 {% note title=Using the following space URL:%}
 
-`rmi://myhost:myport/myJMSSpace_container/myJMSSpace;jini://myhost/./myJMSSpace`
-
-combines two separate Lookup Services: a Jini Lookup Service and the JNDI-based `RMIRegistry`, avoiding **Single Point of Failure**.
+`jini://myhost:myport/myJMSSpace_container/myJMSSpace;jini://myhost/./myJMSSpace` combines two separate Lookup Services: a Jini Lookup Service and the JNDI-based `RMIRegistry`, avoiding **Single Point of Failure**.
 {%endnote%}
 
 The following methods return a cached instance of a destination, or a new instance if no instance exists.
