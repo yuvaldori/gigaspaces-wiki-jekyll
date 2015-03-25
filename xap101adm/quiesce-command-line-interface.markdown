@@ -36,7 +36,7 @@ gs> quiesce -description some description myPU
 Locating processing unit with name [myPU]
 Sending quiesce request...
 Waiting up to 300 seconds until the processing unit [myPU] is quiesced
-Processing unit [myPU] state is quiesced
+Quiesce command completed successfully [token=ee16f577-92df-430b-afc7-2dd9f2c16998]
 {%endhighlight%}
 
 Another option is to run the command in interactive way; First it will look for deployed processing units and then you can choose one from the list:
@@ -53,7 +53,7 @@ Enter new value, or press ENTER for the default
 Locating processing unit with name [myPU]
 Sending quiesce request...
 Waiting up to 300 seconds until the processing unit [myPU] is quiesced
-Processing unit [myPU] state is quiesced
+Quiesce command completed successfully [token=ee16f577-92df-430b-afc7-2dd9f2c16998]
 {% endhighlight %}
 
 {% endgcloak %}
@@ -94,7 +94,7 @@ gs> unquiesce -description some description myPU
 Locating processing unit with name [myPU]
 Sending unquiesce request...
 Waiting up to 300 seconds until the processing unit [myPU] is unquiesced
-Processing unit [myPU] state is unquiesced
+Unquiesce command completed successfully
 {%endhighlight%}
 
 Or run it in interactive mode:
@@ -111,7 +111,7 @@ Enter new value, or press ENTER for the default
 Locating processing unit with name [myPU]
 Sending unquiesce request...
 Waiting up to 300 seconds until the processing unit [myPU] is unquiesced
-Processing unit [myPU] state is unquiesced
+Unquiesce command completed successfully
 {% endhighlight %}
 
 {% endgcloak %}
