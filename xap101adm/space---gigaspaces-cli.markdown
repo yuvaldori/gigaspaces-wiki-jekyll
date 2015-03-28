@@ -365,7 +365,7 @@ You can query spaces in a specific container (see the options below) -- specifyi
 {% togglecloak id=7 %}**Example**{% endtogglecloak %}
 {% gcloak 7 %}
 
-    space sql -url jini://mySpace_container/mySpace -query select uid,* from com.j_spaces.examples.benchmark.messages.Message
+    space sql -url jini://localhost/mySpace_container/mySpace -query select uid,* from com.j_spaces.examples.benchmark.messages.Message
     WHERE rownum<10
 {%endgcloak%}
 
