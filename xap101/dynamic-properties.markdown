@@ -88,6 +88,11 @@ public class Person {
 }
 {% endhighlight %}
 
+{%warning%}
+Only one property per class can be annotated with `@SpaceDynamicProperties`.
+{%endwarning%}
+
+
 Dynamic properties can also be used for matching. For example, suppose we want to get all persons who are not minors (age greater than 21) and email them something:
 
 {% highlight java %}
