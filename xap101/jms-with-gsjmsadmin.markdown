@@ -35,7 +35,7 @@ ConnectionFactory factory = admin.getConnectionfactory(url); // or a proxy
 
 {% note title=Using the following space URL:%}
 
-`jini://myhost:myport/myJMSSpace_container/myJMSSpace;jini://myhost/./myJMSSpace` combines two separate Lookup Services: a Jini Lookup Service and the JNDI-based `RMIRegistry`, avoiding **Single Point of Failure**.
+`jini://myhost:myport/myJMSSpace_container/myJMSSpace;jini://myhost/./myJMSSpace` combines two separate Jini Lookup Services avoiding **Single Point of Failure**.
 {%endnote%}
 
 The following methods return a cached instance of a destination, or a new instance if no instance exists.
