@@ -90,6 +90,7 @@ categories-list: ["PRODUCT_OVERVIEW", "API_DOCUMENTATION","EARLY_ACCESS", "HOWTO
 10.1-spring:               "4.1.1"
 10.1-mongo-java-driver:    "2.11.2"
 10.1-antlr4-runtime:       "4.0"
+10.1-mule:                 "3.5"
 10.1-mongo-datasource:     "10.0.0-SNAPSHOT"
 10.1-openjpa:              "2.0.1"
 10.1-cassandra-clientutil: "1.1.6"
