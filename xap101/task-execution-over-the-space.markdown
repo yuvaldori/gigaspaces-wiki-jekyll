@@ -9,18 +9,17 @@ weight: 100
 {%summary%}{%endsummary%}
 {%section%}
 {%column width=70% %}
-OpenSpaces supports `Task` execution in an asynchronous manner, collocated with the Space (Processing Unit that started an embedded Space). `Tasks` can be executed directly on a specific cluster member using routing declarations. `Tasks` can also be executed in "broadcast" mode on all the primary cluster members concurrently and reduced to a single result on the client-side. `Tasks` are dynamic in terms of content and class definition. (The `Task` does not have to be available within the space classpath.)
-Please note that this feature allow dynamic class loading at first time task is executed if your use case will require loading a class afterward, use static import or keep the type as a member, changing the task in runtime is not supported.
+XAP supports `Task` execution in an asynchronous manner, collocated with the Space (Processing Unit that started an embedded Space). `Tasks` can be executed directly on a specific cluster member using routing declarations. `Tasks` can also be executed in "broadcast" mode on all the primary cluster members concurrently and reduced to a single result on the client-side. `Tasks` are dynamic in terms of content and class definition. (The `Task` does not have to be available within the space classpath.)
 {%endcolumn%}
-
 {%column width=30% %}
 ![Executors_task_flow_basic.jpg](/attachment_files/Executors_task_flow_basic.jpg)
 {%endcolumn%}
 {%endsection%}
 
-{% refer %}
-The following [example](/sbp/map-reduce-pattern---executors-example.html) demonstrates how to use the `Task` Execution API
-{% endrefer %}
+{%note%}
+Please note that this feature allows dynamic class loading the first time a task is executed. If your use case requires loading a class afterward, use static import or keep the type as a member, changing the task in runtime is not supported.
+{%endnote%}
+
 
 
 
@@ -517,7 +516,7 @@ When executing distributed tasks or tasks that executed on more than one node wi
 
 {% anchor j.u.c. ExecutorService %}
 
-# j.u.c ExecutorService
+# ExecutorService
 
 OpenSpaces executors support allows to easily implement java.util.concurrent.ExecutorService which allows to support the `ExecutorService` API and executed `Callable` and `Runnable` as tasks within the Space. Here is an example of how to get an `ExecutorService` implementation based on OpenSpaces executors and use it:
 
@@ -536,3 +535,8 @@ Task<Integer> task1 = TaskExecutors.task(new MyCallable());
 DistributedTask<Integer> task2 = TaskExecutors.task(new MyCallable(),
                                       new SumReducer<Integer, Integer>(Integer.class));
 {% endhighlight %}
+
+
+{% refer %}
+The following [example](/sbp/map-reduce-pattern---executors-example.html) demonstrates how to use the `Task` Execution API
+{% endrefer %}
