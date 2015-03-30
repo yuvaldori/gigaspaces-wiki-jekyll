@@ -10,6 +10,7 @@ weight: 100
 {%section%}
 {%column width=70% %}
 OpenSpaces supports `Task` execution in an asynchronous manner, collocated with the Space (Processing Unit that started an embedded Space). `Tasks` can be executed directly on a specific cluster member using routing declarations. `Tasks` can also be executed in "broadcast" mode on all the primary cluster members concurrently and reduced to a single result on the client-side. `Tasks` are dynamic in terms of content and class definition. (The `Task` does not have to be available within the space classpath.)
+Please note that this feature allow dynamic class loading at first time task is executed if your use case will require loading a class afterward, use static import or keep the type as a member, changing the task in runtime is not supported.
 {%endcolumn%}
 
 {%column width=30% %}
