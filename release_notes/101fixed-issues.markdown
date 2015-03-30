@@ -14,8 +14,8 @@ Below is a list of issues that have been fixed in GigaSpaces 10.1.X.
 {: .table .table-bordered .table-condensed}
 | Key | Summary | Fix Version/s | Sales Force ID | Platform/s |
 |:---------|:--------|:----------------|:---------------|:------------------|
-| <nobr>GS-8165</nobr> | Read with SQL query on transient object in LRU topology is unnecessary delegated to the EDS | 10.1.0 | 6176 | All |
-| GS-10131 | In rare scenarios blocked locks for SpaceProxyTypeManager- readById blocked waiting to type descriptor | | 10.1.0 | 7272 | All |
+| GS-8165 | Read with SQL query on transient object in LRU topology is unnecessary delegated to the EDS | 10.1.0 | 6176 | All |
+| <nobr>GS-10131</nobr> | In rare scenarios blocked locks for SpaceProxyTypeManager- readById blocked waiting to type descriptor | 10.1.0 | 7272 | All |
 | GS-10903 | Repeatable SQLQuery with a slight difference per each SQL (changing the value is enough) for long time causes memory leak in client | 9.7.2, 10.1.0 | 7791 | All |
 | GS-11381 | ESM caught in a re-balancing loop after addition of new machine in rare condition(cpu reported as 0) | 9.7.0patch5, 10.1.0 | 8242 | All |
 | GS-11647 | "Create" Space operation permission is missing in GS-UI | 10.1.0 | 8758 | All |
@@ -23,15 +23,13 @@ Below is a list of issues that have been fixed in GigaSpaces 10.1.X.
 | GS-11675 | Change default Setting of cache policy in case of spaceDataSource defined from LRU to ALL IN CACHE | 9.7.0patch5, 10.1.0 | 8242 | All |
 | GS-11381 | ESM caught in a re-balancing loop after addition of new machine in rare condition(cpu reported as 0) | 10.1.0 | | All |
 | GS-11728 | Syntax error message in DotNetException.java class | 10.1.0 | 8927 | Java, .Net |
-| GS-11824 | Fail to shutdown GSC due to recovery thread that hang on socket trying to load class | 
-	9.7.0patch5, 10.1.0 | 9081 | All |
+| GS-11824 | Fail to shutdown GSC due to recovery thread that hang on socket trying to load class | 9.7.0patch5, 10.1.0 | 9081 | All |
 | GS-11825 | SpaceMetadataException logged In loop when adding index to a type that doesn’t exists in the mirror | 9.7.2, 10.0.1patch2, 10.1.0 | 9044 | Java |
 | GS-11833 | Missing partition after reboot of node due to ESM negative capacity exception | 9.7.0patch5, 9.7.2, 10.1.0 | 9017 | All |
 | GS-11834 | GSC that is supposed to be terminated due to rebalancing does not terminate | 9.7.0patch5, 9.7.2, 10.1.0 | 9074 | All |
 | GS-11836 | Extra backup-Space after network disconnection | 10.1.0 |  9119,9185,9186,9184 | Java |
 | GS-11847 | UI - ElectionInProcessException thrown when deploying processing unit with a backup | 10.1.0 |  | Java |
-| GS-11850 |  Rare Deadlock on SynchronizeReplicaDataProducer lock when ReplicationNode thread and LeaseManager$Reaper thread call close method- during failover using Blobstore | 10.0.0, 10.1.0 |  | All |
-
+| GS-11850 | Rare Deadlock on SynchronizeReplicaDataProducer lock when ReplicationNode thread and LeaseManager$Reaper thread call close method- during failover using Blobstore | 10.0.0, 10.1.0 |  | All |
 | GS-11855 | XAP 10 blobstore RPM gs-agent-blobstore.sh GSC_JAVA_OPTIONS | 10.1.0 |  | All |
 | GS-11856 | XAP 10 blobstore RPM hangs when installing | 10.0.1, 10.1.0 |  | All |
 | GS-11962 | .NET 10.0 version- when BasicContainer element is missing from pu.config we got System.NullReferenceException | 10.0.1, 10.1.0 | 9201 | .Net |
