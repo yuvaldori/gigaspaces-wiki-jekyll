@@ -28,9 +28,15 @@ Below is a list of known issues in GigaSpaces 10.1.X.
 | GS-12028 | Redolog keep growing when connection between server and localview client can't be established | 9256 | | Java |
 | GS-12029 | Inconsistent Lookup Timeout, Dynamic locators are initialised even though they are disabled, so the lookup waits the default initialisation delay that is 10sec. Sometimes this happens on the lookup thread | 9270 | | All |
 | GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
-| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
-| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
-| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
+| GS-12042 |  ConcurrentMultiDataIterator should expose better root cause exception  | 9207 | | All |
+| GS-12046 |  UnsupportedOperation when updating object from ui/cli if object has dynamic properties  | 9271 | | All |
+| GS-12053 |  Add protection against simultaneous deployment requests in the GSM   | 9288  | | All |
+| GS-12064 |  Log files that are configured to be in diffrent folders then their gsa log folder are not showen in UI  | 9254  | | All |
+| GS-12068 |  SQLQuery with like '%?%' returns all the entries with the same type  | 9343  | | Java, .Net |
+| GS-12080 |  Getting NullPointerException when _fieldsValues is null in TemplateEntryData class  | 9359  | | Java |
+| GS-12084 |  Web-UI in chrome:click Data Grids -> Any cache components arrow link cause screen running | 9366  | | All |
+| GS-12102 |  Allow to specify bind address in web UI  | | | Java |
+| GS-12155 |  Objects will stay locked under transaction if Mahalo is down between the prepare and commit  | 9442 | | Java |
 | GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
 | GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
 | GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
