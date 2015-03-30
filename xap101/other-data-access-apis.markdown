@@ -12,7 +12,7 @@ weight: 1200
 ![apis.png](/attachment_files/subject/apis.png)
 {%endcolumn%}
 {%column width=90% %}
-XAP promotes openness and interoperability, supporting common interfaces for accessing data, such as JPA, Document, SQL, JDBC, Memcached and a native POJO based API. You can choose the best API for the case at hand, and be able to operate on the same data regardless of the APIs you have chosen. Look at the different API pages to learn about each and every use case for data accessing on XAP.
+XAP promotes openness and interoperability, supporting common interfaces for accessing data, such as JPA, Document, SQL, JDBC, Memcached, Spring Data and a native POJO based API. You can choose the best API for the case at hand, and be able to operate on the same data regardless of the APIs you have chosen. Look at the different API pages to learn about each and every use case for data accessing on XAP.
 {%endcolumn%}
 {%endsection%}
 
@@ -36,4 +36,8 @@ XAP allows applications to interact with the space and cache data using the Map 
 
 [memcached API](./memcached-api.html){%wbr%}
 The memcached support is provided as a template deployment (similar to how basic data grid deployment works), allowing to easily issue commands to deploy a memcached cluster
+
+[Spring Data](/sbp/spring-data.html){%wbr%}
+XAP Spring Data implements the [Spring Data Framework](http://projects.spring.io/spring-data) that lets you use the concepts to the development of applications using XAP's In-Memory Data Grid (IMDG) as the data store.
+
 {%endfpanel%}
