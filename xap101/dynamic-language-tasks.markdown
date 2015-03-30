@@ -9,7 +9,7 @@ weight: 300
 {%summary%}{%endsummary%}
 
 [Event Driven Remoting](./event-driven-remoting.html) and [Executor Based Remoting](./executor-based-remoting.html) allow you to simply expose and execute custom services using the Space as the transport layer. The dynamic tasks feature (also known as "scripting support") allows you to utilize a built remote service, exposed using these two remoting mechanisms, that can execute dynamic language scripts in the space.
-A major benefit of using scripting or dynamic languages is the ability to simply change the behavior of the executed task without the need to recompile your application. As per the SBA paradigm, dynamic language scripts can be executed collocated with the Space, allowing you to execute the task as close as possible to the data it needs to access, and then return a result.
+A major benefit of using scripting or dynamic languages is the ability to simply change the behavior without the need to recompile your application. As per the SBA paradigm, dynamic language scripts can be executed collocated with the Space, allowing you to execute the task as close as possible to the data it needs to access, and then return a result.
 
 The following section goes through the steps needed in order to execute dynamic language tasks. The other sections in this page dive more deeply into different dynamic language support features.
 
