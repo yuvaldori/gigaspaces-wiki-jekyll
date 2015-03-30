@@ -24,6 +24,16 @@ Below is a list of known issues in GigaSpaces 10.1.X.
 | GS-11983 | When configure wan gateway os-gateway:targets doesn't work with os-core:embedded-space  | | | Java |
 | GS-11990 | Deploy space with cluster-schema=none fails and causes SpaceURLValidationException: The <total_members> attribute must be used together with the <cluster_schema> attribute | | | .Net |
 | GS-12025 | Memory keeps growing in Gsc.exe | 9270 | | .Net |
-| GS-12025 | Memory keeps growing in Gsc.exe | 9270 | | .Net |
-| GS-12025 | Memory keeps growing in Gsc.exe | 9270 | | .Net |
-| GS-12025 | Memory keeps growing in Gsc.exe | 9270 | | .Net |
+| GS-12027 | StackOverflowError in GS-LRMI thread when loading class with large hierarchy | 9244.9199  | | All |
+| GS-12028 | Redolog keep growing when connection between server and localview client can't be established | 9256 | | Java |
+| GS-12029 | Inconsistent Lookup Timeout, Dynamic locators are initialised even though they are disabled, so the lookup waits the default initialisation delay that is 10sec. Sometimes this happens on the lookup thread | 9270 | | All |
+| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
+| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
+| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
+| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
+| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
+| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
+| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
+| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
+| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
+| GS-12040 |  Wrong log message (FINEST) when commit transaction failed  | 9166 | | Java |
