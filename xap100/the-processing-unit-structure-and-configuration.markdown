@@ -90,12 +90,11 @@ You can place these jars in each XAP installation in your network, but it is mor
 When a new JAR needs to be loaded, place the new JAR in `lib/platform/ext` directory and restart the relevant GSCs (on which an instance of the PU was running).
 
 ## Considerations
-When coming to choose the right option for your system, the following should be considered:
-* Size of loaded classes in memory (PermGen)
-* Size of Processing Unit JAR file and Processing Unit deployment time
-* Isolation (sharing classes between Processing Units)
-* Frequency of updating the library JAR
-
+When coming to choose the right option for your system, the following should be considered: <br>
+- Size of loaded classes in memory (PermGen)  <br>
+- Size of Processing Unit JAR file and Processing Unit deployment time <br>
+- Isolation (sharing classes between Processing Units) <br>
+- Frequency of updating the library JAR
 
 
 # Runtime Modes
