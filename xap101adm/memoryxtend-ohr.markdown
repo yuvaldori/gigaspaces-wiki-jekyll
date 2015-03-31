@@ -10,7 +10,7 @@ weight: 300
 {% summary %}  {% endsummary %}
 
 
-# Overview
+
 
 When running with offheap blobstore enabled, you eliminate the JVM garbage collection influence since only part of your application data is stored into JVM Heap and most of the data is stored into off heap memory.
 

@@ -504,7 +504,7 @@ public class Person {
 
 {: .table-responsive  .table-condensed   .table-bordered}
 |Syntax     | SpaceSequenceNumber|
-|Description|      |
+|Description| A sequence number (like a data-base sequence-number/autoincrement column) is a property that is given a unique incrementing value when the entry is written to the Space. It’s a means for assigning a unique monotony –incremented value that can be used as a per-space (unique) key.The sequence-number is unique per-partition.  The annotated field is of type Long.    |
 
 <br>
 Example:

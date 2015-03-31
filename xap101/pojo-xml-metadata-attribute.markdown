@@ -444,9 +444,7 @@ Example:
 
 {: .table   .table-condensed  .table-bordered}
 |Syntax     | sequence-number|
-|Description|      |
-
-
+|Description| A sequence number (like a data-base sequence-number/autoincrement column) is a property that is given a unique incrementing value when the entry is written to the Space. The sequence-number is unique per-partition.  The property is of type Long.   |
 
 Example:
 

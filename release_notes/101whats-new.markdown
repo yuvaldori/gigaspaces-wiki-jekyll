@@ -40,27 +40,7 @@ Third Party library upgrades
 
 {%endpanel%}
 
-{%comment%}
 
-Elastic deployment with command line
-
-
-Sequence Number   http://localhost:4000/xap101/pojo-attribute-annotations.html#sequence-number
-
-
-
-Matrics    xap101adm/metrics-overview.markdown
-
-
-
-REST API    xap101/rest-service-overview.markdown
-Deploy REST API via CLI xap101adm/rest-deploy-command-line-interface.markdown
-
-
-upgrade to hibernate 4.1.8
-upgrading to Spring 4.1
-
-{%endcomment%}
 
 
 {%anchor hibernate%}
@@ -79,6 +59,8 @@ XAP provides a framework for collecting and reporting metrics from the distribut
 
 # Sequence number
 
+A sequence number (like a data-base sequence-number/autoincrement column) is a property that is given a unique incrementing value when the entry is written to the Space
+
 {%learn%}/xap101/pojo-attribute-annotations.html#space-sequence-number{%endlearn%}
 
 
@@ -86,7 +68,17 @@ XAP provides a framework for collecting and reporting metrics from the distribut
 
 # REST API
 
+The REST service is a Processing Unit that once it is deployed it starts an embedded jetty server along with a REST service allowing interactions with the Space via the REST API.
+
 {%learn%}/xap101/rest-service-overview.html{%endlearn%}
+
+
+{%anchor rest2%}
+
+# Deploy REST API via CLI
+XAP provides an interactive command line tool as part of the product.
+
+{%learn%}/xap101adm/rest-deploy-command-line-interface.html{%endlearn%}
 
 
 {%anchor java8%}
@@ -111,6 +103,8 @@ The new Space iterator which is intended to replace the old GSIterator starting 
 
 # Off Heap Blobstore
 
+XAP is using [MapDB](http://www.mapdb.org/), an embedded database engine which provides concurrent Maps, Sets and Queues backed by disk storage or off-heap memory.
+
 {%learn%}/xap101adm/memoryxtend-ohr.html{%endlearn%}
 
 
@@ -118,16 +112,11 @@ The new Space iterator which is intended to replace the old GSIterator starting 
 
 # Quiesce Mode
 
-Provides an ability set XAP processing unit into quiesce mode (a.k.a maintenance mode).
+Provides the ability to set an XAP processing unit into quiesce mode (maintenance mode).
 
 {%learn%}/xap101adm/quiescemode.html{%endlearn%}
 
 
-{%anchor rest2%}
-
-# Deploy REST API via CLI
-
-{%learn%}/xap101adm/rest-deploy-command-line-interface.html{%endlearn%}
 
 
 # Third Party library updates
