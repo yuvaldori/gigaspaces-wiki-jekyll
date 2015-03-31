@@ -19,9 +19,13 @@ Below is a list of new features and improvements in GigaSpaces 10.1.X.
 |<nobr>GS-10837</nobr>|Upgrade to Hibernate 4.1.8                   |10.1|| Java |
 |GS-11127|Show "CPU Starvation detected messages" in logs when running on weak platform.    |10.1||Java |
 |GS-11579|New off heap storage implementation that use MapDB's byte buffers to store off heap data.    |10.1||Java |
+|GS-11580|EDS implementation - SSD    |10.1||Java |
+|GS-11581|HTTP session productization    |10.1||Java |
+|GS-11582|Java 8 Certification    |10.1||Java |
 |GS-11593|Web-UI: planned instances displayed in Applications view on each Processing Unit's recatngle  |10.1||Java|
 |GS-11627|Deprecate method `gigaSpace::getModifiersForIsolationLevel` |10.1|8643| All|
 |GS-11639|Web-UI uses large amounts of memory due to statistics retention.  |9.7.2,<br> 10.1.0,<br> 10.0.1patch4|8741,<br>9548|Java|
+|GS-11723|Expose Blob Store configuration in GS-UI.  |10.1.0||  Java   |
 |GS-11726|Support 'IN' and 'BETWEEN' in queries nested values.  |10.1.0,<br> 10.0.1patch2,<br> 10.0.1patch3|8925|  Java   |
 |GS-11758|Support creating/configuring a space without using Jini url (jini://*/*/)     |10.0.0, <br>10.1.0||Java |
 |GS-11769|Improve error message "node belongs to a wrong SL", the new error message explain the situation and how to fix the client code.     |10.1|8967| All |
@@ -45,12 +49,15 @@ Below is a list of new features and improvements in GigaSpaces 10.1.X.
 |GS-12015|Remove dashboard                                                                                                           |10.1|| All  |
 |GS-12016|Create an events pane, that contains - alerts, events and security events.                                                 |10.1||  All |
 |GS-12019|Update logo.                                                                                                              |10.1|| Java  |
+|GS-12022|Style of filter toolbar in hosts view should be identical to the toolbar in applications screen .                         |10.1|| Java  |
 |GS-12039|Added Metrics Framework                                                                                                   |10.1||  All |
 |GS-12069|Add current license to license validation error messages.                                                                  |10.1||  All |
 |GS-12078|Separate Cassandra data source from Openspaces. (Created new repository Gigaspaces/xap-cassandra)                          |10.1|| Java  |
 |GS-12079|Increase fifo-groups concurrency by creating the main list segmented.                                                     |10.1||  All  |
 |GS-12082|Add the option for deploying elastic PU from CLI.                                                                          |10.1|| All  |
+|GS-12083| GS-12082 Add the option for deploying elastic PU from CLI.                                                                          |10.1|| All  |
 |GS-12087|Remove all hosts row from hosts view in UI.                                                                                |10.1|| Java  |
+|GS-12095|Replace Applications map view: Add processing units tree similar to hosts tree.                                            |10.1|| Java  |
 |GS-12099|Allow relocate PUI to another GSC from UI.                                                                                 |10.1|| Java  |
 |GS-12108|Support deploying elastic application.                                                                                |10.1|| All  |
 |GS-12111|Enable a sequence-number space property (per-partition).                                                                  |10.1||  Java  |
@@ -63,3 +70,35 @@ Below is a list of new features and improvements in GigaSpaces 10.1.X.
 |GS-12161|Removed SpaceXmlDocument support.                                                                                         |10.1|| Java   |
 |GS-12166|Change font in gs-ui log viewer to monospace                                                                              |10.1|| All  |
 |GS-12169|Remove lib/platform/xml jars from package.                                                                                 |10.1|| All |
+|GS-12171|Enhanced XAP.NET to support settings file config via "XapNet.SettingsFile" env variable.                                  |10.1|| .Net  |
+|GS-12174|Add ESM support for XAP.NET. .                                                                
+                 |10.1||  .Net  |
+|GS-12183|Show space mode in CLI 'list' command.                                       
+                 |10.1|| All   |
+|GS-12185| GS-12126 Allow to supply a full type descriptor when introducing type using the REST API.                                |10.1|| All   |
+|GS-12194|Expose commandLineArguments at deployment and atMostOneConcurrentRelocatio.
+                 |10.1||  All |
+|GS-12200|Added support for java 8 java.time.
+                 |10.1| 9507 |  Java  |
+|GS-12205|blobstore- check rate(%) in reads/takes after write threshold reached.                                                    |10.1|| Java   |
+|GS-12207|blob-store, don't deserialize result on remove operation.
+                 |10.1|| All   |
+|GS-12211|End of life - UndeployingEventProcessingUnitContainer.                                                                    |10.1|| Java   |
+|GS-12225|Simplified Space Iterator API - single template (instead of collection) , bring only current entries and expose simpler API. |10.1|| Java  |
+|GS-12226|Allow uses of providing sharedMachineProvisioning option in CLI and Application.                                             |10.1|| All |
+|GS-12227|Allow ssl usage without authentication (encryption only mode).                                                               |10.1|| All |
+
+|GS-12240|GS-11893 Quiesce mode scenario: Safely undeploy a Space processing unit.                                                     |10.1|| All   |
+|GS-12244|Remove memcached deployment option per pm request.
+                     |10.1||  Java |
+|GS-12200|Added support for java 8 java.time.
+                     |10.1| 9507 |  Java  |
+|GS-12248|GS-11893 Quiesce mode scenario: Safely undeploy a space processing unit with polling container.                              |10.1|| Java   |
+|GS-12257|Don't save statistics in Admin instance created by Web UI.
+                     |10.1|| Java   |
+|GS-12270| GS-11893 Quiesce mode scenario: Hot deploy.                                                                                 |10.1|| Java   |
+|GS-12284|Add metric reporter that report to a file as sample for custom reporter.
+                     |10.1|| Java  |
+|GS-12286|Deprecated Gigaspace.snapshot() - use prepareTemplate() or getTypeManager().registerTypeDescriptor instead .            |10.1|| Java |
+|GS-12287|Allow access to the new Quiesce/Unquiesce commands via the CLI.                                                              |10.1|| All |
+|GS-12289|Add space-name property to space spring definition.                                                                          |10.1|| Java |
