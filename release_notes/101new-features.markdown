@@ -71,34 +71,24 @@ Below is a list of new features and improvements in GigaSpaces 10.1.X.
 |GS-12166|Change font in gs-ui log viewer to monospace                                                                              |10.1|| All  |
 |GS-12169|Remove lib/platform/xml jars from package.                                                                                 |10.1|| All |
 |GS-12171|Enhanced XAP.NET to support settings file config via "XapNet.SettingsFile" env variable.                                  |10.1|| .Net  |
-|GS-12174|Add ESM support for XAP.NET. .                                                                
-                 |10.1||  .Net  |
-|GS-12183|Show space mode in CLI 'list' command.                                       
-                 |10.1|| All   |
+|GS-12174|Add ESM support for XAP.NET. .                                                           |10.1||  .Net  |
+|GS-12183|Show space mode in CLI 'list' command.                                       |10.1|| All   |
 |GS-12185| GS-12126 Allow to supply a full type descriptor when introducing type using the REST API.                                |10.1|| All   |
-|GS-12194|Expose commandLineArguments at deployment and atMostOneConcurrentRelocatio.
-                 |10.1||  All |
-|GS-12200|Added support for java 8 java.time.
-                 |10.1| 9507 |  Java  |
+|GS-12194|Expose commandLineArguments at deployment and atMostOneConcurrentRelocatio.|10.1||  All |
+|GS-12200|Added support for java 8 java.time.|10.1| 9507 |  Java  |
 |GS-12205|blobstore- check rate(%) in reads/takes after write threshold reached.                                                    |10.1|| Java   |
-|GS-12207|blob-store, don't deserialize result on remove operation.
-                 |10.1|| All   |
+|GS-12207|blob-store, don't deserialize result on remove operation.|10.1|| All   |
 |GS-12211|End of life - UndeployingEventProcessingUnitContainer.                                                                    |10.1|| Java   |
 |GS-12225|Simplified Space Iterator API - single template (instead of collection) , bring only current entries and expose simpler API. |10.1|| Java  |
 |GS-12226|Allow uses of providing sharedMachineProvisioning option in CLI and Application.                                             |10.1|| All |
 |GS-12227|Allow ssl usage without authentication (encryption only mode).                                                               |10.1|| All |
-
 |GS-12240|GS-11893 Quiesce mode scenario: Safely undeploy a Space processing unit.                                                     |10.1|| All   |
-|GS-12244|Remove memcached deployment option per pm request.
-                     |10.1||  Java |
-|GS-12200|Added support for java 8 java.time.
-                     |10.1| 9507 |  Java  |
+|GS-12244|Remove memcached deployment option per pm request.|10.1||  Java |
+|GS-12200|Added support for java 8 java.time.|10.1| 9507 |  Java  |
 |GS-12248|GS-11893 Quiesce mode scenario: Safely undeploy a space processing unit with polling container.                              |10.1|| Java   |
-|GS-12257|Don't save statistics in Admin instance created by Web UI.
-                     |10.1|| Java   |
+|GS-12257|Don't save statistics in Admin instance created by Web UI.|10.1|| Java   |
 |GS-12270| GS-11893 Quiesce mode scenario: Hot deploy.                                                                                 |10.1|| Java   |
-|GS-12284|Add metric reporter that report to a file as sample for custom reporter.
-                     |10.1|| Java  |
+|GS-12284|Add metric reporter that report to a file as sample for custom reporter.|10.1|| Java  |
 |GS-12286|Deprecated Gigaspace.snapshot() - use prepareTemplate() or getTypeManager().registerTypeDescriptor instead .            |10.1|| Java |
 |GS-12287|Allow access to the new Quiesce/Unquiesce commands via the CLI.                                                              |10.1|| All |
 |GS-12289|Add space-name property to space spring definition.                                                                          |10.1|| Java |
