@@ -68,6 +68,5 @@ Below is a list of issues that have been fixed in GigaSpaces 10.1.X.
 | GS-12282 | Undeploy takes a long time when there are a lot of notify containers registered | 10.1.0 |  | All |
 | GS-12291 | Inconsistent pom.xml files when using installmavenrep.sh vs using maven dependencies | 10.1.0 |  	9596 | Java |
 | GS-12293 | Alerts for CPU, heap, physical memory are sent before measurement-period is over | 10.1.0 |  | Java |
-| GS-12306 | UI: JEE App Summary view is not displayed | 10.1.0 |  | Java |
 | GS-12320 | NullPointerException in webui server when pressing on "Types" tab without selecting any instance | 10.1.0 |  | All |
 
