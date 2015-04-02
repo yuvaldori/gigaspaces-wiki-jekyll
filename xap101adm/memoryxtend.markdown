@@ -23,7 +23,7 @@ XAP 10 introduced a new storage model called BlobStore Storage Model (commonly r
 {%fpanel%}
 
 [Overview](./memoryxtend-overview.html)<br>
-The BlobStore Storage Modelallows an external storage medium (one that does not reside on the JVM heap) to store the IMDG data.
+The BlobStore Storage Model allows an external storage medium (one that does not reside on the JVM heap) to store the IMDG data.
 
 [Solid State Drive](./memoryxtend-ssd.html)<br>
 All Enterprise flash drives are supported. SanDisk, Fusion-IO, Intel® SSD , etc are supported with the IMDG storage technology.

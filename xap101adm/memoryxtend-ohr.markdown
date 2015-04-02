@@ -60,7 +60,7 @@ GSC_JAVA_OPTIONS="-server -Xms20g -Xmx20g -XX:MaxDirectMemorySize=100g -Xmn6g -X
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:os-core="http://www.openspaces.org/schema/core"
        xmlns:blob-store="http://www.openspaces.org/schema/mapdb-blob-store"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-{%version spring%}.xsd
        http://www.openspaces.org/schema/core http://www.openspaces.org/schema/{% currentversion %}/core/openspaces-core.xsd
        http://www.openspaces.org/schema/mapdb-blob-store http://www.openspaces.org/schema/{% currentversion %}/mapdb-blob-store/openspaces-mapdb-blobstore.xsd">
 
