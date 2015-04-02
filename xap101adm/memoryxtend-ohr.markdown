@@ -60,7 +60,7 @@ GSC_JAVA_OPTIONS="-server -Xms20g -Xmx20g -XX:MaxDirectMemorySize=100g -Xmn6g -X
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:os-core="http://www.openspaces.org/schema/core"
        xmlns:blob-store="http://www.openspaces.org/schema/mapdb-blob-store"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-{%version spring%}.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
        http://www.openspaces.org/schema/core http://www.openspaces.org/schema/{% currentversion %}/core/openspaces-core.xsd
        http://www.openspaces.org/schema/mapdb-blob-store http://www.openspaces.org/schema/{% currentversion %}/mapdb-blob-store/openspaces-mapdb-blobstore.xsd">
 
@@ -78,32 +78,6 @@ GSC_JAVA_OPTIONS="-server -Xms20g -Xmx20g -XX:MaxDirectMemorySize=100g -Xmn6g -X
 {% endhighlight %}
 {% endtabcontent %}
 
-{% tabcontent Plain XML %}
-
-{% highlight xml %}
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:os-core="http://www.openspaces.org/schema/core"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-{%version spring%}.xsd
-       http://www.openspaces.org/schema/core http://www.openspaces.org/schema/{%currentversion%}/core/openspaces-core.xsd">
-
-    <bean id="propertiesConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"/>
-
-    <bean id="offheapBlobstore" class="com.gigaspaces.blobstore.mapdb.config.MapDBBlobStoreDataPolicyFactoryBean">
-        <property name="writeOnlyBlockPercentage" value="80"/>
-    </bean>
-
-    <os-core:embedded-space id="space" name="mySpace">
-        <os-core:blob-store-data-policy blob-store-handler="offheapBlobstore" cache-entries-percentage="10"
-            avg-object-size-KB="5"/>
-    </os-core:embedded-space>
-
-    <os-core:giga-space id="gigaSpace" space="space"/>
-</beans>
-{% endhighlight %}
-
-{% endtabcontent %}
 {% tabcontent Code %}
 
 Programmatic approach to start a BlobStore space:
