@@ -8,6 +8,8 @@ parent: none
 
 {%summary%}{%endsummary%}
 
+
+{%comment%}
 # gs.xml mapping schema
 
 {%panel%}
@@ -16,6 +18,8 @@ parent: none
 
 {%endpanel%}
 
+{%endcomment%}
+
 
 # Java
 
@@ -23,14 +27,17 @@ parent: none
 
 [Javadoc](http://www.gigaspaces.com/docs/JavaDoc10.1/index.html) -- _GigaSpaces XAP API, including all components_
 
+{%endpanel%}
+
+{%comment%}
 **XAP Schemas**
 
 {: .table .table-bordered}
-|[openspaces-core.xsd](./schema-10.0/core.html)|[openspaces-admin.xsd](./schema-10.0/admin.html)|[openspaces-archive.xsd](./schema-10.0/archive.html)|
+|[openspaces-core.xsd](http://www.openspaces.org/schema/10.1/core/openspaces-core.xsd)|[openspaces-admin.xsd](./schema-10.0/admin.html)|[openspaces-archive.xsd](./schema-10.0/archive.html)|
 |[openspaces-events.xsd](./schema-10.0/events.html)|[openspaces-gateway.xsd](./schema-10.0/gateway.html)|[openspaces-jdbc.xsd](./schema-10.0/jdbc.html)|
 |[openspaces-jms.xsd](./schema-10.0/jms.html)|[openspaces-remoting.xsd](./schema-10.0/remoting.html)|[openspaces-sla.xsd](./schema-10.0/sla.html)|
+{%endcomment%}
 
-{%endpanel%}
 
 # MongoDB
 {%panel%}
