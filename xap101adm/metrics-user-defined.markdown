@@ -6,10 +6,6 @@ parent: metrics-overview.html
 weight: 400
 ---
 
-
-
-{%note title=Technology Preview%}This feature is still under development and is subject to breaking changes until 10.1 is released {%endnote%}
-
 In addition to the metrics shipped with the product, users are free to define additional metrics for application-specific data using the `@ServiceMetric` annotation. For example, suppose we have a `FooService` class which processes some application-specific requests, and we want to measure the number of processed requests:
 
 {% highlight java %}
