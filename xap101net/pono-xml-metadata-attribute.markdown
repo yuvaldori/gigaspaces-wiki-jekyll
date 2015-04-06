@@ -388,7 +388,7 @@ Example:
 {: .table   .table-condensed  .table-bordered}
 |Syntax     | dynamic-properties name|
 |Description| Allows adding properties freely to a class without worrying about the schema.|
-
+|Note|**Only one property per class can be declared as `dynamic-properties`.**|
 
 Example:
 

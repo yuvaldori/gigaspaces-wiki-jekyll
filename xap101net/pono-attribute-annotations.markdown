@@ -317,7 +317,7 @@ public Person Customer { get; set; }
 {: .table   .table-condensed  .table-bordered}
 |Syntax     | SpaceDynamicProperties|
 |Description| Allows adding properties freely to a class without worrying about the schema.|
-
+|Note|**Only one property per class can be annotated with `[SpaceDynamicProperties]`.**|
 
 Example:
 
