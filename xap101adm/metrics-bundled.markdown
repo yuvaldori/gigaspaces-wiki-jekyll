@@ -8,8 +8,6 @@ weight: 500
 
 {% summary %}{% endsummary %}
 
-{%note title=Technology Preview%}This feature is still under development and is subject to breaking changes until 10.1 is released {%endnote%}
-
 The following metrics are bundled with the product:
 
 # Operating System
