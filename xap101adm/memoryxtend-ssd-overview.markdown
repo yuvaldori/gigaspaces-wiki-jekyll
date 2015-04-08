@@ -138,7 +138,7 @@ Configuring an IMDG (Space) with BlobStore should be done via the `SanDiskBlobSt
     </blob-store:sandisk-blob-store>
 
     <os-core:embedded-space id="space" name="mySpace" >
-        <os-core:blob-store-data-policy blob-store-handler="blobstoreid" cache-entries-percentage="10" avg-object-size-KB="5" recover-from-blob-store="true"/>
+        <os-core:blob-store-data-policy blob-store-handler="myBlobStore" cache-entries-percentage="10" avg-object-size-KB="5" recover-from-blob-store="true"/>
     </s-core:embedded-space>
 
     <os-core:giga-space id="gigaSpace" space="space"/>
