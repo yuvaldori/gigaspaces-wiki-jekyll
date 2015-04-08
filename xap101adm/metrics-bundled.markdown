@@ -118,7 +118,10 @@ LRMI metrics are reported with the following tags:
 | `lrmi_active-connections` | Number of active LRMI Connections |
 | `lrmi_generated-traffic` | Total generated traffic (in bytes) |
 | `lrmi_received-traffic` | Total received traffic (in bytes) |
-| `lrmi_threads` | Number of active LRMI threads |
+| `lrmi_connection-pool_active-threads` | Number of active LRMI threads in the default connection pool |
+| `lrmi_liveness-pool_active-threads` | Number of active LRMI threads in the liveness pool |
+| `lrmi_monitoring-pool_active-threads` | Number of active LRMI threads in the monitoring pool |
+| `lrmi_custom-pool_active-threads` | Number of active LRMI threads in the custom pool |
 
 # Lookup Service
 
@@ -145,7 +148,13 @@ Processing Unit metrics are reported with the following tags:
 * `pu_name` - Processing Unit name.
 * `pu_instance_id` - Processing Unit instance id.
 
-Under construction
+### Event Containers
+
+{: .table .table-bordered .table-condensed}
+| Metric | Description |
+|:-------|:------------|
+| `pu_{event-container-name}_processed-events` | Total number of entries in the space. |
+| `pu_{event-container-name}_failed-events` | Total number of entries in the space of type `type`. |
 
 # Space 
 
@@ -165,9 +174,9 @@ Space metrics are reported with the following tags:
 | Metric | Description |
 |:-------|:------------|
 | `space_data_entries_total` | Total number of entries in the space. |
-| `space_data_entries_type` | Total number of entries in the space of type `type`. |
+| `space_data_entries_{type-name}` | Total number of entries in the space of type. |
 | `space_data_notify-templates_total` | Total number of notify templates in the space. |
-| `space_data_notify-templates_type` | Total number of notify templates in the space of type `type`. |
+| `space_data_notify-templates_{type-name}` | Total number of notify templates in the space of type. |
 
 ### Operations
 
