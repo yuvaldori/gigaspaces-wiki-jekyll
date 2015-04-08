@@ -9,16 +9,20 @@ parent: none
 {%summary%}{%endsummary%}
 
 
-{%comment%}
-# gs.xml mapping schema
+
 
 {%panel%}
 
-[gigaspaces-metadata.dtd](./schema-10.0/gs.html)
+# XAP Schemas
+
+{: .table .table-bordered}
+|[openspaces-core.xsd](http://www.openspaces.org/schema/10.1/core/openspaces-core.xsd)|[openspaces-admin.xsd](http://www.openspaces.org/schema/10.1/admin/openspaces-admin.xsd)|[openspaces-archive.xsd](http://www.openspaces.org/schema/10.1/archive/openspaces-archive.xsd)|
+|[openspaces-events.xsd](http://www.openspaces.org/schema/10.1/events/openspaces-events.xsd)|[openspaces-gateway.xsd](http://www.openspaces.org/schema/10.1/core/gateway/openspaces-gateway.xsd)|[openspaces-jdbc.xsd](http://www.openspaces.org/schema/10.1/jdbc/openspaces-jdbc.xsd)|
+|[openspaces-jms.xsd](http://www.openspaces.org/schema/10.1/jms/openspaces-jms.xsd)|[openspaces-remoting.xsd](http://www.openspaces.org/schema/10.1/remoting/openspaces-remoting.xsd)|[openspaces-sla.xsd](http://www.openspaces.org/schema/10.1/sla/openspaces-sla.xsd)|
+|[mule-os-eventcontainer.xsd](http://www.openspaces.org/schema/mule/mule-os-eventcontainer.xsd)|[mule-os-queue.xsd](http://www.openspaces.org/schema/mule/mule-os-queue.xsd)|[mule-os-seda.xsd](http://www.openspaces.org/schema/mule/mule-os-seda.xsd)|
+
 
 {%endpanel%}
-
-{%endcomment%}
 
 
 # Java
@@ -28,15 +32,6 @@ parent: none
 [Javadoc](http://www.gigaspaces.com/docs/JavaDoc10.1/index.html) -- _GigaSpaces XAP API, including all components_
 
 {%endpanel%}
-
-{%comment%}
-**XAP Schemas**
-
-{: .table .table-bordered}
-|[openspaces-core.xsd](http://www.openspaces.org/schema/10.1/core/openspaces-core.xsd)|[openspaces-admin.xsd](./schema-10.0/admin.html)|[openspaces-archive.xsd](./schema-10.0/archive.html)|
-|[openspaces-events.xsd](./schema-10.0/events.html)|[openspaces-gateway.xsd](./schema-10.0/gateway.html)|[openspaces-jdbc.xsd](./schema-10.0/jdbc.html)|
-|[openspaces-jms.xsd](./schema-10.0/jms.html)|[openspaces-remoting.xsd](./schema-10.0/remoting.html)|[openspaces-sla.xsd](./schema-10.0/sla.html)|
-{%endcomment%}
 
 
 # MongoDB
