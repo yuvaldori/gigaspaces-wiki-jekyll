@@ -18,8 +18,8 @@ public class FooService {
         processedRequests.incrementAndGet();
     }
 
-    @ServiceMetric(name="requests_processed")
-    public int getPendingRequests() {
+    @ServiceMetric(name="processed-requests")
+    public int getProcessedRequests() {
         return processedRequests.get();
     }
 }
