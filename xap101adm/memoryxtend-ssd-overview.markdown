@@ -41,7 +41,7 @@ The BlobStore settings includes the following options:
 | statistics-interval | Applications can optionally enable periodic dumping of statistics to a specified file (XAP_HOME/logs). This is disabled by default. | | optional |
 | durability-level | `SW_CRASH_SAFE` - Guarantees no data loss in the event of software crashes. But some data might be lost in the event of hardware failure.{%wbr%}`HW_CRASH_SAFE`- Guarantees no data loss if the hardware crashes.Since there are performance implication it is recommended to work with NVRAM device and configure log-flash-dir to a folder on this device. | SW_CRASH_SAFE | optional |
 | log-flush-dir | When `HW_CRASH_SAFE` used , point to a directory in a file system on top of NVRAM backed disk. This directory must be unique per space, you can add ${clusterInfo.runningNumber} as suffix to generate a unique name | as volume-dir | optional |
-| device-mapping-dir | Point to a directory in a file system. This directory contains file which contains a mapping between space name and a flash device | /tmp/blobstore/devices | optional |
+| devices-mapping-dir | Point to a directory in a file system. This directory contains file which contains a mapping between space name and a flash device | /tmp/blobstore/devices | optional |
 | central-storage | Enable in case you have a centralized. in this case each space is connected to a predefined device| false | optional |
 
 The IMDG BlobStore settings includes the following options:{%wbr%}
