@@ -147,7 +147,7 @@ When deploying to a 3rd party web container like tomcat, you will need to repack
 After you've started the dashboard web application, point your browser to the proper location (For example, if you stated it using the standalone web container, the default URL is `http://<standalone server host>:8099`.
 You will see the following login screen (see inline notes for the available login options):
 
-![xap-login-inline.png](/attachment_files/xap-login-inline.png)
+![xap-login-inline.png](/attachment_files/web-console/login.png)
 
 {% info %}
 **Supported Web Browsers**
