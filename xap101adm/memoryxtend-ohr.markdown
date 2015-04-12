@@ -83,18 +83,19 @@ GSC_JAVA_OPTIONS="-server -Xms20g -Xmx20g -XX:MaxDirectMemorySize=100g -Xmn6g -X
 Programmatic approach to start a BlobStore space:
 
 {% highlight java %}
+String spaceURL = "/./mySpace";
 MapDBBlobStoreConfigurer configurer = new MapDBBlobStoreConfigurer();
 configurer.setBlobStoreWriteOnlyBlockPercentage(80);
 MapDBBlobStoreHandler  mapDBBlobStoreHandler = configurer.create();
 
 BlobStoreDataCachePolicy cachePolicy = new BlobStoreDataCachePolicy();
 cachePolicy.setAvgObjectSizeKB(5l);
-cachePolicy.setCacheEntriesPercentage(10);
+cachePolicy.setCacheEntriesPercentage(20);
 cachePolicy.setBlobStoreHandler(mapDBBlobStoreHandler);
 
-urlConfig = new UrlSpaceConfigurer(spaceURL);
+UrlSpaceConfigurer urlConfig = new UrlSpaceConfigurer(spaceURL);
 urlConfig.cachePolicy(cachePolicy);
-gigaSpace = new GigaSpaceConfigurer(urlConfig.space()).gigaSpace();
+GigaSpace gigaSpace = new GigaSpaceConfigurer(urlConfig.space()).gigaSpace();
 {% endhighlight %}
 
 {% endtabcontent %}
