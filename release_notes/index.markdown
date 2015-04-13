@@ -24,7 +24,12 @@ A new release of Gigaspace's XAP platform has been released. Version 10.1 is a m
 
 
 
-## Previous releases pre 10.0.1
+## Previous releases
 
-You can find release notes of earlier versions [here](/xap100.html).
+
+- [10.0](/xap100.html)
+- [9.7](/xap97.html)
+- [Pre 9.7](http://wiki.gigaspaces.com/wiki/display/RN/GigaSpaces+Release+Notes)
+
+
 

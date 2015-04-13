@@ -18,6 +18,7 @@ You can find release notes of earlier versions then 10.1
 
 
 
-XAP 9.6 and earlier [here](http://wiki.gigaspaces.com/wiki/display/RN/GigaSpaces+Release+Notes).
-XAP 9.7 and later
+- [10.0](/xap100.html)
+- [9.7](/xap97.html)
+- [Pre 9.7](http://wiki.gigaspaces.com/wiki/display/RN/GigaSpaces+Release+Notes)
 
