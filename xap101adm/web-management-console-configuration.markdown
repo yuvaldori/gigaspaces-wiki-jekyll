@@ -6,19 +6,15 @@ parent: web-management-console.html
 weight: 100
 ---
 
-{%comment%}
-{% summary %}Configuring various options and customizing the management console.{% endsummary %}
-### Internationalization
-{%endcomment%}
 
-
+{% summary %} {% endsummary %}
 
 
 The management console allows for alternative locales which can be configured via XML. Currently, the supported locales
 are Chinese and English (which is the default). Users wishing to change the locale can do so in two ways:
 
 
-### Using a new configuration file
+# Using a new configuration file
 
 * Create a new file with the following contents:
 
@@ -95,13 +91,12 @@ Open the *gs-webui-[version-build].jar* archive for exploring.
 </beans>
 {% endhighlight %}
 
-### InfluxDB configuration
+# InfluxDB configuration
 
-* Edit the *metrics.xml* file (found under `[XAP_HOME]/config/metrics`). Change following part according to influxDB host(myhost) and database name(mydb) that stores metrics:
+* Edit the *metrics.xml* file (found under `[XAP_HOME]/config/metrics`). Change the following part according to your influxDB host(myhost) and database name(mydb) that stores metrics:
 
 {% highlight xml %}
-    ...................
-    ...................
+
     <grafana>
         <datasources>
             <datasource name="influxdb">
@@ -119,6 +114,5 @@ Open the *gs-webui-[version-build].jar* archive for exploring.
             </datasource>
         </datasources>
     </grafana>
-    ...................
-    ...................    
+
 {% endhighlight %}
