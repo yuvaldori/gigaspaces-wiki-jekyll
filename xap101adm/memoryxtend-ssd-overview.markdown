@@ -132,7 +132,7 @@ Configuring an IMDG (Space) with BlobStore should be done via the `SanDiskBlobSt
 
     <bean id="propertiesConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"/>
 
-    <blob-store:sandisk-blob-store id="myBlobStore" blob-store-capacity-GB="100" blob-store-cache-size-MB="100"
+    <blob-store:sandisk-blob-store id="myBlobStore" blob-store-capacity-GB="100" blob-store-cache-size-MB="100" statistics-interval=”5000”
                                             devices="[/dev/sdb1,/dev/sdc1]" volume-dir="/tmp/data${clusterInfo.runningNumber}" durability-level="SW_CRASH_SAFE">
 
     </blob-store:sandisk-blob-store>
