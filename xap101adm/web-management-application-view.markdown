@@ -1,7 +1,7 @@
 ---
 layout: post101
 title:  Application View
-categories: XAP101ADM
+categories:
 parent: web-management-console.html
 weight: 400
 ---

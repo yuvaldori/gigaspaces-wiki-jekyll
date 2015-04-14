@@ -1,7 +1,7 @@
 ---
 layout: post101
 title:  Data Grid View
-categories: XAP101ADM
+categories:
 parent: web-management-console.html
 weight: 600
 ---

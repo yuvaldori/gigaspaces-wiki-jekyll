@@ -30,17 +30,8 @@ Configuring various options and customizing the management console.
 [Starting the console](./web-management-console-starting.html){%wbr%}
 Reviews the different deployment option of the web management console
 
-[Dashboard](./web-management-dashboard-view.html){%wbr%}
-Main Dashboard navigation view
-
-[Application View](./web-management-application-view.html){%wbr%}
-Applications and Processing unit dependency view
-
 [Host View](./web-management-hosts-view.html){%wbr%}
 Physical resources
-
-[Data Grid View](./web-management-data-grid-view.html){%wbr%}
-Cluster wide information about your data grids including: data queries, metrics, metadata etc.
 
 {%endfpanel%}
 

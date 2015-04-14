@@ -6,11 +6,24 @@ parent: web-management-console.html
 weight: 500
 ---
 
+{%summary%}{%endsummary%}
+
 {%comment%}
 {% summary %}Physical resources{% endsummary %}
 
 # The Hosts view
 {%endcomment%}
+
+
+# Overview
+
+By clicking the `hosts` tab at the top left, you will enter the hosts screen. This screen enables you to monitor the physical resources of your cluster. The physical resources include the hosts and virtual machines. Please refer the image below and the call-outs in it for more details.
+
+<br>
+
+![hosts1.jpg](/attachment_files/web-console/host-view.png)
+
+{%comment%}
 
 By clicking the services tab at the top left, you will enter the hosts screen. This screen enables you to monitor the physical resources of your cluster. The physical resources include the hosts and virtual machines. Please refer the image below and the call-outs in it for more details.
 
@@ -38,3 +51,4 @@ The Web UI supports the deployment of processing units, as depicted below.
 
 ![processing_unit_deployment_2.jpg](/attachment_files/processing_unit_deployment_2.jpg)
 
+{%endcomment%}

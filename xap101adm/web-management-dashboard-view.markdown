@@ -1,7 +1,7 @@
 ---
 layout: post101
 title:  Dashboard View
-categories: XAP101ADM
+categories:
 parent: web-management-console.html
 weight: 300
 ---
