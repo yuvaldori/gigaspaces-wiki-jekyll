@@ -19,6 +19,12 @@ XAP 10 introduced a new storage model called BlobStore Storage Model (commonly r
 
 <br>
 
+{% info title=Licensing %}
+MemoryXtend requires a separate license in addition to the GigaSpaces commercial license. Please contact [GigaSpaces Customer Support](http://www.gigaspaces.com/content/customer-support-services) for more details.
+{% endinfo %}
+
+<br>
+
 
 {%fpanel%}
 
@@ -45,6 +51,13 @@ XAP is using [MapDB](http://www.mapdb.org/), an embedded database engine which p
 {%column width=30%  %}
 [{%pdf%}](/download_files/White-Paper-ssd-V2.pdf)
 This MemoryXtend white paper provides a high level overview of the technology and motivation behind MemoryXtend.
+{%endcolumn%}
+
+{%column width=30%  %}
+
+{%download http://www.gigaspaces.com/xap-memoryxtend-flash-performance-big-data%}  Download MemoryXtend
+
+
 {%endcolumn%}
 
 {%endsection%}
