@@ -26,6 +26,9 @@ In general you should have the `cluster-config.groups.group.repl-policy.replicat
 </os-core:space>
 {% endhighlight %}
 
+In addition you should change cluster-config.groups.group.repl-policy.processing-type" to global-order if async replication is used between primary and its backup.
+
+
 # When to Use Asynchronous Replication
 
 Asynchronous replication provides fastest performance because the replication is executed asynchronously to the operation. However, this comes with a cost
