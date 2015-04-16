@@ -8,20 +8,12 @@ weight: 500
 
 {%summary%}{%endsummary%}
 
-{%comment%}
-{% summary %}Physical resources{% endsummary %}
 
-# The Hosts view
-{%endcomment%}
-
-
-# Overview
-
-By clicking the `hosts` tab at the top left, you will enter the hosts screen. This screen enables you to monitor the physical resources of your cluster. The physical resources include the hosts and virtual machines. Please refer to the image below and the call-outs in it for more details.
+By clicking the `Hosts` tab at the top left, you will enter the hosts screen. This screen enables you to monitor the physical resources of your cluster. The physical resources include the hosts and virtual machines. Please refer to the image below and the call-outs in it for more details.
 
 <br>
 
-![hosts1.jpg](/attachment_files/web-console/host-view1.png)
+![hosts1.jpg](/attachment_files/web-console/host-view.jpg)
 
 <br>
 
@@ -40,7 +32,7 @@ maintenance operations and specific settings on individual components.
 
 <br>
 
-![hosts1.jpg](/attachment_files/web-console/host-setting.png)
+![hosts1.jpg](/attachment_files/web-console/host-setting.jpg)
 
 
 # Display control
@@ -48,7 +40,7 @@ maintenance operations and specific settings on individual components.
 - You can filter which components you want to display<br>
 - You can also control the ordering of each column in the display.
 
-![hosts1.jpg](/attachment_files/web-console/host-display.png)
+![hosts1.jpg](/attachment_files/web-console/host-display.jpg)
 
 
 # Display logs
@@ -57,9 +49,30 @@ For each component you can view the log information. It is possible to filter th
 
 <br>
 
-![hosts1.jpg](/attachment_files/web-console/host-view-logging.png)
+![hosts1.jpg](/attachment_files/web-console/host-view-logging.jpg)
+
+
+{%comment%}
+<br>
+
+# Alerts
+
+In this panel you will see alerts and notifications about your infrastructure. It will display for example information about `Garbage Collection`, `Heap Utilization` and others.
+
+
+![hosts1.jpg](/attachment_files/web-console/alerts.png)
 
 <br>
+
+# Events
+
+In the events panel you can see events for the selected component. It lets you filter the events and you can also choose the narrow down the
+events by date and time.
+
+![hosts1.jpg](/attachment_files/web-console/events.png)
+
+<br>
+
 
 # Icons
 
@@ -85,7 +98,7 @@ The icons in the table below are used to indicate the following peaces of the in
 
 
 
-{%comment%}
+
 
 By clicking the services tab at the top left, you will enter the hosts screen. This screen enables you to monitor the physical resources of your cluster. The physical resources include the hosts and virtual machines. Please refer the image below and the call-outs in it for more details.
 
