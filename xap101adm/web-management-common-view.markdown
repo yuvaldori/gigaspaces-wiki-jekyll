@@ -62,7 +62,7 @@ This can be done by opening the Alert Actions menu and clicking "Generate dump..
 Select the desired components for the dump and click "Generate", and a zip file will be downloaded containing log files for each of the selected components.
 
 
-# Events time-line panel
+# Events
 
 In the events panel you can see events for the selected component. It lets you filter the events and you can also choose the narrow down the
 events by date and time.
@@ -89,26 +89,5 @@ The events time-line shows the deployment life cycle of all the processing units
 - installation unresponsive: processing unit instance is unresponsive to "member-is-alive" attempts (suspecting failure)
 - installation crashed: processing unit instance unresponsiveness has timed-out (detected failure)
 - installation re-detected: processing unit instance was previously unresponsive but is now responsive.
-
-
-# Icons
-
-The icons in the table below are used to indicate the following peaces of the infrastructure:
-
-{: .table .table-bordered .table-condensed}
-|![segment.png](/attachment_files/web-console/icons/host.png)|Host|
-|![segment.png](/attachment_files/web-console/icons/agent.png)|Agent|
-|![segment.png](/attachment_files/web-console/icons/manager_gsm.png)|GSM|
-|![segment.png](/attachment_files/web-console/icons/search_lus.png)|LUS|
-|![segment.png](/attachment_files/web-console/icons/container.png)|GSC|
-|![segment.png](/attachment_files/web-console/icons/processor.png)|Processing Unit|
-|![segment.png](/attachment_files/web-console/icons/space.png)|Space|
-|![segment.png](/attachment_files/web-console/icons/stateful.png)|Stateful PU|
-|![segment.png](/attachment_files/web-console/icons/stateless.png)|Stateless PU|
-|![segment.png](/attachment_files/web-console/icons/monitor_esm.png)|ESM|
-|![segment.png](/attachment_files/web-console/icons/mirror.png)|Mirror Service|
-|![segment.png](/attachment_files/web-console/icons/web_app.png)|Web application|
-|![segment.png](/attachment_files/web-console/icons/gateway.png)|Gateway|
-|![segment.png](/attachment_files/web-console/icons/wan.png)|WAN|
 
 

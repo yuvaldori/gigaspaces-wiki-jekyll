@@ -52,6 +52,30 @@ For each component you can view the log information. It is possible to filter th
 ![hosts1.jpg](/attachment_files/web-console/host-view-logging.jpg)
 
 
+
+# Icons
+
+The icons in the table below are used to indicate the following peaces of the infrastructure:
+
+{: .table .table-bordered .table-condensed}
+|![segment.png](/attachment_files/web-console/icons/host.png)|Host|
+|![segment.png](/attachment_files/web-console/icons/agent.png)|Agent|
+|![segment.png](/attachment_files/web-console/icons/manager_gsm.png)|GSM|
+|![segment.png](/attachment_files/web-console/icons/search_lus.png)|LUS|
+|![segment.png](/attachment_files/web-console/icons/container.png)|GSC|
+|![segment.png](/attachment_files/web-console/icons/processor.png)|Processing Unit|
+|![segment.png](/attachment_files/web-console/icons/space.png)|Space|
+|![segment.png](/attachment_files/web-console/icons/stateful.png)|Stateful PU|
+|![segment.png](/attachment_files/web-console/icons/stateless.png)|Stateless PU|
+|![segment.png](/attachment_files/web-console/icons/monitor_esm.png)|ESM|
+|![segment.png](/attachment_files/web-console/icons/mirror.png)|Mirror Service|
+|![segment.png](/attachment_files/web-console/icons/web_app.png)|Web application|
+|![segment.png](/attachment_files/web-console/icons/gateway.png)|Gateway|
+|![segment.png](/attachment_files/web-console/icons/wan.png)|WAN|
+
+
+
+
 {%comment%}
 <br>
 
