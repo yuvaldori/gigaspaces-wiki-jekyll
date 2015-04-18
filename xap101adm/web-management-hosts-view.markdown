@@ -51,6 +51,21 @@ For each component you can view the log information. It is possible to filter th
 
 ![hosts1.jpg](/attachment_files/web-console/host-view-logging.jpg)
 
+# SSH Terminal
+
+There is an option to open an SSH terminal for a specific machine.
+
+<br>
+
+![options_to_open_ssh_9_6.png](/attachment_files/web-console/ssh1.jpg)
+<br>
+![options_to_open_ssh_9_6.png](/attachment_files/web-console/ssh2.jpg)
+<br>
+![options_to_open_ssh_9_6.png](/attachment_files/web-console/ssh3.jpg)
+<br>
+![options_to_open_ssh_9_6.png](/attachment_files/web-console/ssh4.jpg)
+
+
 
 
 # Icons
@@ -74,80 +89,3 @@ The icons in the table below are used to indicate the following peaces of the in
 |![segment.png](/attachment_files/web-console/icons/wan.png)|WAN|
 
 
-
-
-{%comment%}
-<br>
-
-# Alerts
-
-In this panel you will see alerts and notifications about your infrastructure. It will display for example information about `Garbage Collection`, `Heap Utilization` and others.
-
-
-![hosts1.jpg](/attachment_files/web-console/alerts.png)
-
-<br>
-
-# Events
-
-In the events panel you can see events for the selected component. It lets you filter the events and you can also choose the narrow down the
-events by date and time.
-
-![hosts1.jpg](/attachment_files/web-console/events.png)
-
-<br>
-
-
-# Icons
-
-The icons in the table below are used to indicate the following peaces of the infrastructure:
-
-{: .table .table-bordered .table-condensed}
-|![segment.png](/attachment_files/web-console/icons/host.png)|Host|
-|![segment.png](/attachment_files/web-console/icons/agent.png)|Agent|
-|![segment.png](/attachment_files/web-console/icons/manager_gsm.png)|GSM|
-|![segment.png](/attachment_files/web-console/icons/search_lus.png)|LUS|
-|![segment.png](/attachment_files/web-console/icons/container.png)|GSC|
-|![segment.png](/attachment_files/web-console/icons/processor.png)|Processing Unit|
-|![segment.png](/attachment_files/web-console/icons/space.png)|Space|
-|![segment.png](/attachment_files/web-console/icons/stateful.png)|Stateful PU|
-|![segment.png](/attachment_files/web-console/icons/stateless.png)|Stateless PU|
-|![segment.png](/attachment_files/web-console/icons/monitor_esm.png)|ESM|
-|![segment.png](/attachment_files/web-console/icons/mirror.png)|Mirror Service|
-|![segment.png](/attachment_files/web-console/icons/web_app.png)|Web application|
-|![segment.png](/attachment_files/web-console/icons/gateway.png)|Gateway|
-|![segment.png](/attachment_files/web-console/icons/wan.png)|WAN|
-
-
-
-
-
-
-
-By clicking the services tab at the top left, you will enter the hosts screen. This screen enables you to monitor the physical resources of your cluster. The physical resources include the hosts and virtual machines. Please refer the image below and the call-outs in it for more details.
-
-![hosts1.jpg](/attachment_files/hosts1.jpg)
-
-### Operating on hosts, JVMs and processing unit
-
-The image below shows the possible options of operating on each of the components displayed by the web UI.
-![hosts_actions.jpg](/attachment_files/hosts_actions.jpg)
-
-### Deploying with the Web UI
-
-The Web UI supports the deployment of processing units, as depicted below.
-
-- Processing Unit
-
-- EDG
-
-- Memcached
-
-![deployment_options.jpg](/attachment_files/deployment_options.jpg)
-
-#### Deployment options:
-![processing_unit_deployment_1.jpg](/attachment_files/processing_unit_deployment_1.jpg)
-
-![processing_unit_deployment_2.jpg](/attachment_files/processing_unit_deployment_2.jpg)
-
-{%endcomment%}
