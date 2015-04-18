@@ -1,9 +1,9 @@
 ---
 layout: post101
 title:  Data Grid View
-categories:
+categories: XAP101ADM
 parent: web-management-console.html
-weight: 600
+weight: 530
 ---
 
 {% summary %}{% endsummary %}
@@ -17,6 +17,81 @@ weight: 600
 
 The Data Grid view provides Space and Space instance navigation, for querying data and viewing class metadata.
 Select a "Space" or press the arrow to drill down into the Space instances of each Space (cluster).
+
+# Overview
+
+![hosts1.jpg](/attachment_files/web-console/data-grid-view.jpg)
+
+
+# Configuration
+
+Basic selected space or space instance configuration. It has following sections: General, Memory Management, Network & Environment and optional Blob Store.
+
+
+![hosts1.jpg](/attachment_files/web-console/data-grid-configuration.jpg)
+
+
+# Query Editor
+
+The Query editor supports SQL queries. For example, to query a specific class:
+
+{% highlight java %}
+SELECT * FROM my.company.com.MyPojo WHERE rownum < 1000
+{% endhighlight %}
+
+In the screenshot below, we also provide the UID column of each object in the Space.
+
+{% highlight java %}
+SELECT uid,* FROM com.gigaspaces.sba.trading.model.TradePojo WHERE rownum < 7
+{% endhighlight %}
+
+Press the **"Play"** icon to execute the query. Query is executed against the selected Space (cluster) or Space instance.
+If the query has too many results, use the paging at the bottom to move between them. Paging is static, meaning that these results are fetched once per execute request.
+Use the arrows - **back** and **forward** to navigate between previously executed queries.
+
+
+![hosts1.jpg](/attachment_files/web-console/data-grid-query.jpg)
+
+# Space Types
+
+The metadata of the Types in the Space are shown by clicking on the "Types" tab. This lists all the types registered with the Space.
+Displayed for each type are: **instance count**, **notify template count**, **Space key** (index), **Space routing key**, and **indexed fields**.
+
+
+![hosts1.jpg](/attachment_files/web-console/data-grid-type.jpg)
+
+
+# Object inspection
+
+Double click on a single result set in the query results table, to show the metadata and values of each result.
+Object inspection shows the **field name**, **field type**, and **field value**. For compound fields, drill down using the arrow toggles.
+For array types, the array length and toString is displayed.
+
+![hosts1.jpg](/attachment_files/web-console/data-grid-inspect-object.jpg)
+
+
+# Statistics
+
+The Statistics view provides graphical representation of space/space instance operations performed and average throughput.
+
+
+![hosts1.jpg](/attachment_files/web-console/data-grid-stats.jpg)
+
+
+# Gateways
+
+The Gateways view provides information about replication over the WAN between the selected space and target spaces.
+
+![hosts1.jpg](/attachment_files/web-console/data-grid-gateway.jpg)
+
+
+
+
+
+
+
+
+{%comment%}
 
 ![DataGrid_SpaceInstanceSelection.png](/attachment_files/DataGrid_SpaceInstanceSelection.png)
 
@@ -132,5 +207,5 @@ This view displays notification activity sent to clients.
 
 ![notification-activity-2_10_0](/attachment_files/notification-activity-2_10_0.jpg)
 
-
+{%endcomment%}
 
