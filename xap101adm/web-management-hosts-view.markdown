@@ -1,6 +1,6 @@
 ---
 layout: post101
-title:  Hosts View
+title:  Hosts
 categories: XAP101ADM
 parent: web-management-console.html
 weight: 500

@@ -1,6 +1,6 @@
 ---
 layout: post101
-title:  Data Grid View
+title:  Spaces
 categories: XAP101ADM
 parent: web-management-console.html
 weight: 530
@@ -15,7 +15,7 @@ weight: 530
 # Navigation
 {%endcomment%}
 
-The Data Grid view provides Space and Space instance navigation, for querying data and viewing class metadata.
+The `Spaces` view provides Space and Space instance navigation, for querying data and viewing class metadata.
 Select a "Space" or press the arrow to drill down into the Space instances of each Space (cluster).
 
 # Overview
