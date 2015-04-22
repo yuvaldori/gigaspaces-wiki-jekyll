@@ -6,6 +6,7 @@ parent: web-management-console.html
 weight: 540
 ---
 
+{%comment%}
 {% summary %}{% endsummary %}
 
 
@@ -93,6 +94,8 @@ select * from "xap.hostname.10200.gsa.jvm.threads.deamon"
 {%endhighlight%}
 
 ![hosts1.jpg](/attachment_files/web-console/influxdb-data-series.jpg)
+
+{%endcomment%}
 
 {%comment%}
 
