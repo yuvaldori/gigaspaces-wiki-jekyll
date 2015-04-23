@@ -23,6 +23,10 @@ This page lists the main new features in XAP 10.1 (Java and .Net editions). It's
 
 - [Quiesce Mode](#quiesce)
 
+- [Web Management Console](#webui)
+
+
+
 REST
 
 - [REST API](#rest1)
@@ -117,6 +121,13 @@ Provides the ability to set an XAP processing unit into quiesce mode (maintenanc
 {%learn%}/xap101adm/quiescemode.html{%endlearn%}
 
 
+{% anchor webui%}
+
+# Web Management Console
+
+New and improved Web Management Console
+
+{%learn%}/xap101adm/web-management-monitoring.html{%endlearn%}
 
 
 # Third Party library updates
