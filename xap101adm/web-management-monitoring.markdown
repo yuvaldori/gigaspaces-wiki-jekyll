@@ -6,58 +6,54 @@ parent: web-management-console.html
 weight: 540
 ---
 
-{%comment%}
+
 {% summary %}{% endsummary %}
 
 
 The `Monitoring` view lets you view `Processing Unit Infrastructure` and  `Processing Unit properties` statistics. XAP provides
 default templates for this. All default dashboard templates can be changed. They are located under `[XAP_HOME]/config/webui/dashboards`.
 
-The monitoring view relies on two products, [InfluxDB](http://influxdb.com/) and [Grafana](http://grafana.org). These tools need to be installed and connected before the `Monitoring` view is operational.
-The InfluxDB is used to store the time series values that are generated from the XAP infrastructure. Grafana is ued to visualize the time series values.
+The monitoring view relies on [InfluxDB](http://influxdb.com/). InfluxDB is used to store the time series values that are generated from the XAP infrastructure.
+[Grafana](http://grafana.org)  runs in the browser and connects to InfluxDB to present the time series data that is stored there.
 
 # InfluxDB
 
-XAP uses `InfluxDB` to store the time series values. Please refer to the InfluxDB website for [installation](http://influxdb.com/docs/v0.8/introduction/installation.html) instructions.
-Once the InfluxDB is installed you need to connect XAP to the repository.  Follow the steps below to configure the InfluxDB and connect your XAP environment to it.
+Please refer to the InfluxDB website for [installation](http://influxdb.com/docs/v0.8/introduction/installation.html) instructions.
+Once InfluxDB is installed you need to create two data bases and then connect XAP to the repositories.  Follow the steps below to configure InfluxDB and connect your XAP environment to it.
 
 
-### Create a data base
+### Create the data bases
 
-After you installed the InfluxDB, login into the web console and create a data base that will be used by XAP to store the time series values.
+After you installed the InfluxDB, login into the web console and create two data bases that will be used by XAP to store the time series values.
+
+The first data base we will call `metrics` and the second one is called `grafana`.
+
+Create the data bases:
 
 ![hosts1.jpg](/attachment_files/web-console/influxdb-create-db.jpg)
 
 <br>
 
-### Create a user
-
-The user name should match a defined user in XAP.
-
-{%refer%}
-Configure an XAP user that has Monitor JVM and Monitor PU permissions. Refer to [Managing Users and Roles]({%currentsecurl%}/gigaspaces-management-center-(ui)-security.html)
-{%endrefer%}
-
-Create a user for the data base:
-
-
-![hosts1.jpg](/attachment_files/web-console/influxdb-create-user.jpg)
+![hosts1.jpg](/attachment_files/web-console/influxdb-create-db2.jpg)
 
 <br>
 
-### Configure XAP
 
-We need to configure the connection between XAP and InfluxDB. This is done by modifying the `metrics.xml` file which you can find in the XAP distributation
+# Configure XAP
+
+We need to configure the connection between XAP and InfluxDB. This is done by modifying the `metrics.xml` file which you can find in the XAP distribution
 folder `[XAP_HOME]/config/metrics`.
+
+First we configure the reporters:
 
 {%highlight xml%}
 <metrics-configuration>
     <reporters>
         <reporter name="influxdb-http">
-            <property name="host" value="InfluxDbHost"/>
-            <property name="database" value="InfluxDB-name"/>
-            <property name="username" value="xap-username"/>
-            <property name="password" value="password"/>
+            <property name="host" value="http://influxdb-host:8086"/>
+            <property name="database" value="metrics"/>
+            <property name="username" value="root"/>
+            <property name="password" value="root"/>
         </reporter>
     </reporters>
 </metrics-configuration>
@@ -67,42 +63,62 @@ folder `[XAP_HOME]/config/metrics`.
 Please refer to the [InfluxDB Reporter](./metrics-influxdb-reporter.html) section for detailed configuration instructions.
 {%endrefer%}
 
+Then you configure the dashboard connection for Grafana:
 
-After you configured the InfluxDB Reporter, restart XAP. Your XAP infrastructure should now be connected and generate data in InfluxDB with the default configuration.
-
-
-### Query the data base
-
-You can now query the InfluxDB. Here is a query that will display all time series in the data base.
-
-{%highlight console%}
-list series
+{%highlight xml%}
+   <grafana>
+        <datasources>
+            <datasource name="influxdb">
+                <property name="type" value="influxdb"/>
+                <property name="url" value="http://influxdb-host:8086/db/metrics"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </datasource>
+            <datasource name="grafana">
+                <property name="type" value="influxdb"/>
+                <property name="url" value="http://influxdb-host:8086/db/grafana"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+                <property name="grafanaDB" value="true"/>
+            </datasource>
+        </datasources>
+    </grafana>
 {%endhighlight%}
 
-This query will display all time series names available in the data base.
 
-![hosts1.jpg](/attachment_files/web-console/influxdb-query-series.jpg)
+After this configuration, restart XAP. Your XAP infrastructure should now be connected and generate data in InfluxDB with the default configuration.
+
+
+# Monitor view
+
+When you open the `Monitor` tab in the XAP web console, you will see the following view:
+
+![hosts1.jpg](/attachment_files/web-console/monitor.jpg)
 
 <br>
 
-### Data Series display
+# Dashboards
 
-You can choose one time series and display its data.
+By selecting the folder icon on the left in the menu bar, the available dashboards will be displayed:
 
-{%highlight console%}
-select * from "xap.hostname.10200.gsa.jvm.threads.deamon"
-{%endhighlight%}
+![hosts1.jpg](/attachment_files/web-console/monitor1.jpg)
 
-![hosts1.jpg](/attachment_files/web-console/influxdb-data-series.jpg)
+<br>
 
-{%endcomment%}
+## Default Space dashboard
+
+![hosts1.jpg](/attachment_files/web-console/monitor2.jpg)
+
+<br>
+
+## Default Processing Unit dashboard
+
+![hosts1.jpg](/attachment_files/web-console/monitor3.jpg)
+
+
+
 
 {%comment%}
-
-### Grafana
-
-[Graphana](http://grafana.org/)
-
 
 
 
@@ -118,18 +134,4 @@ For each stateful processing unit additional space dashboard created, it exposes
 
 All default dashboard templates can be changed and they are located under [XAP_HOME]/config/webui/dashboards, but please note that all changes will be affected only on new deployed processing units, existing and already stored in “grafana” db dashboards will not be changed.
 
-
-
-
-
-
-# XAP Monitor
-
-![hosts1.jpg](/attachment_files/web-console/monitor1.jpg)
-
-![hosts1.jpg](/attachment_files/web-console/monitor2.jpg)
-
-![hosts1.jpg](/attachment_files/web-console/monitor3.jpg)
-
-
- {%endcomment%}
+{%endcomment%}
