@@ -99,7 +99,7 @@ When you open the `Monitor` tab in the XAP web console, you will see the followi
 
 # Dashboards
 
-By selecting the folder icon on the left in the menu bar, the available dashboards will be displayed:
+By selecting the folder icon on the right in the menu bar, the available dashboards will be displayed:
 
 ![hosts1.jpg](/attachment_files/web-console/monitor1.jpg)
 
