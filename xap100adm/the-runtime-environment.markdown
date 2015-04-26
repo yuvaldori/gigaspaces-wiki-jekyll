@@ -52,6 +52,9 @@ The system-wide configuration specifies settings which all components share, e.g
 
 The component-specific configuration specifies settings per component type, e.g. the GSC memory limit is greater than the GSM and LUS. These are set using one or more of the environment variables: `GSA_JAVA_OPTIONS`, `GSC_JAVA_OPTIONS`, `GSM_JAVA_OPTIONS`, `LUS_JAVA_OPTIONS`.
 
+
+{%info%}The component-specific configuration override the system-wide configuration. {%endinfo%}
+
 For example:
 
 {% section %}
