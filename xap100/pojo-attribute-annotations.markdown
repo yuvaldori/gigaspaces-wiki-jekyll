@@ -463,11 +463,12 @@ Example:
 @SpaceClass
 public class Person {
 
-    @SpaceClassConstructor
+
     public Person ()
     {
     }
 
+    @SpaceClassConstructor
     public Person (Long id, String firstName, String LastName)
     {
     }

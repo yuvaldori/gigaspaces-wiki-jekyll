@@ -16,7 +16,7 @@ The XAP web management console is a web application which was designed to enable
 
 <br>
 
-![dashboard803_9_6.png](/attachment_files/web-console/dashboard.png)
+![dashboard803_9_6.png](/attachment_files/web-console/dashboard.jpg)
 
 {%note%}
 
