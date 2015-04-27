@@ -316,7 +316,7 @@ When having an **AND** query or a template that use two or more fields for match
 
 Constructing an `SQLQuery` instance is a relatively expensive operation. When possible, prefer using `SQLQuery.setParameters` and `SQLQuery.setParameter` to modify an existing query instead of creating a new one. However, remember that `SQLQuery` is not thread-safe.
 XAP reuses `SQLQuery` objects by using a bounded cache mechanism - when using `SQLQuery.setParameter` as descbired above,  the queries will be fetched from the cache without the penalty of recreation `SQLQuery` objects.
-The cache size can be modified by setting `com.gs.queryCache.cacheSize` system property to the desirable value.
+The cache size can be modified by setting `com.gs.queryCache.cacheSize` system property to the desirable value (the default value is 10,000).
 
 #### Minimize OR usage
 
