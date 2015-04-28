@@ -122,6 +122,17 @@ Alternatively if you do not need authentication and just wish to encrypt the dat
 -Dcom.gs.lrmi.filter.factory=com.gigaspaces.lrmi.nio.filters.SSLFilterFactory
 {% endhighlight %}
 
+{% tip %}
+If you are using JVM other then Oracle self signed certificate auto generation is not possible.
+To enable self sighed certificate on JVM other then Oravle  add Bouncy Castle jars to the classpath (bcpkix-jdk15on-1.50.jar, bcprov-jdk15on-1.50.jar).
+Alternativly if you are develping using maven add to your pom the following dependency:
+<dependency> 
+            <groupId>org.bouncycastle</groupId> 
+            <artifactId>bcpkix-jdk15on</artifactId> 
+            <version>1.50</version> 
+</dependency>  
+{% endtip %}
+
 
 {% tip %}
 With production environment you should have the SSLFilterFactory password (or any other secured user access information) protected by passing its value at the deploy time into the pu.xml (where the actual property using a variable) or at the start-up time as an argument to a wrapper script starting the GigaSpaces agent and not place such secured data on file.
