@@ -26,7 +26,7 @@ The interface includes the following main operations:
 {%column width=50% %}
 {%panel bgColor=white | title=Change objects in Space:%}
 [change](#change) one object in Space{%wbr%}
-[changeMultiple](./change-api.html) objects in Space {%wbr%}
+		  [changeMultiple](./change-api.html) objects in Space {%wbr%}
 [asynchronous change](./change-api.html) of objects
 {%endpanel%}
 {%endcolumn%}
@@ -113,3 +113,4 @@ In the example above, the take operation can be performed without specifying a t
 {% include /COM/xap101/ops-count.markdown %}
 {% include /COM/xap101/ops-counters.markdown %}
 {% include /COM/xap101/ops-aggregation.markdown %}
+{% include /COM/xap101/ops-async-extension.markdown %}
