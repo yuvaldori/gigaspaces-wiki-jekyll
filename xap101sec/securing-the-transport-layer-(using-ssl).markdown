@@ -122,16 +122,20 @@ Alternatively if you do not need authentication and just wish to encrypt the dat
 -Dcom.gs.lrmi.filter.factory=com.gigaspaces.lrmi.nio.filters.SSLFilterFactory
 {% endhighlight %}
 
-{% tip %}
-If you are using JVM other then Oracle self signed certificate auto generation is not possible.
-To enable self sighed certificate on JVM other then Oravle  add Bouncy Castle jars to the classpath (bcpkix-jdk15on-1.50.jar, bcprov-jdk15on-1.50.jar).
-Alternativly if you are develping using maven add to your pom the following dependency:
-<dependency> 
-            <groupId>org.bouncycastle</groupId> 
-            <artifactId>bcpkix-jdk15on</artifactId> 
-            <version>1.50</version> 
+{%note%}
+If you are using a JVM other then Oracle, self signed certificate auto generation is not possible.
+To enable self signed certificate for a JVM other then Oracle, add the `Bouncy Castle` jars to the classpath (bcpkix-jdk15on-1.50.jar, bcprov-jdk15on-1.50.jar).
+Alternatively if you are developing using maven, add to your pom the following dependency:
+
+{%highlight xml%}
+<dependency>
+  <groupId>org.bouncycastle</groupId>
+  <artifactId>bcpkix-jdk15on</artifactId>
+  <version>1.50</version>
 </dependency>  
-{% endtip %}
+{%endhighlight%}
+
+{%endnote%}
 
 
 {% tip %}
