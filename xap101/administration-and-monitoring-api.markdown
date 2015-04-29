@@ -698,6 +698,19 @@ public class MyProcessingUnitStatusChangedEventListener implements
 {%endtabcontent%}
 {%endinittab%}
 
+# Processing Unit health monitoring
+
+For monitoring purposes, the processing unit can be queried to show its deployment status, number of actual instances vs. planned, and more details per processing unit instance. Note that the plan vs. actual represent current state, and querying this API returns an updated result each time a scheduled update is done by the underlying Admin. A plan changes on increments, decrements, restart and relocation of instances. 
+
+{%highlight java  %}
+ProcessingUnit processingUnit = admin.getProcessingUnits().getProcessingUnit("myProceessingUnitName");
+Properties properties = new Properties();
+properties.put("Name", processingUnit.getName());
+properties.put("Status", processingUnit.getStatus());
+properties.put("Type", processingUnit.getType());
+properties.put("Actual/Planned", processingUnit.getInstances().length + "/" + processingUnit.getPlannedNumberOfInstances());
+properties.put("SLA", processingUnit.getNumberOfInstances() + (processingUnit.getNumberOfBackups()>0 ? "," + processingUnit.getNumberOfBackups(): ""));
+{%endhighlight%}
 
 {%anchor servicemonitors%}
 
