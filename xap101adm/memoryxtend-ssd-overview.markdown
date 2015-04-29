@@ -103,6 +103,8 @@ sudo yum -y install libevent-devel
 sudo yum -y install glibc-devel
 {% endhighlight %}
 
+Blobstore rpm installs SanDisk license at <XAP HOME>/lib/platform/blobstore/fdf-license.txt, in case this license is expired, a valid license is avalable for download.
+
 Step 4. 
 Use the `XAP HOME\bin\gs-agent-blobstore.sh` to start GigaSpaces Grid Agent that configured to load the ZetaScale libraries.
 
