@@ -72,9 +72,7 @@ Below is a list of new features and improvements in GigaSpaces 10.1.X.
 |GS-12169|Remove lib/platform/xml jars from package.                                                                                 |10.1|| All |
 |GS-12171|Enhanced XAP.NET to support settings file config via "XapNet.SettingsFile" env variable.                                  |10.1|| .Net  |
 |GS-12174|Add ESM support for XAP.NET. .                                               |10.1||  .Net  |
-|GS-12183|Show space mode in CLI 'list' command.           	
-
-Added default -Xms512m -Xmx512m to all GS components and to EXT_JAVA_OPTIONS                              |10.1|| All   |
+|GS-12183|Show space mode in CLI 'list' command.                                       |10.1|| All   |
 |GS-12185| GS-12126 Allow to supply a full type descriptor when introducing type using the REST API.                                |10.1|| All   |
 |GS-12194|Expose commandLineArguments at deployment and atMostOneConcurrentRelocatio.|10.1||  All |
 |GS-12200|Added support for java 8 java.time.|10.1| |  Java  |
