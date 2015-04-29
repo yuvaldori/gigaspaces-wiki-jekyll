@@ -69,4 +69,16 @@ Below is a list of issues that have been fixed in GigaSpaces 10.1.X.
 | GS-12291 | Inconsistent pom.xml files when using installmavenrep.sh vs using maven dependencies | 10.1.0 |  	9596 | Java |
 | GS-12293 | Alerts for CPU, heap, physical memory are sent before measurement-period is over | 10.1.0 |  | Java |
 | GS-12320 | NullPointerException in webui server when pressing on "Types" tab without selecting any instance | 10.1.0 |  | All |
-
+| GS-12315 | Transaction consolidation of transient only transactions causes timeout | 10.1.1, 10.2.0 | 9640,9417 | All |
+| GS-12324 | First row in Spaces view should be selected by default | 10.1.1, 10.2.0 |  | Java |
+| GS-12327 | In 'Spaces' view, 'types' shows 'Loading data types...' when no space is selected | 10.1.1, 10.2.0 | | All |
+| GS-12335 | Web-ui might fails on OOM due to statistics for gateway replication that keep large exception traces (in version previous to 10.1 ) | 10.1.1, 9.7.2patch2 | 9656 | Java |
+| GS-12353 | Service details of REST PU shows invalid URL on Windows | 10.1.1, 10.2.0 |  | Java |
+| GS-12356 | RLIKE/LIKE fails (DIV0) when executed against a SpaceIndex property belonging to an abstract parent class | 10.1.1, 10.2.0 | 9654 | All |
+| GS-12357 | Deployment of a PU containing an abstract bean fails | 10.1.1, 10.2.0 |  9680 | All |
+| GS-12358 | PU metrics are not reported in XAP.NET | 10.1.1, 10.2.0 |  | .NET |
+| GS-12360 | spring.schemas files were not updated for version 10.1.0 | 10.1.1, 10.2.0 |  | Java |
+| GS-12361 | When running with more than one gsm, as result Monitoring view is unavailable | 10.1.1, 10.2.0 |  | All |
+| GS-12366 | Events grid in new Processing Unit view is always empty | 10.1.1, 10.2.0 | | Java |
+| GS-12372 | In some grids meter bars displayed as cutted | 10.1.1, 10.2.0 | | Java |
+| GS-12376 | Handle default selection in Spaces view | 10.1.1, 10.2.0 | | Java |
