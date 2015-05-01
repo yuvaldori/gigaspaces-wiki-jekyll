@@ -43,6 +43,7 @@ Include the following in your `pom.xml`
     		<groupId>com.gigaspaces</groupId>
 	    	<artifactId>mongo-datasource</artifactId>
     		<version>10.0.0-SNAPSHOT</version>
+    		<scope>provided</scope>
 		</dependency>
 		...
 	</dependencies>
