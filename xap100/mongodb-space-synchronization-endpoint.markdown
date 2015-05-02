@@ -8,7 +8,7 @@ weight: 200
 
 A MongoDB based implementation of the [Space Synchronization Endpoint](./space-synchronization-endpoint-api.html). 
 
-### Library dependencies 
+### Library dependencies
 The MongoDB Space Synchronization Endpoint uses the [MongoDB Driver](http://docs.mongodb.org/ecosystem/drivers/java/) For communicating with the MongoDB cluster. 
 Include the following in your `pom.xml` 
 
@@ -43,6 +43,7 @@ Include the following in your `pom.xml`
     		<groupId>com.gigaspaces</groupId>
 	    	<artifactId>mongo-datasource</artifactId>
     		<version>10.0.0-SNAPSHOT</version>
+    		<scope>provided</scope>
 		</dependency>
 		...
 	</dependencies>

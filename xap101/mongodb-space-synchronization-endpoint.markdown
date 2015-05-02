@@ -30,13 +30,13 @@ Include the following in your `pom.xml`
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
-			<version>2.11.2</version>
+			<version>{%version mongo-java-driver%}</version>
 		</dependency>
 
 		<dependency> 
 			<groupId>org.antlr</groupId> 
 			<artifactId>antlr4-runtime</artifactId> 
-			<version>4.0</version> 
+			<version>{%version antler4-runtime%}</version>
 		</dependency> 
 
 		<dependency>

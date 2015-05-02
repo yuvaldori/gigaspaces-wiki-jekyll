@@ -57,6 +57,7 @@ Include the following in your `pom.xml`
     <groupId>com.gigaspaces</groupId>
     <artifactId>mongo-datasource</artifactId>
     <version>9.7.0-SNAPSHOT</version>
+    <scope>provided</scope>
 </dependency>
 
 {% endhighlight %}
