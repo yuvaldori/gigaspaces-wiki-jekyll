@@ -466,7 +466,7 @@ When Objects are written to a Persistent Space (backed by a permanent store usin
 Once an object's lease expires the underlying persistence store:
 
 - will not be updated when running in `LRU` <br>
-- will be updated when running in `All in cache`. In this case the `syncEndPoint.remove` method (direct or mirror) will be called.
+- will not be updated when running in `All in cache`.
 - when running with `blobstore` (SSD or local file implementation) expired space objects are removed from the `blobstore`.
 
 # Lease Manager
