@@ -155,13 +155,13 @@ In previous options, parameters could be passed via a POJO template as well. Thi
 {%endwarning%}
 
 
-# Properties Types
+
 
 {% anchor Nested Properties%}
 
-#### Nested Properties
+# Nested Properties
 
-GigaSpaces SQL syntax contains various extensions to support matching nested properties, maps, collections and arrays.
+XAP SQL syntax contains various extensions to support matching nested properties, maps, collections and arrays.
 
 Some examples:
 
@@ -176,7 +176,7 @@ Some examples:
 For more information see [Query Nested Properties](./query-nested-properties.html).
 {%endrefer%}
 
-#### Enum Properties
+# Enum Properties
 
 An enum property can be matched either using the enum's instance value or its string representation. For example:
 
@@ -196,7 +196,7 @@ public class Vehicle {
 
 {% info %} When using an Enum string value, the value must be identical (case sensitive) to the name of the Enum value.{%endinfo%}
 
-#### Date Properties
+# Date Properties
 
 A `Date` property can be matched either using the Date instance value or its string representation. For example:
 
@@ -238,7 +238,7 @@ These space properties should be configured with a valid Java format pattern as 
 Date properties are often used for comparison (greater/less than). Consider using [extended indexing](./indexing.html) to boost performance.
 {%endinfo%}
 
-#### sysdate
+### sysdate
 
 The `sysdate` value is evaluated differently when using the JDBC API vs when using it with `SQLQuery` API. When used with JDBC API it is evaluated using the space clock. When used with `SQLQuery` API it is evaluated using the client clock. If you have a partitioned space across multiple different machines and the clock across these machines is not synchronized you might not get the desired results. If you use JDBC API you should consider setting the date value as part of the SQL within the client side (since you  might write objects using the GigaSpace API). In this case , you should synchronize all the client machine time. In short - all the machines (client and server) clocks should be synchronized.
 
@@ -249,6 +249,197 @@ The `sysdate` value is evaluated differently when using the JDBC API vs when usi
 GigaSpaces using internally the **TimeStamp** data type to store dates. This means the date includes beyond the year, month and day, the hour/min/sec portions. If you are looking to query for a specific date you should perform a date range query.
 {% endtip %}
 
+
+# Java 8 Dates
+
+XAP supports the `LocalDate`, `LocalTime` and `LocalDateTime` classes. The following Space properties need to be defined in order to use the classes in queries:
+
+{%highlight xml%}
+	<os-core:embedded-space id="space" name="sandboxSpace">
+		<os-core:properties>
+			<props>
+				<prop key="space-config.QueryProcessor.date_format">yyyy-MM-dd HH:mm:ss</prop>
+				<prop key="space-config.QueryProcessor.time_format">HH:mm:ss</prop>
+				<prop key="space-config.QueryProcessor.datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+			</props>
+		</os-core:properties>
+	</os-core:embedded-space>
+{%endhighlight%}
+
+Here are examples on how to use the Java8 dates:
+
+{%accordion id=acc10%}
+
+{%accord title=LocalDate | parent=acc10%}
+
+{%inittab%}
+{%tabcontent LocalDatePojo%}
+{%highlight java %}
+public class LocalDatePojo {
+	private LocalDate myData;
+	private Integer id = null;
+
+	public LocalDatePojo() {
+	}
+
+	public LocalDate getMyDate() {
+		return myData;
+	}
+
+	public void setMyDate(LocalDate date) {
+		this.myData = date;
+	}
+
+	@SpaceId
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+}
+
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent Program%}
+{%highlight java %}
+public void testLocalDate() {
+	LocalDate d = LocalDate.now();
+
+	LocalDatePojo pojo = new LocalDatePojo();
+	pojo.setId(new Integer(1));
+	pojo.setMyDate(d);
+	dateSpace.write(pojo);
+
+	DateTimeFormatter formatter = DateTimeFormatter
+			.ofPattern("yyyy-MM-dd HH:mm:ss");
+	String inAnHourDate = formatter.format(LocalDateTime.now().plusDays(1));
+
+	SQLQuery<LocalDatePojo> q = new SQLQuery<LocalDatePojo>(
+				LocalDatePojo.class, "myDate < '" + inAnHourDate + "' ");
+	pojo = dateSpace.read(q);
+}
+{%endhighlight%}
+{%endtabcontent%}
+{%endinittab%}
+
+{%endaccord%}
+
+{%accord title=LocalTime| parent=acc10%}
+
+{%inittab%}
+{%tabcontent LocalTimePojo%}
+{%highlight java %}
+public class LocalTimePojo {
+	private LocalTime myTime;
+	private Integer id = null;
+
+	public LocalTimePojo() {
+	}
+
+	public LocalTime getMyTime() {
+		return myTime;
+	}
+
+	public void setMyTime(LocalTime myTime) {
+		this.myTime = myTime;
+	}
+
+	@SpaceId
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent Program%}
+{%highlight java %}
+	public void testLocalTime() {
+		LocalTime t = LocalTime.now();
+
+		LocalTimePojo pojo = new LocalTimePojo();
+		pojo.setId(new Integer(1));
+		pojo.setMyTime(t);
+		dateSpace.write(pojo);
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+		String inAnHourDate = formatter.format(LocalDateTime.now().plusMinutes(
+				10));
+
+		SQLQuery<LocalTimePojo> q = new SQLQuery<LocalTimePojo>(
+				LocalTimePojo.class, "myTime < '" + inAnHourDate + "' ");
+		pojo = dateSpace.read(q);
+	}
+{%endhighlight%}
+{%endtabcontent%}
+{%endinittab%}
+
+{%endaccord%}
+
+{%accord title=LocalDateTime| parent=acc10%}
+
+{%inittab%}
+{%tabcontent LocalDateTimePojo%}
+{%highlight java %}
+public class LocalDateTimePojo {
+	private LocalDateTime myData;
+	private Integer id = null;
+
+	public LocalDateTimePojo() {
+	}
+
+	public LocalDateTime getMyDate() {
+		return myData;
+	}
+
+	public void setMyDate(LocalDateTime date) {
+		this.myData = date;
+	}
+
+	@SpaceId
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent Program%}
+{%highlight java %}
+public void testLocalDateTime() {
+	LocalDateTime d = LocalDateTime.now();
+
+	LocalDateTimePojo pojo = new LocalDateTimePojo();
+	pojo.setMyDate(d);
+	pojo.setId(new Integer(1));
+	dateSpace.write(pojo);
+
+	DateTimeFormatter formatter = DateTimeFormatter
+				.ofPattern("yyyy-MM-dd HH:mm:ss");
+	String inAnHourDate = formatter.format(LocalDateTime.now()
+				.minusMinutes(10));
+
+	SQLQuery<LocalDateTimePojo> q = new SQLQuery<LocalDateTimePojo>(
+				LocalDateTimePojo.class, "myDate > '" + inAnHourDate + "' ");
+	pojo = dateSpace.read(q);
+ }
+{%endhighlight%}
+{%endtabcontent%}
+{%endinittab%}
+{%endaccord%}
+
+{%endaccordion%}
 
 # Aggregators
 

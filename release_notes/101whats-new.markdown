@@ -95,6 +95,8 @@ The Space API supports the following new Java classes
 - java.time.LocalDateTime;
 - java.time.LocalTime;
 
+{%learn%}/xap101/query-sql.html#java-8-dates{%endlearn%}
+
 {%anchor paging%}
 
 # New Space Iterator
