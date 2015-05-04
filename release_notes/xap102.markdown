@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  XAP 10.1
+title:  XAP 10.2
 categories: RELEASE_NOTES
 parent: none
 weight: 90
@@ -14,10 +14,10 @@ weight: 90
 
 ## Previous releases
 
-You can find release notes of earlier versions then 10.1
+You can find release notes of earlier versions then 10.2
 
 
-
+- [10.1](/xap101.html)
 - [10.0](/xap100.html)
 - [9.7](/xap97.html)
 - [Pre 9.7](http://wiki.gigaspaces.com/wiki/display/RN/GigaSpaces+Release+Notes)

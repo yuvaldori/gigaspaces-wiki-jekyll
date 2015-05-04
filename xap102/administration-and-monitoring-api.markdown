@@ -817,6 +817,6 @@ ProcessingUnits.setStatisticsInterval(30l, TimeUnit.SECONDS);
 {%comment%}
 # System Properties
 
-{% include /COM/XAP102/config-admin.markdown %}
+{% include /COM/xap102/config-admin.markdown %}
 
 {%endcomment%}
