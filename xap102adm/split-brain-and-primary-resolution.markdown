@@ -24,19 +24,81 @@ Data resolution occurs between two different clusters using the WAN gateway as a
 
 # Primary Resolution
 
-## Resolution - Step One
+XAP provides built-in recovery policies after a split-brain has been detected. The default policy "discard-least-consistent" determines which of the two primaries should remain or be discarded. However, the "suspend-partition-primaries" policy suspends all interaction with the primaries until split-brain is resolved manually.
 
-Each primary inspected by checking for multiple properties. As a result of this process an inconsistency ranking is calculated. The primary with the lowest ranking will be elected as the primary. If both primaries end up having the same inconsistency level, step two is executed.
+## Discard Least Consistent Policy
 
-The inconsistency level calculated using the mirror active primary identity and various replication statistics. Since the mirror will not allow multiple primaries for the same partition it can be useful with the inconsistency level calculation.
+The primary which is found to be "least consistent" is discarded and XAP will instantiate it as a backup Space.
+The steps for reaching a conclusion are outlined.
 
-## Resolution - Step Two
+### Resolution - Step One
 
-Each primary is inspected for the exact time is was elected to be a primary. The election time is stored within the lookup service. All lookup services are inspected during this process. The one which has been elected to be a primary first will be elected to be the primary. If both primary have been elected in the same time - step three is executed.
+Each primary is inspected by checking for multiple properties. As a result of this process an inconsistency ranking is calculated. The primary with the lowest ranking will be elected as the primary. If both primaries end up having the same inconsistency level, step two is executed.
 
-## Resolution - Step Three
+The inconsistency level is calculated using the mirror's active primary identity and various replication statistics. Since the mirror will not allow multiple primaries for the same partition it can be useful with the inconsistency level calculation.
+
+### Resolution - Step Two
+
+Each primary is inspected for the exact time is was elected to be a primary. The election time is stored within the lookup service. All lookup services are inspected during this process. The one which has been elected to be a primary first will be elected to be the primary. If both primary have been elected in the same time or if time can't be determined due to discreptencies in lookup service registration - step three is executed.
+
+### Resolution - Step Three
 
 The system reviewing the primary instance names and choosing the one with the lowest lexical value to be the primary.
+
+
+
+## Suspend Partition Primaries Policy
+
+Both primary Space instances are suspended (see [Quiesce]({%currentjavaurl%}/quiescemode.html) for reference), awaiting manual resolution. 
+
+### Resolution - Step One
+Each primary upon discovery of a split-brain enters a Self-Quiesce mode, suspending all interaction with the Space. Only interactions of a proxy that is applied with the Quiesce token are allowed. The Quiesce token is the name of the Space (as apposed to the default auto-generated token) to ease coding logic via Admin API upon split-brain detection).
+
+The logs, will show a message similar to:
+... "Space instance [gigaSpace_container1:gigaSpace] is in Quiesce state until split-brain is resolved - Quiesce token [gigaSpace]"
+
+### Resolution - Step Two
+Both primaries are now suspended and a manual intervention is needed in order to either choose the correct primary, extract data from the cluster, etc. These steps can either be done via CLI, UI or Admin API. With the Admin API you can be alerted of Split-brain detection.
+
+{% highlight java %}
+//configure the alert
+AlertManager alertManager = admin.getAlertManager();
+alertManager.configure(new SpacePartitionSplitBrainAlertConfigurer().enable(true).create());
+
+//be notified
+alertManager.getAlertTriggered().add(new AlertTriggeredEventListener() {
+public void alertTriggered(Alert alert) {
+   if (alert instanceof SpacePartitionSplitBrainAlert) { 
+   ... //do somthing 
+   Space space = ... //obtain reference
+   GigaSpace gigaSpace = space.getGigaSpace();
+   gigaSpace.setQuiesceToken(new QuiesceToken() {
+         @Override
+         public boolean equals(Object obj) {
+             return space.getName().equals(obj);
+         }
+      });
+    ... //do something with the gigaSpace  
+   }
+}
+{% endhighlight %}
+
+### Resolution - Step Three
+The last part of the manual resolution is to remove the unwanted primary instance. This is best achieved by restarting the instance either from UI or Admin API.
+
+{% highlight java %}
+//obtain the processing unit instance reference
+ProcessingUnitInstance instance = ...
+instance.restartAndWait();
+{% endhighlight %}
+
+After that the remaining primary would need to un-Quiesced to allow incomming interactions. This can be done via CLI command or Admin API on the Processing Unit.
+
+{% highlight java %}
+//obtain the Processing Unit reference
+ProcessingUnit pu = ...
+pu.unquiesce(new QuiesceRequest("split-brain resolved"));
+{% endhighlight %}
 
 # Common Causes For a Split-Brain
 
