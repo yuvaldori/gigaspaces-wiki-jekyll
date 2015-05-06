@@ -49,13 +49,15 @@ The system reviewing the primary instance names and choosing the one with the lo
 
 ## Suspend Partition Primaries Policy
 
-Both primary Space instances are suspended (see [Quiesce]({%currentjavaurl%}/quiescemode.html) for reference), awaiting manual resolution. 
+Both primary Space instances are suspended (see [Quiesce](./quiescemode.html) for reference), awaiting manual resolution.
 
 ### Resolution - Step One
 Each primary upon discovery of a split-brain enters a Self-Quiesce mode, suspending all interaction with the Space. Only interactions of a proxy that is applied with the Quiesce token are allowed. The Quiesce token is the name of the Space (as apposed to the default auto-generated token) to ease coding logic via Admin API upon split-brain detection).
 
 The logs, will show a message similar to:
+{%highlight console%}
 ... "Space instance [gigaSpace_container1:gigaSpace] is in Quiesce state until split-brain is resolved - Quiesce token [gigaSpace]"
+{%endhighlight%}
 
 ### Resolution - Step Two
 Both primaries are now suspended and a manual intervention is needed in order to either choose the correct primary, extract data from the cluster, etc. These steps can either be done via CLI, UI or Admin API. With the Admin API you can be alerted of Split-brain detection.
@@ -92,7 +94,7 @@ ProcessingUnitInstance instance = ...
 instance.restartAndWait();
 {% endhighlight %}
 
-After that the remaining primary would need to un-Quiesced to allow incomming interactions. This can be done via CLI command or Admin API on the Processing Unit.
+After that the remaining primary would need to un-Quiesced to allow incoming interactions. This can be done via CLI command or Admin API on the Processing Unit.
 
 {% highlight java %}
 //obtain the Processing Unit reference
