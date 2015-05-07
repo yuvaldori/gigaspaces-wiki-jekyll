@@ -26,6 +26,18 @@ Data resolution occurs between two different clusters using the WAN gateway as a
 
 XAP provides built-in recovery policies after a split-brain has been detected. The default policy "discard-least-consistent" determines which of the two primaries should remain or be discarded. However, the "suspend-partition-primaries" policy suspends all interaction with the primaries until split-brain is resolved manually.
 
+The recovery policy can be configured using the Space os-core:properties element. The value is one of the policy names. If none is specified, the default policy "discard-least-consistent" is applied.
+
+{% highlight xml %}
+<os-core:space id="space" url="/./space">
+    <os-core:properties>
+          <prop key="space-config.split-brain.recovery-policy.after-detection">
+                suspend-partition-primaries
+          </prop>
+    </os-core:properties>
+</os-core:space>
+{%endhighlight%}
+
 ## Discard Least Consistent Policy
 
 The primary which is found to be "least consistent" is discarded and XAP will instantiate it as a backup Space.
