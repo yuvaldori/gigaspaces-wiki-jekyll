@@ -35,7 +35,7 @@ println("Execute1 result: " + asyncFuture1.get())
 
 val asyncFuture2 = gigaSpace.execute(
   { gigaSpace: GigaSpace => gigaSpace.read(Data()).data } /* map */,
-  { results: Seq[AsyncResult[String]] => results.map { _.getResult() } mkString } /* reduce */
+  { results: Seq[AsyncResult[String]] => results.map { _.getResult() }.mkString } /* reduce */
 )
 
 println("Map reduce result: " + asyncFuture2.get())

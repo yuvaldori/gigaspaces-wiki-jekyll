@@ -12,11 +12,6 @@ weight: 300
 Support for predicate based queries on the `GigaSpace` proxy has been in added. This support is based on the new macros feature introduced in Scala 2.10.  Each predicate based query is transformed during compilation into an equivalent [SQLQuery](./query-sql.html).
 
 
-{% info %}
-This feature makes use of Scala macros. As such, the minimum Scala version required in order to use it is 2.10
-{% endinfo %}
-
-
 # Usage
 
 To use predicate based queries, import `import org.openspaces.scala.core.ScalaGigaSpacesImplicits._` into scope. Then call the `predicate` method on the `GigaSpace` instance as demonstrated:
