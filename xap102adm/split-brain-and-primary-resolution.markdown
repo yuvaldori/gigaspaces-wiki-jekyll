@@ -74,12 +74,7 @@ public void alertTriggered(Alert alert) {
    ... //do somthing 
    Space space = ... //obtain reference
    GigaSpace gigaSpace = space.getGigaSpace();
-   gigaSpace.setQuiesceToken(new QuiesceToken() {
-         @Override
-         public boolean equals(Object obj) {
-             return space.getName().equals(obj);
-         }
-      });
+   gigaSpace.setQuiesceToken(new DefaultQuiesceToken(space.getName()));
     ... //do something with the gigaSpace  
    }
 }
