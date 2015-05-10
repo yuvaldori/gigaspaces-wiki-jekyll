@@ -50,7 +50,7 @@ First we configure the reporters:
 <metrics-configuration>
     <reporters>
         <reporter name="influxdb-http">
-            <property name="host" value="http://influxdb-host:8086"/>
+            <property name="host" value="influxdb-host"/>
             <property name="database" value="metrics"/>
             <property name="username" value="root"/>
             <property name="password" value="root"/>
