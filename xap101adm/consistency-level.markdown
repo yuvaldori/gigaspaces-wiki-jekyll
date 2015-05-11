@@ -14,7 +14,7 @@ In some scenarios, one may want data modifying operations (write , update , chan
 
 # Consistency Levels
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Level|Description|
 |:----|:----------|
 |ANY|Ensure that at least 1 member is available, otherwise the modification is rejected and a `ConsistencyLevelViolationException` is thrown. In a primary backup topology that member is the primary (Default).|
