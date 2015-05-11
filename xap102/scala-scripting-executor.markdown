@@ -11,7 +11,7 @@ weight: 400
 
 
 
-[Dynamic Language Tasks](./dynamic-language-tasks.html) has been extended and now supports Scala based script execution.
+[Dynamic Language Tasks](./dynamic-language-tasks.html) feature has been extended and now supports Scala based script execution.
 
 # Configuration
 

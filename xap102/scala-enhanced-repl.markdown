@@ -17,12 +17,12 @@ Following is a short demo of what can be done with the XAP scala shell. It shoul
 # The Demo
 
 {% highlight scala %}
-java version "1.7.0_15"
-Java(TM) SE Runtime Environment (build 1.7.0_15-b03)
-Java HotSpot(TM) 64-Bit Server VM (build 23.7-b01, mixed mode)
+java version "1.8.0_45"
+Java(TM) SE Runtime Environment (build 1.8.0_45-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
 
 Initializing... This may take a few seconds.
-Welcome to Scala version 2.10.0 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_15).
+Welcome to Scala version 2.11.6 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_45).
 Type in expressions to have them evaluated.
 Type :help for more information.
 Please enjoy the predefined 'admin' val.
@@ -47,7 +47,7 @@ xap> val Some(gigaSpace) = getGigaSpace("mySpace")
 gigaSpace: org.openspaces.core.GigaSpace = mySpace_container:mySpace
 {% endhighlight %}
 
-Now we'll execute some tasks using another helper method:
+Now we'll execute a task using another helper method:
 
 {% highlight scala %}
 xap> execute(gigaSpace) { holder =>
@@ -57,25 +57,16 @@ res1: com.gigaspaces.async.AsyncFuture[Integer] = org.openspaces.core.transactio
 
 xap> val numberOfInstances = res1.get
 numberOfInstances: Integer = 1
-
-xap> execute(gigaSpace) { holder =>
-     |   holder.context.getDisplayName
-     | }
-res2: com.gigaspaces.async.AsyncFuture[String] = org.openspaces.core.transaction.internal.InternalAsyncFuture@4f09abb1
-
-xap> val contextDisplayName = res2.get
-contextDisplayName: String = org.openspaces.pu.container.support.ResourceApplicationContext@e9e1e25
 {% endhighlight %}
 
 Let's define a new case class and write an entry to the space:
 
 {% highlight scala %}
-xap> @SpaceClass(includeProperties = IncludeProperties.CONSTRUCTOR)
-     | case class Data(@BeanProperty @SpaceId id: String = null, @BeanProperty content: String = null)
+xap> case class Data @SpaceClassConstructor() (@BeanProperty @SpaceId id: String = null, @BeanProperty content: String = null)
 defined class Data
 
 xap> gigaSpace.write(Data(id = "id1", content = "my data content"))
-res3: com.j_spaces.core.LeaseContext[MyData] = com.gigaspaces.internal.lease.SpaceEntryLease@72459d0a
+res2: com.j_spaces.core.LeaseContext[Data] = SpaceEntryLease[uid=-792314720^58^id1^0^0,typeName=Data,routingValue=id1,expirationTime=9223372036854775807]
 {% endhighlight %}
 
 Now execute a task that reads this entry and returns is `content` property:
@@ -84,24 +75,44 @@ Now execute a task that reads this entry and returns is `content` property:
 xap> execute(gigaSpace) { holder =>
      |   holder.gigaSpace.read(Data()).content
      | }
-res4: com.gigaspaces.async.AsyncFuture[String] = org.openspaces.core.transaction.internal.InternalAsyncFuture@7c767c0d
+res3: com.gigaspaces.async.AsyncFuture[String] = org.openspaces.core.transaction.internal.InternalAsyncFuture@7c767c0d
 
-xap> val dataContent = res4.get
+xap> val dataContent = res3.get
 dataContent: String = my data content
 {% endhighlight %}
 
 # Configuration
 
 It is possible to customize the initialization code, the shutdown code and the initial imports.
+XAP 10.2 introduced alternative method to customize initialization code along with initial imports.
 
-## Init code
+## Standard method
 
-By default the initialization code will be loaded from `$GS_HOME/tools/scala/conf/init-code.scala`. This location can be overridden by the system property: `org.os.scala.repl.initcode`
+XAP REPL during initialization phase will load imports from initial imports file and then execute init code. The end of shell session
+will be preceded by execution of shutdown code.
 
-## Shutdown code
-
-By default the shutdown code will be loaded from `$GS_HOME/tools/scala/conf/shutdown-code.scala`. This location can be overridden by the system property: `org.os.scala.repl.shutdowncode`
-
-## Initial imports
+#### Initial imports
 
 By default the initial imports will be loaded from `$GS_HOME/tools/scala/conf/repl-imports.conf`. This location can be overridden by the system property: `org.os.scala.repl.imports`. Each import should be in its own line. (empty lines and lines beginning with `#` are ignored)
+
+#### Init code
+
+By default the initialization code will be loaded from `$GS_HOME/tools/scala/conf/init-code.scala`. This location can be overridden by the system property: `org.os.scala.repl.initcode`.
+
+#### Shutdown code
+
+By default the shutdown code will be loaded from `$GS_HOME/tools/scala/conf/shutdown-code.scala`. This location can be overridden by the system property: `org.os.scala.repl.shutdowncode`.
+
+## New method
+
+The difference between the two methods is that the new one does not use a file with initial imports. Those imports
+should be placed in initialization code script (with import prefix added). Alternative method is used if system property `org.os.scala.repl.newinitstyle` is set as 'yes', 'on' or 'true'.
+
+#### Init code
+
+By default the initialization code will be loaded from `$GS_HOME/tools/scala/conf/new-init-code.scala`. This location can be overridden by the system property: `org.os.scala.repl.initcode`.
+Please note that new init code script should also contain necessary imports.
+
+#### Shutdown code
+
+Please refer to `Shutdown code` described above in the standard method.
