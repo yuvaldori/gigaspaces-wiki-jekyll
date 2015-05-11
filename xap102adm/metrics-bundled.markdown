@@ -196,6 +196,16 @@ Space metrics are reported with the following tags:
 | `space_operations_before-listener-trigger` | Number of triggered events (before trigger) |
 | `space_operations_after-listener-trigger` | Number of triggered events (after trigger) |
 
+### Blobstore Operations
+
+{: .table .table-bordered .table-condensed}
+| Metric | Description |
+|:-------|:------------|
+| `space_operations_remove` | Number of remove operations |
+| `space_operations_add` | Number of add operations |
+| `space_operations_replace`  | Number of replace operations |
+| `space_operations_get` | Number of get operations |
+
 ### Connections
 
 {: .table .table-bordered .table-condensed}
