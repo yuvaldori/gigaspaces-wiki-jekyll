@@ -35,7 +35,7 @@ Security comprises two major operations: **authentication** and **authorization*
 At the authentication level, XAP Security is equipped with standard encryption algorithms (such as AES and MD5), which can be easily configured and replaced. The authentication layer is provided with a default implementation, which can be customized to integrate with other security standards (i.e. Spring Security). This layer is also known as the **authentication manager**.
 The authentication layer is totally independent from the authorization decision layer. The **authorization decision manager** is internal to XAP components, and is used to intercept unauthorized access/operations to data and services.
 
-XAP Security architecture has been designed to meet the needs of enterprise application security. We have tried to provide a complete experience throughout all the components, for a useful, configurable and extendable security system.
+XAP Security architecture has been designed to meet the needs of enterprise application security. XAP provide a complete experience throughout all the components, for a useful, configurable and extendable security system.
 
 **XAP Main Security Features:**
 
