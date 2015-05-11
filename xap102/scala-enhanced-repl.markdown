@@ -47,7 +47,7 @@ xap> val Some(gigaSpace) = getGigaSpace("mySpace")
 gigaSpace: org.openspaces.core.GigaSpace = mySpace_container:mySpace
 {% endhighlight %}
 
-Now we'll execute some tasks using another helper method:
+Now we'll execute a task using another helper method:
 
 {% highlight scala %}
 xap> execute(gigaSpace) { holder =>
@@ -57,14 +57,6 @@ res1: com.gigaspaces.async.AsyncFuture[Integer] = org.openspaces.core.transactio
 
 xap> val numberOfInstances = res1.get
 numberOfInstances: Integer = 1
-
-xap> execute(gigaSpace) { holder =>
-     |   holder.context.getDisplayName
-     | }
-res2: com.gigaspaces.async.AsyncFuture[String] = org.openspaces.core.transaction.internal.InternalAsyncFuture@4f09abb1
-
-xap> val contextDisplayName = res2.get
-contextDisplayName: String = org.openspaces.pu.container.support.ResourceApplicationContext@e9e1e25
 {% endhighlight %}
 
 Let's define a new case class and write an entry to the space:
@@ -74,7 +66,7 @@ xap> case class Data @SpaceClassConstructor() (@BeanProperty @SpaceId id: String
 defined class Data
 
 xap> gigaSpace.write(Data(id = "id1", content = "my data content"))
-res3: com.j_spaces.core.LeaseContext[Data] = SpaceEntryLease[uid=-792314720^58^id1^0^0,typeName=Data,routingValue=id1,expirationTime=9223372036854775807]
+res2: com.j_spaces.core.LeaseContext[Data] = SpaceEntryLease[uid=-792314720^58^id1^0^0,typeName=Data,routingValue=id1,expirationTime=9223372036854775807]
 {% endhighlight %}
 
 Now execute a task that reads this entry and returns is `content` property:
@@ -83,9 +75,9 @@ Now execute a task that reads this entry and returns is `content` property:
 xap> execute(gigaSpace) { holder =>
      |   holder.gigaSpace.read(Data()).content
      | }
-res4: com.gigaspaces.async.AsyncFuture[String] = org.openspaces.core.transaction.internal.InternalAsyncFuture@7c767c0d
+res3: com.gigaspaces.async.AsyncFuture[String] = org.openspaces.core.transaction.internal.InternalAsyncFuture@7c767c0d
 
-xap> val dataContent = res4.get
+xap> val dataContent = res3.get
 dataContent: String = my data content
 {% endhighlight %}
 
