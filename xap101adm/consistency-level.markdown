@@ -10,7 +10,7 @@ weight: 100
 
 
 
-In some scenarios, one may want data modifying operations not to be accepted if temporarily that operation cannot be replicated to multiple members, e.g. the backup space instance. This behavior can be specified by changing the default consistency level of the space. Consistency level affects primary backup topologies and it is used to specify how many of each partition members should be available before allowing to modify the state of the data in side the space. Modification are operations which are replicated, such as write, take etc.
+In some scenarios, one may want data modifying operations (write , update , change , remove) not to be accepted if temporarily that operation cannot be replicated to multiple members, e.g. the backup space instance. This behavior can be specified by changing the default consistency level of the space. Consistency level affects primary backup topologies and it is used to specify how many of each partition members should be available before allowing to modify the state of the data in side the space. Modification are operations which are replicated, such as write, take etc.
 
 # Consistency Levels
 
