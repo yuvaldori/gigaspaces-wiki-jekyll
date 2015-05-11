@@ -27,10 +27,10 @@ The com.gigaspaces.annotation.pojo.SpaceClassConstructor annotation on a constru
 Following is a short demo of what can be done with the XAP scala shell. It should be noted that this shell is a regular Scala REPL with some initial imports and initialization code.
 
 [Predicate based queries](./scala-predicate-based-queries.html){%wbr%}
-Support for predicate based queries on the GigaSpace proxy has been in added. This support is based on the new macros feature introduced in Scala.
+Support for predicate based queries on the GigaSpace proxy has been added in. This support is based on the new macros feature introduced in Scala.
 
 [Scripting Executor](./scala-scripting-executor.html){%wbr%}
-Dynamic Language Tasks has been extended and now supports Scala based script execution.
+Dynamic Language Tasks have been extended and now support Scala based script execution.
 
 [Task Execution](./scala-task-execution.html){%wbr%}
 A wrapper around the XAP API provides some sugaring on top of the GigaSpace#execute methods.
@@ -39,7 +39,7 @@ A wrapper around the XAP API provides some sugaring on top of the GigaSpace#exec
 <br>
 
 {% info %}
-The Scala version required in order to use the Scala Openspaces extension is 2.10.x
+The Scala version required in order to use the Scala Openspaces extension is 2.11.x - up to 2.11.6.
 {% endinfo %}
 
 Assuming there is a scala installation under `$SCALA_HOME`, the jars under `$SCALA_HOME/lib` should be copied to `$GS_HOME/lib/platform/scala/lib`.
