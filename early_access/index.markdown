@@ -9,10 +9,7 @@ weight:
 {%summary%}Here you will find milestone releases for XAP 10.2{%endsummary%}
 
 
-At this point in time there is no early access version available.
 
-
-{%comment%}
 # Release Candidate M1 b13502
 
 {%panel%}
@@ -55,17 +52,19 @@ At this point in time there is no early access version available.
 
 {%endpanel%}
 
+
+{%comment%}
 * Link to the API docs
 [API Documenation](/api_documentation)
-
 {%endcomment%}
+
 
 
 # Current Release
 
-[The current XAP release is 10.2](/xap102)
+[The current XAP release is 10.1](/xap101)
 
-[The current XAP .NET release is 10.2](/xap102net)
+[The current XAP .NET release is 10.1](/xap101net)
 
 
 
