@@ -53,10 +53,10 @@ weight:
 {%endpanel%}
 
 
-{%comment%}
+
 * Link to the API docs
 [API Documenation](/api_documentation)
-{%endcomment%}
+
 
 
 
