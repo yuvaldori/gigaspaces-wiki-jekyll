@@ -31,7 +31,7 @@ In this context, real-time means a range from few seconds to a few milliseconds 
 # GigaSpaces Real Time Analytics
 With GigaSpaces , RTBI is an approach in which up-to-a-minute data is analyzed, either directly from operational sources or feeding business transactions into in-memory data grid while the processing logic is collocated with the data in-memory. RTBI logic using the IMDG to analyzes these feeds in real time. 
 
-GigaSpaces provides different type of analytics and processing APIs and integration with stream processing libraries such as STORM that simplify the implementation of workflow based real time analytics scenarios.
+GigaSpaces provides different type of analytics and processing APIs and integration with stream processing libraries such as STORM and SPARK that simplify the implementation of workflow based real time analytics scenarios.
 
 Real-time business intelligence makes sense for some applications but not for others – a fact that organizations need to take into account as they consider investments in real-time BI tools. Key to deciding whether a real-time BI strategy would pay dividends is understanding the needs of the business and determining whether end users require immediate access to data for analytical purposes, or if something less than real time is fast enough.
 

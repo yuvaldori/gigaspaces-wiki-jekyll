@@ -12,7 +12,7 @@ weight: 90
 {%children%}
 
 
-## Previouse releases
+## Previous releases
 
 You can find release notes of earlier versions then 10.1
 

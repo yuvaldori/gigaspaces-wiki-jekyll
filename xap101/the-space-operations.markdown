@@ -114,6 +114,5 @@ In the example above, the take operation can be performed without specifying a t
 {% include /COM/xap101/ops-counters.markdown %}
 {% include /COM/xap101/ops-aggregation.markdown %}
 
-{%comment%}
+
 {% include /COM/xap101/ops-async-extension.markdown %}
-{%endcomment%}
