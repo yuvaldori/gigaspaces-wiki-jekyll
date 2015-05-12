@@ -7,10 +7,10 @@ $(document).ready(function () {
         apiURL:'https://api.swiftype.com/api/v1/public/engines/search.json',
         params: {
             "engine_key":"vskywTXhmRpTsNEQ9nux",
-            "per_page":30,
+            "per_page":50,
             "page":1, 
             "fetch_fields": {"page":["highlight", "body", "url", "title"]}, 
-            "search_fields":{"page":["title^5", "body"]}
+            "search_fields":{"page":["title^5", "body", "highlight", "url"]}
         }
     }
 
@@ -108,27 +108,6 @@ $(document).ready(function () {
                 data: settings.params,
                 success: function(data) {
                     displaySearch(settings, data);
-                    /* //history handling, disabled for now 
-                    var origLocation = document.location;                     
-                    history.pushState({"settings":settings, "data":data}, "Search results for " + settings.term, 
-                                      origLocation + "#search?q=" + settings.term + pageNum);
-                    
-                    window.addEventListener("popstate", function(e) {
-                        // URL location
-                        var location = document.location;
-
-                        // state
-                        var state = e.state;
-                        
-                        // return to last state
-                        if (state != null && location.href.indexOf("#search?") != -1) {
-                            displaySearch(state["settings"], state["data"]);
-                        } else if (location.href == origLocation.href) {
-                            $('#content').html(currentContent);    
-                        }
-                        
-                    });
-                    */
                 },
                 error: function(e) {
                     console.log(e +"");
@@ -194,6 +173,7 @@ $(document).ready(function () {
                     var isAdmin = endsWith(sectionPath, "adm");
                     var isSecurity = endsWith(sectionPath, "sec");
                     sectionPath = sectionPath.replace("xap","")
+                    sectionPath = sectionPath.replace("nettut","")
                     sectionPath = sectionPath.replace("net","")
                     sectionPath = sectionPath.replace("adm","")
                     sectionPath = sectionPath.replace("sec","")
