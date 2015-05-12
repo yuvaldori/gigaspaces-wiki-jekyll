@@ -48,12 +48,12 @@ gs(.sh/.bat) -user uuu -password ppp [command]
 {% endtabcontent %}
 {% endinittab %}
 
-To **logout* *`quit`** the interactive shell.
+To **logout** **`quit`** the interactive shell.
 
 # Deploy Command
 
 The CLI **`deploy`** command accepts a **`-secured true/false`** used to deploy a secured Processing Unit with a secured Space. Common when deploying a data-grid.
-In order to pass the user credentials, use **`-user`* and *`-password`** arguments. This will implicitly deploy a secured Processing Unit, and the credentials will be propagated to the Processing Unit and its internal services.
+In order to pass the user credentials, use **`-user`** and **`-password`** arguments. This will implicitly deploy a secured Processing Unit, and the credentials will be propagated to the Processing Unit and its internal services.
 
 {% info %}
 Same syntax applies for **`deploy-space`** and **`pudeploy`** commands.

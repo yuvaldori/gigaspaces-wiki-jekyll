@@ -8,6 +8,8 @@ weight: 300
 
 {%summary%}{%endsummary%}
 
+{%info title=Interacting with a secured grid%}In order to interact with a secured grid you need to login first. See [(CLI) Security]({%currentsecurl%}/command-line-interface-(cli)-security.html). {%endinfo%}
+
 # clean
 
 #### Syntax
