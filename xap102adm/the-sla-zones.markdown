@@ -187,9 +187,9 @@ You may use the [Primary-Backup Zone Controller](/sbp/primary-backup-zone-contro
 
 # Requires Isolation
 
-If requires isolation is true a single processing unit instance takes exclusivity on a given GSC and only it can be deployed ont this GSC, (like GSC -Dcom.gigaspaces.grid.gsc.serviceLimit=1)
+If `requires isolation` is true a, single processing unit instance takes exclusivity on a given GSC and only it can be deployed onto this GSC, (like GSC -Dcom.gigaspaces.grid.gsc.serviceLimit=1)
 
-The following example shows the requires islation configuration:
+The following example shows the requires isolation configuration:
 
 {% inittab os_simple_space|top %}
 
