@@ -427,7 +427,7 @@ public class CustomAccessControlFilter {
 {% endhighlight %}
 
 {% endtabcontent %}
-{% tabcontent  Access based on role & field data %}
+{% tabcontent  Access based on role and field data %}
 
 {% highlight java %}
 public class CustomAccessControlFilter {
