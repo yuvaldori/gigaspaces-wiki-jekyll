@@ -85,8 +85,3 @@ As the `CompoundIndex` is a subclass of the `SpaceIndex`, the `asyncAddIndex` me
 1. All compound index segments must have an `Object` `StorageType`.
 
 
-
-<ul class="pager">
-  <li class="previous"><a href="./indexing-collections.html">&larr;Collection Index</a></li>
-  <li class="next"><a href="./indexing-unique.html">Unique Index &rarr;</a></li>
-</ul>

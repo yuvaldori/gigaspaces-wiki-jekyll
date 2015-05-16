@@ -107,6 +107,12 @@ The following operations support`SQLQuery` only with Simple Queries:
 - [Regular Index](./indexing.html) and a [Compound Index](./indexing.html#Compound Indexing) - Index a single property or multiple properties to improve query execution time.
 {%endpanel%}
 
+# Indexing
+
+It is highly recommended to use indexes on relevant properties to increase performance. For more information see [Indexing](./indexing.html).
+The above supported query features can leverage indexes except:<br>
+- `is NOT null`
+
 # Parameterized Queries
 
 In many cases developers prefer to separate the concrete values from the SQL criteria expression. In GigaSpaces' `SQLQuery` this can be done by placing a **'?'** symbol instead of the actual value in the expression. When executing the query, the conditions that includes **'?'** are replaced with corresponding parameter values supplied via the `setParameter`/`setParameters` methods, or  the `SQLQuery` constructor. For example:

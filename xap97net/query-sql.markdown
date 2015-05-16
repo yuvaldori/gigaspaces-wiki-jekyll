@@ -53,9 +53,12 @@ This time instead of specifying the values directly in the expression we've used
 {%endvbar%}
 
 
+
 # Indexing
 
 It is highly recommended to use indexes on relevant properties to increase performance. For more information see [Indexing](./indexing.html).
+The above supported query features can leverage indexes except:<br>
+- `is NOT null`
 
 # Blocking Operations
 

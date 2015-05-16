@@ -112,8 +112,3 @@ Both @SpaceIndex(type=SpaceIndexType.BASIC) and @SpaceIndex(type=SpaceIndexType.
 {% endinfo %}
 
 
-
-<ul class="pager">
-  <li class="previous"><a href="./indexing-nested-properties.html">&larr; Nested Property Index</a></li>
-  <li class="next"><a href="./indexing-compound.html">Compound Index &rarr;</a></li>
-</ul>

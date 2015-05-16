@@ -368,6 +368,13 @@ st.setString(1, "today\u0027s.*");
 ResultSet rs = st.executeQuery();
 {% endhighlight %}
 
+# Indexing
+
+It is highly recommended to use indexes on relevant properties to increase performance. For more information see [Indexing](./indexing.html).
+The above supported query features can leverage indexes except:<br>
+- `is NOT null`
+
+
 # Partitioning Support
 
 In order to partition the data and rout operations to the correct partition you should specify a "routing column" for each table. The "routing column" is specified through one of three mechanisms:

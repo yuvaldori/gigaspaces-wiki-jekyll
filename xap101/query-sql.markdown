@@ -29,11 +29,6 @@ For the full documentation of the class's methods and constructors, see [Javadoc
 {% endrefer %}
 
 
-{%comment%}
-<iframe width="640" height="360" src="//www.youtube.com/embed/jC57mId3SMg?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-{%endcomment%}
-
-
 # Examples
 
 An `SQLQuery` is composed from the **type** of entry to query and an **expression** in a SQL syntax.
@@ -101,6 +96,13 @@ The following operations support`SQLQuery` only with Simple Queries:
 - "." used to indicate a double data type.
 - [Regular Index](./indexing.html) and a [Compound Index](./indexing.html#Compound Indexing) - Index a single property or multiple properties to improve query execution time.
 {%endvbar%}
+
+# Indexing
+
+It is highly recommended to use indexes on relevant properties to increase performance. For more information see [Indexing](./indexing.html).
+The above supported query features can leverage indexes except:<br>
+- `is NOT null`
+
 
 # Parameterized Queries
 

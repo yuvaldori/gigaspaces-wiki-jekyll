@@ -34,9 +34,9 @@ SQLQuery<CollectionIndexingExample> sqlQuery = new SQLQuery<CollectionIndexingEx
 CollectionIndexingExample[] result = gigaspace.readMultiple(sqlQuery);
 {% endhighlight %}
 
-{% note %}
+{% refer %}
 See the [Free Text Search](./query-sql.html#Free Text Search) section for more details.
-{%endnote%}
+{%endrefer%}
 
 ### Nested property within a Collection
 
@@ -111,9 +111,3 @@ public class Information {
 Both @SpaceIndex(type=SpaceIndexType.BASIC) and @SpaceIndex(type=SpaceIndexType.EXTENDED) are supported.
 {% endinfo %}
 
-
-
-<ul class="pager">
-  <li class="previous"><a href="./indexing-nested-properties.html">&larr; Nested Property Index</a></li>
-  <li class="next"><a href="./indexing-compound.html">Compound Index &rarr;</a></li>
-</ul>

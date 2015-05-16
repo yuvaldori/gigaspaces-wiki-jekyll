@@ -8,19 +8,11 @@ weight: 50
 
 {% summary %}{% endsummary %}
 
-{%comment%}
-{% summary %} Using indexes to improve query performance. {% endsummary %}
 
 # Overview
-
-
-
-
 When a space is looking for a match for a read or take operation, it iterates over non-null values in the template, looking for matches in the space. This process can be time consuming, especially when there are many potential matches. To improve performance, it is possible to index one or more properties. The space maintains additional data for indexed properties, which shortens the time required to determine a match, thus improving performance.
 
 # Choosing which Properties to Index
-{%endcomment%}
-
 
 One might wonder why properties are not always indexed, or why all the properties in all the classes are not always indexed. The reason is that indexing has its downsides as well:
 
@@ -139,8 +131,3 @@ The smallest set of space objects is the list of objects to perform the matching
 {% info%} Class fields that are not indexed are not used to construct the candidates list. {%endinfo%}
 
 
-
-<ul class="pager">
-  <li class="previous"><a href="./indexing-overview.html">&larr; Indexing Overview</a></li>
-  <li class="next"><a href="./indexing-nested-properties.html">Indexing Nested Properties &rarr;</a></li>
-</ul>

@@ -288,7 +288,7 @@ The following information represents the SQL to Java mapping conducted at runtim
 
 # Supported Features
 
-{%vbar title=GigaSpaces JDBC supports the following:%}
+{%vbar title=XAP JDBC supports the following:%}
 
 - All Basic SQL statements: `SELECT, INSERT, DELETE, UPDATE, CREATE TABLE, DROP TABLE`.
 - `AND/OR` operators to join two or more conditions in a `WHERE` clause.
@@ -301,6 +301,9 @@ The following information represents the SQL to Java mapping conducted at runtim
 - `DISTINCT` (although not when used with functions or aggregations)
 - Column aliases.
 {%endvbar%}
+
+
+
 
 {% togglecloak id=2 %}Click here for example...{% endtogglecloak %}
 {% gcloak 2 %}
@@ -379,6 +382,12 @@ Field incrementing is only supported for `Integer` fields using a '+' operator.
 When having `SELECT count (*) FROM myClass` JDBC query -- `myClass` sub classes object count are not taken into consideration when processing the query result. The `SELECT count (*) FROM myClass WHERE X=Y` and `SELECT (*) from myClass` do take into consideration `myClass` sub classes objects when processing the result. Future versions will resolve this inconsistency.
 As a workaround, construct a JDBC query that includes a relevant `WHERE` part.
 {% endtip %}
+
+# Indexing
+
+It is highly recommended to use indexes on relevant properties to increase performance. For more information see [Indexing](./indexing.html).
+The above supported query features can leverage indexes except:<br>
+- `is NOT null`
 
 # Partitioning Support
 
@@ -511,7 +520,7 @@ char timestamp long clob blob empty_clob() empty_blob() lob true false
 
 The JDBC Driver should be configured using the following properties. These should be part of the [The Space Component](./the-space-configuration.html#proxy) configuration when deployed:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Parameter | Description | Default Value |
 |:----------|:------------|:--------------|
 |space-config.QueryProcessor.space_read_lease_time|Read timeout. Millisec units.|0|

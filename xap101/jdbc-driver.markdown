@@ -292,6 +292,8 @@ The following information represents the SQL to Java mapping conducted at runtim
 - `DISTINCT` (although not when used with functions or aggregations)
 - Column aliases.
 
+
+
 {% togglecloak id=2 %}Click here for example...{% endtogglecloak %}
 {% gcloak 2 %}
 {% highlight java %}
@@ -348,7 +350,7 @@ Field incrementing is only supported for `Integer` fields using a '+' operator.
 
 # Regular Expression
 
-GigaSpaces XAP support query using regular expression. You may use `like` or `rlike` expressions with your JDBC queries.
+  XAP support query using regular expression. You may use `like` or `rlike` expressions with your JDBC queries.
 
 {% note %}
 It is important you index `String` type fields used with regular expression queries. Not indexing such fields may result slow query execution and garbage creation.
@@ -367,6 +369,14 @@ PreparedStatement st = con.prepareStatement("select id,text,text2 from MyData WH
 st.setString(1, "today\u0027s.*");
 ResultSet rs = st.executeQuery();
 {% endhighlight %}
+
+
+# Indexing
+
+It is highly recommended to use indexes on relevant properties to increase performance. For more information see [Indexing](./indexing.html).
+The above supported query features can leverage indexes except:<br>
+- `is NOT null`
+
 
 # Partitioning Support
 
