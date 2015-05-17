@@ -51,6 +51,7 @@ XAP comes with several built-in Aggregators you may use. The aggregation process
 |sum|Returns the sum value for a set of data grid entries for a given field (path) based on a given query.|
 |groupby| Returns a key/value map of generated result set for multiple aggregations based on a given query and a given field(s)/paths(s). Perform similar aggregation as the SQL GROUP BY Statement|
 |having|Used to perform additional filtering on the aggregation result set. Perform similar aggregation as the SQL `HAVING` Clause|
+|distinct| Returns a distinct result based on a given query. |
 |maxEntry| Returns the Entry (space object) with the maximum value for a set of data grid entries for a given field (path) based on a given query.|
 |minEntry| Returns the Entry (space object) with the minimum value for a set of data grid entries for a given field (path) based on a given query.|
 |custom| An extension to the [SpaceEntriesAggregator](http://www.gigaspaces.com/docs/JavaDoc{%currentversion%}/com/gigaspaces/query/aggregators/SpaceEntriesAggregator.html). Return the aggregation for a user defined logic on a given field (path) and a given entries set based on a query.|
@@ -305,6 +306,26 @@ for (GroupByValue group : groupByResult) {
 }
 {%endhighlight%}
 
+# Distinct Aggregation
+
+
+The [DistinctAggregator](http://www.gigaspaces.com/docs//JavaDoc{%currentversion%}/index.html?com/gigaspaces/query/aggregators/DistinctAggregator.html) is used in conjunction with the aggregate functions to perform a distinct select by one or more columns. Here is an example:
+
+{%highlight java%}
+import static org.openspaces.extensions.QueryExtension.distinct;
+
+public void selectDistinct()
+{
+    SQLQuery<Person> query = new SQLQuery<Person>(Person.class, "");
+	query.setProjections("lastName","gender");
+
+	// QueryExtension.
+	DistinctAggregator<Person> aggregator = new DistinctAggregator<Person>()
+				.distinct("lastName", "gender");
+
+	List<Person> persons = distinct(sandboxSpace, query, aggregator);
+}
+{%endhighlight%}
 
 # Routing
 
