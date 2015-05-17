@@ -174,6 +174,7 @@ $(document).ready(function () {
                     var isSecurity = endsWith(sectionPath, "sec");
                     sectionPath = sectionPath.replace("xap","")
                     sectionPath = sectionPath.replace("nettut","")
+                    sectionPath = sectionPath.replace("tut","")
                     sectionPath = sectionPath.replace("net","")
                     sectionPath = sectionPath.replace("adm","")
                     sectionPath = sectionPath.replace("sec","")

@@ -188,8 +188,7 @@ public class Counter {
 	GigaSpace space = null;
 	String id = null;
 
-	public Counter (GigaSpace space , String id , String name , int initialValue)
-	{
+	public Counter(GigaSpace space, String id, String name, int initialValue) {
 		this.space = space;
 		this.id = id;
 		CounterData.registerType(space);
@@ -199,29 +198,27 @@ public class Counter {
 		space.write(counterData);
 	}
 
-	public Integer get(String name) throws Exception
-	{
-		CounterTask task = new CounterTask(id, name);
-		AsyncFuture<Integer> res= space.execute(task , id);
-		return res.get();
+	public Integer get(String name) throws Exception {
+		return ChangeExtension.addAndGet(space, getSpaceDocumentIdQuery(id),
+				name, 1);
 	}
 
-	public void increment(String name , int value)
-	{
-		IdQuery<CounterData> query= new IdQuery<CounterData> (CounterData.TYPE_NAME , id , id);
-		space.change(query,new ChangeSet().increment(name, value));
+	public void increment(String name, int value) {
+		space.change(getSpaceDocumentIdQuery(id),
+				new ChangeSet().increment(name, value));
 	}
 
-	public void decrement(String name , int value)
-	{
-		IdQuery<CounterData> query= new IdQuery<CounterData> (CounterData.TYPE_NAME , id , id);
-		space.change(query,new ChangeSet().decrement(name, value));
+	public void decrement(String name, int value) {
+		space.change(getSpaceDocumentIdQuery(id),
+				new ChangeSet().decrement(name, value));
 	}
 
-	public void unset(String name)
-	{
-		IdQuery<CounterData> query= new IdQuery<CounterData> (CounterData.TYPE_NAME , id , id);
-		space.change(query,new ChangeSet().unset(name));
+	public void unset(String name) {
+		space.change(getSpaceDocumentIdQuery(id), new ChangeSet().unset(name));
+	}
+
+	private IdQuery<SpaceDocument> getSpaceDocumentIdQuery(String id) {
+		return new IdQuery<SpaceDocument>(CounterData.TYPE_NAME, id);
 	}
 }
 {% endhighlight %}
@@ -261,34 +258,5 @@ public class CounterData extends SpaceDocument{
 {% endhighlight %}
 {%endtabcontent%}
 
-{%tabcontent CounterTask.java%}
-{% highlight java %}
-package org.openspaces;
 
-import org.openspaces.core.GigaSpace;
-import org.openspaces.core.executor.Task;
-import org.openspaces.core.executor.TaskGigaSpace;
-import com.gigaspaces.query.IdQuery;
-
-public class CounterTask implements Task<Integer> {
-
-	String id ;
-	String name ;
-
-	public CounterTask(String id , String name ) {
-		this.id= id;
-		this.name = name;
-	}
-
-  	@TaskGigaSpace
-  	private transient GigaSpace space;
-
-  	public Integer execute() throws Exception {
-		IdQuery<CounterData> query= new IdQuery<CounterData> (CounterData.TYPE_NAME , id , id);
-		CounterData counterData = space.readById(query);
-		return counterData.getProperty(name);
-  }
-}
-{% endhighlight %}
-{%endtabcontent%}
 {%endinittab%}
