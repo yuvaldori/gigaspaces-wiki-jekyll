@@ -83,13 +83,13 @@ Step 1.
 Dwonload the XAP 10 distribution and the `MemoryXtend` RPM with the ZetaScale libraries.
 
 Step 2. 
-Install XAP as usual. Unzip the `gigaspaces-xap-premium-10.0.1-ga-b11800.zip`.
+Install XAP as usual. Unzip the `{%version build-filename%}`.
 
 Step 3. 
 Install ZetaScale libraries:
 
 {% highlight bash %}
-$ sudo XAP_HOME=<XAP HOME> sh -c "yum -y install blobstore-10.0.1-11800_RELEASE_1.noarch.rpm"
+$ sudo XAP_HOME=<XAP HOME> sh -c "yum -y install {%version blobstore%}"
 {% endhighlight %}
 
 If the RPM installation fails , please run  the following `yum` install commands using `root` user:
@@ -112,7 +112,7 @@ Use the `XAP HOME\bin\gs-agent-blobstore.sh` to start GigaSpaces Grid Agent that
 
 To uninstall the blobstore libraries run the following command:
 {% highlight bash %}
-$ sudo XAP_HOME=<XAP HOME> sh -c "yum -y remove blobstore-10.0.1-11800_RELEASE_1.noarch"
+$ sudo XAP_HOME=<XAP HOME> sh -c "yum -y remove {%version blobstore%}"
 {% endhighlight %}
 
 # Configuration
