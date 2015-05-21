@@ -16,6 +16,12 @@ default templates for this. All default dashboard templates can be changed. They
 The monitoring view relies on [InfluxDB](http://influxdb.com/). InfluxDB is used to store the time series values that are generated from the XAP infrastructure.
 [Grafana](http://grafana.org)  runs in the browser and connects to InfluxDB to present the time series data that is stored there.
 
+
+{%note%}
+InfluxDB currently runs only on Linux. If you have a repository that runs on Windows, you can implement your own [custom reporter](./metrics-custom-reporter.html) to integrate with the repository.
+{%endnote%}
+
+
 # InfluxDB
 
 Please refer to the InfluxDB website for [installation](http://influxdb.com/docs/v0.8/introduction/installation.html) instructions.

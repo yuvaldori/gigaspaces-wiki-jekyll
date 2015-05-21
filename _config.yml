@@ -105,7 +105,7 @@ categories-list: ["PRODUCT_OVERVIEW", "API_DOCUMENTATION","EARLY_ACCESS", "HOWTO
 10.1-build-filename:       "gigaspaces-xap-premium-10.1.0-ga-b12600.zip"
 10.1-xap-version:          "10.1"
 10.1-xap-release:          "10.1"
-10.1-blobstore:            "blobstore-10.1.0-11800_RELEASE_1.noarch"
+10.1-blobstore:            "blobstore-10.1.1-11800_RELEASE_1.noarch"
 
 # DOT NET
 10.1-msi-filename:          "GigaSpaces-XAP.NET-Premium-10.1.0.12600-GA-x86.msi"
