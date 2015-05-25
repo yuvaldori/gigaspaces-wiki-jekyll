@@ -498,6 +498,7 @@ GigaSpaces JDBC Driver does not support the following:
 - `LEFT [OUTER] JOIN`
 - `RIGHT [OUTER] JOIN`
 - `[INNER] JOIN`
+- Statement::setFetchSize()
 
 {% tip %}
 When having `SELECT count (*) FROM myClass` JDBC query -- `myClass` sub classes object count are not taken into consideration when processing the query result. The `SELECT count (*) FROM myClass WHERE X=Y` and `SELECT (*) from myClass` do take into consideration `myClass` sub classes objects when processing the result. Future versions will resolve this inconsistency.
