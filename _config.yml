@@ -99,17 +99,17 @@ categories-list: ["PRODUCT_OVERVIEW", "API_DOCUMENTATION","EARLY_ACCESS", "HOWTO
 10.1-slf4j-jdk14:          "1.6.6"
 
 # Path and versions
-10.1-maven-version:        "10.1.0-12600-RELEASE"
-10.1-gshome-directory:     "gigaspaces-xap-premium-10.1.0-ga"
-10.1-default-lookup-group: "gigaspaces-10.1.0-XAPPremium-ga"
-10.1-build-filename:       "gigaspaces-xap-premium-10.1.0-ga-b12600.zip"
+10.1-maven-version:        "10.1.1-b-12800-RELEASE"
+10.1-gshome-directory:     "gigaspaces-xap-premium-10.1.1-ga"
+10.1-default-lookup-group: "gigaspaces-10.1.1-XAPPremium-ga"
+10.1-build-filename:       "gigaspaces-xap-premium-10.1.1-ga-b12800.zip"
 10.1-xap-version:          "10.1"
-10.1-xap-release:          "10.1"
+10.1-xap-release:          "10.1.1"
 10.1-blobstore:            "blobstore-10.1.1-11800_RELEASE_1.noarch"
 
 # DOT NET
-10.1-msi-filename:          "GigaSpaces-XAP.NET-Premium-10.1.0.12600-GA-x86.msi"
-10.1-gshome-net-directory:  "XAP.NET 10.1.0 x86"
+10.1-msi-filename:          "GigaSpaces-XAP.NET-Premium-10.1.1.12600-GA-x86.msi"
+10.1-gshome-net-directory:  "XAP.NET 10.1.1 x86"
 
 
 # 10.2 Definitions
