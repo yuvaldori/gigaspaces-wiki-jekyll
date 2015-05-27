@@ -124,7 +124,7 @@ public class DistributedCountTask : IDistributedSpaceTask<long, int>
         throw result.Exception;
       sum += result.Result;
     }
-    return result;
+    return sum;
   }
 }
 {% endhighlight %}
