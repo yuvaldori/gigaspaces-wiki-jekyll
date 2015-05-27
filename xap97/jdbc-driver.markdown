@@ -386,9 +386,8 @@ As a workaround, construct a JDBC query that includes a relevant `WHERE` part.
 
 # Indexing
 
-It is highly recommended to use indexes on relevant properties to increase performance. For more information see [Indexing](./indexing.html).
-The above supported query features can leverage indexes except:<br>
-- `is NOT null`
+It is highly recommended to use indexes on relevant properties to increase performance when using equality , bigger / less than , BETWEEN, IN , LIKE , NOT LIKE, IS NULL statements. For more information see [Indexing](./indexing.html). The above supported query features can leverage indexes except for the `is NOT null` statement.
+
 
 # Partitioning Support
 
