@@ -125,7 +125,7 @@ Alternatively if you do not need authentication and just wish to encrypt the dat
 
 {%comment%}
 {%note%}
-If you are using a JVM other then Oracle, self signed certificate auto generation is not possible.
+If you are using a JVM other then Oracle, self signed certificate auto generation is possible as well using `Bouncy Castle`.
 To enable self signed certificate for a JVM other then Oracle, add the `Bouncy Castle` jars to the classpath (bcpkix-jdk15on-1.50.jar, bcprov-jdk15on-1.50.jar).
 Alternatively if you are developing using maven, add to your pom the following dependency:
 
@@ -140,6 +140,8 @@ Alternatively if you are developing using maven, add to your pom the following d
 {%endnote%}
 {%endcomment%}
 
+It is also possible to select the encryption protocol (`TLSv1.1`, `TLSv1.2` etc) by setting the `com.gs.lrmi.filter.security.protocol` system property to the required protocol.
+In case this property is not set XAP will use the generic `TLS` protocol.
 
 {% tip %}
 With production environment you should have the SSLFilterFactory password (or any other secured user access information) protected by passing its value at the deploy time into the pu.xml (where the actual property using a variable) or at the start-up time as an argument to a wrapper script starting the GigaSpaces agent and not place such secured data on file.
