@@ -29,7 +29,7 @@ Below is a list of known issues in GigaSpaces 10.0.X.
 | GS-11679 | Admin statistics history size overridden with default value | | 10.0.0 | | Java |
 | GS-11682 | Web-UI: After running and terminating gs-agent, gsa is displayed for about one minute under Hosts | | 10.0.0 | | .NET |
 | GS-11695 | MongoDB SynchronizationEndpoint- NPE when storing a map that contains a null value for a non null key | | 10.0.0 | | Java |
-| GS-11696 | Support custom initial Load query for mongo data source | 9.7.1, 10.0.0 | 9.7.1 | | Java |
+| GS-11696 | Support custom initial Load query for mongo data source                           | |10.0.0 |  | Java |
 | GS-11697 | MongoDB-Incorrect return value in DataSyncOperation.getDataAsDocument() for duble | | 10.0.0 | | All |
 | GS-11698 | Cannot override java.security.policy system property | | 10.0.0 | | Java |
 | GS-11701 | RESTData cannot handle Array | | 10.0.0 | | All |

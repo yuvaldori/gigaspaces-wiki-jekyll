@@ -23,24 +23,24 @@ Below is a list of new features and improvements in GigaSpaces 10.0.X.
 | GS-11576 | Add Protective mode for query without any indexes | 10.0.0 | | All |
 | GS-11596 | Log severe messages when warning persists | 10.0.0 | 8622 | All |
 | GS-11609 | Log on warning level when LRMI class loading failed because it cannot <br> create a connection to the source | 10.0.0 | | Java |
-| GS-11612 | Deploy process optimization | 9.7.1,<br> 10.0.0 | | Java, .NET |
+| GS-11612 | Deploy process optimization |  10.0.0 | | Java, .NET |
 | GS-11620 | Simplify view-query definition in openspaces-core.xsd | 10.0.0 | | Java |
-| GS-11621 | Bad linux scripts for the benchmark cli tool | 9.7.1,<br> 10.0.0 | | Java |
+| GS-11621 | Bad linux scripts for the benchmark cli tool |   10.0.0 | | Java |
 | GS-11628 | Upgrade groovy from 1.8 to 2.2 | 10.0.0 | | Java |
 | GS-11645 | Configure CHMAP segments for entries, default | 10.0.0 | | Java |
 | GS-11656 | Notification event triggering is moved to a custom LRMI thread pool <br> (together with space tasks) | 10.0.0 | | All |
 | GS-11657 | Change lrmi.space-task threadpool system properties to lrmi.custom | 10.0.0 | | All |
-| GS-11666 | Pojo to Document Conversion should not convert Class,URI,Locale types | 9.7.1, <br>10.0.0 | | Java |
-| GS-11678 | In web-ui allow to define login name and password fields to be mandatory | 9.7.1, <br>10.0.0 | | Java |
-| GS-11691 | Create a setting to skip authentication for transaction commit/abort | 9.7.1,<br> 10.0.0 | 8765 | ALL |
+| GS-11666 | Pojo to Document Conversion should not convert Class,URI,Locale types |  10.0.0 | | Java |
+| GS-11678 | In web-ui allow to define login name and password fields to be mandatory |  10.0.0 | | Java |
+| GS-11691 | Create a setting to skip authentication for transaction commit/abort |   10.0.0 | 8765 | ALL |
 | GS-11693 | Enhance nHibernate EDS to support overriding initial load | 10.0.0 | | .NET |
 | GS-11699 | Provide .groovy folder and make groovy use it | 10.0.0 | | Java |
-| GS-11702 | Added support for configuring a persistent space without custom <br>code in XAP.NET | 9.7.1,<br> 10.0.0 | | .NET |
-| GS-11706 | Added static ProcessingUnitContainer.Current to provide cluster <br>info to any pu component | 9.7.1,<br> 10.0.0 | | .NET |
-| GS-11710 | Simplify processing unit configuration in XAP.NET | 9.7.1,<br> 10.0.0 | | .NET |
+| GS-11702 | Added support for configuring a persistent space without custom <br>code in XAP.NET |  10.0.0 | | .NET |
+| GS-11706 | Added static ProcessingUnitContainer.Current to provide cluster <br>info to any pu component |   10.0.0 | | .NET |
+| GS-11710 | Simplify processing unit configuration in XAP.NET |   10.0.0 | | .NET |
 | GS-11722 | Improve like&rlike queries performance by matching the indexed <br>unique values first | 10.0.0 | | All |
-| GS-11731 | Simplify mirror configuration in XAP.NET | 9.7.1, <br>10.0.0 | | .NET |
-| GS-11737 | Enhance XAP.NET processing unit to support properties replacement | 9.7.1,<br> 10.0.0 | | .NET |
+| GS-11731 | Simplify mirror configuration in XAP.NET |  10.0.0 | | .NET |
+| GS-11737 | Enhance XAP.NET processing unit to support properties replacement |   10.0.0 | | .NET |
 | GS-11757 | Support storing object properties in compressed mode in XAP.NET | 10.0.0 | | .NET |
 | GS-11758 | Support creating/configuring a space without url | 10.0.0 | | Java |
 | GS-11759 | Add aggregation operations | 10.0.0 | | Java, .NET |
