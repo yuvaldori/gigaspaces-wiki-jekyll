@@ -16,6 +16,9 @@ The following space operations may trigger notifications:
 - asyncTake() , take() , takeById(), takeByIds() , takeIfExists() ,takeIfExistsById(), takeMultiple() , clear()
 - AsyncChange , change()
 
+{%note%}
+Space operations under transactions will trigger notifications when the transaction commits.
+{%endnote%}
 
 # Notify Example
 
