@@ -19,7 +19,7 @@ parent: none
 |[openspaces-core.xsd](http://www.openspaces.org/schema/10.1/core/openspaces-core.xsd)|[openspaces-admin.xsd](http://www.openspaces.org/schema/10.1/admin/openspaces-admin.xsd)|[openspaces-archive.xsd](http://www.openspaces.org/schema/10.1/archive/openspaces-archive.xsd)|
 |[openspaces-events.xsd](http://www.openspaces.org/schema/10.1/events/openspaces-events.xsd)|[openspaces-gateway.xsd](http://www.openspaces.org/schema/10.1/core/gateway/openspaces-gateway.xsd)|[openspaces-jdbc.xsd](http://www.openspaces.org/schema/10.1/jdbc/openspaces-jdbc.xsd)|
 |[openspaces-jms.xsd](http://www.openspaces.org/schema/10.1/jms/openspaces-jms.xsd)|[openspaces-remoting.xsd](http://www.openspaces.org/schema/10.1/remoting/openspaces-remoting.xsd)|[openspaces-sla.xsd](http://www.openspaces.org/schema/10.1/sla/openspaces-sla.xsd)|
-|[mule-os-eventcontainer.xsd](http://www.openspaces.org/schema/mule/mule-os-eventcontainer.xsd)|[mule-os-queue.xsd](http://www.openspaces.org/schema/mule/mule-os-queue.xsd)|[mule-os-seda.xsd](http://www.openspaces.org/schema/mule/mule-os-seda.xsd)|
+|[mule-os-eventcontainer.xsd](http://www.openspaces.org/schema/10.1/mule/mule-os-eventcontainer.xsd)|[mule-os-queue.xsd](http://www.openspaces.org/schema/10.1/mule/mule-os-queue.xsd)|[mule-os-seda.xsd](http://www.openspaces.org/schema/10.1/mule/mule-os-seda.xsd)|
 
 
 {%endpanel%}

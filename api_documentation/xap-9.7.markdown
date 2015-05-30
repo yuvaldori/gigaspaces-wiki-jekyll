@@ -21,9 +21,10 @@ parent: none
 **XAP Schemas**
 
 {: .table .table-bordered}
-|[openspaces-core.xsd](./schema-9.7/core.html)|[openspaces-admin.xsd](./schema-9.7/admin.html)|[openspaces-archive.xsd](./schema-9.7/archive.html)|
-|[openspaces-events.xsd](./schema-9.7/events.html)|[openspaces-gateway.xsd](./schema-9.7/gateway.html)|[openspaces-jdbc.xsd](./schema-9.7/jdbc.html)|
-|[openspaces-jms.xsd](./schema-9.7/jms.html)|[openspaces-remoting.xsd](./schema-9.7/remoting.html)|[openspaces-sla.xsd](./schema-9.7/sla.html)|
+|[openspaces-core.xsd](http://www.openspaces.org/schema/9.7/core/openspaces-core.xsd)|[openspaces-admin.xsd](http://www.openspaces.org/schema/9.7/admin/openspaces-admin.xsd)|[openspaces-archive.xsd](http://www.openspaces.org/schema/9.7/archive/openspaces-archive.xsd)|
+|[openspaces-events.xsd](http://www.openspaces.org/schema/9.7/events/openspaces-events.xsd)|[openspaces-gateway.xsd](http://www.openspaces.org/schema/9.7/core/gateway/openspaces-gateway.xsd)|[openspaces-jdbc.xsd](http://www.openspaces.org/schema/9.7/jdbc/openspaces-jdbc.xsd)|
+|[openspaces-jms.xsd](http://www.openspaces.org/schema/9.7/jms/openspaces-jms.xsd)|[openspaces-remoting.xsd](http://www.openspaces.org/schema/9.7/remoting/openspaces-remoting.xsd)|[openspaces-sla.xsd](http://www.openspaces.org/schema/9.7/sla/openspaces-sla.xsd)|
+|[mule-os-eventcontainer.xsd](http://www.openspaces.org/schema/9.7/mule/mule-os-eventcontainer.xsd)|[mule-os-queue.xsd](http://www.openspaces.org/schema/9.7/mule/mule-os-queue.xsd)|[mule-os-seda.xsd](http://www.openspaces.org/schema/9.7/mule/mule-os-seda.xsd)|
 
 
 {%endpanel%}
