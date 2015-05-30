@@ -37,5 +37,5 @@ The MemoryXtend Tutorial describes how to experiment with MemoryXtend and compar
 {%endsection%}
 
 <br>
-{%learn%} {%currentadmurl%}/blobstore-overview.html{%endlearn%}
+{%learn%} {%currentadmurl%}/memoryxtend.html{%endlearn%}
 

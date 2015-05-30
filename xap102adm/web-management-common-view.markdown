@@ -41,7 +41,7 @@ Deployment options:
 
 # Alerts
 
-The Alerts panel displays XAP Alert groups (Alerts are grouped by correlation key) for more details see [Administrative Alerts](./administrative-alerts.html)
+The Alerts panel displays XAP Alert groups (Alerts are grouped by correlation key) for more details see [Administrative Alerts]({%currentjavaurl%}/administrative-alerts.html)
 
 ![hosts1.jpg](/attachment_files/web-console/alerts.jpg)
 
