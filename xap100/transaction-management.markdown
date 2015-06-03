@@ -43,7 +43,7 @@ GigaSpaces provides several transaction managers, and changing the implementatio
 
 The section below lists the different types of transaction managers supported by GigaSpaces. Each transaction manager implements Spring's `PlatformTransactionManager` interface and therefore supports the Spring transaction framework (see below).
 
-# Distributed Jini Transaction Manager
+# Constructing XAP Transaction Manager
 
 The distributed [Jini Transaction Manager](http://river.apache.org/doc/specs/html/txn-spec.html) starts an embedded distributed (Mahalo) **Jini Transaction Manager**, which is then wrapped with an implementation of the Spring `PlatformTransactionManager`. This transaction manager is used in order to perform distributed transactions spanning multiple space instances.
 
@@ -150,7 +150,7 @@ When using Spring declarative transaction management, a transaction timeout can 
 
 When using Jini based transactions, a timeout value can be set for both the commit and abort operations. This values can also be set on the transaction manager.
 
-# Jini Transaction Manager Lookup
+# Connecting to XAP Transaction Manager
 
 The Jini Transaction Manager Lookup allows you to use the Jini lookup mechanism in order to lookup a Jini Transaction Manager that is present somewhere in the cluster (as opposed to being started locally in your application), which is then wrapped with an implementation of the Spring `PlatformTransactionManager`. This transaction manager is usually used in order to obtain a remote Jini Mahalo transaction manager for distributed transactions spanning multiple space instances.
 
