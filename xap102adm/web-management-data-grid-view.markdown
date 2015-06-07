@@ -72,7 +72,7 @@ For array types, the array length and toString is displayed.
 
 # Statistics
 
-The Statistics view provides graphical representation of space/space instance operations performed and average throughput.
+The Statistics view provides graphical representation of Space/Space instance operations performed.
 
 
 ![hosts1.jpg](/attachment_files/web-console/data-grid-stats.jpg)
