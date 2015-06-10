@@ -12,7 +12,7 @@ Below is a list of issues that have been fixed in GigaSpaces 9.7.X.
 
 
 {: .table .table-bordered .table-condensed}
-| Key | Summary | Version | SalesForce ID | Platform/s |
+| Key | Summary | Fixed in Version | SalesForce ID | Platform/s |
 |:----|:--------|:----------------|:---------------|:------------------|
 | <nobr>GS-12141</nobr> | Transaction consolidation fails when one of the participants has only transient objects  | 9.7.2, 10.1.0 | 9432 | All |
 | GS-12137 | Out of memory during lrmi client handshake | 9.7.2, 10.1.0 |  | Java |
