@@ -47,7 +47,11 @@ Tested JVMs:
 - Oracle 7 - XAP was tested using Sun JVM version 7u45 and above.
 - IBM 1.6.0 - XAP was tested using IBM JVM version 1.6.0 IBM J9VM. 
 - IBM 1.7.0 - XAP was tested using IBM JVM version 1.7.0 IBM J9VM SR6.
-{%note%}Using IBM jdk there might be a problem in xml parsing package bundled with jdk,in previous GS version xml parsing package was bundled with the product starting with 10.1 this is no longer the case, so in case of a problem 'working' xml parsing package should be added to GS boot class path.{%endnote%}
+
+
+{%note%}
+Using IBM jdk there might be a problem in xml parsing package bundled with jdk,in previous GS version the xml parsing package was bundled with the product. Starting with 10.1 this is no longer the case, so in case of a problem 'working' xml parsing package should be added to GS boot class path.
+{%endnote%}
 
 GigaSpaces recommends that customers upgrade to a fully-supported environment, such as the latest GigaSpaces XAP 9.7.x and the latest *Java 1.6/1.7 SDK.
 
