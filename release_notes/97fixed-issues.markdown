@@ -38,33 +38,35 @@ Below is a list of issues that have been fixed in GigaSpaces 9.7.X.
 | GS-11775 | NPE - when trying to resolve certain split brain scenario  | 9.7.2, 10.1.0 | 9032 | All |
 | GS-11748 | LRU space with no EDS partitioned-sync2backup might face version conflict that will lead to replication error and increase redolog  | 9.7.2, 10.0.0 | 8962 | All |
 | GS-11740 | Duplicate lease renewal in MapCache | 9.7.2, 10.1.0 | 8815 | Java |
-| GS-11739 | Benchmark Write using batches writes actually only part of expected objects | 9.7.1, 10.0.0 |  | Java |
 | GS-11736 | Can't see space in gs-ui when running XAP 9.7.1 gsInstance.bat when using jdk 7u55 | 9.7.2, 10.0.0 |  | Java |
 | GS-11732 | Disributed transaction over multiple clusters might cause consolidations problems | 9.7.2, 10.0.0 | 8935 | All |
+| GS-11641 | Default Notifications may not consume all concurrent resources when it could have | 9.7.2, 10.0.0 | 8635 | All |
+| GS-11665 | Ability to add GS services JAVA_OPTIONS within setenv.sh | 9.7.2, 10.1.0 | 8768 | Java |
+| GS-10903 | Repeatable SQLQuery with a slight difference per each SQL (changing the value is enough) for long time causes memory leak in client | 9.7.2, 10.1.0 | 7791 | All |
+| GS-10510 | Consistency issues with multisource replication when transient entries are involved (distributed transaction consolidation) | 9.7.2 |  | All |
+| GS-11599 | Limit number of LookupKeepaliveTask's per lookup service | 9.7.2, 10.0.0 | 9204 | Java |
+| GS-11739 | Benchmark Write using batches writes actually only part of expected objects | 9.7.1, 10.0.0 |  | Java |
 | GS-11717 | XAP benchmark fails on primitiveWithoutNullValue protective mode | 9.7.1, 10.0.0 |  | All |
 | GS-11704 | Queries with empty ranges IndexOutOfBoundsException | 9.7.1, 10.0.0 | 8894 | All |
 | GS-11690 | Linq expressions without where cause throw exception | 9.7.1, 10.0.0 |  | .Net |
 | GS-11689 | Protective mode primitiveWithoutNullValue is thrown from replication | 9.7.1, 10.0.0 | 8808 | All |
 | GS-11681 | Ping cli command does not work | 9.7.1, 10.0.0 |  | Java |
-| GS-11665 | Ability to add GS services JAVA_OPTIONS within setenv.sh | 9.7.2, 10.1.0 | 8768 | Java |
 | GS-11661 | Using enums with Linq throws an exception | 9.7.1, 10.0.0 |  | .Net |
 | GS-11652 | Calendar instance is not formatted nicely in GS-ui query results | 9.7.1, 10.0.0 |  | Java |
 | GS-11651 | Web-ui: NumberFormatException thrown while parsing cpu values for specific Local values | 9.7.1, 10.0.0 |  | Java |
-| GS-11641 | Default Notifications may not consume all concurrent resources when it could have | 9.7.2, 10.0.0 | 8635 | All |
 | GS-11640 | Installmavenrep.bat fails because POMGenerator doesn't generate mongo-datasource pom | 9.7.1, 10.0.0 |  | Java |
 | GS-11633 | Add Multi thread support to XAResourceImpl | 9.7.1, 10.0.0 | 8698 | Java |
 | GS-11619 | Fix  installmavenrep.bat script in windows | 9.7.1, 10.0.0 |  | All |
 | GS-11616 | ReadModifiers  missing default constructor  | 9.7.1, 10.0.0 | 8657 | Java |
 | GS-11615 | SpaceDataSourceSplitter#initialMetadataLoad might causes NPE | 9.7.1, 10.0.0 | 8655 | All |
 | GS-11606 | Deterministic Deployment is not working on secured grid | 9.7.1, 10.0.0 | 8642 | All |
-| GS-11599 | Limit number of LookupKeepaliveTask's per lookup service | 9.7.2, 10.0.0 | 9204 | Java |
 | GS-11561 | Reading a POJO which contains a document using mongo EDS fails | 9.7.1, 10.0.0 |  | Java |
-| GS-11559 | ESM - Scale undeployment is in progress, stuck in a loop caused by ExpectedMachineWithMoreMemoryException | 9.7.0 | 8586 | Java |
 | GS-11536 | LRMI threads cause JVM-wide slowdown with parallel reads | 9.7.1, 10.0.0 | 8527 | Java |
+| GS-11505 | StandaloneProcessingUnitContainerProvider#close() raise Interruption that cause problems in unit tests | 9.7.1, 1.0.0 | 8518 | Java |
+| GS-11559 | ESM - Scale undeployment is in progress, stuck in a loop caused by ExpectedMachineWithMoreMemoryException | 9.7.0 | 8586 | Java |
 | GS-11532 | NullPointerException in LeaseManager | 9.7.0 | 8555 | All |
 | GS-11527 | 'DiscoveredMachineProvisioningConfigurer' is missing the 'reservedMemoryCapacityPerManagementMachine' method | 9.7.0 |  | Java |
 | GS-11522 | Durable notification do not arrive when there is a gateway configured | 9.7.0 |  | Java, .Net|
-| GS-11505 | StandaloneProcessingUnitContainerProvider#close() raise Interruption that cause problems in unit tests | 9.7.1, 1.0.0 | 8518 | Java |
 | GS-11491 | Space shutdown may hang while closing Background fifo thread on rare scenarios | 9.7.0 | 8451 | All |
 | GS-11490 | GSC failed to create a JMX server and listen on a port | 9.7.0 | 8496 | All |
 | GS-11489 | Wrong display of Machine SLA Enforcment event | 9.7.0 |  | All |
@@ -127,6 +129,3 @@ Below is a list of issues that have been fixed in GigaSpaces 9.7.X.
 | GS-11139 | GigaSpaces was holding file handlers to deleted files | 9.7.0 | 7944 | All |
 | GS-11108 | Error in startGroovy.bat file when trying to use Java 6 style wildcard for jars to be added to classpath | 9.7.0 | 8007 | Java |
 | GS-11069 | Add the ability to set OpenSpacesMuleMessageReceiver max batch size on os-queue:connector | 9.7.0 | 7943 | Java |
-| GS-10903 | Repeatable SQLQuery with a slight difference per each SQL (changing the value is enough) for long time causes memory leak in client | 9.7.2, 10.1.0 | 7791 | All |
-| GS-10510 | Consistency issues with multisource replication when transient entries are involved (distributed transaction consolidation) | 9.7.2 |  | All |
-
