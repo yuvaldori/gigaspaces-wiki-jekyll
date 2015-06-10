@@ -25,7 +25,7 @@ Below is a list of issues that have been fixed in GigaSpaces 9.7.X.
 | GS-12054 | Pending provision of processing unit instance after failover of machine with GSM and ESM due to GSM not in sync | 9.7.2, 10.1.0 | 9274 | Java |
 | GS-11978 | Memory Leak in FIfo Groups in certain condition | 9.7.2, 10.1.0 | 9218 | All |
 | GS-12047 | Limit the query results by a system property to avoid crashing the space with large queries | 9.7.2, 10.1.0 | 9198 | All |
-| GS-12045 | .Net - IndexOutOfBoundsException when iterating over IOutgoingReplication | 9.7.2, 10.0.2, 10.1.0 |  | .Net |
+| GS-12045 | .Net - IndexOutOfBoundsException when iterating over IOutgoingReplication | 9.7.2, 10.1.0 |  | .Net |
 | GS-12043 | Impossible to override NIC_ADDR at environment without dns like openstack | 9.7.2, 10.1.0 |  | Java |
 | GS-11991 | Add support of lrmi port range and wan gateway | 9.7.2, 10.1.0 |  | Java |
 | GS-11979 | IllegalArgumentException When Using SQLQuery and one of properties is compressed or binary | 9.7.2, 10.1.0 | 9220,9275,9325,9376 | Java |
@@ -62,7 +62,7 @@ Below is a list of issues that have been fixed in GigaSpaces 9.7.X.
 | GS-11606 | Deterministic Deployment is not working on secured grid | 9.7.1, 10.0.0 | 8642 | All |
 | GS-11561 | Reading a POJO which contains a document using mongo EDS fails | 9.7.1, 10.0.0 |  | Java |
 | GS-11536 | LRMI threads cause JVM-wide slowdown with parallel reads | 9.7.1, 10.0.0 | 8527 | Java |
-| GS-11505 | StandaloneProcessingUnitContainerProvider#close() raise Interruption that cause problems in unit tests | 9.7.1, 1.0.0 | 8518 | Java |
+| GS-11505 | StandaloneProcessingUnitContainerProvider#close() raise Interruption that cause problems in unit tests | 9.7.1, 10.0.0 | 8518 | Java |
 | GS-11559 | ESM - Scale undeployment is in progress, stuck in a loop caused by ExpectedMachineWithMoreMemoryException | 9.7.0 | 8586 | Java |
 | GS-11532 | NullPointerException in LeaseManager | 9.7.0 | 8555 | All |
 | GS-11527 | 'DiscoveredMachineProvisioningConfigurer' is missing the 'reservedMemoryCapacityPerManagementMachine' method | 9.7.0 |  | Java |
