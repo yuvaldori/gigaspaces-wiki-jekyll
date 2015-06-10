@@ -12,7 +12,7 @@ Below is a list of issues that have been fixed in GigaSpaces 10.0.X.
 
 
 {: .table .table-bordered .table-condensed}
-| Key | Summary | Version | Sales Force ID | Platform/s |
+| Key | Summary | Fix Version/s  | Sales Force ID | Platform/s |
 |:---------|:--------|:----------------|:---------------|:------------------|
 | <nobr>GS-11962</nobr> | In .NET when BasicContainer element is missing from pu.config we got System.NullReferenceException | 10.0.1, 10.1.0 | 9201  | .NET |
 | GS-11856 | XAP 10 blobstore RPM hangs when installing | 10.0.1, 10.1.0  |  | All |
