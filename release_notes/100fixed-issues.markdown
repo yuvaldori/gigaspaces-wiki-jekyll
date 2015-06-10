@@ -14,8 +14,8 @@ Below is a list of issues that have been fixed in GigaSpaces 10.0.X.
 {: .table .table-bordered .table-condensed}
 | Key | Summary | Version | Sales Force ID | Platform/s |
 |:---------|:--------|:----------------|:---------------|:------------------|
-| <nobr>GS-11962</nobr> | In .NET when BasicContainer element is missing from pu.config we got System.NullReferenceException | 10.1.0, 10.0.1 | 9201  | .NET |
-| GS-11856 | XAP 10 blobstore RPM hangs when installing | 10.1.0, 10.0.1  |  | All |
+| <nobr>GS-11962</nobr> | In .NET when BasicContainer element is missing from pu.config we got System.NullReferenceException | 10.0.1, 10.1.0 | 9201  | .NET |
+| GS-11856 | XAP 10 blobstore RPM hangs when installing | 10.0.1, 10.1.0  |  | All |
 | GS-11850 | Rare Deadlock on SynchronizeReplicaDataProducer lock when ReplicationNode thread and LeaseManager$Reaper thread call close method- during failover using Blobstore | 10.0.0, 10.1.0 |  | Java |
 | GS-11841 | Undeploy application option should not be exposed in XAP for "Unassigned Services" | 10.0.0 |  | Java |
 | GS-11840 | GS-UI throws LRMINoSuchObjectException when undeploying PlainWebAppExample | 10.0.0 |  | Java |
