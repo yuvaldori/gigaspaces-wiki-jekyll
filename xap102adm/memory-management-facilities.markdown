@@ -26,7 +26,7 @@ Most of the considerations described in this topic are also relevant for the cli
 
 The space memory can be managed using the following mechanisms:
 
-- Eviction policy - You can set the policy to run `ALL IN CACHE` or `LRU` (Least Recently Used).
+- Eviction policy - You can set the policy to run `ALL IN CACHE` or `LRU` (Least Recently Used) or custom implementation.
 - Memory Manager - Provides options for controlling the JVM that is hosting the space memory utilization. It allows you to define thresholds for situations where the memory becomes over-utilized.
 
 # Cache Eviction Policies
@@ -153,7 +153,7 @@ The overall space capacity is not necessarily limited to the capacity of its phy
 
 The following properties used to control the memory manager.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Property | Description | Default value | Supported with Cache Policy |
 |:---------|:------------|:--------------|:----------------------------|
 |`space-config.engine.cache_size` | Defines the maximum size of the space cache. This is the total number of space objects across all space class instances, within a single space. This parameter is ignored when running an `ALL_IN_CACHE` cache policy. | `100,000` | LRU |

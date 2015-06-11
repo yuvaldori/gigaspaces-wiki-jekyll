@@ -153,7 +153,7 @@ The overall space capacity is not necessarily limited to the capacity of its phy
 
 The following properties used to control the memory manager.
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 | Property | Description | Default value | Supported with Cache Policy |
 |:---------|:------------|:--------------|:----------------------------|
 |`space-config.engine.cache_size` | Defines the maximum size of the space cache. This is the total number of space objects across all space class instances, within a single space. This parameter is ignored when running an `ALL_IN_CACHE` cache policy. | `100,000` | LRU |
