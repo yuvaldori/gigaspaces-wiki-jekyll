@@ -26,7 +26,7 @@ Most of the considerations described in this topic are also relevant for the cli
 
 The space memory can be managed using the following mechanisms:
 
-- Eviction policy - You can set the policy to run `ALL IN CACHE` or `LRU` (Least Recently Used).
+- Eviction policy - You can set the policy to run `ALL IN CACHE` or `LRU` (Least Recently Used) or custom implementation.
 - Memory Manager - Provides options for controlling the JVM that is hosting the space memory utilization. It allows you to define thresholds for situations where the memory becomes over-utilized.
 
 # Cache Eviction Policies
