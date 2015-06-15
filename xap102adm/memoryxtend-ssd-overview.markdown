@@ -89,7 +89,7 @@ Step 3.
 Install ZetaScale libraries:
 
 {% highlight bash %}
-$ sudo XAP_HOME=<XAP HOME> sh -c "yum -y install {%version blobstore%}"
+$ sudo XAP_HOME=<XAP HOME> sh -c "yum -y install {%version blobstore%}.rpm"
 {% endhighlight %}
 
 If the RPM installation fails , please run  the following `yum` install commands using `root` user:
@@ -134,14 +134,14 @@ Configuring an IMDG (Space) with BlobStore should be done via the `SanDiskBlobSt
 
     <bean id="propertiesConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"/>
 
-    <blob-store:sandisk-blob-store id="myBlobStore" blob-store-capacity-GB="100" blob-store-cache-size-MB="100" statistics-interval=”5000”
+    <blob-store:sandisk-blob-store id="myBlobStore" blob-store-capacity-GB="100" blob-store-cache-size-MB="100" statistics-interval="5000"
                                             devices="[/dev/sdb1,/dev/sdc1]" volume-dir="/tmp/data${clusterInfo.runningNumber}" durability-level="SW_CRASH_SAFE">
 
     </blob-store:sandisk-blob-store>
 
     <os-core:embedded-space id="space" name="mySpace" >
         <os-core:blob-store-data-policy blob-store-handler="myBlobStore" cache-entries-percentage="10" avg-object-size-KB="5" recover-from-blob-store="true"/>
-    </s-core:embedded-space>
+    </os-core:embedded-space>
 
     <os-core:giga-space id="gigaSpace" space="space"/>
 </beans>
