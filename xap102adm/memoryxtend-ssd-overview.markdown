@@ -140,7 +140,7 @@ Configuring an IMDG (Space) with BlobStore should be done via the `SanDiskBlobSt
     </blob-store:sandisk-blob-store>
 
     <os-core:embedded-space id="space" name="mySpace" >
-        <os-core:blob-store-data-policy blob-store-handler="myBlobStore" cache-entries-percentage="10" avg-object-size-KB="5" recover-from-blob-store="true"/>
+        <os-core:blob-store-data-policy blob-store-handler="myBlobStore" cache-entries-percentage="10" avg-object-size-KB="5" persistent="true"/>
     </os-core:embedded-space>
 
     <os-core:giga-space id="gigaSpace" space="space"/>
@@ -163,14 +163,14 @@ Configuring an IMDG (Space) with BlobStore should be done via the `SanDiskBlobSt
     <bean id="blobstoreid" class="com.gigaspaces.blobstore.storagehandler.SanDiskBlobStoreHandler">
         <property name="blobStoreCapacityGB" value="200"/>
         <property name="blobStoreCacheSizeMB" value="50"/>
-        <property name="blobStoreDevices" value="[/dev/xvdb,/dev/xvdc]"/>
+        <property name="blobStoreDevices" value="[/dev/sdb1,/dev/sdc1]"/>
         <property name="blobStoreVolumeDir" value="/tmp/data${clusterInfo.runningNumber}"/>
         <property name="blobStoreDurabilityLevel" value="SW_CRASH_SAFE"/>
     </bean>
 
     <os-core:embedded-space id="space" name="mySpace">
         <os-core:blob-store-data-policy blob-store-handler="blobstoreid" cache-entries-percentage="10"
-            avg-object-size-KB="5" recover-from-blob-store="true"/>
+            avg-object-size-KB="5" persistent="true"/>
     </os-core:embedded-space>
 
     <os-core:giga-space id="gigaSpace" space="space"/>
@@ -185,7 +185,7 @@ Configuring an IMDG (Space) with BlobStore should be done via the `SanDiskBlobSt
 Programmatic approach to start a BlobStore space:
 {% highlight java %}
 SanDiskBlobStoreConfigurer configurer = new SanDiskBlobStoreConfigurer();
-configurer.addDevices("[/dev/xvdb,/dev/xvdc]");
+configurer.addDevices("[/dev/sdb1,/dev/sdc1]");
 configurer.addVolumeDir("/tmp");
 configurer.setBlobStoreCapacityGB(200);
 configurer.setBlobStoreCacheSizeMB(50);
@@ -195,7 +195,7 @@ SanDiskBlobStoreHandler blobStoreHandler = configurer.create();
 BlobStoreDataCachePolicy cachePolicy = new BlobStoreDataCachePolicy();
 cachePolicy.setAvgObjectSizeKB(5l);
 cachePolicy.setCacheEntriesPercentage(10);
-cachePolicy.setRecoverFromBlobStore(true);
+cachePolicy.setPersistent(true);
 cachePolicy.setBlobStoreHandler(blobStoreHandler);
 
 EmbeddedSpaceConfigurer urlConfig = new EmbeddedSpaceConfigurer("mySpace");
@@ -212,54 +212,9 @@ The above example:
 - Configures the SanDisk BlobStore bean.
 - Configures the Space bean (Data Grid) to use the blobStore implementation. 
 
-### Consistency Level
-
-In case you are deploying a highly available data grid (Space with backups) make sure you configure the [consistency-level](./consistency-level.html)  to all.
-
-{% inittab os_simple_space|top %}
-{% tabcontent Namespace %}
-
-{% highlight xml %}
-    ...	
-    <os-core:embedded-space id="space" name="mySpace" >
-        <os-core:blob-store-data-policy blob-store-handler="blobstoreid" cache-entries-percentage="10" avg-object-size-KB="5" recover-from-blob-store="true"/>
-	 <os-core:properties>
-            <props>
-                <prop key="cluster-config.groups.group.repl-policy.sync-replication.consistency-level">all</prop>
-            </props>
-        </os-core:properties>
-    </os-core:embedded-space>
-   ...
-{% endhighlight %}
-{% endtabcontent %}
-
-{% tabcontent Code %}
-
-
-## Programmatic API
-Programmatic approach to start a BlobStore space:
-{% highlight java %}
-...
- SanDiskBlobStoreHandler sanDiskBlobStoreHandler = configurer.create();
- BlobStoreDataCachePolicy cachePolicy = new BlobStoreDataCachePolicy();
- cachePolicy.setAvgObjectSizeKB(10l);
- cachePolicy.setCacheEntriesPercentage(0);
- cachePolicy.setRecoverFromBlobStore(true);
- cachePolicy.setBlobStoreHandler(sanDiskBlobStoreHandler);
-
- UrlSpaceConfigurer urlConfig = new UrlSpaceConfigurer(spaceURL);
- urlConfig.cachePolicy(cachePolicy);
- urlConfig.addProperty("cluster-config.groups.group.repl-policy.sync-replication.consistency-level", "all");
- gigaSpace = new GigaSpaceConfigurer(urlConfig.space()).gigaSpace();
-...
-{% endhighlight %}
-
-{% endtabcontent %}
-{% endinittab %}
-
 # Automatic Data Recovery and ReIndexing
 
-Once the Data grid is shutdown and redeployed it may reload its entire data from its flash drive store. Loading data from a local drive may provide fast data recovery - much faster than loading data from a central database. The data reload process iterate the data on the flash drive and generate the indexed data based on the indexed data list per space class. As each data grid partition perform this reload and reindexing process in parallel across multiple servers it may complete this indexing process relatively fast. With a single machine 8 cores, running 4 partitions data grid with four SSD drives , 100,000 items / second (1K payload) may be scanned and re-indexed. To enable the Data Recovery and ReIndexing activity the `recover-from-blob-store` should be set to `true`.
+Once the Data grid is shutdown and redeployed it may reload its entire data from its flash drive store. Loading data from a local drive may provide fast data recovery - much faster than loading data from a central database. The data reload process iterate the data on the flash drive and generate the indexed data based on the indexed data list per space class. As each data grid partition perform this reload and reindexing process in parallel across multiple servers it may complete this indexing process relatively fast. With a single machine 8 cores, running 4 partitions data grid with four SSD drives , 100,000 items / second (1K payload) may be scanned and re-indexed. To enable persistency data recovery and ReIndexing activity the `persistent` should be set to `true`.
 
 To allow the data grid to perform an automatic data recovery from the right flash device on startup you should use [Instance level SLA](./the-sla-overview.html) .
 
@@ -328,7 +283,7 @@ In central storage mode each space is attached to a pre defined device as explai
 
 {%section%}
 {%column width=80% %}
-If we deploy a partitioned Space with a single backup (2,1), the first primary will be attached to `/dev/sda1`, the second primary will be attached to `/dev/sdb1`, the first backup will be attached to `/dev/sda2` and the second backup will be attached to `/dev/sdb2`.
+If we deploy a partitioned Space with a single backup (2,1), the first primary will be attached to `/dev/sdb1`, the second primary will be attached to `/dev/sdc1`, the first backup will be attached to `/dev/sdb2` and the second backup will be attached to `/dev/sdc2`.
 
 {%endcolumn%}
 {%column width=20% %}
@@ -341,7 +296,7 @@ Configuration :
 {%highlight xml%}
 <blob-store:sandisk-blob-store id="myBlobStore" blob-store-capacity-GB="100"
     blob-store-cache-size-MB="100"
-    devices="[/dev/sda1,/dev/sdb1,/dev/sda2,/dev/sdb2]"
+    devices="[/dev/sdb1,/dev/sdc1,/dev/sdb2,/dev/sdc2]"
     volume-dir="/tmp/data${clusterInfo.runningNumber}"
     central-storage="true">
 </blob-store:sandisk-blob-store>
@@ -357,7 +312,7 @@ cannot be provisioned to the same storage array.
 
 {%section%}
 {%column width=80% %}
-If we deploy a partitioned Space with a single backup (2,1), the first primary will be attached to `/dev/sda1`, the second primary will be attached to `/dev/sdb1`, the first backup will be attached to `/dev/sdc1` and the second backup will be attached to `/dev/sdc2`.
+If we deploy a partitioned Space with a single backup (2,1), the first primary will be attached to `/dev/sdb1`, the second primary will be attached to `/dev/sdc1`, the first backup will be attached to `/dev/sdd1` and the second backup will be attached to `/dev/sde1`.
 {%endcolumn%}
 {%column width=20% %}
 {%popup /attachment_files/ssd/ssd-multiple-device.png%}
@@ -370,7 +325,7 @@ Configuration :
 <blob-store:sandisk-blob-store id="myBlobStore"
     blob-store-capacity-GB="100"
     blob-store-cache-size-MB="100"
-    devices="[/dev/sda1,/dev/sdb1],[/dev/sdc1,/dev/sdd1]"
+    devices="[/dev/sdb1,/dev/sdc1],[/dev/sdd1,/dev/sde1]"
     volume-dir="/tmp/data${clusterInfo.runningNumber}"
     central-storage="true">
 </blob-store:sandisk-blob-store>
