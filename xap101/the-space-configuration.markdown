@@ -504,7 +504,7 @@ For further details on each of the available modifiers see:
 - [TakeModifiers]({%javadoc com/gigaspaces/client/TakeModifiers%})
 - [CountModifiers]({%javadoc com/gigaspaces/client/CountModifiers%})
 - [ClearModifiers]({%javadoc com/gigaspaces/client/ClearModifiers%})
-- [ChangeModifiers({%javadoc com/gigaspaces/client/ChangeModifiers%})
+- [ChangeModifiers]({%javadoc com/gigaspaces/client/ChangeModifiers%})
 
 # Exception Hierarchy
 
