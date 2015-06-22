@@ -257,7 +257,7 @@ A `DistributedTask` can be broadcast to all primary nodes of the cluster or rout
 
 {% highlight java %}
 AsyncFuture<Long> future = gigaSpace.execute(new MyDistTask(), 1, 4, 6, 7);
-long result = future.get(); // result will be 18
+long result = future.get(); // result will be 4
 {% endhighlight %}
 
 In this case, `MyDistTask` is executed concurrently and asynchronously on the nodes that correspond to routing values of `1`, `4`, `6`, and `7`.
