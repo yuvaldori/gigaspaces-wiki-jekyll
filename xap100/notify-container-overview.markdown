@@ -29,7 +29,7 @@ The notify event container wraps the Space data event session API with event con
 The notify container can be configured with transaction support, so the event action can be performed under a transaction.
 
 
-[Event Registration](./session-based-messaging-api.html){%wbr%}
+[Session Based Messaging API](./session-based-messaging-api.html){%wbr%}
 The Notify Session API provides a unified and consistent mechanism for event registration.
 {%endfpanel%}
 

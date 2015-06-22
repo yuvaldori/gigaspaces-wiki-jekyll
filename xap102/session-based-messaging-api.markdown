@@ -1,6 +1,6 @@
 ---
 layout: post102
-title:  Data Events
+title:  Session Based Messaging API
 categories: XAP102
 parent: notify-container-overview.html
 weight: 300
