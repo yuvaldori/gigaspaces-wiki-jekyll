@@ -80,7 +80,7 @@ For creating partitions you can use fdisk like explained [here](http://www.howto
 # Installation
 
 Step 1. 
-Dwonload the XAP 10 distribution and the `MemoryXtend` RPM with the ZetaScale libraries.
+Download the XAP 10 distribution and the `MemoryXtend` RPM with the ZetaScale libraries.
 
 Step 2. 
 Install XAP as usual. Unzip the `{%version build-filename%}`.
