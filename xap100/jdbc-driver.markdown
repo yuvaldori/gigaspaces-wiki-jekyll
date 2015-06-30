@@ -488,7 +488,7 @@ GigaSpaces JDBC Driver does not support the following:
 - Using a constant instead of the column name.
 - The `INSERT` statement does not allow the use of an expression in the `VALUES` clause.
 - "." used to indicate a double data type.
-- Using mathematical expressions in the `WHERE` clause.
+- Using mathematical expressions in the `WHERE` clause, however the [Aggregators](./aggregators.html) functionality can be used.
 - `LEFT [OUTER] JOIN`
 - `RIGHT [OUTER] JOIN`
 - `[INNER] JOIN`
