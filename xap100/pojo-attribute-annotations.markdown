@@ -88,7 +88,6 @@ public class Employee {
   }
 }
 {%endhighlight%}
- }
 
 # SpaceIndex
 

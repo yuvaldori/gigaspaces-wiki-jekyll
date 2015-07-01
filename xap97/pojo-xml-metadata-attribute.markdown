@@ -185,13 +185,14 @@ Example:
 
 {%highlight java%}
 <gigaspaces-mapping>
-	<class name="com.gigaspaces.examples.FlightReservation />
+	<class name="com.gigaspaces.examples.FlightReservation >
 		<property name="processingState">
 			<fifo-grouping-index />
 		</property>
 		<property name="customer">
 			<fifo-grouping-index  path="id"/>
 		</property>
+    </class>
 </gigaspaces-mapping>
 
 {%endhighlight%}
