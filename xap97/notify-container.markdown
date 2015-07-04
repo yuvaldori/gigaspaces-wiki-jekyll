@@ -1130,3 +1130,6 @@ public class BatchListener {
 
 The default values for all of the notify container configuration parameters, such as `perform-take-on-notify, ignore-event-on-null-take` and others can be found in the JavaDoc (and sources) of the class [`org.openspaces.events.notify.SimpleNotifyEventListenerContainer`](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/org/openspaces/events/notify/SimpleNotifyEventListenerContainer.html) and its super class, namely [`org.openspaces.events.notify.AbstractNotifyEventListenerContainer`](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/org/openspaces/events/notify/AbstractNotifyEventListenerContainer.html).
 For example, `perform-take-on-notify` default value is documented in the method `SimpleNotifyEventListenerContainer.setPerformTakeOnNotify(boolean)`.
+
+
+{% include /COM/notify-verses-polling.markdown %}

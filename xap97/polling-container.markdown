@@ -1218,3 +1218,5 @@ The Polling Container schema and complete configuration options are described be
 ![polling_container_schema.jpg](/attachment_files/polling_container_schema.jpg)
 {% endindent %}
 {%endcomment%}
+
+{% include /COM/notify-verses-polling.markdown %}
