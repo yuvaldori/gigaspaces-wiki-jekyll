@@ -186,7 +186,7 @@ Now that we have a custom reporter implementation we need to configure the syste
 {% highlight xml %}
 <metrics-configuration>
     <reporters>
-        <reporter name="myReporter" factory-class="com.gigaspaces.demo.FileReporterFactory">
+        <reporter name="myReporter" factory-class="com.gigaspaces.metrics.reporters.FileReporterFactory">
             <property name="path" value="c:\gigaspaces\metrics-output.txt"/>
         </reporter>
     </reporters>
