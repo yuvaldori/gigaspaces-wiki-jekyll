@@ -37,7 +37,7 @@ Real-time business intelligence makes sense for some applications but not for ot
 
 # The Internet of Things
 
-Real Time big-data analystics plays a big role with **The Internet of Things** (IoT) systems. The IoT is the interconnection of uniquely identifiable embedded computing devices within the existing Internet infrastructure. Typically, IoT offer connectivity of devices, systems, and services that goes beyond machine-to-machine communications (M2M) and covers a variety of protocols, domains, and applications. 
+Real Time big-data analytics plays a big role with **The Internet of Things** (IoT) systems. The IoT is the interconnection of uniquely identifiable embedded computing devices within the existing Internet infrastructure. Typically, IoT offer connectivity of devices, systems, and services that goes beyond machine-to-machine communications (M2M) and covers a variety of protocols, domains, and applications.
 
 Things, in the IoT, can refer to a wide variety of devices such as heart monitoring implants, biochip transponders on farm animals, electric clams in coastal waters, automobiles with built-in sensors, or field operation devices that assist fire-fighters in search and rescue. Current market examples include smart thermostat systems and washer/dryers that utilize wifi for remote monitoring.
 
@@ -76,6 +76,7 @@ Related Topics
 - Document-Schemaless API {%latestjavanet document-api.html %}
 - Query API {%latestjavanet querying-the-space.html %}
 - Processing API {%latestjavanet event-processing.html%}
+- BlobStore Storage Model [MemoryXtend]({%latestadmurl%}/memoryxtend.html)
 - [Big Data Integration]({%latestjavaurl%}/big-data.html)
 - [Time Series](/sbp/time-series.html)
 - [Storm Integration](/sbp/storm-integration.html)
