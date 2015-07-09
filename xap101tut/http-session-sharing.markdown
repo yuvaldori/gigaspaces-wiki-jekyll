@@ -188,8 +188,8 @@ http://localhost:8080/demo-app2
 {%endhighlight%}
 
 -	Login into the application running on Tomcat using :
-o	user : root
-o	password : secret
+    -	user : root
+    -	password : secret
 
 {%panel%}
 ![http-session](/attachment_files/httpsession/http-session6.png)
@@ -208,8 +208,8 @@ http://localhost:8081/demo-app2
 {%endhighlight%}
 
 -	Login into the application running on JBoss using :
-o	user : `root`
-o	password : `secret`
+    -	user : `root`
+    -	password : `secret`
 
 {%panel%}
 ![http-session](/attachment_files/httpsession/http-session8.png)
