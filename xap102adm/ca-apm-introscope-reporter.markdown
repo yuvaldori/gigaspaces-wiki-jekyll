@@ -95,7 +95,7 @@ Below is an exemplary piece of XML that should be put inside `metrics.xml` file.
 {% endhighlight %}
 
 ## Licensing
-XAP-apm-introscope requires a separate license in addition to the XAP commercial license. Please contact GigaSpaces Customer Support for more details.
+XAP-apm-introscope requires a separate license in addition to the XAP commercial license, please contact GigaSpaces Customer Support for more details.
 
 # Integration details
 

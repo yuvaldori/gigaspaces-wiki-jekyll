@@ -20,6 +20,9 @@ Introduction to the core metrics concepts and how to configure them
 [InfluxDB Reporter](./metrics-influxdb-reporter.html){%wbr%}
 Configuring XAP to report metrics to InfluxDB
 
+[CA APM Introscope Reporter](./ca-apm-introscope-reporter.html){%wbr%}
+Configuring XAP to report metrics to CA APM Introscope
+
 [Custom Reporter](./metrics-custom-reporter.html){%wbr%}
 Implementing and using a custom metrics reporter
 
