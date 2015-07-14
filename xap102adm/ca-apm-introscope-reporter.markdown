@@ -102,7 +102,7 @@ XAP-apm-introscope requires a separate license in addition to the XAP commercial
 This paragraph describes deeply the most important aspects of XAP-Introscope integration.
 
 ## Integration with XAP
-XAP provides a well defined point of integration - [custom reporter](http://docs.gigaspaces.com/xap102adm/metrics-custom-reporter.html). The integration is implemented according to guidelines from Gigaspaces documentation:
+XAP provides a well defined point of integration - [custom reporter](./metrics-custom-reporter.html). The integration is implemented according to guidelines from XAP documentation:
 - `IntroscopeRepoter` - the main class that handles sending metrics inherits from `MetricReporter`,
 - `IntroscopeRepoterFactory` - a class that creates reporters derives from `MetricReporterFactory`.
 
@@ -182,19 +182,21 @@ Inserting hierarchy into metric name depends on an initial metric name and avail
 OS metrics name starts with `os_`. `IntroscopeReporter` performs different conversion on network related and non-network related statistics.
 
 #### OS metrics / network metrics
-Metric name startswith `os_network_`.
+Metric name starts with `os_network_`.
 
 Format: `xap|$TOP_LEVEL|$HOST|os|network|$NIC:METRIC_NAME_WITHOUT_PREFIX`
 
+{: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
 | os_network_rx-bytes | `xap|groupA|myhost|os|network|eth0:rx-bytes` |
 
 #### OS metrics / non-network metrics
-Metric name starstwith `os_` and not with `os_network_`.
+Metric name starts with `os_` and not with `os_network_`.
 
 Format: `xap|$TOP_LEVEL|$HOST|os|others:METRIC_NAME`
 
+{: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
 | os_memory_free-bytes | `xap|groupA|myhost|os|others:os_memory_free-bytes` |
@@ -207,6 +209,7 @@ Metric tags contain `pu_name` key.
 
 Format: `xap|$TOP_LEVEL|pu|$PU_NAME|$PU_INSTANCE_ID|nonspace:METRIC_NAME`
 
+{: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
 | jvm_threads_count | `xap|groupA|pu|my_pu|2_2|nonspace:jvm_threads_count` |
@@ -216,6 +219,7 @@ Metric tags do not contain `pu_name` key.
 
 Format: `xap|$TOP_LEVEL|$HOST|$PROCESS_NAME_$PID:METRIC_NAME`
 
+{: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
 | jvm_threads_count | `xap|groupA|myhost|gsm_4165:jvm_threads_count` |
@@ -225,6 +229,7 @@ Metric name has a `lus_` prefix.
 
 Format: `xap|$TOP_LEVEL|$HOST|lus|$PID:METRIC_NAME`
 
+{: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
 | lus_items | `xap|groupA|myhost|lus|4623:lus_items` |
@@ -234,6 +239,7 @@ Metric name has a `pu_` prefix.
 
 Format: `xap|$TOP_LEVEL|pu|$PU_NAME|$PU_INSTANCE_ID|nonspace:`<br>`METRIC_NAME_WITHOUT_PREFIX`
 
+{: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
 | pu_data<br>ProcessorPollingEventContainer<br>_processed-events | `xap|groupA|pu|just_space-processor|2_1|nonspace:`<br>`dataProcessorPollingEventContainer`<br>`_processed-events` |
@@ -246,6 +252,7 @@ Metric tag `space_active` has value `true`.
 
 Format: `xap|$TOP_LEVEL|space|space_$SPACE_NAME|$SPACE_INSTANCE_ID|primary:`<br>`METRIC_NAME_WITHOUT_PREFIX`
 
+{: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
 | space_operations_take | `xap|groupA|space|space_my_pu_space|1|primary:`<br>`operations_take` |
@@ -255,6 +262,7 @@ Metric tag `space_active` has value `false`.
 
 Format: `xap|$TOP_LEVEL|space|space_$SPACE_NAME|$SPACE_INSTANCE_ID|backup:`<br>`METRIC_NAME_WITHOUT_PREFIX`
 
+{: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
 | space_operations_take | `xap|groupA|space|space_my_pu_space|1|backup:`<br>`operations_take` |
@@ -264,6 +272,7 @@ Metrics that do not meet conditions of any types presented above, are considered
 
 Format: `xap|$TOPLEVEL:METRIC_NAME`
 
+{: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
 | custom_metric | `xap|groupA:custom_metric` |
