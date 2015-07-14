@@ -32,8 +32,6 @@ Configure your web application to use the XAP session manager, deploy the XAP in
 [Configuration & Deployment](./global-http-session-sharing-configuration.html){%wbr%}
 Configure the web application and Shiro for deployment on the grid.
 
-[Apache Load Balancer](./global-http-session-sharing-load-balancer.html){%wbr%}
-Configuring Apache load balancer.
 {%endfpanel%}
 
 
