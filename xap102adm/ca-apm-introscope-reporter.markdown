@@ -158,6 +158,8 @@ XAP reports tens of different predefined metrics per each machine that belongs t
 
 Resource segments are optional. They are separated from name by `:` and are separated from each other by `|`. Multiple resource segments create hierarchy, e.g. metrics `xap|groupA|myhost|lus|21950:lus_items` and `xap|groupA|myhost|lus|21950:lus_listeners` can be seen as:
 
+{%section%}
+{%column %}
 {% highlight xml %}
 xap
 +-- groupA
@@ -167,8 +169,13 @@ xap
         --- lus_items
         --- lus_listeners
 {% endhighlight %}
-in treelike format. `IntroscopeReporter` takes care of inserting hierarchy into predefined metrics, while custom metrics are reported without any name modifications.
+{%endcolumn%}
+{%column %}
+{%popup /attachment_files/introscope.png %}
+{%endcolumn%}
+{%endsection%}
 
+in treelike format. `IntroscopeReporter` takes care of inserting hierarchy into predefined metrics, while custom metrics are reported without any name modifications.
 
 # Metrics conversions
 
