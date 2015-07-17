@@ -207,12 +207,12 @@ Those metrics start with "process_", "jvm_" or "lrmi_". There are 2 subtypes - m
 #### Process|JVM|LRMI metrics / per PU
 Metric tags contain `pu_name` key.
 
-Format: `xap|$TOP_LEVEL|pu|$PU_NAME|$PU_INSTANCE_ID|nonspace:METRIC_NAME`
+Format: `xap|$TOP_LEVEL|pu|$PU_NAME|$PU_INSTANCE_ID:METRIC_NAME`
 
 {: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
-| jvm_threads_count | `xap|groupA|pu|my_pu|2_2|nonspace:jvm_threads_count` |
+| jvm_threads_count | `xap|groupA|pu|my_pu|2_2:jvm_threads_count` |
 
 #### Process|JVM|LRMI metrics / process-wide
 Metric tags do not contain `pu_name` key.
@@ -237,35 +237,35 @@ Format: `xap|$TOP_LEVEL|$HOST|lus|$PID:METRIC_NAME`
 ### Processing unit metrics
 Metric name has a `pu_` prefix.
 
-Format: `xap|$TOP_LEVEL|pu|$PU_NAME|$PU_INSTANCE_ID|nonspace:`<br>`METRIC_NAME_WITHOUT_PREFIX`
+Format: `xap|$TOP_LEVEL|pu|$PU_NAME|$PU_INSTANCE_ID:`<br>`METRIC_NAME_WITHOUT_PREFIX`
 
 {: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
-| pu_data<br>ProcessorPollingEventContainer<br>_processed-events | `xap|groupA|pu|just_space-processor|2_1|nonspace:`<br>`dataProcessorPollingEventContainer`<br>`_processed-events` |
+| pu_data<br>ProcessorPollingEventContainer<br>_processed-events | `xap|groupA|pu|just_space-processor|2_1:`<br>`dataProcessorPollingEventContainer`<br>`_processed-events` |
 
 ### Space metrics
 Space metrics name starts with "space_". Metrics for primary and backup are converted a little bit different.
 
 #### Space metrics / primary partition
-Metric tag `space_active` has value `true`.
+Metric tag `space_instance_id` contains only numbers.
 
-Format: `xap|$TOP_LEVEL|space|space_$SPACE_NAME|$SPACE_INSTANCE_ID|primary:`<br>`METRIC_NAME_WITHOUT_PREFIX`
+Format: `xap|$TOP_LEVEL|space|$SPACE_NAME|primary$SPACE_INSTANCE_ID:`<br>`METRIC_NAME_WITHOUT_PREFIX`
 
 {: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
-| space_operations_take | `xap|groupA|space|space_my_pu_space|1|primary:`<br>`operations_take` |
+| space_operations_take | `xap|groupA|space|my_pu_space|1|primary:`<br>`operations_take` |
 
 #### Space metrics / backup partition
-Metric tag `space_active` has value `false`.
+Metric tag `space_instance_id` does not consist only of numbers.
 
-Format: `xap|$TOP_LEVEL|space|space_$SPACE_NAME|$SPACE_INSTANCE_ID|backup:`<br>`METRIC_NAME_WITHOUT_PREFIX`
+Format: `xap|$TOP_LEVEL|space|space_$SPACE_NAME|backup$SPACE_INSTANCE_ID:`<br>`METRIC_NAME_WITHOUT_PREFIX`
 
 {: .table .table-bordered .table-condensed}
 |Before conversion|After conversion|
 |:-----|---------|
-| space_operations_take | `xap|groupA|space|space_my_pu_space|1|backup:`<br>`operations_take` |
+| space_operations_take | `xap|groupA|space|my_pu_space|backup1_1:`<br>`operations_take` |
 
 ### Other metrics
 Metrics that do not meet conditions of any types presented above, are considered as others and almost no conversion is performed on them.
