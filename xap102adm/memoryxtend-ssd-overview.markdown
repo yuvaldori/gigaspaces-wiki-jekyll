@@ -34,7 +34,7 @@ The BlobStore settings includes the following options:
 |:-----------------------|:----------------------------------------------------------|:--------|:--------|
 | devices | Flash devices. Comma separated available devices. The list used as a search path from left to right. The first one exists will be used. |  | required |
 | volume-dir | Directory path contains a symbolic link to the the SSD device. | | required |
-| blob-store-capacity-GB | Flash device allocation size in Gigabytes. | 200 | optional |
+| blob-store-capacity-GB | Flash device allocation size in Gigabytes. A single device is attached to a space instance this refers to a single flash device.| 200 | optional |
 | <nobr>blob-store-cache-size-MB</nobr> | ZetaScale internal LRU based off-heap in-process cache size in Megabytes. Keeps data in serialized format. | 100 | optional |
 | write-mode | `WRITE_THRU` - the data grid writes the data immediately into the blobstore and synchronously acknowledge the write after ZetaScale fully commits the operation. `WRITE_BEHIND` - the data grid writes the data immediately into the blobstore. ZetaScale asynchronously commits the operation to the SSD. This option improves write performance but may have a consistency issue with a sudden hardware failure.| `WRITE_THRU` | optional |
 | enable-admin | ZetaScale admin provides a simple command line interface (CLI) through a TCP port. ZetaScale CLI uses port 51350 by default. This port can be changed through the configuration parameter `FDF_ADMIN_PORT`. | false |
@@ -52,7 +52,7 @@ The IMDG BlobStore settings includes the following options:{%wbr%}
 | blob-store-handler | BlobStore implementation |  | required |
 | <nobr>cache-entries-percentage</nobr> | On-Heap cache stores objects in their native format. This cache size determined based on the percentage of the GSC JVM max memory(-Xmx). If `-Xmx` is not specified the cache size default to `10000` objects. This is an LRU based data cache.| 20% | optional |
 | avg-object-size-KB |  Average object size. | 5KB | optional |
-| recover-from-blob-store |  Whether to recover from blob store or not | true | optional |
+| persistent |  data is written to flash, space will perform recovery from flash if needed.  | | required |
 
 # Prerequisites
 
@@ -266,10 +266,46 @@ With the following `sla.xml` we have a partitioned (2 partitions) data grid with
 
 {% note %} Make sure you provide the `sla.xml` location at the deploy time (`-sla` deploy command option) or locate it at the root of the processing unit jar or under the `META-INF/spring` directory, alongside the processing unit’s `pu.xml` file. {% endnote %}
 
+## Last Primary
 
-## Device Allocation
+ln order to prevent loss of data by selecting the least-updated space as primary the system keeps the id of the primary space for each partition. When a partition is brought up the primary election mechanism will elect a primary space randomly (or on basis of first-ready) but wait for the last primary to take the role of primary space. If the last primary cannot be resolved manual user intervention is required.
+The current default implementation is based on shared file on NFS.
 
-The device allocation per a machine is managed via the `/tmp/blobstore/devices/device-per-space.properties` file. You can specify this file location using the `com.gs.blobstore-devices` system property when setting the `GSC_JAVA_OPTIONS`. Each time a new blobstore space is deployed an Entry is added to this file listing the data grid instances provisioned on the machine.
+ {% highlight xml %}
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:os-core="http://www.openspaces.org/schema/core"
+       xmlns:blob-store="http://www.openspaces.org/schema/blob-store"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-{%version spring%}.xsd
+       http://www.openspaces.org/schema/core http://www.openspaces.org/schema/{%currentversion%}/core/openspaces-core.xsd
+       http://www.openspaces.org/schema/blob-store http://www.openspaces.org/schema/{%currentversion%}/blob-store/openspaces-blobstore.xsd">
+
+    <bean id="propertiesConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"/>
+
+    <bean id="attributeStoreHandler" class="com.gigaspaces.attribute_store.PropertiesFileAttributeStore">
+        <constructor-arg name="path" value="/your-shared-folder/lastprimary.properties"/>
+    </bean>
+
+    <blob-store:sandisk-blob-store id="myBlobStore" blob-store-capacity-GB="100" blob-store-cache-size-MB="100" statistics-interval="5000"
+                                            devices="[/dev/sdb1,/dev/sdc1]" volume-dir="/tmp/data${clusterInfo.runningNumber}" durability-level="SW_CRASH_SAFE">
+
+    </blob-store:sandisk-blob-store>
+
+    <os-core:embedded-space id="space" name="mySpace" >
+        <os-core:blob-store-data-policy blob-store-handler="myBlobStore" cache-entries-percentage="10" avg-object-size-KB="5" persistent="true"/>
+        <os-core:attribute-store store-handler="attributeStoreHandler"/>
+    </os-core:embedded-space>
+
+    <os-core:giga-space id="gigaSpace" space="space"/>
+</beans>
+{% endhighlight %}
+
+The above example:
+
+- Configures the SanDisk BlobStore bean.
+- Configures the Space bean (Data Grid) to use the blobStore implementation, Last Primary state is kept at shared a file lastprimary.properties. 
+
 
 # Central Storage Support
 
@@ -302,9 +338,6 @@ Configuration :
 </blob-store:sandisk-blob-store>
 {%endhighlight%}
 
-
-
-
 The BlobStore also supports deployment with 2 different storage arrays. With this feature you can ensure that a primary and its backup(s)
 cannot be provisioned to the same storage array.
 
@@ -332,7 +365,11 @@ Configuration :
 
 {%endhighlight%}
 
+## Device Allocation
 
+The device allocation per a machine is managed via the `/tmp/blobstore/devices/device-per-space.properties` file. You can specify this file location using the `com.gs.blobstore-devices` system property when setting the `GSC_JAVA_OPTIONS`. Each time a new blobstore space is deployed an entry is added to this file listing the data grid instances provisioned on the machine.
+
+If 2 arrays are configured in central storage, a primary and it's backup will not attached to devices from the same array.  
 
 # BlobStore Space re-deploy
 
@@ -591,6 +628,7 @@ abstract class BlobStoreStorageHandler
 
 - All classes that belong to types that are to be introduced to the space during the initial metadata load must exist on the classpath of the JVM the Space is running on.
 - The current MemoryXtend release support a single blobstore space instance per GSC. 
+- Only single backup is supported.
 
 {%refer%}
 Answers to frequently asked questions about MemoryXtend for SSD can be found [here](/faq/blobstore-cache-policy-faq.html)
