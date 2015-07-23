@@ -14,7 +14,8 @@ Below is a list of known issues in GigaSpaces 10.1.X.
 {: .table .table-bordered .table-condensed}
 | Key | Summary | SalesForce ID | Workaround | Platform/s |
 |:-------|:--------|:----------------|:------------------|:----------|
-| <nobr>GS-12453</nobr> | Backward issue using projection in old client against 10.1 Server cause InvalidClassException  - this issue will be fixed in 10.2 | | | .NET |
+| <nobr>GS-12495</nobr> | Slow Memory leak in lease manager - empty cells remains after expiration | 9876 || All |
+| GS-12453 | Backward issue using projection in old client against 10.1 Server cause InvalidClassException  - this issue will be fixed in 10.2 | | | .NET |
 | <nobr>GS-11954</nobr> | Bottom section in Applications tab opens with minimum height (Sometimes, mainly when doing a refresh to the page, entering the Applications tab shows the bottom section of the page with a minimum height.) | | | Java |
 | GS-11955 | Refreshing the Web-UI might not reload all data (for example Applications -> Events Grid) | | | Java |
 | GS-11960 | NullPointerException is printed in GSA when deploying data example | | | Java |
