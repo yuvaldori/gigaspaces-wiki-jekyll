@@ -13,7 +13,8 @@ Below is a list of known issues in GigaSpaces 10.0.X.
 {: .table .table-bordered .table-condensed}
 | Key | Summary | SalesForce ID | Version | Workaround | Platform/s |
 |:-------|:--------|:----------------|:---------------|:------------------|:----------|
-| <nobr>GS-11589</nobr> | Not all threads are terminated when destroying UrlSapceContainer | | 10.0.0 | | All |
+| <nobr>GS-12495</nobr> | Slow Memory leak in lease manager - empty cells remains after expiration | 9876 | 9.7.0 | | All |
+| GS-11589 | Not all threads are terminated when destroying UrlSapceContainer | | 10.0.0 | | All |
 | GS-11622 | Web-ui shows wrong instance count with replic | | 10.0.0 | | All |
 | GS-11626 | Failed to deploy data example using secured space | | 10.0.0 | | Java |
 | GS-11629 | sla.xml has side effect on spring import | 8597 | 10.0.0 | | Java |
