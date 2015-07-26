@@ -387,7 +387,7 @@ Setting both `dist-tx-wait-timeout-millis` and `dist-tx-wait-for-opers` to unlim
 # Usage Scenarios
 
 
-### Writing Asynchronously to the Mirror Data Source
+### Writing Synchronously to the Mirror Data Source
 
 {%section%}
 {%column width=80% %}

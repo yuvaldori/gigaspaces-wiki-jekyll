@@ -379,7 +379,7 @@ packet which is unconsolidated and waits for consolidation which may never occur
 
 {% toczone minLevel=4|maxLevel=4|type=flat|separator=pipe|location=top %}
 
-## Writing Asynchronously to the Mirror Data Source
+## Writing Synchronously to the Mirror Data Source
 
 The following is a schematic flow of a synchronous replicated cluster with three members, which are communicating with a Mirror Service:
 
