@@ -44,17 +44,17 @@ MyClass result2 = gigaSpace.take(new SQLQuery<MyClass>(MyClass.class, "num < 500
 
 MyClass[] results;
 // Read all entries of type MyClass whose num is between 1 and 100:
-results = gigapace.readMultiple(new SQLQuery<MyClass>(MyClass.class, "num >= 1 AND num <= 100"));
+results = gigaSpace.readMultiple(new SQLQuery<MyClass>(MyClass.class, "num >= 1 AND num <= 100"));
 
 // Read all entries of type MyClass who num is between 1 and 100 using BETWEEN syntax:
-results = gigapace.readMultiple(new SQLQuery<MyClass>(MyClass.class, "num BETWEEN 1 AND 100"));
+results = gigaSpace.readMultiple(new SQLQuery<MyClass>(MyClass.class, "num BETWEEN 1 AND 100"));
 
 // Read all entries of type MyClass whose num is either 1, 2, or 3:
-results = gigapace.readMultiple(new SQLQuery<MyClass>(MyClass.class, "num IN (1,2,3)"));
+results = gigaSpace.readMultiple(new SQLQuery<MyClass>(MyClass.class, "num IN (1,2,3)"));
 
 // Read all entries of type MyClass whose num is greater than 1,
 // and order the results by the name property:
-results = gigapace.readMultiple(new SQLQuery<MyClass>(MyClass.class, "num > 1 ORDER BY name"));
+results = gigaSpace.readMultiple(new SQLQuery<MyClass>(MyClass.class, "num > 1 ORDER BY name"));
 {% endhighlight %}
 
 {% refer %} For an example of `SQLQuery` with `EventSession`, refer to the [Session Based Messaging API](./session-based-messaging-api.html#SQLQuery Template Registration) section.{% endrefer %}
