@@ -107,7 +107,7 @@ When performing blocking operations -- read or take with timeout >0, it is recom
 
 # Use Batch Operations
 
-Batch operations (`writeMultiple, readMultiple, clear, updateMultiple`) perform actions on groups of space objects in one call. Instead of paying a penalty for every space object (remote call, database access, ...) you pay it only once. Try to design your hot spots around batch operations - this can drastically improve your application performance, up to ten to fifty times faster.
+Batch operations (`writeMultiple, readMultiple, takeMultiple, clear, change`) perform actions on groups of space objects in one call. Instead of paying a penalty for every space object (remote call, database access, ...) you pay it only once. Try to design your hot spots around batch operations - this can drastically improve your application performance, up to ten to fifty times faster.
 
 {%anchor 13%}
 
