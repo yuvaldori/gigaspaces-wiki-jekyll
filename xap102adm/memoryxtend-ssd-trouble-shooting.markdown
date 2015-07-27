@@ -54,6 +54,8 @@ or whatever was reported by find
 
 #	Blobstore
 
+## Initialization error
+
 When you receive the following error:
 
 {%highlight console%}
@@ -73,4 +75,31 @@ this indicates that the device has not been properly initialized. This will prob
 {%warning%}
 You can also delete the blobstore contents by setting this value. Do not forget to comment it out for subsequent deployments
 {%endwarning%}
+
+## Flash device malfunction
+
+When a single flash device is not responding or has an hardware malfunction and you wish to replace it while your applicatin is running, you will need to perform the following steps:
+
+- In space instance machine which attached to malfunctioned device at /tmp/blobstore/devices/device-per-space.properties (default) delete the space attached to the malfunctioned device.
+- Restart the GSC of the above space.
+
+For example /dev/sdc has an HW malfunction, you should replace the flash device, delete the second row which contains /dev/scd and restart GSC which contains mySpace_container1_1-mySpace.
+
+{%highlight console%}
+mySpace_container1-mySpace=/dev/sdb@Consistent^Sat Jul 18 10\:47\:48 GMT+02\:00 2015
+mySpace_container1_1-mySpace=/dev/sdc@Consistent^Sat Jul 18 10\:47\:56 GMT+02\:00 2015
+{%endhighlight%}
+
+
+## Last Primary
+
+When you see this exception in the backup space log:
+
+{%highlight bash%}
+	Space recovery failure.; Caused by: com.gigaspaces.internal.server.space.recovery.direct_persistency.DirectPersistencyRecoveryException:
+{%endhighlight%}
+
+This indicats that the last primary space, which it's name is written to a shared file, is not available to the backup space.The backup space will not take the primary role since only the last primary has the most updated data. Therefor this partition will not be available. 
+In order to resolve this you will need to find why the primary space is not available, it could be a network disconnection or a storage error.
+
 
