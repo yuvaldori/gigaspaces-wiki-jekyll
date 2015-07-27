@@ -34,8 +34,10 @@ Dynamic Language Tasks have been extended and now support Scala based script exe
 
 [Task Execution](./scala-task-execution.html){%wbr%}
 A wrapper around the XAP API provides some sugaring on top of the GigaSpace#execute methods.
-{%endfpanel%}
 
+[Exemplary Project](./scala-exemplary-project.html){%wbr%}
+There has been created a project that shows how certain features of XAP Scala can be used in real project and how Scala and Java code might be integrated.
+{%endfpanel%}
 <br>
 
 {% info %}
