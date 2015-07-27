@@ -141,4 +141,6 @@ All default dashboard templates can be changed and they are located under [XAP_H
 
 {%endcomment%}
 
-You can read more in depth about the metrics framework [here](http://docs.gigaspaces.com/xap101adm/metrics-overview.html)
+{%refer%}
+You can read more in depth about the metrics framework [here](./metrics-overview.html)
+{%endrefer%}
