@@ -441,7 +441,7 @@ public void testLocalDateTime() {
 {%endaccordion%}
 
 {%warning%}
-Java 8's LocalDate, LocalTime, LocalDateTime are currently not interoperable with the .NET DateTime class. [.NET Interoperability](/xap101net/dotnet-java-interoperability.html#supported-types-for-matching-and-interoperability)
+Java 8's LocalDate, LocalTime, LocalDateTime are currently not interoperable with the .NET DateTime class. [.NET Interoperability]({%currentneturl%}/dotnet-java-interoperability.html#supported-types-for-matching-and-interoperability)
 {%endwarning%}
 
 # Aggregators
