@@ -244,6 +244,7 @@ The `sysdate` value is evaluated differently when using the JDBC API vs when usi
 
 - On windows there is a [windows service](http://technet.microsoft.com/en-us/library/cc773061%28WS.10%29.aspx) that deals with clock synchronization.
 - On Linux there is a [daemon service](http://www.brennan.id.au/09-Network_Time_Protocol.html#starting) that deals with clock synchronization.
+
 {% tip %}
 Internally dates are stored as a **TimeStamp**. This means that both time (hour/min/sec) and date (year/month/day) information are available for date range queries.
 {% endtip %}

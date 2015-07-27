@@ -250,7 +250,7 @@ The `sysdate` value is evaluated differently when using the JDBC API vs when usi
 - On Linux there is a [daemon service](http://www.brennan.id.au/09-Network_Time_Protocol.html#starting) that deals with clock synchronization.
 
 {% tip %}
-GigaSpaces using internally the **TimeStamp** data type to store dates. This means the date includes beyond the year, month and day, the hour/min/sec portions. If you are looking to query for a specific date you should perform a date range query.
+Internally dates are stored as a **TimeStamp**. This means that both time (hour/min/sec) and date (year/month/day) information are available for date range queries.
 {% endtip %}
 
 
@@ -444,6 +444,11 @@ public void testLocalDateTime() {
 {%endaccord%}
 
 {%endaccordion%}
+
+
+{%warning%}
+Java 8's LocalDate, LocalTime, LocalDateTime are currently not interoperable with the .NET DateTime class. [.NET Interoperability]({%currentneturl%}/dotnet-java-interoperability.html#supported-types-for-matching-and-interoperability)
+{%endwarning%}
 
 # Aggregators
 
