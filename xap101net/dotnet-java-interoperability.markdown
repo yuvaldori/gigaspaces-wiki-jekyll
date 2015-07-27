@@ -137,6 +137,10 @@ The following types are supported by the space for matching and interoperability
 3. In .Net a `DateTime` is measured in ticks (=100 nanoseconds) since 1/1/0001, whereas in java a `Date` is a measured in milliseconds since 1/1/1970.
 4. The types `Decimal` (.Net) and `BigDecimal` (java) have different precision and range (see .Net and java documentation for more details). In addition, be aware that serialization/de serialization of these types is relatively slow, compared to other numeric types. As a rule of thumb these types should not be used, unless the other numeric types precision/range is not satisfactory.
 
+{%warning%}
+Java 8's LocalDate, LocalTime, LocalDateTime are currently not interoperable with the .NET DateTime class.
+{%endwarning%}
+
 # Arrays and Collections support
 
 The following collections are mapped for interoperability:
