@@ -16,8 +16,6 @@ weight: 200
 XAP CA APM Introscope Reporter- it provides a way to send XAP related metrics to Introscope.
 
 
-***
-
 
 # Features
 
