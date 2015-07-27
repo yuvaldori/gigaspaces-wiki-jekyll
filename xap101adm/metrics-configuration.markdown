@@ -8,7 +8,7 @@ weight: 100
 
 {% summary %}{% endsummary %}
 
-XAP provides a framework for collecting and reporting metrics from the distributed runtime environment into a metric repository of your choice, which can then be analysed and used to identity trends in the system behaviour.
+XAP provides a framework for collecting and reporting metrics from the distributed runtime environment into a metric repository of your choice, which can then be analysed and used to identity trends in the system behaviour. Before you can start using the metrics framework you will need to first setup and configure InfluxDB & Grafana to work with XAP. You can follow this guide [here](http://docs.gigaspaces.com/xap101adm/web-management-monitoring.html) on how to do this.
 
 # Overview
 
