@@ -8,7 +8,7 @@ weight: 200
 
 
 
-Below is a list of new features and improvements in GigaSpaces 10.1.X.
+Below is a list of new features and improvements in GigaSpaces 10.2.X.
 
 
 {: .table .table-bordered .table-condensed}
