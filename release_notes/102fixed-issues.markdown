@@ -27,8 +27,8 @@ Below is a list of issues that have been fixed in GigaSpaces 10.2.X.
 | GS-12396 | Distinguish between processing unit instance failures and manual decrements| 10.2 | 8707 | All |
 | GS-12383 | Deploying an Elastic PU via CLI results in authenticaion error | 10.2 | 9708 | All |
 | GS-12378 | Space partition split-brain alert in Admin API and web-ui | 10.2 |  | Java |
-| GS-12376 | Handle default selection in Spaces view | 10.2 | 9720 | Java |
-| GS-12372 | In some grids meter bars displayed as cutted  | 10.2 |  | All |
+| GS-12376 | Handle default selection in Spaces view | 10.2 |  | Java |
+| GS-12372 | In some grids meter bars displayed as cutted  | 10.2 |  | Java |
 | GS-12366 | Events grid in new Processing Unit view is always empty | 10.2 |  | Java |
 | GS-12364 | Failed to launch Web-UI due to NoClassDefFoundError: org/apache/commons/codec/binary/Base64 | 10.2 |  | Java |
 | GS-12361 | When running with more than one gsm, as result Monitoring view is unavailable | 10.2 |  | All |
@@ -42,5 +42,4 @@ Below is a list of issues that have been fixed in GigaSpaces 10.2.X.
 | GS-12315 | Transaction consolidation of transient only transactions causes timeout | 10.2 | 9640,9417 | All |
 | GS-12242 | Multithreaded execution of tasks on a secured space occasionally fails on "No credentials were provided" | 10.2 | 9426 | Java |
 | GS-11937 | Force kill service by GSA in similar manner to to kill -9  | 10.2 | 9158,9338 | All |
-| GS-11632 | NPE using DefaultSpaceInstance.runGc() when discoverUnmanagedSpaces used | 10.2 |  | Java |
-| GS-12327 | in 'Spaces' view, 'types' shows 'Loading data types...' when no space is selected | 10.2 | 8587 | All |
+| GS-11632 | NPE using DefaultSpaceInstance.runGc() when discoverUnmanagedSpaces used | 10.2 | 8587 | Java |
