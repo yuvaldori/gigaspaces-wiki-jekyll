@@ -8,14 +8,14 @@ categories: RELEASE_NOTES
 
 
 
-A new release of Gigaspace's XAP platform has been released. Version 10.1 is a major release. Below you will find all relevant information.
+A new release of Gigaspace's XAP platform has been released. Version 10.2 is a major release. Below you will find all relevant information.
 
 
-## Current Release XAP 10.1
+## Current Release XAP 10.2
 
-- [What's new](./101whats-new.html)
-- [Fixed issues](./101fixed-issues.html)
-- [Known issues](./101known-issues.html)
+- [What's new](./102whats-new.html)
+- [Fixed issues](./102fixed-issues.html)
+- [Known issues](./102known-issues.html)
 
 
 
@@ -26,7 +26,7 @@ A new release of Gigaspace's XAP platform has been released. Version 10.1 is a m
 
 ## Previous releases
 
-
+- [10.1](/xap101.html)
 - [10.0](/xap100.html)
 - [9.7](/xap97.html)
 - [Pre 9.7](http://wiki.gigaspaces.com/wiki/display/RN/GigaSpaces+Release+Notes)

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Resolved Issues
-categories: EARLY_ACCESS
+categories:
 parent: none
 weight: 300
 ---

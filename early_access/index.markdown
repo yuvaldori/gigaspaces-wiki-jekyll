@@ -6,6 +6,9 @@ categories: EARLY_ACCESS
 weight:
 ---
 
+{%summary%}At this point in time there is no early access version available{%endsummary%}
+
+{%comment%}
 {%summary%}Here you will find milestone releases for XAP 10.2{%endsummary%}
 
 
@@ -67,5 +70,5 @@ weight:
 [The current XAP .NET release is 10.1](/xap101net)
 
 
-
+{%endcomment%}
 

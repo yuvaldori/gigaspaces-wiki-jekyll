@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Known Issues and Limitations
-categories: EARLY_ACCESS
+categories:
 parent: none
 weight: 400
 ---
