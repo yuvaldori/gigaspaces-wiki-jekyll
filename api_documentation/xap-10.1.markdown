@@ -61,4 +61,7 @@ parent: none
 {%endpanel%}
 
 
-
+# REST API
+{%panel%}
+[REST API](/xap101/rest-service-api.html)
+{%endpanel%}

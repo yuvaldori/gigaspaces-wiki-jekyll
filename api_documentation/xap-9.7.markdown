@@ -52,3 +52,9 @@ parent: none
 [C+\+ API Documentation](http://www.gigaspaces.com/docs/cppdocs9.7/annotated.html) -- _GigaSpaces C+\+ classes_
 {%endpanel%}
 
+
+# REST API
+{%panel%}
+[REST API](/xap97/rest-api.html)
+{%endpanel%}
+

@@ -60,5 +60,10 @@ parent: none
 [C+\+ API Documentation](http://www.gigaspaces.com/docs/cppdocs10.2/annotated.html)
 {%endpanel%}
 
+# REST API
+{%panel%}
+[REST API](/xap102/rest-service-api.html)
+{%endpanel%}
+
 
 
