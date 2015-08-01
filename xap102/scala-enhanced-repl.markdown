@@ -50,9 +50,8 @@ gigaSpace: org.openspaces.core.GigaSpace = mySpace_container:mySpace
 Now we'll execute a task using another helper method:
 
 {% highlight scala %}
-xap> execute(gigaSpace) { holder =>
-     | holder.clusterInfo.getNumberOfInstances
-     | }
+xap> execute(gigaSpace) { holder => holder.clusterInfo.getNumberOfInstances}
+
 res1: com.gigaspaces.async.AsyncFuture[Integer] = org.openspaces.core.transaction.internal.InternalAsyncFuture@f1423ba
 
 xap> val numberOfInstances = res1.get
@@ -72,9 +71,8 @@ res2: com.j_spaces.core.LeaseContext[Data] = SpaceEntryLease[uid=-792314720^58^i
 Now execute a task that reads this entry and returns is `content` property:
 
 {% highlight scala %}
-xap> execute(gigaSpace) { holder =>
-     |   holder.gigaSpace.read(Data()).content
-     | }
+xap> execute(gigaSpace) { holder =>holder.gigaSpace.read(Data()).content}
+
 res3: com.gigaspaces.async.AsyncFuture[String] = org.openspaces.core.transaction.internal.InternalAsyncFuture@7c767c0d
 
 xap> val dataContent = res3.get
