@@ -247,6 +247,9 @@ class MyBean {
     @Resource(name="gigaSpace")
     private GigaSpace gigaSpace;
 
+    @Resource(name="gigaSpace2")
+    private GigaSpace gigaSpace2;
+
 	boolean isPrimary;
 
 	@PostPrimary
@@ -274,6 +277,9 @@ class MyBean {
 
     @Resource(name="gigaSpace")
     private GigaSpace gigaSpace;
+
+    @Resource(name="gigaSpace2")
+    private GigaSpace gigaSpace2;
 
 	static AtomicBoolean isPostPrimaryCalled = new AtomicBoolean(false);
 
