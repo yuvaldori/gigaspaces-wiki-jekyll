@@ -140,6 +140,8 @@ Alternatively if you are developing using maven, add to your pom the following d
 {%endnote%}
 {%endcomment%}
 
+# Choosing the encryption protocol
+
 It is also possible to select the encryption protocol (`TLSv1.1`, `TLSv1.2` etc) by setting the `com.gs.lrmi.filter.security.protocol` system property to the required protocol.
 In case this property is not set XAP will use the generic `TLS` protocol.
 

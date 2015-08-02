@@ -14,14 +14,24 @@ It's not an exhaustive list of all new features. For a full change log for 10.2 
 
 {%panel%}
 
+- [Enhanced SSD driver](#ssd)
 
 - [XAP - APM Introscope](#interscope)
 
-
+- [Choose the encryption protocol](#encryption)
 
 {%endpanel%}
 
 <br>
+
+
+{%anchor ssd%}
+
+# Enhanced SSD driver
+
+XAP 10.2 provides improved SSD recovery.
+
+{%learn%}/xap102adm/memoryxtend-ssd-overview.html{%endlearn%}
 
 
 {%anchor interscope%}
@@ -33,3 +43,11 @@ It's not an exhaustive list of all new features. For a full change log for 10.2 
 XAP CA APM Introscope Reporter- it provides a way to send XAP related metrics to Introscope.
 
 {%learn%}/xap102adm/ca-apm-introscope-reporter.html{%endlearn%}
+
+{%anchor encryption%}
+
+# Choose the encryption protocol
+
+You can choose the encryption protocol for the transport layer.
+
+{%learn%}/xap102sec/securing-the-transport-layer-(using-ssl).html#choosing-the-encryption-protocol{%endlearn%}
