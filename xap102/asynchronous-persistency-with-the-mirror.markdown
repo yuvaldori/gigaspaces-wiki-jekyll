@@ -9,19 +9,17 @@ weight: 600
 
 {% summary  %}  {% endsummary %}
 
-
-
-The XAP Mirror Service provides reliable asynchronous persistency. This allows you to asynchronously delegate the operations conducted with the In-Memory-Data-Grid (IMDG) into a backend database, significantly reducing the performance overhead.
+The XAP Mirror Service provides reliable asynchronous persistency which allows you to asynchronously delegate the operations conducted with the In-Memory-Data-Grid (IMDG) into a backend database, significantly reducing the performance overhead.
 
 {% indent %}
 ![data-grid-async-persist.jpg](/attachment_files/data-grid-async-persist.jpg)
 {% endindent %}
 
-The Mirror service ensures that data will not be lost in the event of a failure. This way, you can add persistency to your application just by running the Mirror Service, without touching the real-time portion of your application in either configuration or code. This service provides fine-grained control of which object needs to be persisted.
+The Mirror service ensures that data will not be lost in the event of a failure. This way, you can add persistency to your application by attaching a Mirror Service, without touching the real-time portion of your application in either configuration or code. This service provides fine-grained control of which objects need to be persisted.
 
-The mirror does need a backup since it does not hold any state. The actual state of the latest committed database transaction is stored within the primary and the backup space instances, **not in the Mirror**. Essentially, the Mirror acts as a dispatcher and push the changes done at the space (all primary partitions) into the Database (or any other data source) in an asynchronous reliable manner. In case of a failure of the Mirror, it will be restarted automatically and the primary instances will playback the un-committed transactions while the Mirror was down. The Mirror PU (like any deployed service) is mobile. It can run on any machine running a GSC, so the GSM will pick one of the existing GSCs to provision the missing Mirror PU.
+The mirror requires a backup since it does not maintain any state. The actual state of the latest committed database transaction is stored within the primary and the backup space instances, **not in the Mirror**. Essentially, the Mirror acts as a dispatcher and pushes the changes done in the space (all primary partitions) into the Database (or any other data source) in an asynchronous reliable manner. In case of a failure of the Mirror, it will be restarted automatically and the primary instances will playback the un-committed transactions while the Mirror was down. The Mirror PU (like any deployed service) is mobile. It can run on any machine running a GSC, so the GSM will pick one of the existing GSCs to provision the missing Mirror PU.
 
-If from some reason the SLA you applied forcing the Mirror PU to run on a specific machine that is unavailable (for example on a specific zone which does not have any running containers), the primary and backup will hold the transaction data within their redo log queue in memory. In some point they will store it on file until the Mirror machine will be restarted.
+If for some reason the SLA you applied is forcing the Mirror PU to run on a specific machine that is unavailable (for example on a specific zone which does not have any running containers), the primary and backup will hold the transaction data within their redo log queue in memory. When the redo log size grows over a certain threshold it will overflow t disk and store it on file until the Mirror machine is ready to start pushing the changes.
 
 {% tip %}
 You should not deploy the mirror in clustered mode nor have multiple instances of it. It should have a single instance as part of its SLA configuration.
@@ -32,11 +30,11 @@ Enabling the Mirror Service involves the following:
 - The Data-Grid Processing Unit Mirror Settings
 - The Mirror Service Processing Unit Settings
 
-The above share the **same** [Space Persistency](./space-persistency.html) settings but have different space settings. See the [Hibernate Space Persistency](./hibernate-space-persistency.html) for details how to use the built-in `HibernateSpaceSynchronizationEndpoint`.
+The above share the **same** [Space Persistency](./space-persistency.html) settings but have different space settings. See the [Hibernate Space Persistency](./hibernate-space-persistency.html) for details on how to use the built-in `HibernateSpaceSynchronizationEndpoint`.
 
 # The Data-Grid Processing Unit
 
-The `cluster-config.mirror-service` `space` settings specify the interaction between the IMDG primary spaces and the Mirror Service. The `mirror="true"` `space` element tag enables the replication mechanism from the IMDG Primary spaces to the Mirror Service. Once the `mirror="true"` is specified, all IMDG members will be Mirror aware and will be delegating their activities into the Mirror service. The IMDG primary instance will replicate the operations that have been logged within the primary redo log every `interval-millis` amount of time or `interval-opers` amount of operations. Both of these mechanisms are always active and the first one that is breached triggers the replication event.
+The `cluster-config.mirror-service` `space` settings specify the interaction between the IMDG primary spaces and the Mirror Service. The `mirror="true"` `space` element tag enables the replication mechanism from the IMDG Primary spaces to the Mirror Service. Once `mirror="true"` has been specified, all IMDG members will be Mirror aware and will be delegating their activities to the Mirror service. The IMDG primary instance will replicate the operations that have been logged within the primary redo log every `interval-millis` amount of time or `interval-opers` amount of operations. Both of these mechanisms are always active and the first one that is breached triggers the replication event.
 
 {% tip %}
 If you are not using the `mirror="true"` with the Data-Grid PU, you should use the following property instead:
@@ -59,6 +57,10 @@ The IMDG Mirror replication settings includes the following options:
 
 {% note %}
 The Mirror Service may receive replication events from multiple active primary partitions. Each active partition sends its operations to the Mirror service via a dedicated replication channel. The Mirror handles incoming replication requests simultaneously. Every Primary Space sending its operations to the Mirror Service in the same order the operations have been executed allowing the Mirror preserve the consistency of the data within the data source.
+{% endnote %}
+
+{% note %}
+In the case of transactions that leverage batch operations, a single redo log entry will contain the total number of objects under that batch operation. So if for instance we have transaction that writes batches of 50 and a  `bulk-size` of 100 the mirror service will push 5000 objects to the datasource on every cycle since this will be considered as 100 entries of 50 objects each. This is different than non-transactional operations which can be group at the object level i.e. in the same example as above this would be 100 objects pushed to the datasource per cycle.
 {% endnote %}
 
 The Data-Grid Space settings would look like this:
