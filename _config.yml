@@ -130,7 +130,7 @@ categories-list: ["PRODUCT_OVERVIEW", "API_DOCUMENTATION","EARLY_ACCESS", "HOWTO
 
 # Path and versions
 10.2-maven-version:        "10.2.0-13800-RELEASE"
-10.2-blobstore:            "blobstore-10.2.0-m-xxx_1.noarch"
+10.2-blobstore:            "blobstore-10.2.0-13800_RELEASE.noarch"
 10.2-gshome-directory:     "gigaspaces-xap-premium-10.2.0"
 10.2-default-lookup-group: "gigaspaces-10.2.0-XAPPremium-ga"
 10.2-build-filename:       "gigaspaces-xap-premium-10.2.0-ga-b13800.zip"
