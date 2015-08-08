@@ -102,6 +102,27 @@ The following operations support`SQLQuery` only with Simple Queries:
 - [Regular Index](./indexing.html) and a [Compound Index](./indexing.html#Compound Indexing) - Index a single property or multiple properties to improve query execution time.
 {%endvbar%}
 
+# Unsupported SQL Features
+
+{%vbar title=SQLQuery **does not** support the following: %}
+
+{%comment%}
+- Aggregate functions: COUNT, MAX, MIN, SUM, AVG are only supported in sub queries (These are fully supported with the [JDBC API](./jdbc-driver.html)).
+{%endcomment%}
+
+- Multiple tables select - This is supported with the [JDBC API](./jdbc-driver.html).
+- `DISTINCT` - This is supported with the [JDBC API](./jdbc-driver.html).
+- The SQL statements: VIEW, TRIGGERS, EXISTS, NOT, CREATE USER, GRANT, REVOKE, SET PASSWORD, CONNECT USER, ON.
+- Constraints: NOT NULL, IDENTITY, UNIQUE, PRIMARY KEY, Foreign Key/REFERENCES, NO ACTION, CASCADE, SET NULL, SET DEFAULT, CHECK.
+- Set operations: Union, Minus, Union All.
+- Advanced Aggregate Functions: STDEV, STDEVP, VAR, VARP, FIRST, LAST. These may be implemented via [Custom Aggregation](./aggregators.html#custom-aggregation).
+- Using a non constant right-hand side comparison operator. This can be implemented via [Custom Aggregation](./aggregators.html#custom-aggregation).
+- Mathematical expressions.
+- `LEFT OUTER JOIN`
+- `RIGHT OUTER JOIN`
+- `INNER JOIN`
+{%endvbar%}
+
 # Indexing
 
 It is highly recommended to use indexes on relevant properties to increase performance when using equality , bigger / less than , BETWEEN, IN , LIKE , NOT LIKE, IS NULL statements. For more information see [Indexing](./indexing.html). The above supported query features can leverage indexes except for the `is NOT null` and `NOT IN` statement.
@@ -534,36 +555,18 @@ OR
 (A = 'Y' AND B > '2000-10-1' AND B < '2003-11-1')
 {% endhighlight %}
 
-#### Projecting Partial Results
+# Projecting Partial Results
 
 You can specify that the `SQLQuery` should contain only partial results which means that the returned object should only be populated with the projected properties.
 
 {% refer %}For details on how to use the projection API please refer to [Getting Partial Results Using Projection API](./query-partial-results.html){% endrefer %}
 
 
-#### Unsupported SQL Features
 
-{%vbar title=SQLQuery **does not** support the following: %}
-
-{%comment%}
-- Aggregate functions: COUNT, MAX, MIN, SUM, AVG are only supported in sub queries (These are fully supported with the [JDBC API](./jdbc-driver.html)).
-{%endcomment%}
-
-- Multiple tables select - This is supported with the [JDBC API](./jdbc-driver.html).
-- `DISTINCT` - This is supported with the [JDBC API](./jdbc-driver.html).
-- The SQL statements: VIEW, TRIGGERS, EXISTS, NOT, CREATE USER, GRANT, REVOKE, SET PASSWORD, CONNECT USER, ON.
-- Constraints: NOT NULL, IDENTITY, UNIQUE, PRIMARY KEY, Foreign Key/REFERENCES, NO ACTION, CASCADE, SET NULL, SET DEFAULT, CHECK.
-- Set operations: Union, Minus, Union All.
-- Advanced Aggregate Functions: STDEV, STDEVP, VAR, VARP, FIRST, LAST. These may be implemented via [Custom Aggregation](./aggregators.html#custom-aggregation).
-- Mathematical expressions.
-- `LEFT OUTER JOIN`
-- `RIGHT OUTER JOIN`
-- `INNER JOIN`
-{%endvbar%}
 
 {% anchor SimpleQueries %}
 
-#### Simple vs. Complex Queries
+# Simple vs. Complex Queries
 
 Most space operations and features support any SQL query, but some support only **simple** queries and not **complex** ones.
 
@@ -581,11 +584,11 @@ The following features support only simple SQL queries
 - [GSIterator](./query-paging-support.html)
 {%endvbar%}
 
-#### Interface Classes
+# Interface Classes
 
 `SQLQuery` supports concrete classes, derived classes and abstract classes. Interface classes are **not supported**.
 
-#### Reserved Words
+# Reserved Words
 
 The following are reserved keywords in the GigaSpaces SQL syntax:
 

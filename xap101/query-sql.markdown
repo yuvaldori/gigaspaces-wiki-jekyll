@@ -550,6 +550,7 @@ You can specify that the `SQLQuery` should contain only partial results which me
 - Constraints: NOT NULL, IDENTITY, UNIQUE, PRIMARY KEY, Foreign Key/REFERENCES, NO ACTION, CASCADE, SET NULL, SET DEFAULT, CHECK.
 - Set operations: Union, Minus, Union All.
 - Advanced Aggregate Functions: STDEV, STDEVP, VAR, VARP, FIRST, LAST. These may be implemented via [Custom Aggregation](./aggregators.html#custom-aggregation).
+- Using a non constant right-hand side comparison operator. This can be implemented via [Custom Aggregation](./aggregators.html#custom-aggregation).
 - Mathematical expressions.
 - `LEFT OUTER JOIN`
 - `RIGHT OUTER JOIN`
