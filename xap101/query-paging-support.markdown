@@ -11,7 +11,7 @@ weight: 700
 In some scenarios there's a need to return a collection of entries from the space. This is usually carried out using one of the [readMultiple](http://www.gigaspaces.com/docs/JavaDoc{% currentversion %}/org/openspaces/core/GigaSpace.html#readMultiple-T-) overloads in `GigaSpace`. However, if there are lots of matching entries, you may encounter several problems:
 
 * Memory usage - Both the server and client need to allocate enough memory for the entire result set.
-* Latency - Since all the results are retuned in one bulk, the client must wait until the final result arrives before it can process the first one.
+* Latency - Since all the results are returned in one bulk, the client must wait until the final result arrives before it can process the first one.
 
 A better approach is to create an iterator that iterates over the matching entries one at a time. Under the hood, the server returns results in batches, and when the client's buffer is exhausted the next batch is implicitly returned from the server.
 

@@ -11,7 +11,7 @@ weight: 100
 
 
 
-Before diving into the Admin API, here are some code examples showing how the Admin API can be used to display information on the of currently deployed services / components:
+Before diving into the Admin API, here are some code examples showing how the Admin API can be used to display information on the currently deployed services / components:
 
 {% inittab admin_test|top %}
 {% tabcontent GSA %}
@@ -228,6 +228,84 @@ public void machine() {
 
 {% endtabcontent %}
 {% endinittab %}
+
+
+Obtaining information about the currently deployed services / components via the started `GridServiceAgents`.
+
+{%inittab%}
+
+{%tabcontent GSC %}
+{%highlight java%}
+	public void findStartedGridServiceContainers() {
+		Admin admin = new AdminFactory().createAdmin();
+
+		// wait at least for one agent
+		admin.getGridServiceAgents().waitForAtLeastOne();
+
+		for (GridServiceAgent gsa : admin.getGridServiceAgents()) {
+			for (GridServiceContainer gsc : gsa.getGridServiceContainers()) {
+				// ....
+			}
+		}
+	}
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent GSM %}
+{%highlight java%}
+	public void findStartedGridServiceManagers() {
+		Admin admin = new AdminFactory().createAdmin();
+
+		// wait at least for one agent
+		admin.getGridServiceAgents().waitForAtLeastOne();
+
+		for (GridServiceAgent gsa : admin.getGridServiceAgents()) {
+			for (GridServiceManager gsm : gsa.getGridServiceManagers()) {
+				// ....
+			}
+		}
+	}
+
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent LUS %}
+{%highlight java%}
+	public void findStartedLookupServices() {
+		Admin admin = new AdminFactory().createAdmin();
+
+		// wait at least for one agent
+		admin.getGridServiceAgents().waitForAtLeastOne();
+
+		for (GridServiceAgent gsa : admin.getGridServiceAgents()) {
+			for (LookupService ls : gsa.getLookupServices()) {
+				// ....
+			}
+		}
+	}
+
+{%endhighlight%}
+{%endtabcontent%}
+
+{%tabcontent ESM %}
+{%highlight java%}
+	public void findStartedElasticServiceManagers() {
+		Admin admin = new AdminFactory().createAdmin();
+
+		// wait at least for one agent
+		admin.getGridServiceAgents().waitForAtLeastOne();
+
+		for (GridServiceAgent gsa : admin.getGridServiceAgents()) {
+			for (ElasticServiceManager esm : gsa.getElasticServiceManagers()) {
+				// ....
+			}
+		}
+
+{%endhighlight%}
+{%endtabcontent%}
+
+{%endinittab%}
+
 
 {% refer %}
 See a fully running example of a [Scaling Agent](/sbp/scaling-agent.html) as part of the Solutions & Patterns section.

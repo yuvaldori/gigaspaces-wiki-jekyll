@@ -39,7 +39,7 @@ Query nested properties, maps and collections using SQL queries
 [Query with user defined classes](./query-user-defined-classes.html){%wbr%}
 Query by matching a user defined class.
 
-[Paging support](./query-paging-support.html){%wbr%}
+[Paging support](./query-paging-support-old.html){%wbr%}
 Reading large number of objects using multiple queries in one call in a continuous manner.
 
 [Partial results - Projection](./query-partial-results.html){%wbr%}
