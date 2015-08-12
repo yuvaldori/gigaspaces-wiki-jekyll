@@ -138,6 +138,11 @@ SimpleNotifyEventListenerContainer notifyEventListenerContainer = new SimpleNoti
                     }
                 }).notifyContainer();
 
+// Start the Listener
+notifyEventListenerContainer.start();
+
+.........
+
 // when needed dispose of the notification container
 notifyEventListenerContainer.destroy();
 {% endhighlight %}
@@ -413,7 +418,7 @@ public class SimpleListener {
 
 The notify container allows you to mask which operations performed against the space, should cause notifications. By default (if none is defined), notifications are sent for write operations. The operations are:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Operation| Description |
 |:--------|:------------|
 |write| An entry matching the template has been written to the space.|
@@ -811,7 +816,7 @@ To get a notification about such disconnections, the *Auto Renew* feature needs 
 
 {% highlight java %}
 
-public class NotifyHAMain {
+public class NotifyMain {
 
     static GigaSpace space;
 
@@ -849,6 +854,8 @@ public class NotifyHAMain {
                 }
             })
             .notifyContainer();
+
+
     }
 }
 {% endhighlight %}

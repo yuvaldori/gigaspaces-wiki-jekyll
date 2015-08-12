@@ -132,6 +132,11 @@ SimpleNotifyEventListenerContainer notifyEventListenerContainer = new SimpleNoti
                     }
                 }).notifyContainer();
 
+// Start the listener
+notifyEventListenerContainer.start();
+
+.......
+
 // when needed dispose of the notification container
 notifyEventListenerContainer.destroy();
 {% endhighlight %}
