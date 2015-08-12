@@ -142,6 +142,11 @@ SimplePollingEventListenerContainer pollingEventListenerContainer = new SimplePo
                     }
                 }).pollingContainer();
 
+// start the listner
+pollingEventListenerContainer.start();
+
+..
+
 // when needed dispose of the notification container
 pollingEventListenerContainer.destroy();
 {% endhighlight %}
@@ -511,7 +516,7 @@ public interface ReceiveOperationHandler {
 
 OpenSpaces comes with several built-in receive operation-handler implementations:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Receive Operation Handler|Description|
 |:------------------------|:----------|
 |`SingleTakeReceiveOperationHandler`|Performs a single blocking take operation with the receive timeout.|
@@ -933,6 +938,9 @@ SimplePollingEventListenerContainer pollingContainer configurer = new SimplePoll
                 .transactionManager(ptm)
                 .receiveTimeout(1000)
                 .pollingContainer();
+
+pollingContainer.start();
+
 {% endhighlight %}
 
 {% endtabcontent %}

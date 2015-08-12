@@ -136,6 +136,11 @@ SimplePollingEventListenerContainer pollingEventListenerContainer = new SimplePo
                     }
                 }).pollingContainer();
 
+// start the container
+pollingEventListenerContainer.start();
+
+.....
+
 // when needed dispose of the notification container
 pollingEventListenerContainer.destroy();
 {% endhighlight %}
@@ -934,6 +939,9 @@ SimplePollingEventListenerContainer pollingContainer configurer = new SimplePoll
                 .transactionManager(ptm)
                 .receiveTimeout(1000)
                 .pollingContainer();
+
+pollingContainer.start();
+
 {% endhighlight %}
 
 {% endtabcontent %}

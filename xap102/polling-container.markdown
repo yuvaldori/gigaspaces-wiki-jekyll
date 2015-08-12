@@ -136,6 +136,11 @@ SimplePollingEventListenerContainer pollingEventListenerContainer = new SimplePo
                     }
                 }).pollingContainer();
 
+// start the notification
+pollingEventListenerContainer.start();
+
+......
+
 // when needed dispose of the notification container
 pollingEventListenerContainer.destroy();
 {% endhighlight %}
@@ -510,7 +515,7 @@ public interface ReceiveOperationHandler {
 
 XAP comes with several built-in receive operation-handler implementations:
 
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed}
 |Receive Operation Handler|Description|
 |:------------------------|:----------|
 |`SingleTakeReceiveOperationHandler`|Performs a single blocking take operation with the receive timeout.|
@@ -929,11 +934,14 @@ PlatformTransactionManager ptm = new DistributedJiniTxManagerConfigurer().transa
 SimpleListener listener = new SimpleListener();
 
 //creating a polling container which will automatically start receiving event from the space
-SimplePollingEventListenerContainer pollingContainer configurer = new SimplePollingContainerConfigurer(gigaSpace)
+SimplePollingEventListenerContainer pollingContainerconfigurer = new SimplePollingContainerConfigurer(gigaSpace)
                 .template(listener.getTemplate()).eventListenerAnnotation(listener)
                 .transactionManager(ptm)
                 .receiveTimeout(1000)
                 .pollingContainer();
+
+pollingContainerconfigurer.start();
+
 {% endhighlight %}
 
 {% endtabcontent %}
