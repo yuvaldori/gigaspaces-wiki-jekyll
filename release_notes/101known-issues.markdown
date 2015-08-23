@@ -14,7 +14,7 @@ Below is a list of known issues in GigaSpaces 10.1.X.
 {: .table .table-bordered .table-condensed}
 | Key | Summary | SalesForce ID | Workaround | Platform/s |
 |:-------|:--------|:----------------|:------------------|:----------|
-| <nobr>GS-12519</nobr> | SQLQuery with composite condition might return wrong result | 9936 | 10.2.0 | Change the order of the query: (b < z OR A in (w,v)) AND a in (x,y)  | Java |
+| <nobr>GS-12519</nobr> | SQLQuery with composite condition might return wrong result | 9936 | Change the order of the query: (b < z OR A in (w,v)) AND a in (x,y)  | Java |
 | GS-12495 | Slow Memory leak in lease manager - empty cells remains after expiration | 9876 || All |
 | GS-12453 | Backward issue using projection in old client against 10.1 Server cause InvalidClassException  - this issue will be fixed in 10.2 | | | .NET |
 | <nobr>GS-11954</nobr> | Bottom section in Applications tab opens with minimum height (Sometimes, mainly when doing a refresh to the page, entering the Applications tab shows the bottom section of the page with a minimum height.) | | | Java |
