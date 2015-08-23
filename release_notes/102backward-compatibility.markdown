@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Backward Compatibility
-categories:  RELEASE_NOTES
+categories:
 parent: xap102.html
 weight: 600
 ---

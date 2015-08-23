@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  End of Life
-categories: RELEASE_NOTES
+categories:
 parent: xap102.html
 weight: 510
 ---

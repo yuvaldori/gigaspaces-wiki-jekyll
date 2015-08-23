@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Upgrading from previous versions
-categories: RELEASE_NOTES
+categories:
 parent: xap102.html
 weight: 800
 ---
