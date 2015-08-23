@@ -14,7 +14,8 @@ Below is a list of known issues in GigaSpaces 10.2.X.
 {: .table .table-bordered .table-condensed}
 | Key | Summary | SalesForce ID | Workaround | Platform/s |
 |:-------|:--------|:----------------|:------------------|:----------|
-| <nobr>GS-12504</nobr> | Rebalance API |  |  | All |
+| <nobr>GS-12519</nobr> | SQLQuery with composite condition might return wrong result | 9936 | Change the order of the query: (b < z OR A in (w,v)) AND a in (x,y) | Java |
+| GS-12504 | Rebalance API |  |  | All |
 | GS-12503 | Support common functions within SQL where clause |  |  | All |
 | GS-12502 | Geospatial Queries |  |  | Java |
 | GS-12495 | Slow Memory leak in lease manager - empty cells remains after expiration | 9876 |  | All |
