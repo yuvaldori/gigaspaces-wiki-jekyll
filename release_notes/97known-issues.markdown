@@ -13,7 +13,7 @@ Below is a list of known issues in GigaSpaces 9.7.X.
 {: .table .table-bordered .table-condensed}
 | Key | Summary | SalesForce ID | Since version | Workaround | Platform/s
 |:----|:--------|:----------------|:---------------|:------------------|:----------|
-| <nobr>GS-12519</nobr> | SQLQuery with composite condition might return wrong result | 9936 | 10.2.0 | Change the order of the query: (b < z OR A in (w,v)) AND a in (x,y) | Java |
+| <nobr>GS-12519</nobr> | SQLQuery with composite condition might return wrong result | 9936 | 10.2.0 | Instead of writing: a in (x,y) AND (b < z OR A in (w,v)) do write: (b < z OR A in (w,v)) AND a in (x,y) | Java |
 | GS-12495 | Slow Memory leak in lease manager - empty cells remains after expiration | 9876 | 9.7.0 | | All |
 | GS-11222 | Unable to run GigaSpaces component when installed under folder with '(',')' chars | 8169 | 9.7.0 | | All |
 | GS-11249 | Error while deploying a processing unit which contains '#' in its name/directory | 8209 | 9.7.0 | | Java, .Net |
