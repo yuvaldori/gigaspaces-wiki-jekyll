@@ -13,7 +13,7 @@ weight: 300
 
 To manage the eviction activity when running in LRU cache policy mode, you can use the Custom eviction policy API.
 
-Configuring an LRU cache means you should be able to estimat certain characteristics of the in-memory data grid activity, such as the maximum frequancy of the number of newly added data, and the amount of memory space available. All these inputs, which might change over time, go into defining the number of objects stored in-memory. This means LRU becomes a heuristic algorithm that requires you to change the different values and settings as the business grows. This calls for better control over what gets evicted.
+Configuring an LRU cache means you should be able to estimate certain characteristics of the in-memory data grid activity, such as the maximum frequency of the number of newly added data, and the amount of memory space available. All these inputs, which might change over time, go into defining the number of objects stored in-memory. This means LRU becomes a heuristic algorithm that requires you to change the different values and settings as the business grows. This calls for better control over what gets evicted.
 
 # Implementing a Custom Space Eviction Policy
 
@@ -73,7 +73,7 @@ The `SpaceEvictionStrategy.evict` method is the most important method you should
 
 ## Hooks to Space Actions
 
-The `SpaceEvictionStrategy` class consist of several callback methods that are invoked whenever an action is performed on one of the entries in the In-Memory Data Grid:
+The `SpaceEvictionStrategy` class consists of several callback methods that are invoked whenever an action is performed on one of the entries in the In-Memory Data Grid:
 
 - onLoad - Called when an entry is loaded into the space from an external data source.
 - onInsert - Called when a new entry is written to the space.
