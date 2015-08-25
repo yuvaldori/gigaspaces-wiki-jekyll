@@ -33,7 +33,7 @@ The BlobStore settings includes the following options:
 | Property               | Description                                               | Default | Use |
 |:-----------------------|:----------------------------------------------------------|:--------|:--------|
 | devices | Flash devices. Comma separated available devices. The list used as a search path from left to right. The first one exists will be used. |  | required |
-| volume-dir | Directory path contains a symbolic link to the the SSD device. | | required |
+| volume-dir | Directory path contains a symbolic link to the SSD device. | | required |
 | blob-store-capacity-GB | Flash device allocation size in Gigabytes. A single device is attached to a space instance this refers to a single flash device.| 200 | optional |
 | <nobr>blob-store-cache-size-MB</nobr> | ZetaScale internal LRU based off-heap in-process cache size in Megabytes. Keeps data in serialized format. | 100 | optional |
 | write-mode | `WRITE_THRU` - the data grid writes the data immediately into the blobstore and synchronously acknowledge the write after ZetaScale fully commits the operation. `WRITE_BEHIND` - the data grid writes the data immediately into the blobstore. ZetaScale asynchronously commits the operation to the SSD. This option improves write performance but may have a consistency issue with a sudden hardware failure.| `WRITE_THRU` | optional |
