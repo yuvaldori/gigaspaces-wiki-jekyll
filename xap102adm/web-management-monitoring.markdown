@@ -44,8 +44,40 @@ Creating the databases:
 
 <br>
 
+# Configure XAP Web UI
+By Default InfluxDB uses ports 8083, 8086, 8090, and 8099. This conflicts with the default port for GigaSpaces Web UI Managment Console (8099). If you have influxdb and Gigaspaces WEB UI on the same host you must change the default ports for influxdb or the WebUI.
 
-# Configure XAP
+[Starting the Web Managment Console](http://docs.gigaspaces.com/xap102adm/web-management-console-starting.html)
+
+
+{% inittab starting-stanalone|top %}
+{% tabcontent Linux %}
+
+{% highlight console %}
+#Specify port via a command line argument
+./gs-webui.sh -port 80
+
+#Specify port with a system property
+export WEBUI_PORT=80
+./gs-webui.sh
+{% endhighlight %}
+
+{% endtabcontent %}
+{% tabcontent Windows %}
+
+{% highlight console %}
+#Specify port via a command line argument
+gs-webui.bat -port 80
+
+#Specify port with a system property
+set WEBUI_PORT=80
+gs-webui.bat
+{% endhighlight %}
+
+{% endtabcontent %}
+{% endinittab %}
+
+
 
 Once the databases are created we need to configure the connection between XAP and InfluxDB. This is done by modifying the `metrics.xml` file which you can find in the XAP distribution
 folder `[XAP_HOME]/config/metrics`.
