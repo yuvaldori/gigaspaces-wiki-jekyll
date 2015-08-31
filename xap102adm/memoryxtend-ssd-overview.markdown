@@ -627,7 +627,7 @@ abstract class BlobStoreStorageHandler
 # Considerations
 
 - All classes that belong to types that are to be introduced to the space during the initial metadata load must exist on the classpath of the JVM the Space is running on.
-- The current MemoryXtend release support a single blobstore space instance per GSC. 
+- The current MemoryXtend release support a single blobstore pu instance per GSC. 
 - Only single backup is supported.
 
 {%refer%}
